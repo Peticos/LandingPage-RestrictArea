@@ -44,13 +44,13 @@ public class AdministradorDAO {
     public Administrador getAdmin(String email) {
         conexao.conectar();
         try{
-            conexao.pstmt = conexao.conn.prepareStatement("SELECT nome, email, senha FROM admin.administradores WHERE email = ?");
+            conexao.pstmt = conexao.conn.prepareStatement("SELECT id, nome, senha FROM admin.administradores WHERE email = ?");
 
             conexao.pstmt.setString(1, email);
 
             conexao.rs = conexao.pstmt.executeQuery();
             if (conexao.rs.next()) {
-                int id = conexao.rs.getInt("ID");
+                int id = conexao.rs.getInt("id");
                 String nome = conexao.rs.getString("nome");
                 String senha = conexao.rs.getString("senha");
 

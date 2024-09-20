@@ -12,11 +12,11 @@
     <link href="https://fonts.googleapis.com/css2?family=Lilita+One&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Varela+Round&display=swap" rel="stylesheet">
 
     <!-- Styles (CSS) -->
-    <link rel="stylesheet" href="styles/landing.css">
+    <link rel="stylesheet" href="assets/styles/landing.css">
 
     <!-- Scripts -->
-    <script src="scripts/carousel-nossa-equipe.js" defer></script>
-    <script src="scripts/carousel-nossos-planos.js" defer></script>
+    <script src="assets/scripts/carousel-nossa-equipe.js" defer></script>
+    <script src="assets/scripts/carousel-nossos-planos.js" defer></script>
 
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -25,12 +25,12 @@
 <body>
 <input type="checkbox" name="input-menu-lateral" id="input-menu-lateral">
 <header>
-    <img src="images/Simplified Logo.svg" alt="Peticos" id="header-logo">
+    <img src="assets/images/Simplified Logo.svg" alt="Peticos" id="header-logo">
     <ul id="header-contatos">
         <li><a href="#microempresas">Microempresas</a></li>
         <li><a href="#entre-contato">Contato</a></li>
         <li><a href="#bem-vindo">Sobre</a></li>
-        <li><a href="https://www.instagram.com/_peticos/" target="_blank"><img src="images/instagram_.svg" alt="Instagram"></a></li>
+        <li><a href="https://www.instagram.com/_peticos/" target="_blank"><img src="assets/images/instagram_.svg" alt="Instagram"></a></li>
         <li>
             <label for="input-menu-lateral" id="btn-menu-lateral">
                 <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px"><path d="M120-240v-80h720v80H120Zm0-200v-80h720v80H120Zm0-200v-80h720v80H120Z"></path></svg>
@@ -64,7 +64,7 @@
             </li>
             <li>
                 <a href="https://www.instagram.com/_peticos/" target="_blank" onclick="document.getElementById('input-menu-lateral').checked = false;">
-                    <img src="images/instagram_.svg" alt="">
+                    <img src="assets/images/instagram_.svg" alt="">
                     <p>Instagram</p>
                 </a>
             </li>
@@ -83,7 +83,7 @@
         </p>
     </div>
     <div id="celulares-container">
-        <img src="images/Celulares.png" alt="" id="celulares">
+        <img src="assets/images/Celulares.png" alt="" id="celulares">
     </div>
 </div>
 <div id="nossos-planos-container">
@@ -122,7 +122,7 @@
     <div id="nossos-planos">
         <h1>Nossos Planos!</h1>
         <button class="carousel-button" id="go-back-ne">
-            <img src="images/seta direita.svg" alt="">
+            <img src="assets/images/seta direita.svg" alt="">
         </button>
         <div id="planos-container">
             <div class="plano">
@@ -148,8 +148,19 @@
             </div>
         </div>
         <button class="carousel-button" id="go-foward-ne">
-            <img src="images/seta direita.svg" alt="">
+            <img src="assets/images/seta direita.svg" alt="">
         </button>
+        <div id="indicador-plano">
+            <div class="ball">
+                <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px"><path d="M480-200q-117 0-198.5-81.5T200-480q0-117 81.5-198.5T480-760q117 0 198.5 81.5T760-480q0 117-81.5 198.5T480-200Z"></path></svg>
+            </div>
+            <div class="ball">
+                <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px"><path d="M480-200q-117 0-198.5-81.5T200-480q0-117 81.5-198.5T480-760q117 0 198.5 81.5T760-480q0 117-81.5 198.5T480-200Z"></path></svg>
+            </div>
+            <div class="ball">
+                <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px"><path d="M480-200q-117 0-198.5-81.5T200-480q0-117 81.5-198.5T480-760q117 0 198.5 81.5T760-480q0 117-81.5 198.5T480-200Z"></path></svg>
+            </div>
+        </div>
     </div>
     <div class="rolagem2">
         <div class="item item1">
@@ -195,12 +206,12 @@
             </p>
         </div>
         <div class="imagem">
-            <img src="images/parceirosDogs.png" alt="">
+            <img src="assets/images/parceirosDogs.png" alt="">
         </div>
     </div>
     <div class="microempresas" id="microempresas">
         <div class="imagem">
-            <img src="images/microempresasDog.png" alt="">
+            <img src="assets/images/microempresasDog.png" alt="">
         </div>
         <div class="textos">
             <h1>Microempresas</h1>
@@ -214,10 +225,10 @@
 
 <!-- Cadastro -->
 <div class="baixe-container">
-    <img src="images/background-patas.png" alt="">
+    <img src="assets/images/background-patas.png" alt="">
     <div class="baixe">
         <div class="mensagem">
-            <img src="images/ModolinhoWaterBlue.svg" alt="">
+            <img src="assets/images/ModolinhoWaterBlue.svg" alt="">
             <h1>Baixe o aplicativo!</h1>
         </div>
         <div class="baixe-playstore">
@@ -225,11 +236,11 @@
                 Junte-se a nós em uma jornada em busca de um futuro melhor! Baixe o app!
             </p>
             <a href="" target="_blank"> <!--Colocar link do app na playstore-->
-                <img src="images/Google Play.png" alt="">
+                <img src="assets/images/Google Play.png" alt="">
             </a>
         </div>
     </div>
-    <img src="images/background-patas.png" alt="">
+    <img src="assets/images/background-patas.png" alt="">
 </div>
 
 <!-- Nossa equipe -->
@@ -237,141 +248,181 @@
     <div class="quem-somos">
         <h1>Quem somos?</h1>
         <div class="carrossel-container">
-            <button class="carousel-button" id="go-back">
-                <img src="images/arrow.svg" alt="">
-            </button>
-            <div class="carrossel" id="carousel1">
-                <div class="pessoa">
-                    <img src="images/bianca.png" alt="">
-                    <h2>Bianca</h2>
-                    <p>
-                        Oi, eu sou a Bianca Machado, faço UX e participo da equipe de desenvolvimento do Peticos!
-                    </p>
-                    <div class="background-blur"></div>
+            <div class="carrossel-main-container">
+                <button class="carousel-button" id="go-back">
+                    <img src="assets/images/arrow.svg" alt="">
+                </button>
+                <div class="carrossel" id="carousel1">
+                    <div class="pessoa">
+                        <img src="assets/images/bianca.png" alt="">
+                        <h2>Bianca</h2>
+                        <p>
+                            Oi, eu sou a Bianca Machado, faço UX e participo da equipe de desenvolvimento do Peticos!
+                        </p>
+                        <div class="background-blur"></div>
+                    </div>
+                    <div class="pessoa">
+                        <img src="assets/images/guilherne.png" alt="">
+                        <h2>Guilherme</h2>
+                        <p>
+                            Oi! Eu sou o Guilherme, faço design, análise de dados e ciência de dados no Peticos.
+                        </p>
+                        <div class="background-blur"></div>
+                    </div>
+                    <div class="pessoa">
+                        <img src="assets/images/gustavo.png" alt="">
+                        <h2>Gustavo</h2>
+                        <p>
+                            Oi, meu nome é Gustavo e eu faço parte da equipe de back-end do projeto.
+                        </p>
+                        <div class="background-blur"></div>
+                    </div>
+                    <div class="pessoa">
+                        <img src="assets/images/geovanna.png" alt="">
+                        <h2>Geovanna</h2>
+                        <p>
+                            Oi! Eu sou a Geovanna e atuo como desenvolvedora front, back e mobile do Peticos.
+                        </p>
+                        <div class="background-blur"></div>
+                    </div>
+                    <div class="pessoa">
+                        <img src="assets/images/giovanna.png" alt="">
+                        <h2>Giovana</h2>
+                        <p>
+                            Oie. Eu sou a Giovana e faço a análise de dados, design e marketing do Peticos!
+                        </p>
+                        <div class="background-blur"></div>
+                    </div>
+                    <div class="pessoa">
+                        <img src="assets/images/hallison.png" alt="">
+                        <h2>Hállison</h2>
+                        <p>
+                            Sou o Hállison, responsável pela parte de banco de dados e gestão de projeto.
+                        </p>
+                        <div class="background-blur"></div>
+                    </div>
+                    <div class="pessoa">
+                        <img src="assets/images/isaac.png" alt="">
+                        <h2>Isaac</h2>
+                        <p>
+                            Opa, meu nome é Isaac. Eu sou engenheiro de dados e programador front-end e back-end no Peticos.
+                        </p>
+                        <div class="background-blur"></div>
+                    </div>
+                    <div class="pessoa">
+                        <img src="assets/images/carvalho.png" alt="">
+                        <h2>João</h2>
+                        <p>
+                            Oi, meu nome é João Carvalho e eu faço o front-end e análise de dados.
+                        </p>
+                        <div class="background-blur"></div>
+                    </div>
+                    <div class="pessoa">
+                        <img src="assets/images/livia.png" alt="">
+                        <h2>Lívia</h2>
+                        <p>
+                            Oi. Eu sou a Lívia, faço a experiência do usuário, o design e o back end do Peticos.
+                        </p>
+                        <div class="background-blur"></div>
+                    </div>
+                    <div class="pessoa">
+                        <img src="assets/images/mayumi.png" alt="">
+                        <h2>Mayumi</h2>
+                        <p>
+                            Oie! Eu sou a Mayumi, participo do back-end e do design do Peticos.
+                        </p>
+                        <div class="background-blur"></div>
+                    </div>
+                    <div class="pessoa">
+                        <img src="assets/images/frossard.png" alt="">
+                        <h2>Pedro</h2>
+                        <p>
+                            Oi! Eu sou o Pedro e faço o planejamento de projeto e back-end do Peticos.
+                        </p>
+                        <div class="background-blur"></div>
+                    </div>
+                    <div class="pessoa">
+                        <img src="assets/images/ruan.png" alt="">
+                        <h2>Ruan</h2>
+                        <p>
+                            Oi, eu me chamo Ruan e sou responsável pelo front-end e pelo design do Peticos!
+                        </p>
+                        <div class="background-blur"></div>
+                    </div>
+                    <div class="pessoa">
+                        <!-- Pra o carrossel ficar com um número ímpar e poder centralizar -->
+                    </div>
                 </div>
-                <div class="pessoa">
-                    <img src="images/guilherne.png" alt="">
-                    <h2>Guilherme</h2>
-                    <p>
-                        Oi! Eu sou o Guilherme, faço design, análise de dados e ciência de dados no Peticos.
-                    </p>
-                    <div class="background-blur"></div>
+                <button class="carousel-button" id="go-foward">
+                    <img src="assets/images/arrow.svg" alt="">
+                </button>
+            </div>
+            <div id="indicador-pessoa">
+                <div class="ball-pessoa">
+                    <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px"><path d="M480-200q-117 0-198.5-81.5T200-480q0-117 81.5-198.5T480-760q117 0 198.5 81.5T760-480q0 117-81.5 198.5T480-200Z"></path></svg>
                 </div>
-                <div class="pessoa">
-                    <img src="images/gustavo.png" alt="">
-                    <h2>Gustavo</h2>
-                    <p>
-                        Oi, meu nome é Gustavo e eu faço parte da equipe de back-end do projeto.
-                    </p>
-                    <div class="background-blur"></div>
+                <div class="ball-pessoa">
+                    <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px"><path d="M480-200q-117 0-198.5-81.5T200-480q0-117 81.5-198.5T480-760q117 0 198.5 81.5T760-480q0 117-81.5 198.5T480-200Z"></path></svg>
                 </div>
-                <div class="pessoa">
-                    <img src="images/geovanna.png" alt="">
-                    <h2>Geovanna</h2>
-                    <p>
-                        Oi! Eu sou a Geovanna e atuo como desenvolvedora front, back e mobile do Peticos.
-                    </p>
-                    <div class="background-blur"></div>
+                <div class="ball-pessoa">
+                    <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px"><path d="M480-200q-117 0-198.5-81.5T200-480q0-117 81.5-198.5T480-760q117 0 198.5 81.5T760-480q0 117-81.5 198.5T480-200Z"></path></svg>
                 </div>
-                <div class="pessoa">
-                    <img src="images/giovanna.png" alt="">
-                    <h2>Giovana</h2>
-                    <p>
-                        Oie. Eu sou a Giovana e faço a análise de dados, design e marketing do Peticos!
-                    </p>
-                    <div class="background-blur"></div>
+                <div class="ball-pessoa">
+                    <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px"><path d="M480-200q-117 0-198.5-81.5T200-480q0-117 81.5-198.5T480-760q117 0 198.5 81.5T760-480q0 117-81.5 198.5T480-200Z"></path></svg>
                 </div>
-                <div class="pessoa">
-                    <img src="images/hallison.png" alt="">
-                    <h2>Hállison</h2>
-                    <p>
-                        Sou o Hállison, responsável pela parte de banco de dados e gestão de projeto.
-                    </p>
-                    <div class="background-blur"></div>
+                <div class="ball-pessoa">
+                    <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px"><path d="M480-200q-117 0-198.5-81.5T200-480q0-117 81.5-198.5T480-760q117 0 198.5 81.5T760-480q0 117-81.5 198.5T480-200Z"></path></svg>
                 </div>
-                <div class="pessoa">
-                    <img src="images/isaac.png" alt="">
-                    <h2>Isaac</h2>
-                    <p>
-                        Opa, meu nome é Isaac. Eu sou engenheiro de dados e programador front-end e back-end no Peticos.
-                    </p>
-                    <div class="background-blur"></div>
+                <div class="ball-pessoa">
+                    <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px"><path d="M480-200q-117 0-198.5-81.5T200-480q0-117 81.5-198.5T480-760q117 0 198.5 81.5T760-480q0 117-81.5 198.5T480-200Z"></path></svg>
                 </div>
-                <div class="pessoa">
-                    <img src="images/carvalho.png" alt="">
-                    <h2>João</h2>
-                    <p>
-                        Oi, meu nome é João Carvalho e eu faço o front-end e análise de dados.
-                    </p>
-                    <div class="background-blur"></div>
+                <div class="ball-pessoa">
+                    <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px"><path d="M480-200q-117 0-198.5-81.5T200-480q0-117 81.5-198.5T480-760q117 0 198.5 81.5T760-480q0 117-81.5 198.5T480-200Z"></path></svg>
                 </div>
-                <div class="pessoa">
-                    <img src="images/livia.png" alt="">
-                    <h2>Lívia</h2>
-                    <p>
-                        Oi. Eu sou a Lívia, faço a experiência do usuário, o design e o back end do Peticos.
-                    </p>
-                    <div class="background-blur"></div>
+                <div class="ball-pessoa">
+                    <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px"><path d="M480-200q-117 0-198.5-81.5T200-480q0-117 81.5-198.5T480-760q117 0 198.5 81.5T760-480q0 117-81.5 198.5T480-200Z"></path></svg>
                 </div>
-                <div class="pessoa">
-                    <img src="images/mayumi.png" alt="">
-                    <h2>Mayumi</h2>
-                    <p>
-                        Oie! Eu sou a Mayumi, participo do back-end e do design do Peticos.
-                    </p>
-                    <div class="background-blur"></div>
+                <div class="ball-pessoa">
+                    <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px"><path d="M480-200q-117 0-198.5-81.5T200-480q0-117 81.5-198.5T480-760q117 0 198.5 81.5T760-480q0 117-81.5 198.5T480-200Z"></path></svg>
                 </div>
-                <div class="pessoa">
-                    <img src="images/frossard.png" alt="">
-                    <h2>Pedro</h2>
-                    <p>
-                        Oi! Eu sou o Pedro e faço o planejamento de projeto e back-end do Peticos.
-                    </p>
-                    <div class="background-blur"></div>
+                <div class="ball-pessoa">
+                    <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px"><path d="M480-200q-117 0-198.5-81.5T200-480q0-117 81.5-198.5T480-760q117 0 198.5 81.5T760-480q0 117-81.5 198.5T480-200Z"></path></svg>
                 </div>
-                <div class="pessoa">
-                    <img src="images/ruan.png" alt="">
-                    <h2>Ruan</h2>
-                    <p>
-                        Oi, eu me chamo Ruan e sou responsável pelo front-end e pelo design do Peticos!
-                    </p>
-                    <div class="background-blur"></div>
+                <div class="ball-pessoa">
+                    <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px"><path d="M480-200q-117 0-198.5-81.5T200-480q0-117 81.5-198.5T480-760q117 0 198.5 81.5T760-480q0 117-81.5 198.5T480-200Z"></path></svg>
                 </div>
-                <div class="pessoa">
-                    <!-- Pra o carrossel ficar com um número ímpar e poder centralizar -->
+                <div class="ball-pessoa">
+                    <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px"><path d="M480-200q-117 0-198.5-81.5T200-480q0-117 81.5-198.5T480-760q117 0 198.5 81.5T760-480q0 117-81.5 198.5T480-200Z"></path></svg>
                 </div>
             </div>
-            <button class="carousel-button" id="go-foward">
-                <img src="images/arrow.svg" alt="">
-            </button>
         </div>
-        <img src="images/Modolinho.svg" alt="" id="modolinho">
+        <img src="assets/images/Modolinho.svg" alt="" id="modolinho">
     </div>
 </div>
 
 <!-- Footer -->
 <footer>
     <p>© 2024 Peticos. All rights reserved.</p>
-    <img src="images/peticosModolinho.svg" alt="">
+    <img src="assets/images/peticosModolinho.svg" alt="">
     <ul id="entre-contato">
         <li>
             <a href="mailto:bhavatech@outlook.com" >
-                <img src="images/mail.svg" alt="">
+                <img src="assets/images/mail.svg" alt="">
             </a>
         </li>
         <li>
             <a href="mailto:bhavatechteam@gmail.com">
-                <img src="images/mail.svg" alt="">
+                <img src="assets/images/mail.svg" alt="">
             </a>
         </li>
         <li>
             <a href="https://www.instagram.com/_peticos/" target="_blank">
-                <img src="images/instagram_.svg" alt="" class="ig">
+                <img src="assets/images/instagram_.svg" alt="" class="ig">
             </a>
         </li>
         <li>
-            <a href=""> <!--Deve levar para a área restrita-->
-                <img src="images/restrictArea.svg" alt="">
+            <a href="${pageContext.request.contextPath}/login/login.jsp"> <!--Deve levar para a área restrita-->
+                <img src="assets/images/restrictArea.svg" alt="">
             </a>
         </li>
     </ul>

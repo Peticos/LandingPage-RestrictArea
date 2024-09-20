@@ -11,9 +11,9 @@ public class Conexao {
 
     public boolean conectar() {
         try{
-            String dbUrl = "";
-            String dbUser = "";
-            String dbPassword = "";
+            String dbUrl = "jdbc:postgresql://db-peticos-cardosogih.k.aivencloud.com:16207/defaultdb";
+            String dbUser = "avnadmin";
+            String dbPassword = "AVNS_-5W7guGY9QRwA4NOolM";
 
             // Informando qual driver de conexão será utilizado pelo DriverManager
             Class.forName("org.postgresql.Driver");
