@@ -14,7 +14,7 @@
     <link rel="icon" href="../../assets/images/logo_app_branco.png">
 
     <!-- CSS -->
-    <link rel="stylesheet" href="../../assets/styles/admin.css">
+    <link rel="stylesheet" href="../../assets/styles/dica.css">
 
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
