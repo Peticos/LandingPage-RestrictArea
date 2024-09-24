@@ -12,11 +12,14 @@
         response.sendRedirect("/login/login.jsp");
     }
 %>
-<html>
+<!DOCTYPE html>
+<html lang="pt-br">
 <head>
-    <title>Title</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Área Restrita - Peticos</title>
 </head>
 <body>
-    <h1>Area restrita</h1>
+
 </body>
 </html>

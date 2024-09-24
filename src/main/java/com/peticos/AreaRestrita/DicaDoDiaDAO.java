@@ -2,6 +2,7 @@ package com.peticos.AreaRestrita;
 
 import com.peticos.Conexao;
 
+import java.sql.ResultSet;
 import java.sql.SQLException;
 
 public class DicaDoDiaDAO {
@@ -61,6 +62,19 @@ public class DicaDoDiaDAO {
             } else {
                 return null;
             }
+        } catch (SQLException e) {
+            e.printStackTrace();
+            return null;
+        } finally {
+            conexao.desconectar();
+        }
+    }
+    public ResultSet getTodasDicasDoDia() {
+        conexao.conectar();
+        try {
+            conexao.pstmt = conexao.conn.prepareStatement("SELECT * FROM dica_do_dia");
+
+            return conexao.pstmt.executeQuery();
         } catch (SQLException e) {
             e.printStackTrace();
             return null;

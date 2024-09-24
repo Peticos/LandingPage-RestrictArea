@@ -17,7 +17,7 @@ public class Login extends HttpServlet {
         // Pega os parâmetros de e-mail e senha inseridos pelo usuário.
         String email = request.getParameter("email");
         String senha = request.getParameter("senha");
-
+        
         // Criando o Data Access Object de admin
         AdministradorDAO admDAO = new AdministradorDAO();
 
