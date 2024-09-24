@@ -5,9 +5,9 @@ import io.github.cdimascio.dotenv.Dotenv;
 
 public class Conexao {
 
-    protected Connection conn;
-    protected PreparedStatement pstmt;
-    protected ResultSet rs;
+    public Connection conn;
+    public PreparedStatement pstmt;
+    public ResultSet rs;
 
     public boolean conectar() {
         try{

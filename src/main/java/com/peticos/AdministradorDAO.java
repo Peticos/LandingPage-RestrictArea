@@ -9,14 +9,14 @@ public class AdministradorDAO {
         conexao = new Conexao();
     }
 
-    public int adicionarAdmin(Administrador admin) {
+    public int adicionarAdmin(String nome, String email, String senha) {
         conexao.conectar();
         try{
             conexao.pstmt = conexao.conn.prepareStatement("INSERT INTO admin.administradores (NOME, EMAIL, SENHA) VALUES (?,?,?)");
 
-            conexao.pstmt.setString(1, admin.getNome());
-            conexao.pstmt.setString(2, admin.getEmail());
-            conexao.pstmt.setString(3, admin.getSenha());
+            conexao.pstmt.setString(1, nome);
+            conexao.pstmt.setString(2, email);
+            conexao.pstmt.setString(3, senha);
 
             return conexao.pstmt.executeUpdate();
         } catch (SQLException e) {
