@@ -34,15 +34,4 @@ public class DicaDoDia {
     public String getData() {
         return data;
     }
-
-    @Override
-    public String toString() {
-        return "DicaDoDia{" +
-                "id=" + id +
-                ", titulo='" + titulo + '\'' +
-                ", texto='" + texto + '\'' +
-                ", link='" + link + '\'' +
-                ", data='" + data + '\'' +
-                '}';
-    }
 }
