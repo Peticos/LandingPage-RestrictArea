@@ -1,3 +1,5 @@
+<%@ page import="java.util.List" %>
+<%@ page import="com.peticos.AreaRestrita.DicaDoDia.DicaDoDia" %>
 <%@ page contentType="text/html;charset=UTF-8" %>
 <!DOCTYPE html>
 <html lang="pt-br">
@@ -14,7 +16,11 @@
     <link rel="icon" href="../../assets/images/logo_app_branco.png">
 
     <!-- CSS -->
-    <link rel="stylesheet" href="../../assets/styles/dica.css">
+    <link rel="stylesheet" href="../../assets/styles/dicas.css">
+
+    <!-- Scripts (JS) -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+    <script src="../../assets/scripts/confirmBox.js" defer></script>
 
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -28,11 +34,11 @@
             <img src="../../assets/images/dashboard_icon.svg" alt="">
             <a href="../../areaRestrita/dashboard/index.jsp">Dashboard</a>
         </li>
-        <li id="admin">
+        <li>
             <img src="../../assets/images/admin_icon.svg" alt="">
             <a href="../../areaRestrita/administradores/index.jsp">Administradores</a>
         </li>
-        <li>
+        <li id="dicas">
             <img src="../../assets/images/dicadodia_icon.svg" alt="">
             <a href="../../areaRestrita/dicasDoDia/index.jsp">Dica Do Dia</a>
         </li>
@@ -54,6 +60,61 @@
         </li>
     </ul>
 </nav>
+<div class="page-container">
+    <div class="spacing"></div>
+    <div class="content-container">
+        <hr>
+        <div class="add-container">
+            <h1>Dica Do Dia</h1>
+            <button>
+                <img src="../../assets/images/add.svg" alt="">
+                Adicionar Dica
+            </button>
+        </div>
+        <%
+            List<DicaDoDia> dicas = (List<DicaDoDia>) request.getAttribute("dicas");
+            if (dicas!=null){
+
+        %>
+        <table class="dicas" cellspacing="0">
+            <tr>
+                <th>Título</th>
+                <th>Texto</th>
+                <th>Link</th>
+                <th id="data-header">Data</th>
+                <th>Ações</th>
+            </tr>
+            <%
+                for (int i = 0; i < dicas.size(); i++) {
+
+            %>
+            <tr>
+                <td class="titulo"><%=dicas.get(i).getTitulo()%></td>
+                <td class="texto"><%=dicas.get(i).getTexto()%></td>
+                <td class="link"><%=dicas.get(i).getLink()%></td>
+                <td class="data center"><%=dicas.get(i).getData()%></td>
+                <td class="acao center" id="<%=dicas.get(i).getId()%>">
+                    <button class="edit">
+                        <img src="../../assets/images/edit.svg" alt="">
+                    </button>
+                    <button class="remove">
+                        <img src="../../assets/images/remove.svg" alt="">
+                    </button>
+                </td>
+            </tr>
+            <%
+                }
+            %>
+        </table>
+        <%
+        } else{
+        %>
+        <p>Sem dicas disponíveis...</p>
+        <%
+            }
+        %>
+    </div>
+</div>
 </body>
 </html>
 

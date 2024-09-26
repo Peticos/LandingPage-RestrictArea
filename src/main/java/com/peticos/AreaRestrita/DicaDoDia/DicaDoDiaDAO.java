@@ -1,4 +1,4 @@
-package com.peticos.AreaRestrita;
+package com.peticos.AreaRestrita.DicaDoDia;
 
 import com.peticos.Conexao;
 
@@ -33,7 +33,7 @@ public class DicaDoDiaDAO {
     public int removerDicaDoDia(int id) {
         conexao.conectar();
         try{
-            conexao.pstmt = conexao.conn.prepareStatement("DELETE FROM dica_do_dia WHERE id = ?");
+            conexao.pstmt = conexao.conn.prepareStatement("DELETE FROM dica_do_dia WHERE id_dica = ?");
 
             conexao.pstmt.setInt(1, id);
 

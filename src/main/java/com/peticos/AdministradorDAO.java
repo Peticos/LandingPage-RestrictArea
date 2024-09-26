@@ -1,5 +1,6 @@
 package com.peticos;
 
+import java.sql.ResultSet;
 import java.sql.SQLException;
 
 public class AdministradorDAO {
@@ -65,5 +66,16 @@ public class AdministradorDAO {
             conexao.desconectar();
         }
     }
-
+    public ResultSet getTodosAdmins(){
+        conexao.conectar();
+        try{
+            conexao.pstmt = conexao.conn.prepareStatement("SELECT * FROM ADMINISTRADORES");
+            return conexao.pstmt.executeQuery();
+        } catch (SQLException e) {
+            e.printStackTrace();
+            return null;
+        } finally {
+            conexao.desconectar();
+        }
+    }
 }

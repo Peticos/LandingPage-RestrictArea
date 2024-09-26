@@ -1,4 +1,4 @@
-package com.peticos.AreaRestrita;
+package com.peticos.AreaRestrita.DicaDoDia;
 
 import jakarta.servlet.ServletException;
 import jakarta.servlet.annotation.WebServlet;
@@ -12,12 +12,10 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 
-@WebServlet(name = "CarregarDicasDoDia", value = "/areaRestrita/dicasDoDia/carregarDicas")
+@WebServlet(name = "CarregarDicasDoDia", value = "/areaRestrita/dicasDoDia/")
 public class CarregarDicasDoDia extends HttpServlet {
-
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-
         DicaDoDiaDAO dao = new DicaDoDiaDAO();
 
         List<DicaDoDia> dicas = new ArrayList<>();
@@ -37,8 +35,7 @@ public class CarregarDicasDoDia extends HttpServlet {
             throw new ServletException("Erro ao carregar as dicas do dia", e);
         }
 
-        // Definindo as dicas e mandando de volta
         request.setAttribute("dicas", dicas);
-        request.getRequestDispatcher("/areaRestrita/dicasDoDia/index.jsp").forward(request, response);
+        request.getRequestDispatcher("index.jsp").forward(request, response);
     }
 }

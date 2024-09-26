@@ -1,4 +1,4 @@
-package com.peticos.AreaRestrita;
+package com.peticos.AreaRestrita.DicaDoDia;
 
 public class DicaDoDia {
     private int id;
