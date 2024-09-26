@@ -72,6 +72,15 @@
             </button>
         </div>
         <%
+            String retorno = request.getParameter("retorno");
+            if (retorno!=null && !retorno.isEmpty()){
+
+        %>
+            <p><%=retorno%></p>
+        <%
+            }
+        %>
+        <%
             List<DicaDoDia> dicas = (List<DicaDoDia>) request.getAttribute("dicas");
             if (dicas!=null){
 

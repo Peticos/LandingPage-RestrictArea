@@ -7,4 +7,15 @@
         <error-code>404</error-code>
         <location>/errorPage/index.jsp</location>
     </error-page>
+
+    <filter>
+        <filter-name>AdminFilter</filter-name>
+        <filter-class>com.peticos.Filtro.AdminFilter</filter-class>
+    </filter>
+
+    <filter-mapping>
+        <filter-name>AdminFilter</filter-name>
+        <url-pattern>/areaRestrita/*</url-pattern>
+    </filter-mapping>
+
 </web-app>
