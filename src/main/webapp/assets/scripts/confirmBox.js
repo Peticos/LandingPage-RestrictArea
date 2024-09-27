@@ -20,7 +20,7 @@ $(".remove").click(function (){
     imagem.src = '../../assets/images/ModolinhoCorpoCompleto.png';
 
     let form = document.createElement("form")
-    form.action = 'remover'
+    form.action = 'dicasDoDia/remover'
     form.method='post'
     form.className = 'confirm-form';
 

@@ -36,6 +36,6 @@ public class CarregarDicasDoDia extends HttpServlet {
         }
 
         request.setAttribute("dicas", dicas);
-        request.getRequestDispatcher("index.jsp").forward(request, response);
+        request.getRequestDispatcher("/areaRestrita/dicasDoDia/index.jsp").forward(request, response);
     }
 }

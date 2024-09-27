@@ -45,6 +45,24 @@ public class DicaDoDiaDAO {
             conexao.desconectar();
         }
     }
+    public int alterarDicaDoDia(DicaDoDia dica) {
+        conexao.conectar();
+        try{
+            conexao.pstmt = conexao.conn.prepareStatement("UPDATE dica_do_dia SET titulo = ?, texto = ?, link = ?, data = ? WHERE id_dica = ?");
+
+            conexao.pstmt.setString(1, dica.getTitulo());
+            conexao.pstmt.setString(2, dica.getTexto());
+            conexao.pstmt.setString(3, dica.getLink());
+            conexao.pstmt.setString(4, dica.getData());
+            conexao.pstmt.setInt(5, dica.getId());
+
+            return conexao.pstmt.executeUpdate();
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        } finally {
+            conexao.desconectar();
+        }
+    }
     public DicaDoDia getDicaDoDia(int id) {
         conexao.conectar();
         try{

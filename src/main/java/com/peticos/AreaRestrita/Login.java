@@ -31,7 +31,7 @@ public class Login extends HttpServlet {
             session.setAttribute("admin", administrador.getEmail());
 
             // Redirecionando para a área restrita
-            response.sendRedirect("/areaRestrita/index.jsp");
+            response.sendRedirect("/areaRestrita/dicasDoDia");
         } else {
             // O Administrador não existe ou a senha está incorreta
             String mensagemDeErro = "E-mail e/ou senha incorreto(s)!";

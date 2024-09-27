@@ -1,5 +1,6 @@
 package com.peticos.AreaRestrita.DicaDoDia;
 
+import jakarta.servlet.ServletException;
 import jakarta.servlet.annotation.WebServlet;
 import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
@@ -10,14 +11,19 @@ import java.io.IOException;
 @WebServlet(name = "RemoverDicaDoDia", value = "/areaRestrita/dicasDoDia/remover")
 public class RemoverDicaDoDia extends HttpServlet {
     @Override
-    protected void doPost(HttpServletRequest request, HttpServletResponse response) throws IOException {
+    protected void doPost(HttpServletRequest request, HttpServletResponse response) throws IOException, ServletException {
         int id = Integer.parseInt(request.getParameter("id_dica"));
 
         DicaDoDiaDAO dao = new DicaDoDiaDAO();
-        if (dao.removerDicaDoDia(id)>0){
-            response.sendRedirect("/areaRestrita/dicasDoDia/");
+        int removerDicaDoDia = dao.removerDicaDoDia(id);
+        String retorno;
+        if (removerDicaDoDia>0){
+            retorno = "Dica excluída com sucesso!";
+        } else if (removerDicaDoDia==0){
+            retorno = "Não foi possível excluir essa dica (dica não existente)!";
         } else {
-            // Erro (ou id não existe (=0) ou deu erro no banco (-1)
+            retorno = "Erro ao excluir dica (Verifique o back-end para mais informações)!";
         }
+        response.sendRedirect("/areaRestrita/dicasDoDia?retorno=" + retorno);
     }
 }

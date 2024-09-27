@@ -139,7 +139,7 @@
                 <div class="plano">
                     <h1>MEI Premium</h1>
                     <p>
-                        DESCRIÇÃO DO PLANO! DESCRIÇÃO DO PLANO! DESCRIÇÃO DO PLANO! DESCRIÇÃO DO PLANO! DESCRIÇÃO DO PLANO! DESCRIÇÃO DO PLANO! DESCRIÇÃO DO PLANO! DESCRIÇÃO DO PLANO! DESCRIÇÃO DO PLANO! DESCRIÇÃO DO PLANO!
+                        Os planos Premium oferecem benefícios adicionais, como postagens ilimitadas e visualizações potencializadas. Eles são ideais para prestadores de serviço que desejam aumentar significativamente sua presença no mercado e alcançar um público mais amplo de maneira eficiente.
                     </p>
                     <h3>R$ 10,99/mês ou R$ 199,90/ano</h3>
                 </div>
@@ -153,7 +153,7 @@
                 <div class="plano">
                     <h1>MEI Básico</h1>
                     <p>
-                        DESCRIÇÃO DO PLANO! DESCRIÇÃO DO PLANO! DESCRIÇÃO DO PLANO! DESCRIÇÃO DO PLANO! DESCRIÇÃO DO PLANO! DESCRIÇÃO DO PLANO! DESCRIÇÃO DO PLANO! DESCRIÇÃO DO PLANO! DESCRIÇÃO DO PLANO! DESCRIÇÃO DO PLANO!
+                        O Plano MEI Básico oferece um pacote com a flexibilidade de gerenciar o número de postagens, dividindo 1000 visualizações mensais para promover seu produto ou serviço.
                     </p>
                     <h3>R$ 10,99/mês ou R$ 119,90/ano</h3>
                 </div>
