@@ -7,6 +7,8 @@ import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 
 import java.io.IOException;
+import java.net.URLEncoder;
+import java.nio.charset.StandardCharsets;
 
 @WebServlet(name = "RemoverDicaDoDia", value = "/areaRestrita/dicasDoDia/remover")
 public class RemoverDicaDoDia extends HttpServlet {
@@ -24,6 +26,6 @@ public class RemoverDicaDoDia extends HttpServlet {
         } else {
             retorno = "Erro ao excluir dica (Verifique o back-end para mais informações)!";
         }
-        response.sendRedirect("/areaRestrita/dicasDoDia?retorno=" + retorno);
+        response.sendRedirect("/areaRestrita/dicasDoDia?retorno=" + URLEncoder.encode(retorno, StandardCharsets.UTF_8));
     }
 }
