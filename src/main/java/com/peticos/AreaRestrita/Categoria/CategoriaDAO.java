@@ -15,7 +15,7 @@ public class CategoriaDAO {
     public int inserirCategoria(int id_categoria, String nome) {
         conexao.conectar();
         try {
-            conexao.pstmt = conexao.conn.prepareStatement("INSERT INTO categoria(id_categoria,nome) VALUES (?,?)");
+            conexao.pstmt = conexao.conn.prepareStatement("INSERT INTO categoria_postagens(id_categoria,nome) VALUES (?,?)");
             conexao.pstmt.setInt(1,id_categoria);
             conexao.pstmt.setString(2,nome);
 
@@ -31,7 +31,7 @@ public class CategoriaDAO {
     public int removerCategoria(int id) {
         conexao.conectar();
         try {
-            conexao.pstmt = conexao.conn.prepareStatement("DELETE FROM categoria WHERE id_categoria = ?");
+            conexao.pstmt = conexao.conn.prepareStatement("DELETE FROM categoria_postagens WHERE id_categoria = ?");
             conexao.pstmt.setInt(1,id);
 
             return conexao.pstmt.executeUpdate();
@@ -46,7 +46,7 @@ public class CategoriaDAO {
     public int alterarCategoria(int id, String nome) {
         conexao.conectar();
         try {
-            conexao.pstmt = conexao.conn.prepareStatement("ALTER TABLE categoria SET nome = ? WHERE id_categoria = ?");
+            conexao.pstmt = conexao.conn.prepareStatement("ALTER TABLE categoria_postagens SET nome = ? WHERE id_categoria = ?");
             conexao.pstmt.setString(1,nome);
             conexao.pstmt.setInt(2,id);
 
@@ -62,7 +62,7 @@ public class CategoriaDAO {
     public Categoria getCategoria(int id) {
         conexao.conectar();
         try {
-            conexao.pstmt = conexao.conn.prepareStatement("SELECT * FROM categoria WHERE id_categoria = ? ");
+            conexao.pstmt = conexao.conn.prepareStatement("SELECT * FROM categoria_postagens WHERE id_categoria = ? ");
             conexao.pstmt.setInt(1,id);
 
             conexao.rs = conexao.pstmt.executeQuery();
@@ -84,9 +84,9 @@ public class CategoriaDAO {
     public ResultSet getTodasAsCategorias() {
         conexao.conectar();
         try {
-            conexao.pstmt = conexao.conn.prepareStatement("SELECT * FROM categoria");
-
-            return conexao.pstmt.executeQuery();
+            conexao.pstmt = conexao.conn.prepareStatement("SELECT * FROM categoria_postagens");
+            conexao.rs = conexao.pstmt.executeQuery();
+            return conexao.rs;
         }catch (SQLException e) {
             e.printStackTrace();
             return null;

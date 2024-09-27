@@ -75,7 +75,7 @@
         <%
             List<Local> locais = (List<Local>) request.getAttribute("locais");
 
-            if (locais!=null){
+            if (locais!=null && !locais.isEmpty()){
 
         %>
 
@@ -101,7 +101,7 @@
                 <td class="descricao"><%=locais.get(i).getDescricao()%></td>
                 <td class="link_saber_mais"><%=locais.get(i).getLink_saber_mais()%></td>
                 <td class="link_imagem_local"><%=locais.get(i).getimagem_local()%></td>
-                <td class="acao center" id="a">
+                <td class="acao center" id="<%=locais.get(i).getId_local()%>">
                     <button class="edit">
                         <img src="../../assets/images/edit.svg" alt="">
                     </button>

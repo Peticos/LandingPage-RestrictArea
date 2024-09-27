@@ -8,7 +8,7 @@ import jakarta.servlet.http.HttpServletResponse;
 
 import java.io.IOException;
 import java.sql.SQLException;
-@WebServlet(name = "removercategoria", value = "/carregar-categoria")
+@WebServlet(name = "removercategoria", value = "/areaRestrita/categoriaPostagens/remover")
 public class RemoverCategoria extends HttpServlet {
     @Override
     public void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
@@ -16,9 +16,9 @@ public class RemoverCategoria extends HttpServlet {
         CategoriaDAO dao = new CategoriaDAO();
 
         if (dao.removerCategoria(id) > 0) {
-            response.sendRedirect("index.jsp");
+            response.sendRedirect("/areaRestrita/categoriaPostagens");
         }else {
-            response.sendRedirect("/areaRestrita/errorPage/index.jsp");
+            response.sendRedirect("/errorPage/index.jsp");
         }
     }
 }

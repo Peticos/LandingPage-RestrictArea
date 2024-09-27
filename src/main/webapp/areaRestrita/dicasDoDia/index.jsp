@@ -82,7 +82,7 @@
         %>
         <%
             List<DicaDoDia> dicas = (List<DicaDoDia>) request.getAttribute("dicas");
-            if (dicas!=null){
+            if (dicas!=null && !dicas.isEmpty()){
 
         %>
         <table class="dicas" cellspacing="0">

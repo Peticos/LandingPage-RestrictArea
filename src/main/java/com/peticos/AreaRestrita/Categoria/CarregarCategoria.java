@@ -15,7 +15,7 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 
-@WebServlet(name="CarregarCategoria", value = "/carregar-categoria")
+@WebServlet(name="CarregarCategoria", value = "/areaRestrita/categoriaPostagens")
 public class CarregarCategoria extends HttpServlet {
     @Override
     public void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
@@ -28,14 +28,13 @@ public class CarregarCategoria extends HttpServlet {
             while (rs.next()) {
                 int id = rs.getInt("id_categoria");
                 String nome = rs.getString("nome");
+                categorias.add(new Categoria(id, nome));
             }
         }catch(SQLException e ) {
             e.printStackTrace();
         }
 
         request.setAttribute("categorias", categorias);
-        request.getRequestDispatcher("index.jsp").forward(request,response);
-
-
+        request.getRequestDispatcher("/areaRestrita/categoriaPostagens/index.jsp").forward(request,response);
     }
 }
