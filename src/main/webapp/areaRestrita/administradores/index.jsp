@@ -1,4 +1,6 @@
-<<%@ page contentType="text/html;charset=UTF-8" %>
+<%@ page import="java.util.List" %>
+<%@ page import="com.peticos.AreaRestrita.Administrador.Administrador" %>
+<%@ page contentType="text/html;charset=UTF-8" %>
 <!DOCTYPE html>
 <html lang="pt-br">
 <head>
@@ -14,7 +16,11 @@
     <link rel="icon" href="../../assets/images/logo_app_branco.png">
 
     <!-- CSS -->
-    <link rel="stylesheet" href="../../assets/styles/admin.css">
+    <link rel="stylesheet" href="../../assets/styles/dicas.css">
+
+    <!-- Scripts (JS) -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+    <script src="../../assets/scripts/confirmBox.js" defer></script>
 
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -28,11 +34,11 @@
             <img src="../../assets/images/dashboard_icon.svg" alt="">
             <a href="../../areaRestrita/dashboard">Dashboard</a>
         </li>
-        <li id="admin">
+        <li>
             <img src="../../assets/images/admin_icon.svg" alt="">
             <a href="../../areaRestrita/administradores">Administradores</a>
         </li>
-        <li>
+        <li id="dicas">
             <img src="../../assets/images/dicadodia_icon.svg" alt="">
             <a href="../../areaRestrita/dicasDoDia">Dica Do Dia</a>
         </li>
@@ -54,41 +60,67 @@
         </li>
     </ul>
 </nav>
-<div id="content-container">
+<div class="page-container">
+    <div class="spacing"></div>
+    <div class="content-container">
         <hr>
-
-        <div>
+        <div class="add-container">
             <h1>Administradores</h1>
-            <div>
-                <img src="" alt="">
-                <p>Adicionar Admin</p>
-            </div>
+            <button>
+                <img src="../../assets/images/add.svg" alt="">
+                Adicionar Admin
+            </button>
         </div>
+        <%
+            String retorno = request.getParameter("retorno");
+            if (retorno!=null && !retorno.isEmpty()){
 
-        <table>
+        %>
+        <p><%=retorno%></p>
+        <%
+            }
+        %>
+        <%
+            List<Administrador> administradores = (List<Administrador>) request.getAttribute("administradores");
+            if (administradores !=null && !administradores.isEmpty()){
 
-            <tr id="id">
-                <%
-                    for (int i = 0; i < ; i++) {
-                        
-
-                %>
-                <td></td>
-            </tr>
-
-            <tr id="nome">
-                <td></td>
-            </tr>
-
-            <tr id="email">
-                <td></td>
-            </tr>
-
+        %>
+        <table class="dicas" cellspacing="0">
             <tr>
-                <td></td>
+                <th>Id</th>
+                <th>Nome</th>
+                <th>E-mail</th>
+                <th>Ações</th>
             </tr>
+            <%
+                for (int i = 0; i < administradores.size(); i++) {
 
+            %>
+            <tr>
+                <td class="titulo"><%=administradores.get(i).getId()%></td>
+                <td class="texto"><%=administradores.get(i).getNome()%></td>
+                <td class="link"><%=administradores.get(i).getEmail()%></td>
+                <td class="acao center" id="<%=administradores.get(i).getId()%>">
+                    <button class="edit">
+                        <img src="../../assets/images/edit.svg" alt="">
+                    </button>
+                    <button class="remove">
+                        <img src="../../assets/images/remove.svg" alt="">
+                    </button>
+                </td>
+            </tr>
+            <%
+                }
+            %>
         </table>
+        <%
+        } else{
+        %>
+        <h2>Sem administradores disponíveis...</h2>
+        <%
+            }
+        %>
     </div>
+</div>
 </body>
 </html>

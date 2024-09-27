@@ -1,4 +1,4 @@
-package com.peticos;
+package com.peticos.AreaRestrita.Administrador;
 
 public class Administrador {
     private int id;
@@ -12,6 +12,11 @@ public class Administrador {
         this.nome = nome;
         this.email = email;
         this.senha = senha;
+    }
+    public Administrador(int id, String nome, String email) {
+        this.id = id;
+        this.nome = nome;
+        this.email = email;
     }
 
     public int getId() {

@@ -1,4 +1,6 @@
-package com.peticos;
+package com.peticos.AreaRestrita.Administrador;
+
+import com.peticos.Conexao;
 
 import java.sql.ResultSet;
 import java.sql.SQLException;
@@ -69,7 +71,7 @@ public class AdministradorDAO {
     public ResultSet getTodosAdmins(){
         conexao.conectar();
         try{
-            conexao.pstmt = conexao.conn.prepareStatement("SELECT * FROM ADMINISTRADORES");
+            conexao.pstmt = conexao.conn.prepareStatement("SELECT * FROM ADMIN.ADMINISTRADORES");
             return conexao.pstmt.executeQuery();
         } catch (SQLException e) {
             e.printStackTrace();

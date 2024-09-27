@@ -27,39 +27,53 @@
     <title>Dicas do Dia - Área Restrita - Peticos</title>
 </head>
 <body>
-<nav>
-    <img src="../../assets/images/Simplified Logo.svg" alt="">
-    <ul>
-        <li>
-            <img src="../../assets/images/dashboard_icon.svg" alt="">
-            <a href="../../areaRestrita/dashboard">Dashboard</a>
-        </li>
-        <li>
-            <img src="../../assets/images/admin_icon.svg" alt="">
-            <a href="../../areaRestrita/administradores">Administradores</a>
-        </li>
-        <li id="dicas">
-            <img src="../../assets/images/dicadodia_icon.svg" alt="">
-            <a href="../../areaRestrita/dicasDoDia">Dica Do Dia</a>
-        </li>
-        <li>
-            <img src="../../assets/images/category_icon.svg" alt="">
-            <a href="../../areaRestrita/categoriaPostagens">Categoria Postagens</a>
-        </li>
-        <li>
-            <img src="../../assets/images/paw.svg" alt="">
-            <a href="../../areaRestrita/raca">Raça</a>
-        </li>
-        <li>
-            <img src="../../assets/images/especie_icon.svg" alt="">
-            <a href="../../areaRestrita/especie">Espécie</a>
-        </li>
-        <li>
-            <img src="../../assets/images/local_icon.svg" alt="">
-            <a href="../../areaRestrita/local">Local</a>
-        </li>
-    </ul>
-</nav>
+    <nav>
+        <img src="../../assets/images/Simplified Logo.svg" alt="">
+        <ul>
+            <li>
+                <a href="../../areaRestrita/dashboard">
+                    <img src="../../assets/images/dashboard_icon.svg" alt="">
+                    Dashboard
+                </a>
+            </li>
+            <li>
+                <a href="../../areaRestrita/administradores">
+                    <img src="../../assets/images/admin_icon.svg" alt="">
+                    Administradores
+                </a>
+            </li>
+            <li class="selecionado">
+                <a href="../../areaRestrita/dicasDoDia">
+                    <img src="../../assets/images/dicadodia_icon.svg" alt="">
+                    Dica Do Dia
+                </a>
+            </li>
+            <li>
+                <a href="../../areaRestrita/categoriaPostagens">
+                    <img src="../../assets/images/category_icon.svg" alt="">
+                    Categoria Postagens
+                </a>
+            </li>
+            <li>
+                <a href="../../areaRestrita/raca">
+                    <img src="../../assets/images/paw.svg" alt="">
+                    Raça
+                </a>
+            </li>
+            <li>
+                <a href="../../areaRestrita/especie">
+                    <img src="../../assets/images/especie_icon.svg" alt="">
+                    Espécie
+                </a>
+            </li>
+            <li>
+                <a href="../../areaRestrita/local">
+                    <img src="../../assets/images/local_icon.svg" alt="">
+                    Local
+                </a>
+            </li>
+        </ul>
+    </nav>
 <div class="page-container">
     <div class="spacing"></div>
     <div class="content-container">
