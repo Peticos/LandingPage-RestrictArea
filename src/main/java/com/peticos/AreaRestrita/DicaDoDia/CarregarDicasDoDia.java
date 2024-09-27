@@ -12,7 +12,7 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 
-@WebServlet(name = "CarregarDicasDoDia", value = "/areaRestrita/dicasDoDia/")
+@WebServlet(name = "CarregarDicasDoDia", value = "/areaRestrita/dicasDoDia")
 public class CarregarDicasDoDia extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {

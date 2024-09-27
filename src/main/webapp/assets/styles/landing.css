@@ -629,6 +629,7 @@ div{
     justify-content: center;
     align-items: center;
 }
+
 .carousel-button{
     cursor: pointer;
     background-color: transparent;
@@ -739,6 +740,12 @@ footer>p{
     }
     footer ul{
         grid-area: contato;
+    }
+}
+
+@media (max-width: 600px) {
+    #nossos-planos > .carousel-button{
+        width: 30px;
     }
 }
 
