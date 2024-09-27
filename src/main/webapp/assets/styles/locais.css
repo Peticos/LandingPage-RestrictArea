@@ -1,0 +1,348 @@
+*{
+    margin: 0;
+    padding: 0;
+    font-family: "Varela Round", serif;
+}
+body{
+    background-color: var(--beige);
+    overflow-x: hidden;
+}
+html {
+    scroll-behavior: smooth; /* Habilita a rolagem suave */
+}
+input, textarea, button, select, a, label {
+    -webkit-tap-highlight-color: transparent;
+}
+
+:root {
+    --water-blue: #2D8580;
+    --is-it-green: #2E6C56;
+    --asereje-yellow: #CF8C3D;
+    --wood-brown: #73482F;
+    --red-or-orange: #C54432;
+
+    --black: #252525;
+    --off-white: #F5EDF0;
+    --beige: #EBDFD3;
+
+    --water-blue-light: #80BFBB;
+    --is-it-green-light: #59B594;
+    --asereje-yellow-light: #E3B681;
+    --wood-brown-light: #BC8160;
+    --red-or-orange-light: #DB755F;
+
+    --shadow-pequena: 0 0 5px 2px rgba(0,0,0,.1);
+}
+
+.center{
+    text-align: center;
+}
+
+nav{
+    position: fixed;
+    left: 0;
+    top: 0;
+    z-index: 2;
+
+    height: 100vh;
+    width: 20%;
+    background-color: var(--is-it-green);
+}
+
+nav>img{
+    margin: 20px;
+}
+
+nav ul{
+    list-style: none;
+
+    display: flex;
+    flex-flow: column nowrap;
+    gap: 10px;
+}
+nav ul li{
+    width: fit-content;
+    height: 50px;
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    margin-left: 30px;
+}
+nav ul li:hover, #locais{
+    background-color: var(--is-it-green-light);
+    box-shadow: 0 4px 2px 0px rgba(0,0,0,.1);
+    border-radius: 15px;
+    margin-left: 15px;
+    padding: 0 15px;
+}
+nav ul li img{
+    width: 30px;
+}
+nav ul li a{
+    font-size: 20px;
+    text-decoration: none;
+    color: var(--off-white);
+}
+
+.page-container{
+    width: 100%;
+    height: fit-content;
+
+    display: flex;
+}
+.spacing{
+    width: 20%;
+}
+
+.content-container{
+    width: 80%;
+    min-height: 100vh;
+
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+
+    flex-flow: column nowrap;
+}
+
+.add-container{
+    width: 95%;
+    margin: 30px;
+
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.add-container h1{
+    font-weight: normal;
+    font-size: 50px;
+    color: var(--asereje-yellow);
+    font-family: "Lilita One";
+}
+.content-container>hr{
+    width: 100%;
+    margin-top: 50px;
+    border: 1px solid var(--asereje-yellow-light);
+
+    position: relative;
+    z-index: -1;
+}
+
+.add-container button{
+    background-color: var(--asereje-yellow);
+    border: none;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    color: var(--off-white);
+    font-size: 20px;
+
+    height: 50px;
+    width: 220px;
+    border-radius: 10px;
+    box-shadow: 0 4px 2px 0 rgba(0,0,0,.1);
+}
+
+.locais{
+    width: 98%;
+    margin: 30px 0;
+    box-shadow: 0 4px 2px 0 rgba(0,0,0,0.1);
+    border-radius: 15px;
+}
+.locais tr:first-of-type{
+    height: 50px;
+    color: var(--off-white);
+}
+.locais tr:first-of-type th:first-of-type{
+    border-radius: 15px 0 0 0;
+}
+.locais tr:first-of-type th:last-of-type{
+    border-radius: 0 15px 0 0;
+
+    text-align: center;
+    padding-left: 0;
+}
+.locais tr:first-of-type th{
+    font-weight: normal;
+    font-family: "Lilita One", serif;
+    font-size: 25px;
+    background-color: var(--asereje-yellow);
+
+
+    text-align: left;
+    padding-left: 20px;
+}
+
+/*Definindo os tamanhos*/
+.tipo_local{
+    width: 9vw;
+    text-wrap: nowrap;
+    text-overflow: ellipsis;
+    overflow: hidden;
+}
+.nome_local{
+    max-width: 30vw;
+    text-wrap: nowrap;
+    text-overflow: ellipsis;
+    overflow: hidden;
+}
+.descricao{
+    width: 30%;
+}
+.link_saber_mais{
+    width: 15%;
+}
+.imagem_local{
+    text-align: center;
+    padding-left: 0;
+}
+.acao{
+    padding: 0 10px;
+    height: 60px;
+
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+}
+
+.locais tr{
+    height: 60px;
+}
+.locais tr td{
+    border: 1px solid gray;
+    background-color: var(--off-white);
+    border-style: solid none none none;
+}
+.locais tr td:not(.center){
+    box-sizing: border-box;
+    padding-left: 20px;
+}
+.locais tr:last-of-type td:first-of-type{
+    border-radius: 0 0 0 15px;
+}
+.locais tr:last-of-type td:last-of-type{
+    border-radius: 0 0 15px 0;
+}
+.acao button{
+    cursor: pointer;
+    border: none;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    height: 40px;
+    width: 40px;
+    margin: 0 5px;
+    border-radius: 10px;
+}
+.acao img{
+    width: 70%;
+    height: 70%;
+}
+.acao>button:first-of-type{
+    background-color: var(--is-it-green-light);
+}
+.acao>button:last-of-type{
+    background-color: var(--red-or-orange-light);
+}
+
+.confirm-box-container{
+    pointer-events: all;
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 3;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.confirm-box{
+    width: 30%;
+    min-height: 500px;
+    border-radius: 20px;
+    background-color: var(--off-white);
+    box-shadow: 0 4px 2px 0 rgba(0,0,0,.25);
+
+    display: flex;
+    flex-flow: column nowrap;
+    align-items: center;
+    justify-content: flex-start;
+}
+.confirm-box h1{
+    font-family: "Lilita One";
+    font-weight: normal;
+    color: var(--is-it-green);
+    font-size: 50px;
+    margin: 20px 0;
+}
+.confirm-box p{
+    width: 90%;
+    font-size: 20px;
+}
+.confirm-box img{
+    height: 400px;
+    margin: 10px 0;
+}
+.confirm-box form{
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    width: 100%;
+    margin-top: auto;
+    padding: 20px 0;
+}
+.confirm-box form button{
+    cursor: pointer;
+    width: 40%;
+    height: 50px;
+    border: none;
+    border-radius: 10px;
+    font-size: 25px;
+    font-family: "Lilita One";
+    color: var(--off-white);
+    box-shadow: 0 4px 2px rgba(0, 0, 0, 0.25);
+}
+.confirm-box form button:first-of-type{
+    background-color: rgba(37, 37, 37, 0.4);
+    color: rgb(88, 88, 88);
+}
+.confirm-box form button:last-of-type{
+    background-color: var(--red-or-orange);
+}
+
+@media (max-width: 1300px){
+    nav{
+        width: 30%;
+    }
+    .content-container{
+        left: 30%;
+        width: 70%;
+    }
+}
+@media (max-width: 1064px){
+    nav ul li a, nav>img{
+        display: none;
+    }
+    nav{
+        width: 8%;
+
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+    nav ul{
+        align-items: center;
+    }
+    nav ul li, #dicas{
+        margin-left: 0;
+    }
+    .content-container{
+        width: 92%;
+        left: 8%;
+    }
+}

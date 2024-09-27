@@ -1,8 +1,4 @@
 *{
-<<<<<<< HEAD
-    padding: 0px;
-    margin: 0px;
-=======
     margin: 0;
     padding: 0;
     font-family: "Varela Round", serif;
@@ -78,5 +74,4 @@ nav ul li a{
     font-size: 20px;
     text-decoration: none;
     color: var(--off-white);
->>>>>>> 98605a19e18f4096ec3e6ec6b4f521bb4b4bcfb4
 }

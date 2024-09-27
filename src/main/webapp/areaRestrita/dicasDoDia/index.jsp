@@ -32,31 +32,31 @@
     <ul>
         <li>
             <img src="../../assets/images/dashboard_icon.svg" alt="">
-            <a href="../../areaRestrita/dashboard/index.jsp">Dashboard</a>
+            <a href="../../areaRestrita/dashboard">Dashboard</a>
         </li>
         <li>
             <img src="../../assets/images/admin_icon.svg" alt="">
-            <a href="../../areaRestrita/administradores/index.jsp">Administradores</a>
+            <a href="../../areaRestrita/administradores">Administradores</a>
         </li>
         <li id="dicas">
             <img src="../../assets/images/dicadodia_icon.svg" alt="">
-            <a href="../../areaRestrita/dicasDoDia/index.jsp">Dica Do Dia</a>
+            <a href="../../areaRestrita/dicasDoDia">Dica Do Dia</a>
         </li>
         <li>
             <img src="../../assets/images/category_icon.svg" alt="">
-            <a href="../../areaRestrita/categoriaPostagens/index.jsp">Categoria Postagens</a>
+            <a href="../../areaRestrita/categoriaPostagens">Categoria Postagens</a>
         </li>
         <li>
             <img src="../../assets/images/paw.svg" alt="">
-            <a href="../../areaRestrita/raca/index.jsp">Raça</a>
+            <a href="../../areaRestrita/raca">Raça</a>
         </li>
         <li>
             <img src="../../assets/images/especie_icon.svg" alt="">
-            <a href="../../areaRestrita/especie/index.jsp">Espécie</a>
+            <a href="../../areaRestrita/especie">Espécie</a>
         </li>
         <li>
             <img src="../../assets/images/local_icon.svg" alt="">
-            <a href="../../areaRestrita/local/index.jsp">Local</a>
+            <a href="../../areaRestrita/local">Local</a>
         </li>
     </ul>
 </nav>
@@ -118,7 +118,7 @@
         <%
         } else{
         %>
-        <p>Sem dicas disponíveis...</p>
+        <h2>Sem dicas disponíveis...</h2>
         <%
             }
         %>
@@ -126,4 +126,3 @@
 </div>
 </body>
 </html>
-
