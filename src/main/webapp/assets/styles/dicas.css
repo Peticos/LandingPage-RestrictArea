@@ -4,7 +4,7 @@
     font-family: "Varela Round", serif;
 }
 body{
-    background-color: var(--beige);
+    background-color: var(--off-white);
     overflow-x: hidden;
 }
 html {
@@ -33,228 +33,368 @@ input, textarea, button, select, a, label {
 
     --shadow-pequena: 0 0 5px 2px rgba(0,0,0,.1);
 }
+button, a{
+    cursor: pointer;
+}
 
 .center{
     text-align: center;
 }
 
-nav{
+header{
+    width: 100%;
     position: fixed;
-    left: 0;
     top: 0;
-    z-index: 2;
-
-    height: 100vh;
-    width: 20%;
+    left: 0;
+    z-index: 1;
     background-color: var(--is-it-green);
-}
-
-nav>img{
-    margin: 20px;
-}
-
-nav ul{
-    list-style: none;
+    height: 80px;
 
     display: flex;
-    flex-flow: column nowrap;
-    gap: 10px;
-}
-nav ul li{
-    width: fit-content;
-    height: 50px;
-    display: flex;
-    align-items: center;
-    gap: 20px;
-}
-nav ul li:hover a, .selecionado a{
-    background-color: var(--is-it-green-light);
-    box-shadow: 0 4px 2px 0px rgba(0,0,0,.1);
-    width: 100%;
-    padding: 10px;
-    margin-left: 10px;
-    border-radius: 10px;
-}
-nav ul li img{
-    width: 30px;
-}
-nav ul li a{
-    margin-left: 20px;
-    display: flex;
-    align-items: center;
     justify-content: space-between;
-    gap: 10px;
-    font-size: 20px;
-    text-decoration: none;
-    color: var(--off-white);
+    align-items: center;
 }
-
-.page-container{
-    width: 100%;
-    height: fit-content;
-
-    display: flex;
-}
-.spacing{
-    width: 20%;
-}
-
-.content-container{
-    width: 80%;
-    min-height: 100vh;
+header .abas{
+    height: 100%;
+    margin-left: 80px;
+    padding: 0 40px;
 
     display: flex;
     justify-content: flex-start;
     align-items: center;
+    gap: min(50px,5vw);
 
-    flex-flow: column nowrap;
+    transition: margin-left .5s;
+}
+header .abas a{
+    text-decoration: none;
+    position: relative;
+    color: var(--off-white);
+    font-size: 25px;
+    font-family: "Lilita One";
+}
+header .abas a::after{
+    content: "";
+    position: absolute;
+    bottom: -5px;
+    left: 0;
+    height: 4px;
+    border-radius: 10px;
+    width: 100%;
+    background-color: var(--off-white);
+}
+header .abas a:last-of-type::after{
+    transform: scaleX(0);
+    transition: transform .3s;
+}
+header .abas a:last-of-type:hover{
+    filter: opacity(1);
+}
+header .abas a:last-of-type:hover:after{
+    transform: scaleX(1);
+}
+header .abas a:last-of-type{
+    filter: opacity(0.3);
+}
+header .perfil{
+    height: 100%;
+    width: 200px;
+
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    gap: 10px;
+}
+header .perfil .foto{
+    background-color: #D9D9D9;
+    min-width: 50px;
+    min-height: 50px;
+    border-radius: 100%;
+}
+header .perfil .info{
+    color: var(--off-white);
+}
+header .perfil .info h3{
+    font-family: "Lilita One";
+    font-weight: normal;
+    font-size: 20px;  
+}
+header .perfil .info h5{
+    font-weight: normal;
+    text-wrap: nowrap;
+    text-overflow: ellipsis;
+    overflow: hidden;
+    width: 120px;
 }
 
-.add-container{
-    width: 95%;
-    margin: 30px;
 
+nav{
+    overflow: hidden;
+    position: fixed;
+    left: -220px;
+    top: 0;
+    z-index: 2;
+    height: 100%;
+    width: 300px;
+    background-color: var(--is-it-green);
+
+    display: flex;
+    flex-flow: column nowrap;
+    align-items: center;
+    justify-content: flex-start;
+
+    transition: left .5s;
+}
+nav>img:first-of-type{
+    display: none;
+}
+nav>img:last-of-type{
+    margin: 10px 5px 0 auto;
+    width: 70px;
+}
+nav ul{
+    margin-top: 100px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-flow: column nowrap;
+    gap: 20px;
+    list-style: none;
+
+    position: relative;
+    left: 110px;
+    transition: left .5s;
+}
+nav ul li a{
+    height: 45px;
+    display: flex;
+    align-items: center;
+
+    text-decoration: none;
+    color: var(--off-white);
+    font-size: 17px;
+}
+nav ul li a img{
+    width: 30px;
+}
+nav ul li a p{
+    text-wrap: nowrap;
+    overflow: hidden;
+    width: 0;
+
+    transition: width .5s, margin-left .5s;
+}
+
+/* Adicionando o hover */
+nav:hover{
+    left: 0;
+}
+nav:hover ul{
+    margin-top: 115px;
+    left: 0px;
+}
+nav:hover ul li a p{
+    width: 200px;
+    margin-left: 20px;
+}
+nav:hover>img:first-of-type{
+    display: block;
+    margin: 20px auto 0 20px;
+}
+nav:hover>img:last-of-type{
+    display: none;
+}
+
+
+/* Selecionando o item */
+.selecionado a, nav ul a:hover{
+    background-color: var(--is-it-green-light);
+    border-radius: 10px;
+    padding: 0 10px;
+}
+
+/* Container da página */
+.page-container{
+    display: flex;
+}
+.container{
+    margin-top: 80px;
+    width: 100%;
+    height: 100vh;
+
+    display: flex;
+    flex-flow: column nowrap;
+    justify-content: flex-start;
+    align-items: center;
+}
+.spacing{
+    height: 100vh;
+    min-width: 80px;
+}
+
+/* Caixa de filtros */
+.filtro-container{
+    margin-top: 50px;
+    width: 90%;
+    background-color: var(--beige);
+    height: 300px;
+    border-radius: 20px;
+    box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
+}
+.header-filtro{
+    display: flex;
+    flex-flow: column nowrap;
+    align-items: center;
+    justify-content: flex-start;
+
+    background-color: var(--beige);
+    box-shadow: 0 4px 4px 0 rgba(0, 0, 0, 0.25);
+    border-radius: 20px;
+    height: 60%;
+}
+.header-filtro h1{
+    width: 98%;
+    font-family: "Lilita One";
+    color: var(--asereje-yellow);
+    font-weight: normal;
+    font-size: 30px;
+    margin: 30px 0 5px 0;
+}
+.header-filtro hr{
+    display: block;
+    border: 1px solid var(--asereje-yellow);
+    width: 98%;
+}
+.header-filtro .filtro-info{
+    width: 100%;
+    height: 100%;
     display: flex;
     justify-content: space-between;
     align-items: center;
 }
-.add-container h1{
-    font-weight: normal;
-    font-size: 50px;
-    color: var(--asereje-yellow);
+.header-filtro .filtro-info h2{
     font-family: "Lilita One";
-}
-.content-container>hr{
-    width: 100%;
-    margin-top: 50px;
-    border: 1px solid var(--asereje-yellow-light);
-
-    position: relative;
-    z-index: -1;
-}
-
-.add-container button{
+    color: var(--off-white);
     background-color: var(--asereje-yellow);
-    border: none;
+    padding: 10px 20px;
+    border-radius: 10px;
+    font-weight: normal;
+    margin-left: 20px;
+}
+.acoes-filtro{
+    height: 100%;
+    width: 30%;
     display: flex;
     justify-content: space-around;
     align-items: center;
-    color: var(--off-white);
-    font-size: 20px;
-
-    height: 50px;
-    width: 220px;
-    border-radius: 10px;
-    box-shadow: 0 4px 2px 0 rgba(0,0,0,.1);
 }
-
-.dicas{
-    display: block;
-    width: 98%;
-
-    margin: 30px 0;
-    box-shadow: 0 4px 2px 0 rgba(0,0,0,0.1);
-    border-radius: 15px;
-}
-.dicas tr{
-    background-color: var(--off-white);
-    border: 2px solid rgba(37, 37, 37, 0.4);
-    border-style: solid solid none solid;
-    display: grid;
-    align-items: center;
-    grid-template-columns: 1fr 2fr 2fr 0.7fr 0.7fr;
-}
-.dicas tr:first-of-type{
-    border-radius: 15px 15px 0 0;
-    background-color: var(--asereje-yellow);
-    color: var(--off-white);
-}
-.dicas tr:first-of-type th{
-    font-weight: normal;
-    font-family: "Lilita One", serif;
-    font-size: 25px;
-
-
-    text-align: left;
-    padding-left: 20px;
-}
-.dicas tr:last-of-type{
-    border-radius: 0 0 15px 15px;
-    border-style: solid solid solid solid;
-}
-
-/*Definindo os tamanhos*/
-.titulo{
-    text-wrap: nowrap;
-    text-overflow: ellipsis;
-    overflow: hidden;
-}
-.texto{
-    text-wrap: nowrap;
-    text-overflow: ellipsis;
-    overflow: hidden;
-}
-.link{
-    text-wrap: nowrap;
-    text-overflow: ellipsis;
-    overflow: hidden;
-}
-.data{
-    text-wrap: nowrap;
-    text-overflow: ellipsis;
-    overflow: hidden;
-}
-.dicas tr:first-of-type th:last-of-type, #data-header {
-    text-align: center;
-    padding-left: 0;
-}
-.acao{
-    padding: 0 10px;
-    height: 60px;
-
-    display: flex;
-    align-items: center;
-    justify-content: space-evenly;
-
-    text-wrap: nowrap;
-    text-overflow: ellipsis;
-    overflow: hidden;
-}
-
-.dicas tr{
-    height: 60px;
-}
-.dicas tr td:not(.center){
-    box-sizing: border-box;
-    padding-left: 20px;
-}
-.dicas tr:last-of-type td:first-of-type{
-    border-radius: 0 0 0 15px;
-}
-.dicas tr:last-of-type td:last-of-type{
-    border-radius: 0 0 15px 0;
-}
-.acao button{
-    cursor: pointer;
+.acoes-filtro button{
+    height: 45px;
+    width: 45px;
     border: none;
+    border-radius: 10px;
+    background-color: var(--wood-brown);
+    box-shadow: 0 4px 4px 0 rgba(0, 0, 0, 0.25);
+
     display: flex;
     justify-content: center;
     align-items: center;
-
-    height: 70%;
+}
+.acoes-filtro .pesquisar{
+    position: relative;
     width: 70%;
-    margin: 0 5px;
+    display: flex;
+    align-items: center;
+}
+.acoes-filtro .pesquisar input{
+    width: 100%;
+    height: 45px;
+    background-color: var(--beige);
+    border: 1px solid var(--wood-brown);
+    box-shadow: 0 4px 4px 0 rgba(0, 0, 0, 0.25);
     border-radius: 10px;
+    font-size: 15px;
+    box-sizing: border-box;
+    padding-left: 20px;
+    outline: none;
+    color: var(--black);
 }
-.acao img{
-    width: 70%;
-    height: 70%;
+.pesquisar input::placeholder{
+    color: var(--wood-brown);
 }
-.acao>button:first-of-type{
-    background-color: var(--is-it-green-light);
+.pesquisar img{
+    position: absolute;
+    right: 20px;
 }
-.acao>button:last-of-type{
-    background-color: var(--red-or-orange-light);
+
+/* Filtros */
+.filtro{
+    width: 100%;
+    height: 40%;
+
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    gap: 20px;
+
+    box-sizing: border-box;
+    padding-left: 20px;
+}
+.filtro input{
+    height: 40px;
+    width: min(200px, 10vw);
+    background-color: var(--off-white);
+    border: 1px solid rgba(25, 25, 25, 0.3);
+    border-radius: 10px;
+    font-size: 15px;
+    box-sizing: border-box;
+    padding-left: 20px;
+    outline: none;
+    box-shadow: 2px 2px 4px 0 rgba(0, 0, 0, 0.25);
+}
+.filtro div{
+    position: relative;
+}
+.data h3, .id h3{
+    position: absolute;
+    font-family: "Lilita One";
+    font-weight: normal;
+    color: var(--asereje-yellow);
+    box-sizing: border-box;
+    padding-left: 20px;
+    top: -20px;
+}
+.data input::-webkit-calendar-picker-indicator{
+    padding-right: 20px;
+    cursor: pointer;
+    color: rgba(0, 0, 0, 0);
+    opacity: 1;
+    display: block;
+    background: url(../../assets/images/calendar_month.svg) no-repeat;
+    width: 20px;
+    height: 20px;
+    border-width: thin;
+}
+.id input{
+    width: min(100px, 10vw);
+}
+.filtro button{
+    height: 40px;
+    border: none;
+    border-radius: 10px;
+    background-color: var(--asereje-yellow);
+    color: var(--off-white);
+    box-shadow: 2px 2px 4px 0 rgba(0, 0, 0, 0.25);
+    font-size: 20px;
+}
+#dica-hoje{
+    padding: 0px 20px;
+}
+#adicionar{
+    width: 40px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
 .confirm-box-container{
@@ -271,7 +411,6 @@ nav ul li a{
     justify-content: center;
     align-items: center;
 }
-
 .confirm-box{
     width: 30%;
     min-height: 500px;
