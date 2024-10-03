@@ -1,5 +1,5 @@
 <%@ page import="java.util.List" %>
-<%@ page import="com.peticos.Model.Local" %>
+<%@ page import="com.peticos.Model.Categoria" %>
 <%@ page contentType="text/html;charset=UTF-8" %>
 <!DOCTYPE html>
 <html lang="pt-br">
@@ -16,7 +16,7 @@
     <link rel="icon" href="../../assets/images/logo_app_branco.png">
 
     <!-- CSS -->
-    <link rel="stylesheet" href="../../assets/styles/locais.css">
+    <link rel="stylesheet" href="../dicasDoDia/dicas.css">
 
     <!-- Scripts (JS) -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
@@ -24,7 +24,7 @@
 
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Locais - Área Restrita - Peticos</title>
+    <title>Categoria Postagens - Área Restrita - Peticos</title>
 </head>
 <body>
 <nav>
@@ -38,7 +38,7 @@
             <img src="../../assets/images/admin_icon.svg" alt="">
             <a href="../../areaRestrita/administradores">Administradores</a>
         </li>
-        <li>
+        <li id="dicas">
             <img src="../../assets/images/dicadodia_icon.svg" alt="">
             <a href="../../areaRestrita/dicasDoDia">Dica Do Dia</a>
         </li>
@@ -54,7 +54,7 @@
             <img src="../../assets/images/especie_icon.svg" alt="">
             <a href="../../areaRestrita/especie">Espécie</a>
         </li>
-        <li  id="locais">
+        <li>
             <img src="../../assets/images/local_icon.svg" alt="">
             <a href="../../areaRestrita/local">Local</a>
         </li>
@@ -65,43 +65,40 @@
     <div class="content-container">
         <hr>
         <div class="add-container">
-            <h1>Locais</h1>
+            <h1>Categoria Postagens</h1>
             <button>
                 <img src="../../assets/images/add.svg" alt="">
-                Adicionar Local
+                Adicionar Categoria
             </button>
         </div>
-
         <%
-            List<Local> locais = (List<Local>) request.getAttribute("locais");
-
-            if (locais!=null && !locais.isEmpty()){
+            String retorno = request.getParameter("retorno");
+            if (retorno!=null && !retorno.isEmpty()){
 
         %>
+        <p><%=retorno%></p>
+        <%
+            }
+        %>
+        <%
+            List<Categoria> categorias = (List<Categoria>) request.getAttribute("categorias");
+            if (categorias !=null && !categorias.isEmpty()){
 
-
-        <table class="locais" cellspacing="0">
+        %>
+        <table class="dicas" cellspacing="0">
             <tr>
-                <th>Tipo Local</th>
-                <th>Nome do Local</th>
-                <th>Id Telefone Local</th>
-                <th>Descrição</th>
-                <th>Link Saber Mais</th>
-                <th>Link Imagem Local</th>
+                <th>Id</th>
+                <th>Nome</th>
                 <th>Ações</th>
             </tr>
             <%
-                for (int i = 0; i < locais.size(); i++) {
+                for (int i = 0; i < categorias.size(); i++) {
 
             %>
             <tr>
-                <td class="tipo_local"><%=locais.get(i).getTipo_local()%></td>
-                <td class="nome_local"><%=locais.get(i).getNome_local()%></td>
-                <td class="id_telefone_local center"><%=locais.get(i).getId_telefone_local()%></td>
-                <td class="descricao"><%=locais.get(i).getDescricao()%></td>
-                <td class="link_saber_mais"><%=locais.get(i).getLink_saber_mais()%></td>
-                <td class="link_imagem_local"><%=locais.get(i).getimagem_local()%></td>
-                <td class="acao center" id="<%=locais.get(i).getId_local()%>">
+                <td class="titulo"><%=categorias.get(i).getId()%></td>
+                <td class="texto center"><%=categorias.get(i).getNome()%></td>
+                <td class="acao center" id="<%=categorias.get(i).getId()%>">
                     <button class="edit">
                         <img src="../../assets/images/edit.svg" alt="">
                     </button>
@@ -117,7 +114,7 @@
         <%
         } else{
         %>
-        <h2>Sem locais disponíveis...</h2>
+        <h2>Sem categrias disponíveis...</h2>
         <%
             }
         %>
@@ -125,4 +122,3 @@
 </div>
 </body>
 </html>
-

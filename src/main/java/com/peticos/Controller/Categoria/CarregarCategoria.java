@@ -34,6 +34,6 @@ public class CarregarCategoria extends HttpServlet {
         }
 
         request.setAttribute("categorias", categorias);
-        request.getRequestDispatcher("/areaRestrita/categoriaPostagens/index.jsp").forward(request,response);
+        request.getRequestDispatcher("/areaRestrita/categoriaPostagens/categorias.jsp").forward(request,response);
     }
 }

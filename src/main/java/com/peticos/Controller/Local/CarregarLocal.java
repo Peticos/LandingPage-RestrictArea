@@ -40,6 +40,6 @@ public class CarregarLocal extends HttpServlet {
             throw new ServletException("Erro ao carregar os locais", e);
         }
         request.setAttribute("locais", locais);
-        request.getRequestDispatcher("/areaRestrita/local/index.jsp").forward(request, response);
+        request.getRequestDispatcher("/areaRestrita/local/locais.jsp").forward(request, response);
     }
 }

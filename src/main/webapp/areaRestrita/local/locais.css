@@ -1,7 +1,9 @@
+@import url('/assets/global.css');
+
 *{
     margin: 0;
     padding: 0;
-    font-family: "Varela Round", serif;
+    font-family: var(--varela-round), serif;
 }
 body{
     background-color: var(--beige);
@@ -12,26 +14,6 @@ html {
 }
 input, textarea, button, select, a, label {
     -webkit-tap-highlight-color: transparent;
-}
-
-:root {
-    --water-blue: #2D8580;
-    --is-it-green: #2E6C56;
-    --asereje-yellow: #CF8C3D;
-    --wood-brown: #73482F;
-    --red-or-orange: #C54432;
-
-    --black: #252525;
-    --off-white: #F5EDF0;
-    --beige: #EBDFD3;
-
-    --water-blue-light: #80BFBB;
-    --is-it-green-light: #59B594;
-    --asereje-yellow-light: #E3B681;
-    --wood-brown-light: #BC8160;
-    --red-or-orange-light: #DB755F;
-
-    --shadow-pequena: 0 0 5px 2px rgba(0,0,0,.1);
 }
 
 .center{
@@ -70,7 +52,7 @@ nav ul li{
 }
 nav ul li:hover, #locais{
     background-color: var(--is-it-green-light);
-    box-shadow: 0 4px 2px 0px rgba(0,0,0,.1);
+    box-shadow: 0 4px 2px 0 rgba(0,0,0,.1);
     border-radius: 15px;
     margin-left: 15px;
     padding: 0 15px;
@@ -117,7 +99,7 @@ nav ul li a{
     font-weight: normal;
     font-size: 50px;
     color: var(--asereje-yellow);
-    font-family: "Lilita One";
+    font-family: var(--lilita-one), serif;
 }
 .content-container>hr{
     width: 100%;
@@ -164,7 +146,7 @@ nav ul li a{
 }
 .locais tr:first-of-type th{
     font-weight: normal;
-    font-family: "Lilita One", serif;
+    font-family: var(--lilita-one), serif;
     font-size: 25px;
     background-color: var(--asereje-yellow);
 
@@ -209,7 +191,6 @@ nav ul li a{
     height: 60px;
 }
 .locais tr td{
-    border: 1px solid gray;
     background-color: var(--off-white);
     border-style: solid none none none;
 }
@@ -244,75 +225,6 @@ nav ul li a{
 }
 .acao>button:last-of-type{
     background-color: var(--red-or-orange-light);
-}
-
-.confirm-box-container{
-    pointer-events: all;
-    position: fixed;
-    top: 0;
-    left: 0;
-    z-index: 3;
-    width: 100%;
-    height: 100%;
-    background-color: rgba(0, 0, 0, 0.5);
-
-    display: flex;
-    justify-content: center;
-    align-items: center;
-}
-
-.confirm-box{
-    width: 30%;
-    min-height: 500px;
-    border-radius: 20px;
-    background-color: var(--off-white);
-    box-shadow: 0 4px 2px 0 rgba(0,0,0,.25);
-
-    display: flex;
-    flex-flow: column nowrap;
-    align-items: center;
-    justify-content: flex-start;
-}
-.confirm-box h1{
-    font-family: "Lilita One";
-    font-weight: normal;
-    color: var(--is-it-green);
-    font-size: 50px;
-    margin: 20px 0;
-}
-.confirm-box p{
-    width: 90%;
-    font-size: 20px;
-}
-.confirm-box img{
-    height: 400px;
-    margin: 10px 0;
-}
-.confirm-box form{
-    display: flex;
-    justify-content: space-evenly;
-    align-items: center;
-    width: 100%;
-    margin-top: auto;
-    padding: 20px 0;
-}
-.confirm-box form button{
-    cursor: pointer;
-    width: 40%;
-    height: 50px;
-    border: none;
-    border-radius: 10px;
-    font-size: 25px;
-    font-family: "Lilita One";
-    color: var(--off-white);
-    box-shadow: 0 4px 2px rgba(0, 0, 0, 0.25);
-}
-.confirm-box form button:first-of-type{
-    background-color: rgba(37, 37, 37, 0.4);
-    color: rgb(88, 88, 88);
-}
-.confirm-box form button:last-of-type{
-    background-color: var(--red-or-orange);
 }
 
 @media (max-width: 1300px){

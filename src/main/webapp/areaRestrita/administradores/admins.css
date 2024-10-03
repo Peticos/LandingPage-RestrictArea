@@ -1,7 +1,9 @@
+@import url('/assets/global.css');
+
 *{
     margin: 0;
     padding: 0;
-    font-family: "Varela Round", serif;
+    font-family: var(--varela-round), serif;
 }
 
 html {
@@ -9,26 +11,6 @@ html {
 }
 input, textarea, button, select, a, label {
     -webkit-tap-highlight-color: transparent;
-}
-
-:root {
-    --water-blue: #2D8580;
-    --is-it-green: #2E6C56;
-    --asereje-yellow: #CF8C3D;
-    --wood-brown: #73482F;
-    --red-or-orange: #C54432;
-
-    --black: #252525;
-    --off-white: #F5EDF0;
-    --beige: #EBDFD3;
-
-    --water-blue-light: #80BFBB;
-    --is-it-green-light: #59B594;
-    --asereje-yellow-light: #E3B681;
-    --wood-brown-light: #BC8160;
-    --red-or-orange-light: #DB755F;
-
-    --shadow-pequena: 0 0 5px 2px rgba(0,0,0,.1);
 }
 
 nav{
@@ -62,7 +44,7 @@ nav ul li{
 }
 nav ul li:hover, #admin{
     background-color: var(--is-it-green-light);
-    box-shadow: 0 4px 2px 0px rgba(0,0,0,.1);
+    box-shadow: 0 4px 2px 0 rgba(0,0,0,.1);
     border-radius: 15px;
     margin-left: 15px;
     padding: 0 15px;

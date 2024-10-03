@@ -36,6 +36,6 @@ public class CarregarAdministradores extends HttpServlet {
         }
 
         request.setAttribute("administradores", administradores);
-        request.getRequestDispatcher("/areaRestrita/administradores/index.jsp").forward(request, response);
+        request.getRequestDispatcher("/areaRestrita/administradores/admins.jsp").forward(request, response);
     }
 }

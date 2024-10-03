@@ -1,7 +1,9 @@
+@import url('/assets/global.css');
+
 *{
     margin: 0;
     padding: 0;
-    font-family: "Varela Round", serif;
+    font-family: var(--varela-round), serif;
 }
 body{
     background-color: var(--off-white);
@@ -14,25 +16,6 @@ input, textarea, button, select, a, label {
     -webkit-tap-highlight-color: transparent;
 }
 
-:root {
-    --water-blue: #2D8580;
-    --is-it-green: #2E6C56;
-    --asereje-yellow: #CF8C3D;
-    --wood-brown: #73482F;
-    --red-or-orange: #C54432;
-
-    --black: #252525;
-    --off-white: #F5EDF0;
-    --beige: #EBDFD3;
-
-    --water-blue-light: #80BFBB;
-    --is-it-green-light: #59B594;
-    --asereje-yellow-light: #E3B681;
-    --wood-brown-light: #BC8160;
-    --red-or-orange-light: #DB755F;
-
-    --shadow-pequena: 0 0 5px 2px rgba(0,0,0,.1);
-}
 button, a{
     cursor: pointer;
 }
@@ -71,7 +54,7 @@ header .abas a{
     position: relative;
     color: var(--off-white);
     font-size: 25px;
-    font-family: "Lilita One";
+    font-family: var(--lilita-one), serif;
 }
 header .abas a::after{
     content: "";
@@ -115,7 +98,7 @@ header .perfil .info{
     color: var(--off-white);
 }
 header .perfil .info h3{
-    font-family: "Lilita One";
+    font-family: var(--lilita-one), serif;
     font-weight: normal;
     font-size: 20px;  
 }
@@ -191,7 +174,7 @@ nav:hover{
 }
 nav:hover ul{
     margin-top: 115px;
-    left: 0px;
+    left: 0;
 }
 nav:hover ul li a p{
     width: 200px;
@@ -259,7 +242,7 @@ nav:hover>img:last-of-type{
 }
 .header-filtro h1{
     width: 98%;
-    font-family: "Lilita One";
+    font-family: var(--lilita-one), serif;
     color: var(--asereje-yellow);
     font-weight: normal;
     font-size: 30px;
@@ -278,7 +261,7 @@ nav:hover>img:last-of-type{
     align-items: center;
 }
 .header-filtro .filtro-info h2{
-    font-family: "Lilita One";
+    font-family: var(--lilita-one), serif;
     color: var(--off-white);
     background-color: var(--asereje-yellow);
     padding: 10px 20px;
@@ -343,7 +326,7 @@ nav:hover>img:last-of-type{
     pointer-events: none;
 }
 #open-btn:checked ~ .filtro{
-    box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
+    box-shadow: 0 4px 4px 0 rgba(0, 0, 0, 0.25);
     bottom: -120px;
 }
 body:has(#open-btn:checked) table{
@@ -365,7 +348,7 @@ body:has(#open-btn:checked) table{
     gap: 20px;
 
     position: absolute;
-    bottom: 0px;
+    bottom: 0;
     transition: bottom .5s, box-shadow .5s;
 }
 .filtro .data{
@@ -388,7 +371,7 @@ body:has(#open-btn:checked) table{
 }
 .data h3, .id h3{
     position: absolute;
-    font-family: "Lilita One";
+    font-family: var(--lilita-one), serif;
     font-weight: normal;
     color: var(--asereje-yellow);
     box-sizing: border-box;
@@ -420,7 +403,7 @@ body:has(#open-btn:checked) table{
     font-size: 20px;
 }
 #dica-hoje{
-    padding: 0px 20px;
+    padding: 0 20px;
 }
 .acoes-filtro #adicionar{
     width: 40px;
@@ -438,74 +421,6 @@ body:has(#open-btn:checked) table{
     font-size: 20px;
 }
 
-.confirm-box-container{
-    pointer-events: all;
-    position: fixed;
-    top: 0;
-    left: 0;
-    z-index: 3;
-    width: 100%;
-    height: 100%;
-    background-color: rgba(0, 0, 0, 0.5);
-
-    display: flex;
-    justify-content: center;
-    align-items: center;
-}
-.confirm-box{
-    width: 30%;
-    min-height: 500px;
-    border-radius: 20px;
-    background-color: var(--off-white);
-    box-shadow: 0 4px 2px 0 rgba(0,0,0,.25);
-
-    display: flex;
-    flex-flow: column nowrap;
-    align-items: center;
-    justify-content: flex-start;
-}
-.confirm-box h1{
-    font-family: "Lilita One";
-    font-weight: normal;
-    color: var(--is-it-green);
-    font-size: 50px;
-    margin: 20px 0;
-}
-.confirm-box p{
-    width: 90%;
-    font-size: 20px;
-}
-.confirm-box img{
-    height: 400px;
-    margin: 10px 0;
-}
-.confirm-box form{
-    display: flex;
-    justify-content: space-evenly;
-    align-items: center;
-    width: 100%;
-    margin-top: auto;
-    padding: 20px 0;
-}
-.confirm-box form button{
-    cursor: pointer;
-    width: 40%;
-    height: 50px;
-    border: none;
-    border-radius: 10px;
-    font-size: 25px;
-    font-family: "Lilita One";
-    color: var(--off-white);
-    box-shadow: 0 4px 2px rgba(0, 0, 0, 0.25);
-}
-.confirm-box form button:first-of-type{
-    background-color: rgba(37, 37, 37, 0.4);
-    color: rgb(88, 88, 88);
-}
-.confirm-box form button:last-of-type{
-    background-color: var(--red-or-orange);
-}
-
 /* Tabela de Dicas */
 table{
     transition: margin-top .5s;
@@ -521,7 +436,7 @@ table tr:first-of-type.header-tabela{
     height: 60px;
 }
 .header-tabela th{
-    font-family: "Lilita One";
+    font-family: var(--lilita-one), serif;
     color: var(--off-white);
     font-size: 30px;
     font-weight: normal;
@@ -616,7 +531,7 @@ table td.acao{
     font-size: 40px;
     border-radius: 20px 20px 0 0;
     background-color: var(--is-it-green);
-    font-family: "Lilita One";
+    font-family: var(--lilita-one), serif;
     color: var(--off-white);
     font-weight: normal;
 
@@ -638,7 +553,7 @@ table td.acao{
     padding-left: 20px;
     font-size: 30px;
     color: var(--is-it-green);
-    font-family: "Lilita One";
+    font-family: var(--lilita-one), serif;
 }
 .form-input input, .form-input textarea{
     width: 100%;
@@ -677,7 +592,7 @@ table td.acao{
     min-width: 170px;
     border-radius: 10px;
     border: none;
-    font-family: "Lilita One";
+    font-family: var(--lilita-one), serif;
     font-size: 30px;
 }
 .actions label{
@@ -710,7 +625,7 @@ table td.acao{
     align-items: center;
 }
 #message-box p{
-    font-family: "Lilita One", serif;
+    font-family: var(--lilita-one), serif;
     font-size: 30px;
     color: var(--asereje-yellow);
 }

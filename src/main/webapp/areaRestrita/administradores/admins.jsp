@@ -1,22 +1,14 @@
 <%@ page import="java.util.List" %>
-<%@ page import="com.peticos.Model.Categoria" %>
+<%@ page import="com.peticos.Model.Administrador" %>
 <%@ page contentType="text/html;charset=UTF-8" %>
 <!DOCTYPE html>
 <html lang="pt-br">
 <head>
-    <!-- Lilita One & Varela Round (fontes da página) -->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <!-- Varela Round -->
-    <link href="https://fonts.googleapis.com/css2?family=Lilita+One&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Varela+Round&display=swap" rel="stylesheet">
-    <!-- Lilita One -->
-    <link href="https://fonts.googleapis.com/css2?family=Lilita+One&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Varela+Round&display=swap" rel="stylesheet">
-
     <!-- Ícone -->
     <link rel="icon" href="../../assets/images/logo_app_branco.png">
 
     <!-- CSS -->
-    <link rel="stylesheet" href="../../assets/styles/dicas.css">
+    <link rel="stylesheet" href="admins.css">
 
     <!-- Scripts (JS) -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
@@ -24,7 +16,7 @@
 
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Categoria Postagens - Área Restrita - Peticos</title>
+    <title>Administradores - Área Restrita - Peticos</title>
 </head>
 <body>
 <nav>
@@ -65,10 +57,10 @@
     <div class="content-container">
         <hr>
         <div class="add-container">
-            <h1>Categoria Postagens</h1>
+            <h1>Administradores</h1>
             <button>
                 <img src="../../assets/images/add.svg" alt="">
-                Adicionar Categoria
+                Adicionar Admin
             </button>
         </div>
         <%
@@ -81,24 +73,26 @@
             }
         %>
         <%
-            List<Categoria> categorias = (List<Categoria>) request.getAttribute("categorias");
-            if (categorias !=null && !categorias.isEmpty()){
+            List<Administrador> administradores = (List<Administrador>) request.getAttribute("administradores");
+            if (administradores !=null && !administradores.isEmpty()){
 
         %>
         <table class="dicas" cellspacing="0">
             <tr>
                 <th>Id</th>
                 <th>Nome</th>
+                <th>E-mail</th>
                 <th>Ações</th>
             </tr>
             <%
-                for (int i = 0; i < categorias.size(); i++) {
+                for (int i = 0; i < administradores.size(); i++) {
 
             %>
             <tr>
-                <td class="titulo"><%=categorias.get(i).getId()%></td>
-                <td class="texto center"><%=categorias.get(i).getNome()%></td>
-                <td class="acao center" id="<%=categorias.get(i).getId()%>">
+                <td class="titulo"><%=administradores.get(i).getId()%></td>
+                <td class="texto"><%=administradores.get(i).getNome()%></td>
+                <td class="link"><%=administradores.get(i).getEmail()%></td>
+                <td class="acao center" id="<%=administradores.get(i).getId()%>">
                     <button class="edit">
                         <img src="../../assets/images/edit.svg" alt="">
                     </button>
@@ -114,7 +108,7 @@
         <%
         } else{
         %>
-        <h2>Sem categrias disponíveis...</h2>
+        <h2>Sem administradores disponíveis...</h2>
         <%
             }
         %>
