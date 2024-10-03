@@ -34,6 +34,7 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
     <script src="../../assets/scripts/remover.js" defer></script>
     <script src="../../assets/scripts/filtros.js" defer></script>
+    <script src="../../assets/scripts/editar.js" defer></script>
 
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -41,6 +42,7 @@
 </head>
 <body>
 <input type="checkbox" id="adicionar-btn" name="adicionar-btn">
+<input type="checkbox" id="editar-btn" name="editar-btn">
 <header>
     <div class="abas">
         <a href="">CRUD</a>
@@ -188,9 +190,9 @@
                 <td class="link"><%=dicas.get(i).getLink()%></td>
                 <td class="data-tabela"><%=dicas.get(i).getFormatedData()%></td>
                 <td class="acao">
-                    <button class="edit">
+                    <label for="editar-btn" class="edit">
                         <img src="../../assets/images/edit.svg" alt="">
-                    </button>
+                    </label>
                     <button class="remove">
                         <img src="../../assets/images/remove.svg" alt="">
                     </button>
@@ -235,11 +237,36 @@
         </div>
     </form>
 </div>
+<div class="edit-container">
+    <form action="dicasDoDia/editar" method="post" id="form-editar">
+        <h1>Editar Dica Do Dia</h1>
+        <div class="form-input">
+            <label for="titulo">Título</label>
+            <input type="text" name="titulo" id="titulo-e" placeholder="Como cuidar do seu cachorrinho que está doente?" required>
+        </div>
+        <div class="form-input">
+            <label for="texto">Texto</label>
+            <textarea name="texto" id="texto-e" cols="30" rows="10" placeholder="Os cães são ótimos companheiros e gostam..." required></textarea>
+        </div>
+        <div class="form-input">
+            <label for="link">Link</label>
+            <input type="text" name="link" id="link-e" placeholder="https://peticos.com.br/caes" required>
+        </div>
+        <div class="form-input">
+            <label for="data">Data</label>
+            <input type="date" name="data" id="data-e" required>
+        </div>
+        <input type="number" name="id" id="id-e" hidden="hidden" readonly>
+        <div class="actions">
+            <label for="editar-btn" id="cancelar-edicao">Cancelar</label>
+            <input type="submit" value="Salvar">
+        </div>
+    </form>
+</div>
 <script>
-    document.getElementById('form-adicionar').addEventListener("submit", function (e){
-        const submitButton = document.querySelector('input[type="submit"]');
-        submitButton.disabled = true;
-    })
+    $('form').submit(function(){
+        $('input[type=submit]', this).attr('disabled', 'disabled');
+    });
 </script>
 </body>
 </html>

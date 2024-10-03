@@ -1,7 +1,21 @@
 const table = document.querySelector("table tbody");
 const rows = table.getElementsByTagName("tr");
 
+function limparDatas(){
+    $("#data-inicio").val("")
+    $("#data-fim").val("")
+}
+function limparID(){
+    $(".id")[0].querySelector("input").value = "";
+}
+function limparFiltros(){
+    limparDatas();
+    limparID();
+}
+
 function filterTable() {
+    limparFiltros();
+
     let input, filter, table, tr, td, i, txtValue;
     input = document.querySelector(".pesquisar input"); // Input de pesquisa
     filter = input.value.toUpperCase();
@@ -13,7 +27,7 @@ function filterTable() {
         if (td) {
             txtValue = td.textContent || td.innerText;
             if (txtValue.toUpperCase().indexOf(filter) > -1) {
-                tr[i].style.display = "";
+                tr[i].style.display = "grid";
             } else {
                 tr[i].style.display = "none";
             }
@@ -23,7 +37,9 @@ function filterTable() {
 function filterByDate() {
     const startDate = new Date(document.getElementById("data-inicio").value);
     const endDate = new Date(document.getElementById("data-fim").value);
-    console.log("Start date: "+startDate)
+
+    limparID();
+
     for (let i = 1; i < rows.length; i++) {
         const dateCell = rows[i].getElementsByTagName("td")[4]; // Coluna de Data
         const dataTexto = dateCell.innerHTML;
@@ -33,9 +49,8 @@ function filterByDate() {
         const dataFormatada = ano + "-" + mes + "-" + dia;
         const rowDate = new Date(dataFormatada);
 
-        console.log("Row date: "+rowDate)
         if (rowDate >= startDate && rowDate <= endDate) {
-            rows[i].style.display = "";
+            rows[i].style.display = "grid";
         } else {
             rows[i].style.display = "none";
         }
@@ -49,6 +64,8 @@ document.querySelector(".pesquisar input").addEventListener("keyup", filterTable
 
 // Dica De Hoje
 document.getElementById("dica-hoje").addEventListener("click", function (){
+    limparFiltros();
+
     let hoje = new Date();
     hoje = String(hoje.toISOString().split('T')[0])
 
@@ -70,10 +87,25 @@ document.getElementById("dica-hoje").addEventListener("click", function (){
     }
 })
 
+// Filtrar pelo id
+$(".id")[0].querySelector("input").addEventListener("keyup", function (){
+    limparDatas();
+
+    console.log(this.value)
+    for (let i = 1; i < rows.length; i++) {
+        if (rows[i].getElementsByTagName("td")[0].innerText!==this.value){
+            rows[i].style.display = "none";
+            console.log()
+        } else{
+            rows[i].style.display = "grid";
+        }
+    }
+});
+
 // Parar os filtros
 document.getElementById("parar-filtro").addEventListener("click", function (){
     if ($('#open-btn').is(":checked")){
-        console.log("Limpando filtros");
+        limparFiltros();
 
         for (let i = 1; i < rows.length; i++) {
             rows[i].style.display = "grid";
