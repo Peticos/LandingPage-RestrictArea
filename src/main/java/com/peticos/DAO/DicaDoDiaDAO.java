@@ -27,7 +27,7 @@ public class DicaDoDiaDAO {
             return conexao.pstmt.executeUpdate();
         } catch (SQLException e) {
             e.printStackTrace();
-            if (e.getMessage().contains("data_unica")){
+            if (e.getMessage().contains("data_repetida")){
                 return -2;
             }
             return -1;

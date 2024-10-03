@@ -22,6 +22,7 @@ public class AdicionarDicaDoDia extends HttpServlet {
         DicaDoDiaDAO dao = new DicaDoDiaDAO();
         int sucesso = dao.inserirDicaDoDia(titulo, texto, link, data);
         String message;
+        System.out.println(sucesso);
         if (sucesso > 0) {
             message = "Dica adicionada com sucesso!";
         } else if (sucesso == 0) {

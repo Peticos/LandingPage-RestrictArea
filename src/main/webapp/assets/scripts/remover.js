@@ -1,61 +1,31 @@
-$(".remove").click(function (){
+$(".remove").click(function () {
     let id = Number(this.parentElement.parentElement.children[0].innerText);
 
     let container = document.createElement("div");
     container.className = 'confirm-box-container';
 
-    let confirmBox = document.createElement("div");
-    confirmBox.className = 'confirm-box';
+    container.innerHTML = `
+        <div class="confirm-box">
+            <h1>Confirmar ação</h1>
+            <p>Você tem certeza que deseja excluir essa dica?</p>
+            <img src="../../assets/images/ModolinhoCorpoCompleto.png" alt="Imagem">
+            <form action="dicasDoDia/remover" method="post" class="confirm-form">
+                <input type="hidden" name="id_dica" class="id_dica" value="${id}" readonly>
+                <button type="button" class="cancelar">Cancelar</button>
+                <button type="submit" class="confirmar">Excluir</button>
+            </form>
+        </div>
+    `;
 
-    let textoConfirmar = document.createElement("h1");
-    textoConfirmar.innerText = 'Confirmar ação';
+    document.body.appendChild(container);
 
-    let pTexto = document.createElement("p");
-    pTexto.innerText = 'Você tem certeza que deseja excluir essa dica?';
-
-    let imagem = document.createElement("img");
-    imagem.src = '../../assets/images/ModolinhoCorpoCompleto.png';
-
-    let form = document.createElement("form")
-    form.action = 'dicasDoDia/remover'
-    form.method='post'
-    form.className = 'confirm-form';
-
-    let idBox = document.createElement("input")
-    idBox.className = 'id_dica'
-    idBox.setAttribute("type", "hidden");
-    idBox.setAttribute("name", "id_dica");
-    idBox.readOnly = true;
-    idBox.value = id;
-
-    let btnCancelar = document.createElement("button");
-    btnCancelar.innerText = 'Cancelar';
-    btnCancelar.setAttribute("type", "button");
-    btnCancelar.className = 'cancelar';
-
-    let btnExcluir = document.createElement("button");
-    btnExcluir.innerText = 'Excluir';
-    btnExcluir.setAttribute("type", "submit");
-    btnExcluir.className = 'confirmar'
-
-    container.appendChild(confirmBox);
-
-    confirmBox.appendChild(textoConfirmar);
-    confirmBox.appendChild(pTexto);
-    confirmBox.appendChild(imagem);
-    confirmBox.appendChild(form);
-
-    form.appendChild(idBox);
-    form.appendChild(btnCancelar);
-    form.appendChild(btnExcluir);
-
-    document.body.appendChild(container)
-
-    btnCancelar.addEventListener("click", function (){
+    // Adiciona os eventos
+    container.querySelector(".cancelar").addEventListener("click", function () {
         container.remove();
-    })
-    btnExcluir.addEventListener("click", function (){
-        btnExcluir.style.pointerEvents = "none"
-        btnCancelar.style.pointerEvents = "none"
-    })
-})
+    });
+
+    container.querySelector(".confirmar").addEventListener("click", function () {
+        this.style.pointerEvents = "none";
+        container.querySelector(".cancelar").style.pointerEvents = "none";
+    });
+});

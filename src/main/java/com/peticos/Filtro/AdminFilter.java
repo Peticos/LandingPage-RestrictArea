@@ -13,7 +13,7 @@ public class AdminFilter implements Filter {
         HttpServletRequest httpRequest = (HttpServletRequest) request;
         HttpServletResponse httpResponse = (HttpServletResponse) response;
         HttpSession sessao = httpRequest.getSession(false);
-
+    
         if (sessao == null || sessao.getAttribute("admin") == null) {
             // Usuário não é administrador, redirecionar para página de login
             httpRequest.getSession().setAttribute("erro", "Você precisa ser um administrador para acessar essa página!");
