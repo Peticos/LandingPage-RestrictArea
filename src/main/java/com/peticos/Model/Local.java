@@ -1,4 +1,4 @@
-package com.peticos.AreaRestrita.Local;
+package com.peticos.Model;
 
 public class Local {
     private int id_local;

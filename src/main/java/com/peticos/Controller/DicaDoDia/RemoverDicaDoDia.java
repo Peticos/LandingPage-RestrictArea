@@ -1,5 +1,6 @@
-package com.peticos.AreaRestrita.DicaDoDia;
+package com.peticos.Controller.DicaDoDia;
 
+import com.peticos.DAO.DicaDoDiaDAO;
 import jakarta.servlet.ServletException;
 import jakarta.servlet.annotation.WebServlet;
 import jakarta.servlet.http.HttpServlet;
@@ -7,8 +8,6 @@ import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 
 import java.io.IOException;
-import java.net.URLEncoder;
-import java.nio.charset.StandardCharsets;
 
 @WebServlet(name = "RemoverDicaDoDia", value = "/areaRestrita/dicasDoDia/remover")
 public class RemoverDicaDoDia extends HttpServlet {
@@ -18,14 +17,19 @@ public class RemoverDicaDoDia extends HttpServlet {
 
         DicaDoDiaDAO dao = new DicaDoDiaDAO();
         int removerDicaDoDia = dao.removerDicaDoDia(id);
-        String retorno;
-        if (removerDicaDoDia>0){
-            retorno = "Dica excluída com sucesso!";
-        } else if (removerDicaDoDia==0){
-            retorno = "Não foi possível excluir essa dica (dica não existente)!";
+        String message;
+        if (removerDicaDoDia > 0) {
+            message = "Dica excluída com sucesso!";
+        } else if (removerDicaDoDia == 0) {
+            message = "A dica não foi removida..";
         } else {
-            retorno = "Erro ao excluir dica (Verifique o back-end para mais informações)!";
+            message = "Erro ao excluir a dica!";
         }
-        response.sendRedirect("/areaRestrita/dicasDoDia?retorno=" + URLEncoder.encode(retorno, StandardCharsets.UTF_8));
+
+        // Armazenar a mensagem na sessão
+        request.getSession(false).setAttribute("message", message);
+
+        // Redirecionar para o servlet que carrega as dicas
+        response.sendRedirect("/areaRestrita/dicasDoDia");
     }
 }

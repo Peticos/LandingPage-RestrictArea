@@ -1,13 +1,15 @@
-package com.peticos.AreaRestrita.DicaDoDia;
+package com.peticos.Model;
+
+import java.sql.Date;
 
 public class DicaDoDia {
     private int id;
     private String titulo;
     private String texto;
     private String link;
-    private String data;
+    private Date data;
 
-    public DicaDoDia(int id, String titulo, String texto, String link, String data) {
+    public DicaDoDia(int id, String titulo, String texto, String link, Date data) {
         this.id = id;
         this.titulo = titulo;
         this.texto = texto;
@@ -31,7 +33,14 @@ public class DicaDoDia {
         return link;
     }
 
-    public String getData() {
+    public Date getData() {
         return data;
+    }
+    public String getFormatedData() {
+        String data = this.data.toString();
+        String ano = data.substring(0,4);
+        String mes = data.substring(5,7);
+        String dia = data.substring(8);
+        return dia+"/"+mes+"/"+ano;
     }
 }

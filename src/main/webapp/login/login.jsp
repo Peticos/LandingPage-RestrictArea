@@ -1,7 +1,7 @@
 <%@ page contentType="text/html;charset=UTF-8" %>
 <%
     if (request.getSession(false).getAttribute("admin")!=null){
-        response.sendRedirect("/areaRestrita/index.jsp");
+        response.sendRedirect("/areaRestrita/dicasDoDia");
     }
     String mensagemDeErro = "";
     if (request.getAttribute("erro")!=null){
@@ -100,7 +100,7 @@
             </a>
         </li>
         <li>
-            <a href="${pageContext.request.contextPath}/login/login.jsp"> <!--Deve levar para a área restrita-->
+            <a href="login/login.jsp"> <!--Deve levar para a área restrita-->
                 <img src="../assets/images/restrictArea.svg" alt="">
             </a>
         </li>

@@ -1,5 +1,7 @@
-package com.peticos.AreaRestrita.Local;
+package com.peticos.Controller.Local;
 
+import com.peticos.DAO.LocalDAO;
+import com.peticos.Model.Local;
 import jakarta.servlet.ServletException;
 import jakarta.servlet.annotation.WebServlet;
 import jakarta.servlet.http.HttpServlet;

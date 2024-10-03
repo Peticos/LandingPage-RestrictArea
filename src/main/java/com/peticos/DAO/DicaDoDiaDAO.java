@@ -1,7 +1,9 @@
-package com.peticos.AreaRestrita.DicaDoDia;
+package com.peticos.DAO;
 
-import com.peticos.Conexao;
+import com.peticos.Model.Conexao;
+import com.peticos.Model.DicaDoDia;
 
+import java.sql.Date;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 
@@ -12,7 +14,7 @@ public class DicaDoDiaDAO {
         this.conexao = new Conexao();
     }
 
-    public int inserirDicaDoDia(String titulo, String texto, String link, String data) {
+    public int inserirDicaDoDia(String titulo, String texto, String link, Date data) {
         conexao.conectar();
         try{
             conexao.pstmt = conexao.conn.prepareStatement("INSERT INTO dica_do_dia(titulo, texto, link, data) VALUES (?,?,?,?)");
@@ -20,11 +22,14 @@ public class DicaDoDiaDAO {
             conexao.pstmt.setString(1, titulo);
             conexao.pstmt.setString(2, texto);
             conexao.pstmt.setString(3, link);
-            conexao.pstmt.setString(4, data);
+            conexao.pstmt.setDate(4, data);
 
             return conexao.pstmt.executeUpdate();
         } catch (SQLException e) {
             e.printStackTrace();
+            if (e.getMessage().contains("data_unica")){
+                return -2;
+            }
             return -1;
         } finally {
             conexao.desconectar();
@@ -53,7 +58,7 @@ public class DicaDoDiaDAO {
             conexao.pstmt.setString(1, dica.getTitulo());
             conexao.pstmt.setString(2, dica.getTexto());
             conexao.pstmt.setString(3, dica.getLink());
-            conexao.pstmt.setString(4, dica.getData());
+            conexao.pstmt.setDate(4, dica.getData());
             conexao.pstmt.setInt(5, dica.getId());
 
             return conexao.pstmt.executeUpdate();
@@ -75,7 +80,7 @@ public class DicaDoDiaDAO {
                 String titulo = conexao.rs.getString("titulo");
                 String texto = conexao.rs.getString("texto");
                 String link = conexao.rs.getString("link");
-                String data = conexao.rs.getString("data");
+                Date data = conexao.rs.getDate("data");
                 return new DicaDoDia(id, titulo, texto, link, data);
             } else {
                 return null;

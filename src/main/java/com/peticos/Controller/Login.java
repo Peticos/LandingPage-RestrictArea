@@ -1,7 +1,7 @@
-package com.peticos.AreaRestrita;
+package com.peticos.Controller;
 
-import com.peticos.AreaRestrita.Administrador.Administrador;
-import com.peticos.AreaRestrita.Administrador.AdministradorDAO;
+import com.peticos.Model.Administrador;
+import com.peticos.DAO.AdministradorDAO;
 import jakarta.servlet.ServletException;
 import jakarta.servlet.annotation.WebServlet;
 import jakarta.servlet.http.HttpServlet;

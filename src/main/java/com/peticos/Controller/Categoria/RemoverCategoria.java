@@ -1,5 +1,6 @@
-package com.peticos.AreaRestrita.Categoria;
+package com.peticos.Controller.Categoria;
 
+import com.peticos.DAO.CategoriaDAO;
 import jakarta.servlet.ServletException;
 import jakarta.servlet.annotation.WebServlet;
 import jakarta.servlet.http.HttpServlet;
@@ -7,7 +8,7 @@ import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 
 import java.io.IOException;
-import java.sql.SQLException;
+
 @WebServlet(name = "removercategoria", value = "/areaRestrita/categoriaPostagens/remover")
 public class RemoverCategoria extends HttpServlet {
     @Override

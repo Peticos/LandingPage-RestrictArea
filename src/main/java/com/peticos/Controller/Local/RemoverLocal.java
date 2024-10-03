@@ -1,6 +1,6 @@
-package com.peticos.AreaRestrita.Local;
+package com.peticos.Controller.Local;
 
-import com.peticos.AreaRestrita.DicaDoDia.DicaDoDiaDAO;
+import com.peticos.DAO.DicaDoDiaDAO;
 import jakarta.servlet.annotation.WebServlet;
 import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;

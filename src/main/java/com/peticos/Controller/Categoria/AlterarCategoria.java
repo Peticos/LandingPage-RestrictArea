@@ -1,5 +1,6 @@
-package com.peticos.AreaRestrita.Categoria;
+package com.peticos.Controller.Categoria;
 
+import com.peticos.DAO.CategoriaDAO;
 import jakarta.servlet.annotation.WebServlet;
 import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;

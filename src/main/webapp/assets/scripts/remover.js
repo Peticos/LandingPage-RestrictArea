@@ -1,8 +1,5 @@
 $(".remove").click(function (){
-    let id = Number(this.parentElement.getAttribute("id"));
-    console.log(this)
-    console.log(this.parentElement)
-    console.log(id)
+    let id = Number(this.parentElement.parentElement.children[0].innerText);
 
     let container = document.createElement("div");
     container.className = 'confirm-box-container';

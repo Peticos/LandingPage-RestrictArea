@@ -1,6 +1,7 @@
-package com.peticos.AreaRestrita.Categoria;
+package com.peticos.DAO;
 
-import com.peticos.Conexao;
+import com.peticos.Model.Conexao;
+import com.peticos.Model.Categoria;
 
 import java.sql.ResultSet;
 import java.sql.SQLException;

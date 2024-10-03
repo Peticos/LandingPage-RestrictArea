@@ -1,4 +1,4 @@
-package com.peticos.AreaRestrita.Categoria;
+package com.peticos.Model;
 
 public class Categoria {
     private int id_categoria;

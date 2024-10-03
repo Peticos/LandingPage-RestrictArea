@@ -1,4 +1,4 @@
-package com.peticos.AreaRestrita.Administrador;
+package com.peticos.Model;
 
 public class Administrador {
     private int id;

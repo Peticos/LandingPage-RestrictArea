@@ -1,15 +1,14 @@
-package com.peticos.AreaRestrita.Categoria;
+package com.peticos.Controller.Categoria;
 
+import com.peticos.DAO.CategoriaDAO;
+import com.peticos.Model.Categoria;
 import jakarta.servlet.ServletException;
 import jakarta.servlet.annotation.WebServlet;
 import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
-import kotlin.ResultKt;
-import kotlin.collections.ArrayDeque;
 
 import java.io.IOException;
-import java.io.Serial;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;

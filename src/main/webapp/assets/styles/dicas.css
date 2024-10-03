@@ -46,7 +46,7 @@ header{
     position: fixed;
     top: 0;
     left: 0;
-    z-index: 1;
+    z-index: 2;
     background-color: var(--is-it-green);
     height: 80px;
 
@@ -220,28 +220,34 @@ nav:hover>img:last-of-type{
 .container{
     margin-top: 80px;
     width: 100%;
-    height: 100vh;
-
+    height: fit-content;
+    
     display: flex;
     flex-flow: column nowrap;
     justify-content: flex-start;
     align-items: center;
 }
 .spacing{
-    height: 100vh;
     min-width: 80px;
 }
 
 /* Caixa de filtros */
+.filtro-container *{
+    user-select: none;
+}
 .filtro-container{
+    position: relative;
     margin-top: 50px;
     width: 90%;
-    background-color: var(--beige);
-    height: 300px;
-    border-radius: 20px;
-    box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
+    min-height: 180px;
 }
 .header-filtro{
+    position: absolute;
+    top: 0;
+    width: 100%;
+    height: 180px;
+    z-index: 1;
+
     display: flex;
     flex-flow: column nowrap;
     align-items: center;
@@ -250,7 +256,6 @@ nav:hover>img:last-of-type{
     background-color: var(--beige);
     box-shadow: 0 4px 4px 0 rgba(0, 0, 0, 0.25);
     border-radius: 20px;
-    height: 60%;
 }
 .header-filtro h1{
     width: 98%;
@@ -282,15 +287,18 @@ nav:hover>img:last-of-type{
     margin-left: 20px;
 }
 .acoes-filtro{
+    margin-right: 20px;
     height: 100%;
-    width: 30%;
+    width: fit-content;
     display: flex;
     justify-content: space-around;
     align-items: center;
+    gap: 20px;
 }
-.acoes-filtro button{
-    height: 45px;
-    width: 45px;
+.acoes-filtro label{
+    cursor: pointer;
+    min-height: 45px;
+    min-width: 45px;
     border: none;
     border-radius: 10px;
     background-color: var(--wood-brown);
@@ -327,18 +335,41 @@ nav:hover>img:last-of-type{
     right: 20px;
 }
 
+/* Abrir/Fechar filtros */
+#open-btn{
+    display: none;
+}
+#open-btn:checked ~ .header-filtro #filtrar, #open-btn:not(:checked) ~ .header-filtro #parar-filtro{
+    pointer-events: none;
+}
+#open-btn:checked ~ .filtro{
+    box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
+    bottom: -120px;
+}
+body:has(#open-btn:checked) table{
+    margin-top: 150px;
+}
+
 /* Filtros */
 .filtro{
+    background-color: var(--beige);
+    padding-top: 50px;
+    border-radius: 20px;
+
     width: 100%;
-    height: 40%;
+    height: 120px;
 
     display: flex;
     justify-content: flex-start;
     align-items: center;
     gap: 20px;
 
-    box-sizing: border-box;
-    padding-left: 20px;
+    position: absolute;
+    bottom: 0px;
+    transition: bottom .5s, box-shadow .5s;
+}
+.filtro .data{
+    margin-left: 20px;
 }
 .filtro input{
     height: 40px;
@@ -379,6 +410,7 @@ nav:hover>img:last-of-type{
     width: min(100px, 10vw);
 }
 .filtro button{
+    cursor: pointer;
     height: 40px;
     border: none;
     border-radius: 10px;
@@ -390,11 +422,20 @@ nav:hover>img:last-of-type{
 #dica-hoje{
     padding: 0px 20px;
 }
-#adicionar{
+.acoes-filtro #adicionar{
     width: 40px;
     display: flex;
     justify-content: center;
     align-items: center;
+
+    cursor: pointer;
+    height: 40px;
+    border: none;
+    border-radius: 10px;
+    background-color: var(--asereje-yellow);
+    color: var(--off-white);
+    box-shadow: 2px 2px 4px 0 rgba(0, 0, 0, 0.25);
+    font-size: 20px;
 }
 
 .confirm-box-container{
@@ -463,4 +504,213 @@ nav:hover>img:last-of-type{
 }
 .confirm-box form button:last-of-type{
     background-color: var(--red-or-orange);
+}
+
+/* Tabela de Dicas */
+table{
+    transition: margin-top .5s;
+    margin-top: 30px;
+    margin-bottom: 30px;
+    width: 90%;
+
+    border-radius: 20px 20px 0 0 ;
+    overflow: hidden;
+}
+table tr:first-of-type.header-tabela{
+    background-color: var(--asereje-yellow);
+    height: 60px;
+}
+.header-tabela th{
+    font-family: "Lilita One";
+    color: var(--off-white);
+    font-size: 30px;
+    font-weight: normal;
+}
+table tr{
+    display: grid;
+    grid-template-columns: 0.2fr 0.7fr 1fr 1fr 0.3fr 0.3fr;
+    align-items: center;
+    gap: 20px;
+    height: 50px;
+    padding: 0 15px;
+}
+.id-dica, .acao{
+    text-align: center;
+}
+table tr td, table tr th{
+    text-align: left;
+    font-size: 20px;
+
+    text-wrap: nowrap;
+    text-overflow: ellipsis;
+    overflow: hidden;
+}
+table tr:nth-child(even){
+    background-color: #EFDEDA;
+}
+table tr:nth-child(odd){
+    background-color: #F6E7E2;
+}
+table td.acao{
+    overflow: visible;
+}
+.acao{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 15px;
+}
+.acao button{
+    min-height: 40px;
+    min-width: 40px;
+    border: none;
+    border-radius: 10px;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.acao button:first-of-type{
+    background-color: var(--is-it-green-light);
+}
+.acao button:last-of-type{
+    background-color: var(--red-or-orange-light);
+}
+.acao button img{
+    width: 24px;
+    height: 24px;
+}
+
+/* Adicionar Dica */
+.form-container{
+    position: fixed;
+    z-index: 3;
+    left: 0;
+    top: 0;
+
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+
+    display: none;
+    justify-content: center;
+    align-items: center;
+}
+#form-adicionar{
+    background-color: var(--off-white);
+    width: 50%;
+    min-height: 800px;
+
+    border-radius: 20px;
+    overflow: hidden;
+
+    display: flex;
+    flex-flow: column nowrap;
+    align-items: center;
+    justify-content: flex-start;
+    gap: 20px;
+}
+#form-adicionar h1{
+    width: 100%;
+    height: 70px;
+    font-size: 40px;
+    border-radius: 20px 20px 0 0;
+    background-color: var(--is-it-green);
+    font-family: "Lilita One";
+    color: var(--off-white);
+    font-weight: normal;
+
+    line-height: 70px;
+    box-sizing: border-box;
+    padding-left: 50px;
+}
+.form-input{
+    width: 90%;
+    height: 100px;
+
+    display: flex;
+    flex-flow: column nowrap;
+    justify-content: flex-start;
+    align-items: flex-start;
+}
+.form-input label{
+    box-sizing: border-box;
+    padding-left: 20px;
+    font-size: 30px;
+    color: var(--is-it-green);
+    font-family: "Lilita One";
+}
+.form-input input, .form-input textarea{
+    width: 100%;
+    height: 100%;
+    border: 1px solid rgba(25, 25, 25, 0.3);
+    box-shadow: 0 4px 2px 0 rgba(0, 0, 0, 0.25);
+    border-radius: 10px;
+    outline: none;
+    font-size: 20px;
+    box-sizing: border-box;
+    padding-left: 20px;
+}
+.form-input textarea{
+    resize: none;
+    padding-top: 20px;
+}
+.form-input input[type="date"]{
+    padding-right: 20px;
+}
+.form-input:nth-child(3){
+    height: 200px;
+}
+.actions{
+    margin-top: auto;
+    width: 100%;
+    height: 120px;
+
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    gap: 20px;
+    margin-right: 40px;
+}
+.actions label, .actions input{
+    height: 60px;
+    min-width: 170px;
+    border-radius: 10px;
+    border: none;
+    font-family: "Lilita One";
+    font-size: 30px;
+}
+.actions label{
+    cursor: pointer;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+#cancelar{
+    background-color: #CACACA;
+    color: #6A6A6A;
+}
+.actions input{
+    cursor: pointer;
+    background-color: var(--water-blue);
+    color: var(--off-white);
+}
+
+/* Abrir/Fechar o menu de adicionar dica */
+#adicionar-btn:checked ~ .form-container{
+    display: flex;
+}
+
+/* Message Box */
+#message-box{
+    margin-top: 30px;
+    height: 50px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+#message-box p{
+    font-family: "Lilita One", serif;
+    font-size: 30px;
+    color: var(--asereje-yellow);
 }

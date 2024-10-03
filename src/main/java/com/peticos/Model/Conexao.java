@@ -1,7 +1,6 @@
-package com.peticos;
+package com.peticos.Model;
 
 import java.sql.*;
-import io.github.cdimascio.dotenv.Dotenv;
 
 public class Conexao {
 
@@ -11,7 +10,7 @@ public class Conexao {
 
     public boolean conectar() {
         try{
-            String dbUrl = "jdbc:postgresql://db-peticos-cardosogih.k.aivencloud.com:16207/defaultdb";
+            String dbUrl = "jdbc:postgresql://db-peticos-cardosogih.k.aivencloud.com:16207/dbPeticos_1ano";
             String dbUser = "avnadmin";
             String dbPassword = "AVNS_-5W7guGY9QRwA4NOolM";
 

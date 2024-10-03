@@ -1,5 +1,5 @@
 <%@ page import="java.util.List" %>
-<%@ page import="com.peticos.AreaRestrita.Categoria.Categoria" %>
+<%@ page import="com.peticos.Model.Categoria" %>
 <%@ page contentType="text/html;charset=UTF-8" %>
 <!DOCTYPE html>
 <html lang="pt-br">
@@ -20,7 +20,7 @@
 
     <!-- Scripts (JS) -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
-    <script src="../../assets/scripts/confirmBox.js" defer></script>
+    <script src="../../assets/scripts/remover.js" defer></script>
 
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
