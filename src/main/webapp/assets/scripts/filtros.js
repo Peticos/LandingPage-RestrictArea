@@ -69,7 +69,6 @@ document.getElementById("dica-hoje").addEventListener("click", function (){
     let hoje = new Date();
     hoje = String(hoje.toISOString().split('T')[0])
 
-    console.log("Hoje: "+hoje)
     for (let i = 1; i < rows.length; i++) {
         const dateCell = rows[i].getElementsByTagName("td")[4];
         const dataTexto = dateCell.innerHTML;
@@ -77,7 +76,6 @@ document.getElementById("dica-hoje").addEventListener("click", function (){
         const mes = dataTexto.substring(3, 5);
         const ano = dataTexto.substring(6);
         const dataFormatada = String(ano + "-" + mes + "-" + dia);
-        console.log("Row date: "+dataFormatada)
 
         if (dataFormatada !== hoje){
             rows[i].style.display = "none";

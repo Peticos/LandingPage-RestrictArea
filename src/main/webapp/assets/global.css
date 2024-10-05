@@ -163,6 +163,7 @@ footer>p{
     margin: 20px 0;
 }
 .confirm-box p{
+    text-align: center;
     width: 90%;
     font-size: 20px;
 }

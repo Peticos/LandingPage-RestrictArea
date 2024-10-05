@@ -29,6 +29,8 @@ public class EditarDicaDoDia extends HttpServlet {
             message = "Dica alterada com sucesso!";
         } else if (sucesso == 0) {
             message = "A dica não foi alterada..";
+        } else if (sucesso == -2) {
+            message = "Já existe um dica com essa data!";
         } else {
             message = "Erro ao adicionar dica!";
         }

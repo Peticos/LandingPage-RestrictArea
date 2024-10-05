@@ -63,7 +63,11 @@ public class DicaDoDiaDAO {
 
             return conexao.pstmt.executeUpdate();
         } catch (SQLException e) {
-            throw new RuntimeException(e);
+            e.printStackTrace();
+            if (e.getMessage().contains("data_repetida")){
+                return -2;
+            }
+            return -1;
         } finally {
             conexao.desconectar();
         }
