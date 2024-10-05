@@ -1,5 +1,7 @@
 <%@ page import="java.util.List" %>
 <%@ page import="com.peticos.Model.Categoria" %>
+<%@ page import="com.peticos.Model.Administrador" %>
+<%@ page import="com.peticos.DAO.AdministradorDAO" %>
 <%@ page contentType="text/html;charset=UTF-8" %>
 <%
     List<Categoria> categorias = (List<Categoria>) request.getAttribute("categorias");
@@ -32,12 +34,16 @@
         <a href="">Dashboard</a>
     </div>
     <div class="perfil">
+        <%
+            AdministradorDAO dao = new AdministradorDAO();
+            Administrador admin = dao.getAdmin((String) request.getSession(false).getAttribute("admin"));
+        %>
         <div class="foto">
-
+            <%=admin.getPrimeiroNome().charAt(0)%>
         </div>
         <div class="info">
-            <h3>Isaac</h3>
-            <h5>isaac.dias@germinare.org.br</h5>
+            <h3><%=admin.getPrimeiroNome()%></h3>
+            <h5><%=admin.getEmail()%></h5>
         </div>
     </div>
 </header>
