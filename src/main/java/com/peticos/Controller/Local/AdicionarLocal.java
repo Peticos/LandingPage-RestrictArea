@@ -1,6 +1,5 @@
 package com.peticos.Controller.Local;
 
-import com.peticos.DAO.DicaDoDiaDAO;
 import com.peticos.DAO.LocalDAO;
 import jakarta.servlet.ServletException;
 import jakarta.servlet.annotation.WebServlet;
@@ -37,7 +36,6 @@ public class AdicionarLocal extends HttpServlet {
         // Armazenar a mensagem na sessão
         request.getSession(false).setAttribute("message", message);
 
-        // Redirecionar para o servlet que carrega as dicas
-        response.sendRedirect("/areaRestrita/local");
+        response.sendRedirect("/areaRestrita/local/");
     }
 }

@@ -27,7 +27,7 @@ public class CarregarLocal extends HttpServlet {
             ResultSet rs = dao.getTodosLocais();
             while(rs.next()){
                 int idLocalreturn = rs.getInt("id_local");
-                int tipoLocal = rs.getInt("tipo_local");
+                int tipoLocal = rs.getInt("id_tipo_local");
                 String nomeLocal= rs.getString("nome_local");
                 String descricao = rs.getString("descricao");
                 String link_saber_mais = rs.getString("link_saber_mais");

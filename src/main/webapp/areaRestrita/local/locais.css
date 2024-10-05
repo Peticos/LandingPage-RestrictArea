@@ -443,7 +443,7 @@ table tr:first-of-type.header-tabela{
 }
 table tr{
     display: grid;
-    grid-template-columns: 0.2fr 0.7fr 1fr 1fr 0.3fr 0.3fr;
+    grid-template-columns: 0.2fr 0.2fr 1fr 1fr 0.3fr 0.3fr 0.3fr;
     align-items: center;
     gap: 20px;
     height: 50px;

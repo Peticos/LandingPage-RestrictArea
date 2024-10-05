@@ -37,7 +37,6 @@ public class EditarLocal extends HttpServlet {
         // Armazenar a mensagem na sessão
         request.getSession(false).setAttribute("message", message);
 
-        // Redirecionar para o servlet que carrega as dicas
-        response.sendRedirect("/areaRestrita/Local");
+        response.sendRedirect("/areaRestrita/local");
     }
 }

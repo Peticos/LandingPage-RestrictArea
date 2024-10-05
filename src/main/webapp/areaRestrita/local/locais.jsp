@@ -14,9 +14,9 @@
 
     <!-- Scripts (JS) -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
-    <script src="../../assets/scripts/remover.js" defer></script>
-    <script src="../../assets/scripts/filtros.js" defer></script>
-    <script src="../../assets/scripts/editar.js" defer></script>
+    <script src="remover.js" defer></script>
+    <script src="filtros.js" defer></script>
+    <script src="editar.js" defer></script>
 
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -120,9 +120,6 @@
                     <h3>ID</h3>
                     <input type="number" placeholder="12345">
                 </div>
-                <button id="local-hoje">
-                    Local
-                </button>
             </div>
         </div>
         <% String message = (String) request.getAttribute("message"); %>
@@ -192,25 +189,25 @@
     <form action="local/adicionar" method="post" id="form-adicionar">
         <h1>Adicionar Local</h1>
         <div class="form-input">
-            <label for="titulo">Nome</label>
-            <input type="text" name="nome" id="titulo" placeholder="Petshop...">
+            <label for="nome">Nome</label>
+            <input type="text" name="nome" id="nome" placeholder="Petshop...">
         </div>
         <div class="form-input">
-            <label for="texto">Tipo</label>
-            <textarea name="tipo" id="texto" cols="30" rows="10" placeholder="123456"></textarea>
+            <label for="descricao">Descricao</label>
+            <textarea name="descricao" id="descricao" cols="30" rows="10" placeholder="Um loja para cães e gatos..."></textarea>
 
         </div>
         <div class="form-input">
-            <label for="link">Descrição</label>
-            <input type="text" name="descicao" id="descricao" placeholder="Um loja para cães e gatos...">
+            <label for="tipo">Tipo</label>
+            <input type="number" name="tipo" id="tipo" placeholder="123456">
         </div>
         <div class="form-input">
             <label for="link">Link</label>
             <input type="text" name="link" id="link" placeholder="https://peticos.com.br/caes">
         </div>
         <div class="form-input">
-            <label for="data">Imagem</label>
-            <input type="text" name="img" id="data" placeholder="htpps://url.com.br/img">
+            <label for="img">Imagem</label>
+            <input type="text" name="img" id="img" placeholder="htpps://url.com.br/img">
         </div>
         <div class="actions">
             <label for="adicionar-btn" id="cancelar">Cancelar</label>
@@ -222,24 +219,24 @@
     <form action="local/editar" method="post" id="form-editar">
         <h1>Editar Local</h1>
         <div class="form-input">
-            <label for="titulo">Nome</label>
-            <input type="text" name="nome" id="titulo-e" placeholder="Como cuidar do seu cachorrinho que está doente?" required>
+            <label for="nome-e">Nome</label>
+            <input type="text" name="nome" id="nome-e" placeholder="Como cuidar do seu cachorrinho que está doente?" required>
         </div>
         <div class="form-input">
-            <label for="texto">Tipo</label>
-            <textarea name="tipo" id="texto-e" cols="30" rows="10" placeholder="Os cães são ótimos companheiros e gostam..." required></textarea>
+            <label for="descricao-e">Tipo</label>
+            <textarea name="descricao" id="descricao-e" cols="30" rows="10" placeholder="Os cães são ótimos companheiros e gostam..." required></textarea>
         </div>
         <div class="form-input">
-            <label for="link">Descrição</label>
-            <input type="text" name="descicao" id="descricao-e" placeholder="Um loja para cães e gatos...">
+            <label for="tipo-e">Tipo</label>
+            <input type="text" name="tipo" id="tipo-e" placeholder="123456" required>
         </div>
         <div class="form-input">
             <label for="link">Link</label>
             <input type="text" name="link" id="link-e" placeholder="https://peticos.com.br/caes" required>
         </div>
         <div class="form-input">
-            <label for="data">Imagem</label>
-            <input type="text" name="img" id="data-e" placeholder="htpps://url.com.br/img">
+            <label for="img">Imagem</label>
+            <input type="text" name="img" id="img-e" placeholder="htpps://url.com.br/img">
         </div>
         <input type="number" name="id" id="id-e" hidden="hidden" readonly>
         <div class="actions">

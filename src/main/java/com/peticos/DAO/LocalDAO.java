@@ -16,7 +16,7 @@ public class LocalDAO {
     public int inserirLocal(int tipo_local, String nome_local, String descricao, String link_saber_mais, String imagem_local) {
         conexao.conectar();
         try {
-            conexao.pstmt = conexao.conn.prepareStatement("INSERT INTO LOCAL (tipo_local, nome_local ,descricao, link_saber_mais, imagem_local) VALUES (?,?,?,?, ?)");
+            conexao.pstmt = conexao.conn.prepareStatement("INSERT INTO LOCAL (id_tipo_local, nome_local ,descricao, link_saber_mais, imagem_local) VALUES (?,?,?,?, ?)");
             conexao.pstmt.setInt(1,tipo_local);
             conexao.pstmt.setString(2, nome_local);
             conexao.pstmt.setString(3, descricao);
@@ -54,8 +54,8 @@ public class LocalDAO {
             if (conexao.rs.next()) {
 
                 return new Local(id_local, conexao.rs.getInt("tipo_local"), conexao.rs.getString("nome_local"),
-                        conexao.rs.getString("descricao"),conexao.rs.getString("link_local"),
-                        conexao.rs.getString("link_imagem_local"));
+                        conexao.rs.getString("descricao"),conexao.rs.getString("link_saber_mais"),
+                        conexao.rs.getString("imagem_local"));
             } else {
                 return null;
             }
