@@ -1,5 +1,6 @@
 package com.peticos.Controller.DicaDoDia;
 
+import com.peticos.Controller.Mensagem;
 import com.peticos.DAO.DicaDoDiaDAO;
 import jakarta.servlet.ServletException;
 import jakarta.servlet.annotation.WebServlet;
@@ -13,23 +14,11 @@ import java.io.IOException;
 public class RemoverDicaDoDia extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws IOException, ServletException {
-        int id = Integer.parseInt(request.getParameter("id_dica"));
+        int id = Integer.parseInt(request.getParameter("id-dica"));
 
         DicaDoDiaDAO dao = new DicaDoDiaDAO();
         int removerDicaDoDia = dao.removerDicaDoDia(id);
-        String message;
-        if (removerDicaDoDia > 0) {
-            message = "Dica excluída com sucesso!";
-        } else if (removerDicaDoDia == 0) {
-            message = "A dica não foi removida..";
-        } else {
-            message = "Erro ao excluir a dica!";
-        }
 
-        // Armazenar a mensagem na sessão
-        request.getSession(false).setAttribute("message", message);
-
-        // Redirecionar para o servlet que carrega as dicas
-        response.sendRedirect("/areaRestrita/dicasDoDia");
+        Mensagem.retornarMensagem(removerDicaDoDia, "dica", "dicasDoDia", request, response);
     }
 }

@@ -1,5 +1,6 @@
 package com.peticos.Controller.Categoria;
 
+import com.peticos.Controller.Mensagem;
 import com.peticos.DAO.CategoriaDAO;
 import jakarta.servlet.ServletException;
 import jakarta.servlet.annotation.WebServlet;
@@ -13,13 +14,11 @@ import java.io.IOException;
 public class RemoverCategoria extends HttpServlet {
     @Override
     public void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        int id = Integer.parseInt(request.getParameter("id_categoria"));
-        CategoriaDAO dao = new CategoriaDAO();
+        int id = Integer.parseInt(request.getParameter("id-categoria"));
 
-        if (dao.removerCategoria(id) > 0) {
-            response.sendRedirect("/areaRestrita/categoriaPostagens");
-        }else {
-            response.sendRedirect("/errorPage/index.jsp");
-        }
+        CategoriaDAO dao = new CategoriaDAO();
+        int sucesso = dao.removerCategoria(id);
+
+        Mensagem.retornarMensagem(sucesso, "categoria", "categoriaPostagens", request, response);
     }
 }

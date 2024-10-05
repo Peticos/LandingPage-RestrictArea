@@ -4,13 +4,14 @@ $(".remove").click(function () {
     let container = document.createElement("div");
     container.className = 'confirm-box-container';
 
+    console.log(id)
     container.innerHTML = `
         <div class="confirm-box">
             <h1>Confirmar ação</h1>
-            <p>Você tem certeza que deseja excluir essa dica?</p>
+            <p>Você tem certeza que deseja excluir essa categoria??</p>
             <img src="../../assets/images/ModolinhoCorpoCompleto.png" alt="Imagem">
-            <form action="Categoria/remover" method="post" class="confirm-form">
-                <input type="hidden" name="id_dica" class="id_dica" value="${id}" readonly>
+            <form action="categoriaPostagens/remover" method="post" class="confirm-form">
+                <input type="hidden" name="id-categoria" class="id-categoria" value="${id}" readonly>
                 <button type="button" class="cancelar">Cancelar</button>
                 <button type="submit" class="confirmar">Excluir</button>
             </form>

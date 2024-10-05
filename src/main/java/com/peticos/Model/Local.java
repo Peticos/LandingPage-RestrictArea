@@ -1,37 +1,43 @@
 package com.peticos.Model;
 
 public class Local {
-    private int id_local;
-    private int tipo_local;
-    private String nome_local;
+    private int idLocal;
+    private int idTipoLocal;
+    private String nomeLocal;
     private String descricao;
-    private String link_saber_mais;
-    private String imagem_local;
+    private String linkSaberMais;
+    private String imagemLocal;
 
-    public Local(int id_local, int tipo_local ,String nome_local, String descricao, String link_saber_mais, String imagem_local) {
-        this.id_local = id_local;
-        this.tipo_local = tipo_local;
-        this.nome_local = nome_local;
+    public Local(int idLocal, int idTipoLocal, String nomeLocal, String descricao, String linkSaberMais, String imagemLocal) {
+        this.idLocal = idLocal;
+        this.idTipoLocal = idTipoLocal;
+        this.nomeLocal = nomeLocal;
         this.descricao = descricao;
-        this.link_saber_mais = link_saber_mais;
-        this.imagem_local = imagem_local;
+        this.linkSaberMais = linkSaberMais;
+        this.imagemLocal = imagemLocal;
     }
-    public int getId_local() {
-        return this.id_local;
+
+    public int getIdLocal() {
+        return idLocal;
     }
-    public int getTipo_local() {
-        return this.tipo_local;
+
+    public int getIdTipoLocal() {
+        return idTipoLocal;
     }
-    public String getNome_local() {
-        return this.nome_local;
+
+    public String getNomeLocal() {
+        return nomeLocal;
     }
+
     public String getDescricao() {
-        return this.descricao;
+        return descricao;
     }
-    public String getLink_saber_mais() {
-        return this.link_saber_mais;
+
+    public String getLinkSaberMais() {
+        return linkSaberMais;
     }
-    public String getimagem_local() {
-        return this.imagem_local;
+
+    public String getImagemLocal() {
+        return imagemLocal;
     }
 }

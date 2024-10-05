@@ -1,8 +1,4 @@
 <%@ page import="java.util.List" %>
-<%@ page import="com.peticos.Model.DicaDoDia" %>
-<%@ page import="java.util.Date" %>
-<%@ page import="java.text.SimpleDateFormat" %>
-<%@ page import="java.text.DateFormat" %>
 <%@ page import="com.peticos.Model.Categoria" %>
 <%@ page contentType="text/html;charset=UTF-8" %>
 <%
@@ -19,16 +15,17 @@
 
     <!-- Scripts (JS) -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
-    <script src="/areaRestrita/categoriaPostagens/editar.js" defer></script>
-    <script src="/areaRestrita/categoriaPostagens/filtros.js" defer></script>
-    <script src="/areaRestrita/categoriaPostagens/remover.js" defer></script>
+    <script src="categoriaPostagens/remover.js" defer></script>
+    <script src="categoriaPostagens/filtros.js" defer></script>
+    <script src="categoriaPostagens/editar.js" defer></script>
 
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Dicas do Dia - Área Restrita - Peticos</title>
+    <title>Categoria Postagens - Área Restrita - Peticos</title>
 </head>
 <body>
 <input type="checkbox" id="adicionar-btn" name="adicionar-btn">
+<input type="checkbox" id="editar-btn" name="editar-btn">
 <header>
     <div class="abas">
         <a href="">CRUD</a>
@@ -101,7 +98,7 @@
                 <h1>Categoria Postagens</h1>
                 <hr>
                 <div class="filtro-info">
-                    <h2>Total: 3</h2>
+                    <h2>Total: <%=categorias.size()%></h2>
                     <div class="acoes-filtro">
                         <label for="adicionar-btn" id="adicionar">
                             <img src="../../assets/images/add.svg" alt="">
@@ -120,10 +117,7 @@
                 </div>
             </div>
             <div class="filtro">
-                <div class="id">
-                    <h3>ID</h3>
-                    <input type="number" placeholder="12345">
-                </div>
+                <!-- Escolher filtros (fazer igual o do figma Carvalho) -->
             </div>
         </div>
         <% String message = (String) request.getAttribute("message"); %>
@@ -144,12 +138,12 @@
         <% } %>
 
         <%
-            if (categorias!=null && !categorias.isEmpty()){
+            if (!categorias.isEmpty()){
         %>
         <table cellspacing="0">
             <tr class="header-tabela">
                 <th class="id-categoria">ID</th>
-                <th class="titulo">Nome categoria</th>
+                <th class="nome-categoria">Nome</th>
                 <th class="acao">Ações</th>
             </tr>
             <%
@@ -157,11 +151,11 @@
             %>
             <tr>
                 <td class="id-categoria"><%=categorias.get(i).getId()%></td>
-                <td class="titulo"><%=categorias.get(i).getNome()%></td>
+                <td class="nome-categoria"><%=categorias.get(i).getNome()%></td>
                 <td class="acao">
-                    <button class="edit">
+                    <label for="editar-btn" class="edit">
                         <img src="../../assets/images/edit.svg" alt="">
-                    </button>
+                    </label>
                     <button class="remove">
                         <img src="../../assets/images/remove.svg" alt="">
                     </button>
@@ -174,18 +168,18 @@
         <%
         } else{
         %>
-        <h2>Sem categorias disponiveis...</h2>
+        <h2>Sem categorias disponíveis...</h2>
         <%
             }
         %>
     </div>
 </div>
 <div class="form-container">
-    <form action="Categoria/adicionar" method="post" id="form-adicionar">
-        <h1>Adicionar Categoria</h1>
+    <form action="categoriaPostagens/adicionar" method="post" id="form-adicionar">
+        <h1>Adicionar Categoria de Postagem</h1>
         <div class="form-input">
-            <label for="titulo">Nome da categoria</label>
-            <input type="text" name="titulo" id="titulo" placeholder="Serviço">
+            <label for="nome-categoria">Nome</label>
+            <input type="text" name="nome-categoria" id="nome-categoria" placeholder="Vídeo fofos..." required>
         </div>
         <div class="actions">
             <label for="adicionar-btn" id="cancelar">Cancelar</label>
@@ -193,18 +187,17 @@
         </div>
     </form>
 </div>
-<script>
-    document.getElementById('form-adicionar').addEventListener("submit", function (e){
-        const submitButton = document.querySelector('input[type="submit"]');
-        submitButton.disabled = true;
-    })
-</script>
 <div class="edit-container">
-    <form action="categoriaPostagens/alterar-categoria" method="post" id="form-editar">
-        <h1>Editar Dica Do Dia</h1>
+    <form action="categoriaPostagens/editar" method="post" id="form-editar">
+        <h1>Editar Categoria Postagem</h1>
         <div class="form-input">
-            <label for="titulo">nome da categoria</label>
-            <input type="text" name="titulo" id="titulo-e" placeholder="higiene" required>
+            <label for="nome-categoria-e">Nome</label>
+            <input type="text" name="nome-categoria" id="nome-categoria-e" placeholder="Vídeo fofos..." required>
+        </div>
+        <input type="number" name="id-categoria" id="id-categoria-e" hidden="hidden" readonly>
+        <div class="actions">
+            <label for="editar-btn" id="cancelar-edicao">Cancelar</label>
+            <input type="submit" value="Salvar">
         </div>
     </form>
 </div>

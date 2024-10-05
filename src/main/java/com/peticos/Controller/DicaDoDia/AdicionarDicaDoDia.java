@@ -1,5 +1,6 @@
 package com.peticos.Controller.DicaDoDia;
 
+import com.peticos.Controller.Mensagem;
 import com.peticos.DAO.DicaDoDiaDAO;
 import jakarta.servlet.ServletException;
 import jakarta.servlet.annotation.WebServlet;
@@ -21,22 +22,7 @@ public class AdicionarDicaDoDia extends HttpServlet {
 
         DicaDoDiaDAO dao = new DicaDoDiaDAO();
         int sucesso = dao.inserirDicaDoDia(titulo, texto, link, data);
-        String message;
-        System.out.println(sucesso);
-        if (sucesso > 0) {
-            message = "Dica adicionada com sucesso!";
-        } else if (sucesso == 0) {
-            message = "A dica não foi adicionada..";
-        } else if (sucesso == -2) {
-            message = "Já existe um dica com essa data!";
-        } else {
-            message = "Erro ao adicionar dica!";
-        }
 
-        // Armazenar a mensagem na sessão
-        request.getSession(false).setAttribute("message", message);
-
-        // Redirecionar para o servlet que carrega as dicas
-        response.sendRedirect("/areaRestrita/dicasDoDia");
+        Mensagem.retornarMensagem(sucesso, "dica", "dicasDoDia", request, response);
     }
 }

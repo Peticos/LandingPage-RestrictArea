@@ -1,7 +1,6 @@
 package com.peticos.DAO;
 
 import com.peticos.Model.Conexao;
-import com.peticos.Model.DicaDoDia;
 import com.peticos.Model.Local;
 
 import java.sql.ResultSet;
@@ -13,15 +12,17 @@ public class LocalDAO {
         conexao = new Conexao();
     }
 
-    public int inserirLocal(int tipo_local, String nome_local, String descricao, String link_saber_mais, String imagem_local) {
+    public int inserirLocal(int idTipoLocal, String nomeLocal, String descricao, String linkSaberMais, String imagemLocal) {
         conexao.conectar();
         try {
-            conexao.pstmt = conexao.conn.prepareStatement("INSERT INTO LOCAL (id_tipo_local, nome_local ,descricao, link_saber_mais, imagem_local) VALUES (?,?,?,?, ?)");
-            conexao.pstmt.setInt(1,tipo_local);
-            conexao.pstmt.setString(2, nome_local);
+            conexao.pstmt = conexao.conn.prepareStatement("INSERT INTO LOCAL (id_tipo_local, nome_local, descricao, link_saber_mais, imagem_local) VALUES (?,?,?,?,?)");
+
+            conexao.pstmt.setInt(1,idTipoLocal);
+            conexao.pstmt.setString(2, nomeLocal);
             conexao.pstmt.setString(3, descricao);
-            conexao.pstmt.setString(4, link_saber_mais);
-            conexao.pstmt.setString(5, imagem_local);
+            conexao.pstmt.setString(4, linkSaberMais);
+            conexao.pstmt.setString(5, imagemLocal);
+
             return conexao.pstmt.executeUpdate();
         } catch (Exception e) {
             e.printStackTrace();
@@ -31,11 +32,11 @@ public class LocalDAO {
         }
     }
 
-    public int removerLocal(int id_local) {
+    public int removerLocal(int idLocal) {
         conexao.conectar();
         try {
             conexao.pstmt = conexao.conn.prepareStatement("DELETE FROM LOCAL WHERE ID_LOCAL = ?");
-            conexao.pstmt.setInt(1, id_local);
+            conexao.pstmt.setInt(1, idLocal);
             return conexao.pstmt.executeUpdate();
         } catch (Exception e) {
             e.printStackTrace();
@@ -45,17 +46,22 @@ public class LocalDAO {
         }
     }
 
-    public Local getLocal(int id_local) {
+    public Local getLocal(int idLocal) {
         conexao.conectar();
         try {
             conexao.pstmt = conexao.conn.prepareStatement("SELECT * FROM LOCAL WHERE ID_LOCAL = ?");
-            conexao.pstmt.setInt(1, id_local);
+
+            conexao.pstmt.setInt(1, idLocal);
+
             conexao.rs = conexao.pstmt.executeQuery();
             if (conexao.rs.next()) {
+                int idTipoLocal = conexao.rs.getInt("id_tipo_local");
+                String nomeLocal = conexao.rs.getString("nome_local");
+                String descricao = conexao.rs.getString("descricao");
+                String linkSaberMais = conexao.rs.getString("link_saber_mais");
+                String imagemLocal = conexao.rs.getString("imagem_local");
 
-                return new Local(id_local, conexao.rs.getInt("tipo_local"), conexao.rs.getString("nome_local"),
-                        conexao.rs.getString("descricao"),conexao.rs.getString("link_saber_mais"),
-                        conexao.rs.getString("imagem_local"));
+                return new Local(idLocal, idTipoLocal, nomeLocal, descricao, linkSaberMais, imagemLocal);
             } else {
                 return null;
             }
@@ -70,15 +76,14 @@ public class LocalDAO {
     public int alterarLocal(Local local) {
         conexao.conectar();
         try{
-            conexao.pstmt = conexao.conn.prepareStatement
-                    ("UPDATE local SET id_tipo_local = ?, nome_local = ?, descricao = ?, link_saber_mais = ?, imagem_local = ? WHERE id_local = ?");
+            conexao.pstmt = conexao.conn.prepareStatement("UPDATE local SET id_tipo_local = ?, nome_local = ?, descricao = ?, link_saber_mais = ?, imagem_local = ? WHERE id_local = ?");
 
-            conexao.pstmt.setInt(1, local.getTipo_local());
-            conexao.pstmt.setString(2, local.getNome_local());
+            conexao.pstmt.setInt(1, local.getIdTipoLocal());
+            conexao.pstmt.setString(2, local.getNomeLocal());
             conexao.pstmt.setString(3, local.getDescricao());
-            conexao.pstmt.setString(4, local.getLink_saber_mais());
-            conexao.pstmt.setString(5, local.getimagem_local());
-            conexao.pstmt.setInt(6, local.getId_local());
+            conexao.pstmt.setString(4, local.getLinkSaberMais());
+            conexao.pstmt.setString(5, local.getImagemLocal());
+            conexao.pstmt.setInt(6, local.getIdLocal());
 
             return conexao.pstmt.executeUpdate();
         } catch (SQLException e) {
@@ -92,8 +97,8 @@ public class LocalDAO {
         conexao.conectar();
         try {
             conexao.pstmt = conexao.conn.prepareStatement("SELECT * FROM local");
-            conexao.rs = conexao.pstmt.executeQuery();
-            return conexao.rs;
+
+            return conexao.pstmt.executeQuery();
         } catch (SQLException e) {
             e.printStackTrace();
             return null;

@@ -22,22 +22,22 @@ public class CarregarLocal extends HttpServlet {
 
         List<Local> locais = new ArrayList<>();
 
-
         try{
             ResultSet rs = dao.getTodosLocais();
             while(rs.next()){
-                int idLocalreturn = rs.getInt("id_local");
-                int tipoLocal = rs.getInt("id_tipo_local");
+                int idLocal = rs.getInt("id_local");
+                int idTipoLocal = rs.getInt("id_tipo_local");
                 String nomeLocal= rs.getString("nome_local");
                 String descricao = rs.getString("descricao");
-                String link_saber_mais = rs.getString("link_saber_mais");
-                String imagem_local = rs.getString("imagem_local");
+                String linkSaberMais = rs.getString("link_saber_mais");
+                String imagemLocal = rs.getString("imagem_local");
 
-                locais.add(new Local(idLocalreturn, tipoLocal, nomeLocal,descricao, link_saber_mais, imagem_local));
+                locais.add(new Local(idLocal, idTipoLocal, nomeLocal, descricao, linkSaberMais, imagemLocal));
             }
         } catch (SQLException e) {
             throw new ServletException("Erro ao carregar os locais", e);
         }
+
         request.setAttribute("locais", locais);
         request.getRequestDispatcher("/areaRestrita/local/locais.jsp").forward(request, response);
     }

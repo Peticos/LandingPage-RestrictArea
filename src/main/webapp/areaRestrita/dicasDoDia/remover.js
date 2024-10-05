@@ -10,7 +10,7 @@ $(".remove").click(function () {
             <p>Você tem certeza que deseja excluir essa dica?</p>
             <img src="../../assets/images/ModolinhoCorpoCompleto.png" alt="Imagem">
             <form action="dicasDoDia/remover" method="post" class="confirm-form">
-                <input type="hidden" name="id_dica" class="id_dica" value="${id}" readonly>
+                <input type="hidden" name="id-dica" class="id-dica" value="${id}" readonly>
                 <button type="button" class="cancelar">Cancelar</button>
                 <button type="submit" class="confirmar">Excluir</button>
             </form>

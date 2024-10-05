@@ -32,9 +32,9 @@
 
     <!-- Scripts (JS) -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
-    <script src="../../assets/scripts/remover.js" defer></script>
-    <script src="../../assets/scripts/filtros.js" defer></script>
-    <script src="../../assets/scripts/editar.js" defer></script>
+    <script src="dicasDoDia/remover.js" defer></script>
+    <script src="dicasDoDia/filtros.js" defer></script>
+    <script src="dicasDoDia/editar.js" defer></script>
 
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -115,7 +115,7 @@
                 <h1>Dica Do Dia</h1>
                 <hr>
                 <div class="filtro-info">
-                    <h2>Total: 14</h2>
+                    <h2>Total: <%=dicas.size()%></h2>
                     <div class="acoes-filtro">
                         <label for="adicionar-btn" id="adicionar">
                             <img src="../../assets/images/add.svg" alt="">
@@ -169,7 +169,7 @@
         <% } %>
 
         <%
-        if (dicas!=null && !dicas.isEmpty()){
+        if (!dicas.isEmpty()){
         %>
         <table cellspacing="0">
             <tr class="header-tabela">
@@ -241,19 +241,19 @@
     <form action="dicasDoDia/editar" method="post" id="form-editar">
         <h1>Editar Dica Do Dia</h1>
         <div class="form-input">
-            <label for="titulo">Título</label>
+            <label for="titulo-e">Título</label>
             <input type="text" name="titulo" id="titulo-e" placeholder="Como cuidar do seu cachorrinho que está doente?" required>
         </div>
         <div class="form-input">
-            <label for="texto">Texto</label>
+            <label for="texto-e">Texto</label>
             <textarea name="texto" id="texto-e" cols="30" rows="10" placeholder="Os cães são ótimos companheiros e gostam..." required></textarea>
         </div>
         <div class="form-input">
-            <label for="link">Link</label>
+            <label for="link-e">Link</label>
             <input type="text" name="link" id="link-e" placeholder="https://peticos.com.br/caes" required>
         </div>
         <div class="form-input">
-            <label for="data">Data</label>
+            <label for="data-e">Data</label>
             <input type="date" name="data" id="data-e" required>
         </div>
         <input type="number" name="id" id="id-e" hidden="hidden" readonly>

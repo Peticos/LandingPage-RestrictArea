@@ -4,6 +4,7 @@
     <option name="state">
       <map>
         <entry key="file://$PROJECT_DIR$/src/main/webapp/areaRestrita/administradores/index.jsp" value="file://$PROJECT_DIR$/src/main/webapp/areaRestrita/administradores" />
+        <entry key="file://$PROJECT_DIR$/src/main/webapp/areaRestrita/categoriaPostagens/categorias.jsp" value="file://$PROJECT_DIR$/src/main/webapp/areaRestrita/categoriaPostagens" />
         <entry key="file://$PROJECT_DIR$/src/main/webapp/areaRestrita/dicasDoDia/index.jsp" value="file://$PROJECT_DIR$/src/main/webapp/areaRestrita/dicasDoDia" />
         <entry key="file://$PROJECT_DIR$/src/main/webapp/index.jsp" value="file://$PROJECT_DIR$/src/main/webapp" />
         <entry key="file://$PROJECT_DIR$/src/main/webapp/login" value="file://$PROJECT_DIR$/src/main/webapp" />

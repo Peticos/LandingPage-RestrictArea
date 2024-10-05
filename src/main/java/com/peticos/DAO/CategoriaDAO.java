@@ -28,8 +28,6 @@ public class CategoriaDAO {
         }
     }
 
-
-
     public int removerCategoria(int id) {
         conexao.conectar();
         try {
@@ -48,7 +46,7 @@ public class CategoriaDAO {
     public int alterarCategoria(int id, String nome) {
         conexao.conectar();
         try {
-            conexao.pstmt = conexao.conn.prepareStatement("ALTER TABLE categoria SET nome = ? WHERE id_categoria = ?");
+            conexao.pstmt = conexao.conn.prepareStatement("UPDATE categoria SET nome = ? WHERE id_categoria = ?");
             conexao.pstmt.setString(1,nome);
             conexao.pstmt.setInt(2,id);
 

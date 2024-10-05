@@ -10,7 +10,7 @@ $(".remove").click(function () {
             <p>Você tem certeza que deseja excluir esse local?</p>
             <img src="../../assets/images/ModolinhoCorpoCompleto.png" alt="Imagem">
             <form action="local/remover" method="post" class="confirm-form">
-                <input type="hidden" name="id_local" class="id_local" value="${id}" readonly>
+                <input type="hidden" name="id-local" class="id-local" value="${id}" readonly>
                 <button type="button" class="cancelar">Cancelar</button>
                 <button type="submit" class="confirmar">Excluir</button>
             </form>

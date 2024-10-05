@@ -1,8 +1,9 @@
-<%@ page import="java.util.List" %>
 <%@ page import="com.peticos.Model.Local" %>
-<%@ page import="com.peticos.Controller.Local.CarregarLocal" %>
+<%@ page import="java.util.List" %>
 <%@ page contentType="text/html;charset=UTF-8" %>
-
+<%
+    List<Local> locais = (List<Local>) request.getAttribute("locais");
+%>
 <!DOCTYPE html>
 <html lang="pt-br">
 <head>
@@ -14,9 +15,9 @@
 
     <!-- Scripts (JS) -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
-    <script src="remover.js" defer></script>
-    <script src="filtros.js" defer></script>
-    <script src="editar.js" defer></script>
+    <script src="local/remover.js" defer></script>
+    <script src="local/filtros.js" defer></script>
+    <script src="local/editar.js" defer></script>
 
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -97,7 +98,7 @@
                 <h1>Local</h1>
                 <hr>
                 <div class="filtro-info">
-                    <h2>Total: 14</h2>
+                    <h2>Total: <%=locais.size()%></h2>
                     <div class="acoes-filtro">
                         <label for="adicionar-btn" id="adicionar">
                             <img src="../../assets/images/add.svg" alt="">
@@ -116,10 +117,7 @@
                 </div>
             </div>
             <div class="filtro">
-                <div class="id">
-                    <h3>ID</h3>
-                    <input type="number" placeholder="12345">
-                </div>
+                <!-- Escolher filtros (fazer igual o do figma Ruan) -->
             </div>
         </div>
         <% String message = (String) request.getAttribute("message"); %>
@@ -140,29 +138,28 @@
         <% } %>
 
         <%
-            List<Local> locais = (List<Local>) request.getAttribute("locais");
-            if (locais!=null && !locais.isEmpty()){
+            if (!locais.isEmpty()){
         %>
         <table cellspacing="0">
             <tr class="header-tabela">
                 <th class="id-local">ID</th>
-                <th class="titulo">Tipo Local</th>
-                <th class="texto">Nome</th>
+                <th class="id-tipo-local">ID Tipo Local</th>
+                <th class="nome-local">Nome do Local</th>
                 <th class="descricao">Descrição</th>
-                <th class="link">Link</th>
-                <th class="data-tabela">Imagem</th>
+                <th class="link-saber-mais">Link saber mais</th>
+                <th class="imagem-local">Imagem do Local</th>
                 <th class="acao">Ações</th>
             </tr>
             <%
                 for (int i = 0; i < locais.size(); i++) {
             %>
             <tr>
-                <td class="id-local"><%=locais.get(i).getId_local()%></td>
-                <td class="titulo"><%=locais.get(i).getTipo_local()%></td>
-                <td class="texto"><%=locais.get(i).getNome_local()%></td>
+                <td class="id-local"><%=locais.get(i).getIdLocal()%></td>
+                <td class="id-tipo-local"><%=locais.get(i).getIdTipoLocal()%></td>
+                <td class="nome-local"><%=locais.get(i).getNomeLocal()%></td>
                 <td class="descricao"><%=locais.get(i).getDescricao()%></td>
-                <td class="link"><%=locais.get(i).getLink_saber_mais() %></td>
-                <td class="data-tabela"><%=locais.get(i).getimagem_local()%></td>
+                <td class="link-saber-mais"><%=locais.get(i).getLinkSaberMais()%></td>
+                <td class="imagem-local"><%=locais.get(i).getImagemLocal()%></td>
                 <td class="acao">
                     <label for="editar-btn" class="edit">
                         <img src="../../assets/images/edit.svg" alt="">
@@ -189,25 +186,29 @@
     <form action="local/adicionar" method="post" id="form-adicionar">
         <h1>Adicionar Local</h1>
         <div class="form-input">
-            <label for="nome">Nome</label>
-            <input type="text" name="nome" id="nome" placeholder="Petshop...">
+            <label for="id-tipo-local">ID Tipo Local</label>
+            <select name="id-tipo-local" id="id-tipo-local" required>
+                <option value="1">1 - Veterinária</option>
+                <option value="2">2 - Petshop</option>
+                <option value="3">3 - Lazer</option>
+                <option value="4">4 - ONG</option>
+            </select>
         </div>
         <div class="form-input">
-            <label for="descricao">Descricao</label>
-            <textarea name="descricao" id="descricao" cols="30" rows="10" placeholder="Um loja para cães e gatos..."></textarea>
-
+            <label for="nome-local">Nome do Local</label>
+            <input type="text" name="nome-local" id="nome-local" placeholder="Clínica Cães e Gatos..." required>
         </div>
         <div class="form-input">
-            <label for="tipo">Tipo</label>
-            <input type="number" name="tipo" id="tipo" placeholder="123456">
+            <label for="descricao">Descrição</label>
+            <input type="text" name="descricao" id="descricao" placeholder="Clínica especializada em..." required>
         </div>
         <div class="form-input">
-            <label for="link">Link</label>
-            <input type="text" name="link" id="link" placeholder="https://peticos.com.br/caes">
+            <label for="link-saber-mais">Link Saber Mais</label>
+            <input type="text" name="link-saber-mais" id="link-saber-mais" placeholder="https://clinica.com.br/caes">
         </div>
         <div class="form-input">
-            <label for="img">Imagem</label>
-            <input type="text" name="img" id="img" placeholder="htpps://url.com.br/img">
+            <label for="imagem-local">Imagem do Local</label>
+            <input type="text" name="imagem-local" id="imagem-local">
         </div>
         <div class="actions">
             <label for="adicionar-btn" id="cancelar">Cancelar</label>
@@ -217,28 +218,33 @@
 </div>
 <div class="edit-container">
     <form action="local/editar" method="post" id="form-editar">
-        <h1>Editar Local</h1>
+        <h1>Editar Dica Do Dia</h1>
         <div class="form-input">
-            <label for="nome-e">Nome</label>
-            <input type="text" name="nome" id="nome-e" placeholder="Como cuidar do seu cachorrinho que está doente?" required>
+            <label for="id-tipo-local-e">ID Tipo Local</label>
+            <select name="id-tipo-local" id="id-tipo-local-e" required>
+                <option value="1">1 - Veterinária</option>
+                <option value="2">2 - Petshop</option>
+                <option value="3">3 - Lazer</option>
+                <option value="4">4 - ONG</option>
+            </select>
         </div>
         <div class="form-input">
-            <label for="descricao-e">Tipo</label>
-            <textarea name="descricao" id="descricao-e" cols="30" rows="10" placeholder="Os cães são ótimos companheiros e gostam..." required></textarea>
+            <label for="nome-local-e">Nome do Local</label>
+            <input type="text" name="nome-local" id="nome-local-e" placeholder="Clínica Cães e Gatos..." required>
         </div>
         <div class="form-input">
-            <label for="tipo-e">Tipo</label>
-            <input type="text" name="tipo" id="tipo-e" placeholder="123456" required>
+            <label for="descricao-e">Descrição</label>
+            <input type="text" name="descricao" id="descricao-e" placeholder="Clínica especializada em..." required>
         </div>
         <div class="form-input">
-            <label for="link">Link</label>
-            <input type="text" name="link" id="link-e" placeholder="https://peticos.com.br/caes" required>
+            <label for="link-saber-mais-e">Link Saber Mais</label>
+            <input type="text" name="link-saber-mais" id="link-saber-mais-e" placeholder="https://clinica.com.br/caes">
         </div>
         <div class="form-input">
-            <label for="img">Imagem</label>
-            <input type="text" name="img" id="img-e" placeholder="htpps://url.com.br/img">
+            <label for="imagem-local-e">Imagem do Local</label>
+            <input type="text" name="imagem-local" id="imagem-local-e">
         </div>
-        <input type="number" name="id" id="id-e" hidden="hidden" readonly>
+        <input type="number" name="id-local" id="id-local-e" hidden="hidden" readonly>
         <div class="actions">
             <label for="editar-btn" id="cancelar-edicao">Cancelar</label>
             <input type="submit" value="Salvar">
@@ -252,4 +258,3 @@
 </script>
 </body>
 </html>
-

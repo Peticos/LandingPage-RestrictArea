@@ -1,5 +1,7 @@
 package com.peticos.Controller.Local;
 
+import com.peticos.Controller.Mensagem;
+import com.peticos.DAO.DicaDoDiaDAO;
 import com.peticos.DAO.LocalDAO;
 import jakarta.servlet.annotation.WebServlet;
 import jakarta.servlet.http.HttpServlet;
@@ -12,13 +14,11 @@ import java.io.IOException;
 public class RemoverLocal extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws IOException {
-        int id = Integer.parseInt(request.getParameter("id_local"));
+        int id = Integer.parseInt(request.getParameter("id-local"));
 
         LocalDAO dao = new LocalDAO();
-        if (dao.removerLocal(id)>0){
-            response.sendRedirect("/areaRestrita/local/");
-        } else {
-            // Erro (ou id não existe (=0) ou deu erro no banco (-1)
-        }
+        int removerLocal = dao.removerLocal(id);
+
+        Mensagem.retornarMensagem(removerLocal, "local", "local", request, response);
     }
 }
