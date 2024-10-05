@@ -27,14 +27,13 @@ public class CarregarLocal extends HttpServlet {
             ResultSet rs = dao.getTodosLocais();
             while(rs.next()){
                 int idLocalreturn = rs.getInt("id_local");
-                String tipoLocal = rs.getString("tipo_local");
+                int tipoLocal = rs.getInt("tipo_local");
                 String nomeLocal= rs.getString("nome_local");
-                int telefonelocal = rs.getInt("id_telefone_local");
                 String descricao = rs.getString("descricao");
                 String link_saber_mais = rs.getString("link_saber_mais");
                 String imagem_local = rs.getString("imagem_local");
 
-                locais.add(new Local(idLocalreturn, tipoLocal, telefonelocal,nomeLocal,descricao, link_saber_mais, imagem_local));
+                locais.add(new Local(idLocalreturn, tipoLocal, nomeLocal,descricao, link_saber_mais, imagem_local));
             }
         } catch (SQLException e) {
             throw new ServletException("Erro ao carregar os locais", e);
