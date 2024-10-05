@@ -87,6 +87,12 @@
                 <p>Local</p>
             </a>
         </li>
+        <li>
+            <a href="/logout"> <!-- Servlet de logout -->
+                <img src="../../assets/images/logout.svg" alt="">
+                <p>Sair</p>
+            </a>
+        </li>
     </ul>
 </nav>
 <div class="page-container">

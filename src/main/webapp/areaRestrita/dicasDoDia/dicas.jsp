@@ -3,6 +3,8 @@
 <%@ page import="java.util.Date" %>
 <%@ page import="java.text.SimpleDateFormat" %>
 <%@ page import="java.text.DateFormat" %>
+<%@ page import="com.peticos.DAO.AdministradorDAO" %>
+<%@ page import="com.peticos.Model.Administrador" %>
 <%@ page contentType="text/html;charset=UTF-8" %>
 <%
     DateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd");
@@ -49,12 +51,16 @@
         <a href="">Dashboard</a>
     </div>
     <div class="perfil">
+        <%
+            AdministradorDAO dao = new AdministradorDAO();
+            Administrador admin = dao.getAdmin((String) request.getSession(false).getAttribute("admin"));
+        %>
         <div class="foto">
-
+            <%=admin.getPrimeiroNome().charAt(0)%>
         </div>
         <div class="info">
-            <h3>Isaac</h3>
-            <h5>isaac.dias@germinare.org.br</h5>
+            <h3><%=admin.getPrimeiroNome()%></h3>
+            <h5><%=admin.getEmail()%></h5>
         </div>
     </div>
 </header>
@@ -102,6 +108,12 @@
             <a href="../../areaRestrita/local">
                 <img src="../../assets/images/local_icon.svg" alt="">
                 <p>Local</p>
+            </a>
+        </li>
+        <li>
+            <a href="/logout"> <!-- Servlet de logout -->
+                <img src="../../assets/images/logout.svg" alt="">
+                <p>Sair</p>
             </a>
         </li>
     </ul>

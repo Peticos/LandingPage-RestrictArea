@@ -15,8 +15,8 @@ import java.io.IOException;
 public class AlterarLocal extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        int idLocal = Integer.parseInt(request.getParameter("id-local"));
         int idTipoLocal = Integer.parseInt(request.getParameter("id-tipo-local"));
+        int idLocal = Integer.parseInt(request.getParameter("id-local"));
         String nomeLocal = request.getParameter("nome-local");
         String descricao = request.getParameter("descricao");
         String link = request.getParameter("link-saber-mais");
@@ -25,6 +25,7 @@ public class AlterarLocal extends HttpServlet {
         LocalDAO dao = new LocalDAO();
         int sucesso = dao.alterarLocal(new Local(idLocal, idTipoLocal, nomeLocal, descricao, link, img));
 
-        Mensagem.retornarMensagem(sucesso, "local", "local", request, response);
+        Mensagem mensagem = new Mensagem("local", "local", request, response);
+        mensagem.retornarMensagem(sucesso, 2, 'M');
     }
 }

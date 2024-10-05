@@ -26,6 +26,9 @@ public class Administrador {
     public String getNome() {
         return nome;
     }
+    public String getPrimeiroNome() {
+        return nome.split(" ")[0];
+    }
 
     public String getEmail() {
         return email;

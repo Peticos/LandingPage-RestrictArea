@@ -19,6 +19,7 @@ public class RemoverDicaDoDia extends HttpServlet {
         DicaDoDiaDAO dao = new DicaDoDiaDAO();
         int removerDicaDoDia = dao.removerDicaDoDia(id);
 
-        Mensagem.retornarMensagem(removerDicaDoDia, "dica", "dicasDoDia", request, response);
+        Mensagem mensagem = new Mensagem("dica", "dicasDoDia", request, response);
+        mensagem.retornarMensagem(removerDicaDoDia, 3, 'F');
     }
 }

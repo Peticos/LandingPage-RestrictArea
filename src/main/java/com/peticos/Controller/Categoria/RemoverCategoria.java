@@ -19,6 +19,7 @@ public class RemoverCategoria extends HttpServlet {
         CategoriaDAO dao = new CategoriaDAO();
         int sucesso = dao.removerCategoria(id);
 
-        Mensagem.retornarMensagem(sucesso, "categoria", "categoriaPostagens", request, response);
+        Mensagem mensagem = new Mensagem("categoria", "categoriaPostagens", request, response);
+        mensagem.retornarMensagem(sucesso, 3, 'F');
     }
 }

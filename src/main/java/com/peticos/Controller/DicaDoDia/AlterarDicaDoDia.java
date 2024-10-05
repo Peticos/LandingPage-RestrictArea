@@ -25,6 +25,7 @@ public class AlterarDicaDoDia extends HttpServlet {
         DicaDoDiaDAO dao = new DicaDoDiaDAO();
         int sucesso = dao.alterarDicaDoDia(new DicaDoDia(id, titulo, texto, link, data));
 
-        Mensagem.retornarMensagem(sucesso, "dica", "dicasDoDia", request, response);
+        Mensagem mensagem = new Mensagem("dica", "dicasDoDia", request, response);
+        mensagem.retornarMensagem(sucesso, 2, 'F');
     }
 }

@@ -20,6 +20,7 @@ public class AlterarCategoria extends HttpServlet {
         CategoriaDAO dao = new CategoriaDAO();
         int sucesso = dao.alterarCategoria(idCategoria, nomeCategoria);
 
-        Mensagem.retornarMensagem(sucesso, "categoria", "categoriaPostagens", request, response);
+        Mensagem mensagem = new Mensagem("categoria", "categoriaPostagens", request, response);
+        mensagem.retornarMensagem(sucesso, 2, 'F');
     }
 }

@@ -24,6 +24,7 @@ public class AdicionarLocal extends HttpServlet {
         LocalDAO dao = new LocalDAO();
         int sucesso = dao.inserirLocal(idTipoLocal, nomeLocal, descricao, link, img);
 
-        Mensagem.retornarMensagem(sucesso, "local", "local", request, response);
+        Mensagem mensagem = new Mensagem("local", "local", request, response);
+        mensagem.retornarMensagem(sucesso, 1, 'M');
     }
 }

@@ -23,6 +23,7 @@ public class AdicionarDicaDoDia extends HttpServlet {
         DicaDoDiaDAO dao = new DicaDoDiaDAO();
         int sucesso = dao.inserirDicaDoDia(titulo, texto, link, data);
 
-        Mensagem.retornarMensagem(sucesso, "dica", "dicasDoDia", request, response);
+        Mensagem mensagem = new Mensagem("dica", "dicasDoDia", request, response);
+        mensagem.retornarMensagem(sucesso, 1, 'F');
     }
 }

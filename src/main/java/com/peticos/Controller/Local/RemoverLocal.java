@@ -19,6 +19,7 @@ public class RemoverLocal extends HttpServlet {
         LocalDAO dao = new LocalDAO();
         int removerLocal = dao.removerLocal(id);
 
-        Mensagem.retornarMensagem(removerLocal, "local", "local", request, response);
+        Mensagem mensagem = new Mensagem("local", "local", request, response);
+        mensagem.retornarMensagem(removerLocal, 3, 'M');
     }
 }

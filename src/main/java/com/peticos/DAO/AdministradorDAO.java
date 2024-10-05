@@ -13,7 +13,7 @@ public class AdministradorDAO {
         conexao = new Conexao();
     }
 
-    public int adicionarAdmin(String nome, String email, String senha) {
+    public int inserirAdministrador(String nome, String email, String senha) {
         conexao.conectar();
         try{
             conexao.pstmt = conexao.conn.prepareStatement("INSERT INTO admin.administradores (NOME, EMAIL, SENHA) VALUES (?,?,?)");
@@ -30,12 +30,29 @@ public class AdministradorDAO {
             conexao.desconectar();
         }
     }
-    public int removerAdmin(int id) {
+    public int removerAdministrador(int id) {
         conexao.conectar();
         try{
             conexao.pstmt = conexao.conn.prepareStatement("DELETE FROM admin.administradores WHERE ID = ?");
 
             conexao.pstmt.setInt(1, id);
+
+            return conexao.pstmt.executeUpdate();
+        } catch (SQLException e) {
+            e.printStackTrace();
+            return -1;
+        } finally {
+            conexao.desconectar();
+        }
+    }
+    public int alterarAdministrador(int idAdmin, String nome, String email) {
+        conexao.conectar();
+        try{
+            conexao.pstmt = conexao.conn.prepareStatement("UPDATE admin.administradores SET nome = ?, email = ? WHERE id = ?");
+
+            conexao.pstmt.setString(1, nome);
+            conexao.pstmt.setString(2, email);
+            conexao.pstmt.setInt(3, idAdmin);
 
             return conexao.pstmt.executeUpdate();
         } catch (SQLException e) {
