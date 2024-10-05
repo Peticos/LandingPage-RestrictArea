@@ -351,9 +351,6 @@ body:has(#open-btn:checked) table{
     bottom: 0;
     transition: bottom .5s, box-shadow .5s;
 }
-.filtro .data{
-    margin-left: 20px;
-}
 .filtro input{
     height: 40px;
     width: min(200px, 10vw);
@@ -377,6 +374,9 @@ body:has(#open-btn:checked) table{
     box-sizing: border-box;
     padding-left: 20px;
     top: -20px;
+}
+.id {
+    margin-left: 20px;
 }
 .data input::-webkit-calendar-picker-indicator{
     padding-right: 20px;
@@ -402,9 +402,6 @@ body:has(#open-btn:checked) table{
     box-shadow: 2px 2px 4px 0 rgba(0, 0, 0, 0.25);
     font-size: 20px;
 }
-#local-hoje{
-    padding: 0 20px;
-}
 .acoes-filtro #adicionar{
     width: 40px;
     display: flex;
@@ -421,7 +418,7 @@ body:has(#open-btn:checked) table{
     font-size: 20px;
 }
 
-/* Tabela de locals */
+/* Tabela de Categorias */
 table{
     transition: margin-top .5s;
     margin-top: 30px;
@@ -443,15 +440,13 @@ table tr:first-of-type.header-tabela{
 }
 table tr{
     display: grid;
-    grid-template-columns: 0.2fr 0.2fr 1fr 1fr 0.3fr 0.3fr 0.3fr;
+    grid-template-columns: 0.2fr 2fr 0.5fr;
     align-items: center;
     gap: 20px;
     height: 50px;
     padding: 0 15px;
 }
-.id-local, .acao{
-    text-align: center;
-}
+
 table tr td, table tr th{
     text-align: left;
     font-size: 20px;
@@ -469,14 +464,18 @@ table tr:nth-child(odd){
 table td.acao{
     overflow: visible;
 }
+
+table .id-categoria {
+    text-align: center;
+}
+
 .acao{
     display: flex;
     justify-content: center;
     align-items: center;
     gap: 15px;
 }
-.acao button, .acao label{
-    cursor: pointer;
+.acao button{
     min-height: 40px;
     min-width: 40px;
     border: none;
@@ -486,18 +485,20 @@ table td.acao{
     justify-content: center;
     align-items: center;
 }
-.acao label{
+.acao button:first-of-type{
     background-color: var(--is-it-green-light);
 }
-.acao button{
+.acao button:last-of-type{
     background-color: var(--red-or-orange-light);
 }
-.acao button img, .acao label img{
+.acao button img{
     width: 24px;
     height: 24px;
 }
 
-/* Adicionar Local */
+
+
+/* Adicionar Categoria */
 .form-container{
     position: fixed;
     z-index: 3;
@@ -566,20 +567,21 @@ table td.acao{
     font-size: 20px;
     box-sizing: border-box;
     padding-left: 20px;
-    padding-right: 20px;
 }
 .form-input textarea{
     resize: none;
     padding-top: 20px;
 }
-
+.form-input input[type="date"]{
+    padding-right: 20px;
+}
 .form-input:nth-child(3){
     height: 200px;
 }
 .actions{
     margin-top: auto;
     width: 100%;
-    height: 120px;
+    height: 200px;
 
     display: flex;
     justify-content: flex-end;
@@ -611,12 +613,26 @@ table td.acao{
     color: var(--off-white);
 }
 
-/* Abrir/Fechar o menu de adicionar local */
+/* Abrir/Fechar o menu de adicionar categoria */
 #adicionar-btn:checked ~ .form-container{
     display: flex;
 }
 
-/* Editar local */
+/* Message Box */
+#message-box{
+    margin-top: 30px;
+    height: 50px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+#message-box p{
+    font-family: var(--lilita-one), serif;
+    font-size: 30px;
+    color: var(--asereje-yellow);
+}
+
+/* Editar Dica */
 .edit-container{
     position: fixed;
     z-index: 3;
@@ -664,7 +680,7 @@ table td.acao{
     color: #6A6A6A;
 }
 
-/* Abrir/Fechar o menu de editar local */
+/* Abrir/Fechar o menu de editar dica */
 #editar-btn:checked ~ .edit-container{
     display: flex;
 }
