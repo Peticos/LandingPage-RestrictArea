@@ -13,7 +13,7 @@ public class Conexao {
             String dbUrl = System.getenv("DB_URL");
             String dbUser = System.getenv("DB_USER");
             String dbPassword = System.getenv("DB_PASSWORD");
-
+            
             // Informando qual driver de conexão será utilizado pelo DriverManager
             Class.forName("org.postgresql.Driver");
             // Criando a conexão com o BD

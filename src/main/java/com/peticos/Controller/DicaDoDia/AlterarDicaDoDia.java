@@ -22,10 +22,17 @@ public class AlterarDicaDoDia extends HttpServlet {
         String link = request.getParameter("link");
         Date data = Date.valueOf(request.getParameter("data"));
 
+        Mensagem mensagem = new Mensagem("dica", "dicasDoDia", request, response);
+
+        boolean linkValido = link.matches("^https?://.+$");
+        if (!linkValido){
+            mensagem.retornarMensagem("Link inválido!");
+            return;
+        }
+
         DicaDoDiaDAO dao = new DicaDoDiaDAO();
         int sucesso = dao.alterarDicaDoDia(new DicaDoDia(id, titulo, texto, link, data));
 
-        Mensagem mensagem = new Mensagem("dica", "dicasDoDia", request, response);
         mensagem.retornarMensagem(sucesso, 2, 'F');
     }
 }
