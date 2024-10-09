@@ -411,6 +411,13 @@ table .id-categoria {
     color: var(--off-white);
 }
 
+.invalido{
+    background-color: var(--red-or-orange-light);
+}
+.invalido::placeholder{
+    color: var(--off-white);
+}
+
 /* Abrir/Fechar o menu de adicionar/editar */
 #adicionar-btn:checked ~ .form-container, #editar-btn:checked ~ .edit-container{
     display: flex;

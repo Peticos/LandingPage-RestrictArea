@@ -37,6 +37,7 @@
     <script src="dicasDoDia/remover.js" defer></script>
     <script src="dicasDoDia/filtros.js" defer></script>
     <script src="dicasDoDia/editar.js" defer></script>
+    <script src="dicasDoDia/adicionar.js" defer></script>
 
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -228,20 +229,20 @@
         <h1>Adicionar Dica Do Dia</h1>
         <div class="form-input">
             <label for="titulo">Título</label>
-            <input type="text" name="titulo" id="titulo" placeholder="Como cuidar do seu cachorrinho que está doente?">
+            <input type="text" name="titulo" id="titulo" placeholder="Como cuidar do seu cachorrinho que está doente?" maxlength="255" required>
         </div>
         <div class="form-input">
             <label for="texto">Texto</label>
-            <textarea name="texto" id="texto" cols="30" rows="10" placeholder="Os cães são ótimos companheiros e gostam..."></textarea>
+            <textarea name="texto" id="texto" cols="30" rows="10" placeholder="Os cães são ótimos companheiros e gostam..." maxlength="255" required></textarea>
 
         </div>
         <div class="form-input">
             <label for="link">Link</label>
-            <input type="text" name="link" id="link" placeholder="https://peticos.com.br/caes">
+            <input type="text" name="link" id="link" placeholder="https://peticos.com.br/caes" maxlength="255" required>
         </div>
         <div class="form-input">
             <label for="data">Data</label>
-            <input type="date" name="data" id="data">
+            <input type="date" name="data" id="data" required>
         </div>
         <div class="actions">
             <label for="adicionar-btn" id="cancelar">Cancelar</label>
@@ -268,17 +269,12 @@
             <label for="data-e">Data</label>
             <input type="date" name="data" id="data-e" required>
         </div>
-        <input type="number" name="id" id="id-e" hidden="hidden" readonly>
+        <input type="number" name="id" id="id-e" hidden="hidden" readonly required>
         <div class="actions">
             <label for="editar-btn" id="cancelar-edicao">Cancelar</label>
             <input type="submit" value="Salvar">
         </div>
     </form>
 </div>
-<script>
-    $('form').submit(function(){
-        $('input[type=submit]', this).attr('disabled', 'disabled');
-    });
-</script>
 </body>
 </html>

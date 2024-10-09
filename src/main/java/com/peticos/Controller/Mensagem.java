@@ -75,9 +75,16 @@ public class Mensagem {
             default -> message = "Ocorreu um erro, tente novamente (mensagem não informada/esperada).";
         }
 
-
         // Armazenar a mensagem na sessão
         request.getSession(false).setAttribute("message", message);
+
+        // Redirecionar para o servlet que carrega a tabela
+        response.sendRedirect(String.format("/areaRestrita/%s", caminho));
+    }
+
+    public void retornarMensagem(String mensagem) throws IOException {
+        // Armazenar a mensagem na sessão
+        request.getSession(false).setAttribute("message", mensagem);
 
         // Redirecionar para o servlet que carrega a tabela
         response.sendRedirect(String.format("/areaRestrita/%s", caminho));
