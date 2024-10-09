@@ -5,7 +5,7 @@
 
     <error-page>
         <error-code>404</error-code>
-        <location>/errorPage/index.jsp</location>
+        <location>/errorPage/404.jsp</location>
     </error-page>
 
     <filter>

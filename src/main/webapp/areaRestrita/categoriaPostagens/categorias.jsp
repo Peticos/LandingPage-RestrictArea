@@ -129,7 +129,10 @@
                 </div>
             </div>
             <div class="filtro">
-                <!-- Escolher filtros (fazer igual o do figma Carvalho) -->
+                <div class="id">
+                    <h3>ID</h3>
+                    <input type="number" placeholder="7">
+                </div>
             </div>
         </div>
         <% String message = (String) request.getAttribute("message"); %>

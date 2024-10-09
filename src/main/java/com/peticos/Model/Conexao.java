@@ -1,6 +1,7 @@
 package com.peticos.Model;
 
 import java.sql.*;
+import io.github.cdimascio.dotenv.Dotenv;
 
 public class Conexao {
 
@@ -8,11 +9,13 @@ public class Conexao {
     public PreparedStatement pstmt;
     public ResultSet rs;
 
+
     public boolean conectar() {
         try{
-            String dbUrl = "jdbc:postgresql://db-peticos-cardosogih.k.aivencloud.com:16207/dbPeticos_1ano";
-            String dbUser = "avnadmin";
-            String dbPassword = "AVNS_-5W7guGY9QRwA4NOolM";
+            Dotenv dotenv = Dotenv.configure().directory("C:\\Users\\joaocarvalho-ieg\\OneDrive - Instituto Germinare\\Área de Trabalho\\TECH\\POO\\GIT\\peticos\\.env").load();
+            String dbUrl = dotenv.get("dbUrl");
+            String dbUser = dotenv.get("dbUser");
+            String dbPassword = dotenv.get("dbPassword");
 
             // Informando qual driver de conexão será utilizado pelo DriverManager
             Class.forName("org.postgresql.Driver");
