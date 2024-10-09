@@ -220,7 +220,7 @@
         </div>
         <div class="form-input">
             <label for="imagem-local">Imagem do Local</label>
-            <input type="text" name="imagem-local" id="imagem-local">
+            <input type="text" name="imagem-local" id="imagem-local" placeholder="https://imagem.jpeg">
         </div>
         <div class="actions">
             <label for="adicionar-btn" id="cancelar">Cancelar</label>

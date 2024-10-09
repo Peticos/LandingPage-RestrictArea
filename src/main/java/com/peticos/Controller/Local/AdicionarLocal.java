@@ -21,10 +21,25 @@ public class AdicionarLocal extends HttpServlet {
         String link = request.getParameter("link-saber-mais");
         String img = request.getParameter("imagem-local");
 
+        Mensagem mensagem = new Mensagem("local", "local", request, response);
+
+
+        if(!link.matches("http(s)?://.*.(com|org)(.br)?") && !img.matches("http(s)?://.*.(com|org)(.br)?")){
+            mensagem.retornarMensagem("Link saber mais e link da imagem digitados com erro!");
+            return;
+        }
+        else if(!link.matches("http(s)?://.*.(com|org)(.br)?")){
+            mensagem.retornarMensagem("Link saber mais digitado com erro!");
+            return;
+        }
+        else if(!img.matches("http(s)?://.*.(com|org)(.br)?")){
+            mensagem.retornarMensagem("Link da imagem digitado com erro!");
+            return;
+        }
+
         LocalDAO dao = new LocalDAO();
         int sucesso = dao.inserirLocal(idTipoLocal, nomeLocal, descricao, link, img);
 
-        Mensagem mensagem = new Mensagem("local", "local", request, response);
         mensagem.retornarMensagem(sucesso, 1, 'M');
     }
 }
