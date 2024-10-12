@@ -1,6 +1,7 @@
 package com.peticos.DAO;
 
-import java.sql.*;
+import java.sql.ResultSet;
+import java.sql.SQLException;
 import com.peticos.Model.Conexao;
 import com.peticos.Model.Raca;
 
@@ -27,12 +28,12 @@ public class RacaDAO {
         }
     } //Fim do método
 
-    public int alterarRaca(int idRaca, String raca) {
+    public int alterarRaca(Raca raca) {
         try {
             conexao.conectar();
             conexao.pstmt = conexao.conn.prepareStatement("UPDATE RACA SET RACA = ? WHERE ID_RACA = ?"); // Prepara a query que vai ser executada
-            conexao.pstmt.setString(1, raca);
-            conexao.pstmt.setInt(2, idRaca);
+            conexao.pstmt.setString(1, raca.getRaca());
+            conexao.pstmt.setInt(2, raca.getId_raca());
             return conexao.pstmt.executeUpdate(); // Executa a query e retorna a quantidade de raças alteradas
         } catch (SQLException e) {
             e.printStackTrace();

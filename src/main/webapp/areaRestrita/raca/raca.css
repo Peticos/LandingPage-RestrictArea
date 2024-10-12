@@ -156,7 +156,7 @@ body:has(#open-btn:checked) table{
     transition: bottom .5s, box-shadow .5s;
 }
 .filtro .id{
-    margin-left: 100px;
+    margin-left: 20px;
 }
 .filtro input{
     height: 40px;
@@ -216,7 +216,7 @@ body:has(#open-btn:checked) table{
 table tr{
     grid-template-columns: 0.2fr 0.7fr 1fr 1fr 0.3fr 0.3fr;
 }
-.id-dica{
+.id-raca{
     text-align: center;
 }
 

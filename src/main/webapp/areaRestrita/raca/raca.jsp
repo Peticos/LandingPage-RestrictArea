@@ -1,7 +1,11 @@
+<%@ page import="com.peticos.Model.Raca" %>
 <%@ page import="java.util.List" %>
 <%@ page import="com.peticos.DAO.AdministradorDAO" %>
 <%@ page import="com.peticos.Model.Administrador" %>
 <%@ page contentType="text/html;charset=UTF-8" %>
+<%
+    List<Raca> racas = (List<Raca>) request.getAttribute("racas");
+%>
 <!DOCTYPE html>
 <html lang="pt-br">
 <head>
@@ -13,8 +17,9 @@
 
     <!-- Scripts (JS) -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
-    <script src="../../assets/scripts/remover.js" defer></script>
-    <script src="../../assets/scripts/filtros.js" defer></script>
+    <script src="raca/remover.js" defer></script>
+    <script src="raca/filtros.js" defer></script>
+    <script src="raca/editar.js" defer></script>
 
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -22,6 +27,7 @@
 </head>
 <body>
 <input type="checkbox" id="adicionar-btn" name="adicionar-btn">
+<input type="checkbox" id="editar-btn" name="editar-btn">
 <header>
     <div class="abas">
         <a href="">CRUD</a>
@@ -87,6 +93,12 @@
                 <p>Local</p>
             </a>
         </li>
+        <li>
+            <a href="/logout"> <!-- Servlet de logout -->
+                <img src="../../assets/images/logout.svg" alt="">
+                <p>Sair</p>
+            </a>
+        </li>
     </ul>
 </nav>
 <div class="page-container">
@@ -98,7 +110,7 @@
                 <h1>Raça</h1>
                 <hr>
                 <div class="filtro-info">
-                    <h2>Total: 14</h2>
+                    <h2>Total: <%=racas.size()%></h2>
                     <div class="acoes-filtro">
                         <label for="adicionar-btn" id="adicionar">
                             <img src="../../assets/images/add.svg" alt="">
@@ -139,7 +151,75 @@
             }, 5000); // 5000 milissegundos = 5 segundos
         </script>
         <% } %>
+
+        <%
+            if (!racas.isEmpty()) {
+        %>
+            <table cellspacing="0">
+                <tr class="header-tabela">
+                    <th class="id-raca">ID</th>
+                    <th class="raca">Raça</th>
+                    <th class="acao">Ações</th>
+                </tr>
+            <%
+                for (int i = 0; i < racas.size(); i++) {
+            %>
+                <tr>
+                    <td class="id-raca"><%=racas.get(i).getId_raca()%></td>
+                    <td class="raca"><%=racas.get(i).getRaca()%></td>
+                    <td class="acao">
+                        <label for="editar-btn" class="edit">
+                            <img src="../../assets/images/edit.svg" alt="">
+                        </label>
+                        <button class="remove">
+                            <img src="../../assets/images/remove.svg" alt="">
+                        </button>
+                    </td>
+                </tr>
+            <%
+                }
+            %>
+            </table>
+        <%
+            } else {
+        %>
+        <h2>Sem raças disponíveis...</h2>
+        <%
+            }
+        %>
     </div>
 </div>
+<div class="form-container">
+    <form action="raca/adicionar" method="post" id="form-adicionar">
+        <h1>Adicionar Raça</h1>
+        <div class="form-input">
+            <label for="nome-raca">Nome da Raça</label>
+            <input type="text" name="nome-raca" id="nome-raca" placeholder="Golden, Husky, Yorkshire..." required>
+        </div>
+        <div class="actions">
+            <label for="adicionar-btn" id="cancelar">Cancelar</label>
+            <input type="submit" value="Adicionar">
+        </div>
+    </form>
+</div>
+<div class="edit-container">
+    <form action="raca/editar" method="post" id="form-editar">
+        <h1>Editar Raça</h1>
+        <div class="form-input">
+            <label for="nome-raca-e">Nome da Raça</label>
+            <input type="text" name="nome-raca" id="nome-raca-e" placeholder="Golden, Husky, Yorkshire..." required>
+        </div>
+        <input type="number" name="id-categoria" id="id-categoria-e" hidden="hidden" readonly>
+        <div class="actions">
+            <label for="editar-btn" id="cancelar-edicao">Cancelar</label>
+            <input type="submit" value="Salvar">
+        </div>
+    </form>
+</div>
+<script>
+    $('form').submit(function(){
+        $('input[type=submit]', this).attr('disabled', 'disabled');
+    });
+</script>
 </body>
 </html>
