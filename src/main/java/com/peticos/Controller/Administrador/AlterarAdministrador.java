@@ -19,7 +19,7 @@ public class AlterarAdministrador extends HttpServlet {
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         int idAdmin = Integer.parseInt(request.getParameter("id-administrador"));
         String nome = request.getParameter("nome-administrador");
-        String email  = request.getParameter("email-administrador");
+        String email  = request.getParameter("e-mail-administrador");
 
         boolean emailValido = email.matches("^[a-zA-Z0-9]+\\.?[a-zA-Z0-9]+@[a-zA-Z0-9]+\\.(com|org)(\\.br)?$");
 

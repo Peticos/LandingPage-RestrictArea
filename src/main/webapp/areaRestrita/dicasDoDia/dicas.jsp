@@ -184,37 +184,39 @@
         <%
         if (!dicas.isEmpty()){
         %>
-        <table cellspacing="0">
-            <tr class="header-tabela">
-                <th class="id-dica">ID</th>
-                <th class="titulo">Título</th>
-                <th class="texto">Texto</th>
-                <th class="link">Link</th>
-                <th class="data-tabela">Data</th>
-                <th class="acao">Ações</th>
-            </tr>
-            <%
-            for (int i = 0; i < dicas.size(); i++) {
-            %>
-            <tr>
-                <td class="id-dica"><%=dicas.get(i).getId()%></td>
-                <td class="titulo"><%=dicas.get(i).getTitulo()%></td>
-                <td class="texto"><%=dicas.get(i).getTexto()%></td>
-                <td class="link"><%=dicas.get(i).getLink()%></td>
-                <td class="data-tabela"><%=dicas.get(i).getFormatedData()%></td>
-                <td class="acao">
-                    <label for="editar-btn" class="edit">
-                        <img src="../../assets/images/edit.svg" alt="">
-                    </label>
-                    <button class="remove">
-                        <img src="../../assets/images/remove.svg" alt="">
-                    </button>
-                </td>
-            </tr>
-            <%
-            }
-            %>
-        </table>
+        <div class="table-container">
+            <table cellspacing="0">
+                <tr class="header-tabela">
+                    <th class="id-dica">ID</th>
+                    <th class="titulo">Título</th>
+                    <th class="texto">Texto</th>
+                    <th class="link">Link</th>
+                    <th class="data-tabela">Data</th>
+                    <th class="acao">Ações</th>
+                </tr>
+                <%
+                for (int i = 0; i < dicas.size(); i++) {
+                %>
+                <tr>
+                    <td class="id-dica"><%=dicas.get(i).getId()%></td>
+                    <td class="titulo"><%=dicas.get(i).getTitulo()%></td>
+                    <td class="texto"><%=dicas.get(i).getTexto()%></td>
+                    <td class="link"><%=dicas.get(i).getLink()%></td>
+                    <td class="data-tabela"><%=dicas.get(i).getFormatedData()%></td>
+                    <td class="acao">
+                        <label for="editar-btn" class="edit">
+                            <img src="../../assets/images/edit.svg" alt="">
+                        </label>
+                        <button class="remove">
+                            <img src="../../assets/images/remove.svg" alt="">
+                        </button>
+                    </td>
+                </tr>
+                <%
+                }
+                %>
+            </table>
+        </div>
         <%
         } else{
         %>

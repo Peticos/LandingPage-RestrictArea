@@ -15,23 +15,27 @@ import java.sql.Date;
 public class AdicionarDicaDoDia extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+        // Pegando os parâmetros enviados pelo form na página
         String titulo = request.getParameter("titulo");
         String texto  = request.getParameter("texto");
         String link = request.getParameter("link");
         Date data = Date.valueOf(request.getParameter("data"));
 
-
+        // Criando o objeto de mensagem que será utilizado para o retorno
         Mensagem mensagem = new Mensagem("dica", "dicasDoDia", request, response);
 
+        // Validando o link por regex
         boolean linkValido = link.matches("^https?://.+$");
         if (!linkValido){
             mensagem.retornarMensagem("Link inválido!");
             return;
         }
 
+        // Chamando o DAO para inserir no banco
         DicaDoDiaDAO dao = new DicaDoDiaDAO();
         int sucesso = dao.inserirDicaDoDia(titulo, texto, link, data);
 
+        // Retornando a mensagem com base no retorno do método
         mensagem.retornarMensagem(sucesso, 1, 'F');
     }
 }

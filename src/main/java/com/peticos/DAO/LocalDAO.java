@@ -35,6 +35,12 @@ public class LocalDAO {
     public int removerLocal(int idLocal) {
         conexao.conectar();
         try {
+            // Removendo os telefones, se existirem
+            conexao.pstmt = conexao.conn.prepareStatement("DELETE FROM telefone_local WHERE id_local = ?");
+            conexao.pstmt.setInt(1, idLocal);
+            conexao.pstmt.executeUpdate();
+
+            // Removendo o local
             conexao.pstmt = conexao.conn.prepareStatement("DELETE FROM LOCAL WHERE ID_LOCAL = ?");
             conexao.pstmt.setInt(1, idLocal);
             return conexao.pstmt.executeUpdate();

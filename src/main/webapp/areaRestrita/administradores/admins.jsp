@@ -138,13 +138,13 @@
         </div>
 
         <script>
-            // Definir um tempo para esconder a mensagem após 5 segundos (5000 milissegundos)
+            // Mostra a mensagem do servlet por 5 segundos
             setTimeout(function() {
                 var messageBox = document.getElementById('message-box');
                 if (messageBox) {
-                    messageBox.style.display = 'none'; // Ocultar a mensagem
+                    messageBox.style.display = 'none';
                 }
-            }, 5000); // 5000 milissegundos = 5 segundos
+            }, 5000);
         </script>
         <% } %>
 
