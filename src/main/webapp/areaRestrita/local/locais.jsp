@@ -152,39 +152,41 @@
         <%
             if (!locais.isEmpty()){
         %>
-        <table cellspacing="0">
-            <tr class="header-tabela">
-                <th class="id-local">ID</th>
-                <th class="id-tipo-local">ID Tipo Local</th>
-                <th class="nome-local">Nome do Local</th>
-                <th class="descricao">Descrição</th>
-                <th class="link-saber-mais">Link saber mais</th>
-                <th class="imagem-local">Imagem do Local</th>
-                <th class="acao">Ações</th>
-            </tr>
-            <%
-                for (int i = 0; i < locais.size(); i++) {
-            %>
-            <tr>
-                <td class="id-local"><%=locais.get(i).getIdLocal()%></td>
-                <td class="id-tipo-local"><%=locais.get(i).getIdTipoLocal()%></td>
-                <td class="nome-local"><%=locais.get(i).getNomeLocal()%></td>
-                <td class="descricao"><%=locais.get(i).getDescricao()%></td>
-                <td class="link-saber-mais"><%=locais.get(i).getLinkSaberMais()%></td>
-                <td class="imagem-local"><%=locais.get(i).getImagemLocal()%></td>
-                <td class="acao">
-                    <label for="editar-btn" class="edit">
-                        <img src="../../assets/images/edit.svg" alt="">
-                    </label>
-                    <button class="remove">
-                        <img src="../../assets/images/remove.svg" alt="">
-                    </button>
-                </td>
-            </tr>
-            <%
-                }
-            %>
-        </table>
+        <div class="table-container">
+            <table cellspacing="0">
+                <tr class="header-tabela">
+                    <th class="id-local">ID</th>
+                    <th class="id-tipo-local">ID Tipo Local</th>
+                    <th class="nome-local">Nome do Local</th>
+                    <th class="descricao">Descrição</th>
+                    <th class="link-saber-mais">Link saber mais</th>
+                    <th class="imagem-local">Imagem do Local</th>
+                    <th class="acao">Ações</th>
+                </tr>
+                <%
+                    for (int i = 0; i < locais.size(); i++) {
+                %>
+                <tr>
+                    <td class="id-local"><%=locais.get(i).getIdLocal()%></td>
+                    <td class="id-tipo-local"><%=locais.get(i).getIdTipoLocal()%></td>
+                    <td class="nome-local"><%=locais.get(i).getNomeLocal()%></td>
+                    <td class="descricao"><%=locais.get(i).getDescricao()%></td>
+                    <td class="link-saber-mais"><%=locais.get(i).getLinkSaberMais()%></td>
+                    <td class="imagem-local"><%=locais.get(i).getImagemLocal()%></td>
+                    <td class="acao">
+                        <label for="editar-btn" class="edit">
+                            <img src="../../assets/images/edit.svg" alt="">
+                        </label>
+                        <button class="remove">
+                            <img src="../../assets/images/remove.svg" alt="">
+                        </button>
+                    </td>
+                </tr>
+                <%
+                    }
+                %>
+            </table>
+        </div>
         <%
         } else{
         %>
