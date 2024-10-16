@@ -214,7 +214,7 @@ body:has(#open-btn:checked) table{
 
 /* Tabela de Raça */
 table tr{
-    grid-template-columns: 0.2fr 0.7fr 1fr 1fr 0.3fr 0.3fr;
+    grid-template-columns: 1fr 10fr 1fr;
 }
 .id-raca{
     text-align: center;
