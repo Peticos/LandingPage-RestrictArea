@@ -7,12 +7,10 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 
 public class LocalDAO {
-    private Conexao conexao;
-    public LocalDAO() {
-        conexao = new Conexao();
-    }
+
 
     public int inserirLocal(int idTipoLocal, String nomeLocal, String descricao, String linkSaberMais, String imagemLocal) {
+        Conexao conexao = new Conexao();
         conexao.conectar();
         try {
             conexao.pstmt = conexao.conn.prepareStatement("INSERT INTO LOCAL (id_tipo_local, nome_local, descricao, link_saber_mais, imagem_local) VALUES (?,?,?,?,?)");
@@ -33,6 +31,7 @@ public class LocalDAO {
     }
 
     public int removerLocal(int idLocal) {
+        Conexao conexao = new Conexao();
         conexao.conectar();
         try {
             // Removendo os telefones, se existirem
@@ -53,6 +52,7 @@ public class LocalDAO {
     }
 
     public Local getLocal(int idLocal) {
+        Conexao conexao = new Conexao();
         conexao.conectar();
         try {
             conexao.pstmt = conexao.conn.prepareStatement("SELECT * FROM LOCAL WHERE ID_LOCAL = ?");
@@ -80,6 +80,7 @@ public class LocalDAO {
     }
 
     public int alterarLocal(Local local) {
+        Conexao conexao = new Conexao();
         conexao.conectar();
         try{
             conexao.pstmt = conexao.conn.prepareStatement("UPDATE local SET id_tipo_local = ?, nome_local = ?, descricao = ?, link_saber_mais = ?, imagem_local = ? WHERE id_local = ?");
@@ -100,6 +101,7 @@ public class LocalDAO {
     }
 
     public ResultSet getTodosLocais() {
+        Conexao conexao = new Conexao();
         conexao.conectar();
         try {
             conexao.pstmt = conexao.conn.prepareStatement("SELECT * FROM local");
