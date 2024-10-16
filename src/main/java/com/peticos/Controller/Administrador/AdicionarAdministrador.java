@@ -2,6 +2,7 @@ package com.peticos.Controller.Administrador;
 
 import com.peticos.Controller.Mensagem;
 import com.peticos.DAO.AdministradorDAO;
+import com.peticos.Model.Administrador;
 import jakarta.servlet.ServletException;
 import jakarta.servlet.annotation.WebServlet;
 import jakarta.servlet.http.HttpServlet;
@@ -9,8 +10,6 @@ import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 
 import java.io.IOException;
-import java.util.regex.Matcher;
-import java.util.regex.Pattern;
 
 @WebServlet(name = "AdicionarAdministrador", value = "/areaRestrita/administradores/adicionar")
 public class AdicionarAdministrador extends HttpServlet {
@@ -42,7 +41,8 @@ public class AdicionarAdministrador extends HttpServlet {
         }
 
         AdministradorDAO dao = new AdministradorDAO();
-        int sucesso = dao.inserirAdministrador(nome,email,senha);
+        Administrador administrador = new Administrador(nome, email, senha);
+        int sucesso = dao.inserirAdministrador(administrador);
 
         mensagem.retornarMensagem(sucesso, 1, 'M');
     }
