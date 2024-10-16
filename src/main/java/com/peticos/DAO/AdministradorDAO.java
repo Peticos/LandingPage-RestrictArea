@@ -7,20 +7,16 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 
 public class AdministradorDAO {
-    private Conexao conexao;
 
-    public AdministradorDAO() {
-        conexao = new Conexao();
-    }
-
-    public int inserirAdministrador(String nome, String email, String senha) {
+    public int inserirAdministrador(Administrador administrador) {
+        Conexao conexao = new Conexao();
         conexao.conectar();
         try{
             conexao.pstmt = conexao.conn.prepareStatement("INSERT INTO admin.administradores (NOME, EMAIL, SENHA) VALUES (?,?,?)");
 
-            conexao.pstmt.setString(1, nome);
-            conexao.pstmt.setString(2, email);
-            conexao.pstmt.setString(3, senha);
+            conexao.pstmt.setString(1, administrador.getNome());
+            conexao.pstmt.setString(2, administrador.getEmail());
+            conexao.pstmt.setString(3, administrador.getSenha());
 
             return conexao.pstmt.executeUpdate();
         } catch (SQLException e) {
@@ -31,6 +27,7 @@ public class AdministradorDAO {
         }
     }
     public int removerAdministrador(int id) {
+        Conexao conexao = new Conexao();
         conexao.conectar();
         try{
             conexao.pstmt = conexao.conn.prepareStatement("DELETE FROM admin.administradores WHERE ID = ?");
@@ -46,6 +43,7 @@ public class AdministradorDAO {
         }
     }
     public int alterarAdministrador(int idAdmin, String nome, String email) {
+        Conexao conexao = new Conexao();
         conexao.conectar();
         try{
             conexao.pstmt = conexao.conn.prepareStatement("UPDATE admin.administradores SET nome = ?, email = ? WHERE id = ?");
@@ -63,6 +61,7 @@ public class AdministradorDAO {
         }
     }
     public Administrador getAdmin(String email) {
+        Conexao conexao = new Conexao();
         conexao.conectar();
         try{
             conexao.pstmt = conexao.conn.prepareStatement("SELECT id, nome, senha FROM admin.administradores WHERE email = ?");
@@ -87,6 +86,7 @@ public class AdministradorDAO {
         }
     }
     public ResultSet getTodosAdmins(){
+        Conexao conexao = new Conexao();
         conexao.conectar();
         try{
             conexao.pstmt = conexao.conn.prepareStatement("SELECT * FROM ADMIN.ADMINISTRADORES");

@@ -31,13 +31,16 @@ public class Mensagem {
             fim = 'a';
         }
 
+        // Mensagem para caso tenha sido removido
+        String foiRemovido = String.format("%c %s não existe mais..", Character.toUpperCase(fim), campo.toLowerCase());
+
         // Verifica qual ação foi feita (1 - Adicionar, 2 - Alterar, 3 - Remover)
         switch (tipo){
             case 1 -> {
                 if (sucesso > 0) {
                     message = String.format("%s adicionad%c com sucesso!", campoCapilized, fim);
                 } else if (sucesso == 0) {
-                    message = String.format("%c %s não foi adicionad%c..", Character.toUpperCase(fim), campo.toLowerCase(), fim);
+                    message = foiRemovido;
                 } else if (sucesso == -2) {
                     if (fim=='o'){
                         message = String.format("Já existe um %s com essa data!", campo.toLowerCase());
@@ -52,7 +55,7 @@ public class Mensagem {
                 if (sucesso > 0) {
                     message = String.format("%s alterad%c com sucesso!", campoCapilized, fim);
                 } else if (sucesso == 0) {
-                    message = String.format("%c %s não foi alterad%c..", Character.toUpperCase(fim), campo.toLowerCase(), fim);
+                    message = foiRemovido;
                 } else if (sucesso == -2) {
                     if (fim=='o'){
                         message = String.format("Já existe um %s com essa data!", campo.toLowerCase());
@@ -67,7 +70,7 @@ public class Mensagem {
                 if (sucesso > 0) {
                     message = String.format("%s removid%c com sucesso!", campoCapilized, fim);
                 } else if (sucesso == 0) {
-                    message = String.format("%c %s não foi removid%c..", Character.toUpperCase(fim), campo.toLowerCase(), fim);
+                    message = foiRemovido;
                 } else {
                     message = String.format("Erro ao remover %s!", campo.toLowerCase());
                 }
@@ -75,9 +78,16 @@ public class Mensagem {
             default -> message = "Ocorreu um erro, tente novamente (mensagem não informada/esperada).";
         }
 
-
         // Armazenar a mensagem na sessão
         request.getSession(false).setAttribute("message", message);
+
+        // Redirecionar para o servlet que carrega a tabela
+        response.sendRedirect(String.format("/areaRestrita/%s", caminho));
+    }
+
+    public void retornarMensagem(String mensagem) throws IOException {
+        // Armazenar a mensagem na sessão
+        request.getSession(false).setAttribute("message", mensagem);
 
         // Redirecionar para o servlet que carrega a tabela
         response.sendRedirect(String.format("/areaRestrita/%s", caminho));

@@ -8,21 +8,17 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 
 public class DicaDoDiaDAO {
-    private Conexao conexao;
 
-    public DicaDoDiaDAO() {
-        this.conexao = new Conexao();
-    }
-
-    public int inserirDicaDoDia(String titulo, String texto, String link, Date data) {
+    public int inserirDicaDoDia(DicaDoDia dicaDoDia) {
+        Conexao conexao = new Conexao();
         conexao.conectar();
         try{
             conexao.pstmt = conexao.conn.prepareStatement("INSERT INTO dica_do_dia(titulo, texto, link, data) VALUES (?,?,?,?)");
 
-            conexao.pstmt.setString(1, titulo);
-            conexao.pstmt.setString(2, texto);
-            conexao.pstmt.setString(3, link);
-            conexao.pstmt.setDate(4, data);
+            conexao.pstmt.setString(1, dicaDoDia.getTitulo());
+            conexao.pstmt.setString(2, dicaDoDia.getTexto());
+            conexao.pstmt.setString(3, dicaDoDia.getLink());
+            conexao.pstmt.setDate(4, dicaDoDia.getData());
 
             return conexao.pstmt.executeUpdate();
         } catch (SQLException e) {
@@ -36,6 +32,7 @@ public class DicaDoDiaDAO {
         }
     }
     public int removerDicaDoDia(int id) {
+        Conexao conexao = new Conexao();
         conexao.conectar();
         try{
             conexao.pstmt = conexao.conn.prepareStatement("DELETE FROM dica_do_dia WHERE id_dica = ?");
@@ -51,6 +48,7 @@ public class DicaDoDiaDAO {
         }
     }
     public int alterarDicaDoDia(DicaDoDia dica) {
+        Conexao conexao = new Conexao();
         conexao.conectar();
         try{
             conexao.pstmt = conexao.conn.prepareStatement("UPDATE dica_do_dia SET titulo = ?, texto = ?, link = ?, data = ? WHERE id_dica = ?");
@@ -73,6 +71,7 @@ public class DicaDoDiaDAO {
         }
     }
     public DicaDoDia getDicaDoDia(int id) {
+        Conexao conexao = new Conexao();
         conexao.conectar();
         try{
             conexao.pstmt = conexao.conn.prepareStatement("SELECT * FROM dica_do_dia WHERE id = ?");
@@ -97,6 +96,7 @@ public class DicaDoDiaDAO {
         }
     }
     public ResultSet getTodasDicasDoDia() {
+        Conexao conexao = new Conexao();
         conexao.conectar();
         try {
             conexao.pstmt = conexao.conn.prepareStatement("SELECT * FROM dica_do_dia");

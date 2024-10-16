@@ -1,9 +1,10 @@
+<%@ page import="com.peticos.Model.Raca" %>
 <%@ page import="java.util.List" %>
-<%@ page import="com.peticos.Model.Administrador" %>
 <%@ page import="com.peticos.DAO.AdministradorDAO" %>
+<%@ page import="com.peticos.Model.Administrador" %>
 <%@ page contentType="text/html;charset=UTF-8" %>
 <%
-    List<Administrador> admins = (List<Administrador>) request.getAttribute("administradores");
+    List<Raca> racas = (List<Raca>) request.getAttribute("racas");
 %>
 <!DOCTYPE html>
 <html lang="pt-br">
@@ -12,17 +13,17 @@
     <link rel="icon" href="../../assets/images/logo_app_branco.png">
 
     <!-- CSS -->
-    <link rel="stylesheet" href="/areaRestrita/administradores/admins.css">
+    <link rel="stylesheet" href="/areaRestrita/raca/raca.css">
 
     <!-- Scripts (JS) -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
-    <script src="administradores/remover.js" defer></script>
-    <script src="administradores/filtros.js" defer></script>
-    <script src="administradores/editar.js" defer></script>
+    <script src="raca/remover.js" defer></script>
+    <script src="raca/filtros.js" defer></script>
+    <script src="raca/editar.js" defer></script>
 
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Administradores - Área Restrita - Peticos</title>
+    <title>Raça - Área Restrita - Peticos</title>
 </head>
 <body>
 <input type="checkbox" id="adicionar-btn" name="adicionar-btn">
@@ -56,7 +57,7 @@
                 <p>Dashboard</p>
             </a>
         </li>
-        <li class="selecionado">
+        <li>
             <a href="../../areaRestrita/administradores">
                 <img src="../../assets/images/admin_icon.svg" alt="">
                 <p>Administradores</p>
@@ -74,7 +75,7 @@
                 <p>Categoria Postagens</p>
             </a>
         </li>
-        <li>
+        <li class="selecionado">
             <a href="../../areaRestrita/raca">
                 <img src="../../assets/images/paw.svg" alt="">
                 <p>Raça</p>
@@ -106,10 +107,10 @@
         <div class="filtro-container">
             <input type="checkbox" id="open-btn" name="open-btn">
             <div class="header-filtro">
-                <h1>Administradores</h1>
+                <h1>Raça</h1>
                 <hr>
                 <div class="filtro-info">
-                    <h2>Total: <%=admins.size()%></h2>
+                    <h2>Total: <%=racas.size()%></h2>
                     <div class="acoes-filtro">
                         <label for="adicionar-btn" id="adicionar">
                             <img src="../../assets/images/add.svg" alt="">
@@ -128,7 +129,10 @@
                 </div>
             </div>
             <div class="filtro">
-                <!--Ver filtros (Isaac)-->
+                <div class="id">
+                    <h3>ID</h3>
+                    <input type="number" placeholder="12345">
+                </div>
             </div>
         </div>
         <% String message = (String) request.getAttribute("message"); %>
@@ -138,71 +142,60 @@
         </div>
 
         <script>
-            // Mostra a mensagem do servlet por 5 segundos
+            // Definir um tempo para esconder a mensagem após 5 segundos (5000 milissegundos)
             setTimeout(function() {
                 var messageBox = document.getElementById('message-box');
                 if (messageBox) {
-                    messageBox.style.display = 'none';
+                    messageBox.style.display = 'none'; // Ocultar a mensagem
                 }
-            }, 5000);
+            }, 5000); // 5000 milissegundos = 5 segundos
         </script>
         <% } %>
 
         <%
-            if (!admins.isEmpty()){
+            if (!racas.isEmpty()) {
         %>
-        <table cellspacing="0">
-            <tr class="header-tabela">
-                <th class="id-administrador">ID</th>
-                <th class="nome-administrador">Nome</th>
-                <th class="e-mail-administrador">E-mail</th>
-                <th class="acao">Ações</th>
-            </tr>
+            <table cellspacing="0">
+                <tr class="header-tabela">
+                    <th class="id-raca">ID</th>
+                    <th class="raca">Raça</th>
+                    <th class="acao">Ações</th>
+                </tr>
             <%
-                for (int i = 0; i < admins.size(); i++) {
+                for (int i = 0; i < racas.size(); i++) {
             %>
-            <tr>
-                <td class="id-administrador"><%=admins.get(i).getId()%></td>
-                <td class="nome-administrador"><%=admins.get(i).getNome()%></td>
-                <td class="e-mail-administrador"><%=admins.get(i).getEmail()%></td>
-                <td class="acao">
-                    <label for="editar-btn" class="edit">
-                        <img src="../../assets/images/edit.svg" alt="">
-                    </label>
-                    <button class="remove">
-                        <img src="../../assets/images/remove.svg" alt="">
-                    </button>
-                </td>
-            </tr>
+                <tr>
+                    <td class="id-raca"><%=racas.get(i).getId_raca()%></td>
+                    <td class="raca"><%=racas.get(i).getRaca()%></td>
+                    <td class="acao">
+                        <label for="editar-btn" class="edit">
+                            <img src="../../assets/images/edit.svg" alt="">
+                        </label>
+                        <button class="remove">
+                            <img src="../../assets/images/remove.svg" alt="">
+                        </button>
+                    </td>
+                </tr>
             <%
                 }
             %>
-        </table>
+            </table>
         <%
-        } else{
+            } else {
         %>
-        <h2>Sem administradores disponíveis...</h2>
+        <h2>Sem raças disponíveis...</h2>
         <%
             }
         %>
     </div>
 </div>
 <div class="form-container">
-    <form action="administradores/adicionar" method="post" id="form-adicionar">
-        <h1>Adicionar Administrador</h1>
+    <form action="raca/adicionar" method="post" id="form-adicionar">
+        <h1>Adicionar Raça</h1>
         <div class="form-input">
-            <label for="nome-administrador">Nome</label>
-            <input type="text" name="nome-administrador" id="nome-administrador" placeholder="João da Silva">
+            <label for="nome-raca">Nome da Raça</label>
+            <input type="text" name="nome-raca" id="nome-raca" placeholder="Golden, Husky, Yorkshire..." required>
         </div>
-        <div class="form-input">
-            <label for="e-mail-administrador">E-mail</label>
-            <input type="email" name="e-mail-administrador" id="e-mail-administrador" placeholder="joaodasilva@email.com">
-        </div>
-        <div class="form-input">
-            <label for="senha-administrador">Senha</label>
-            <input type="password" name="senha-administrador" id="senha-administrador" placeholder="Digite a senha">
-        </div>
-
         <div class="actions">
             <label for="adicionar-btn" id="cancelar">Cancelar</label>
             <input type="submit" value="Adicionar">
@@ -210,17 +203,13 @@
     </form>
 </div>
 <div class="edit-container">
-    <form action="administradores/editar" method="post" id="form-editar">
-        <h1>Editar Administrador</h1>
+    <form action="raca/editar" method="post" id="form-editar">
+        <h1>Editar Raça</h1>
         <div class="form-input">
-            <label for="nome-administrador-e">Nome</label>
-            <input type="text" name="nome-administrador" id="nome-administrador-e" placeholder="João da Silva">
+            <label for="nome-raca-e">Nome da Raça</label>
+            <input type="text" name="nome-raca" id="nome-raca-e" placeholder="Golden, Husky, Yorkshire..." required>
         </div>
-        <div class="form-input">
-            <label for="e-mail-administrador-e">E-mail</label>
-            <input type="email" name="e-mail-administrador" id="e-mail-administrador-e" placeholder="joaodasilva@email.com">
-        </div>
-        <input type="number" name="id-administrador" id="id-administrador-e" hidden="hidden" readonly>
+        <input type="number" name="id-categoria" id="id-categoria-e" hidden="hidden" readonly>
         <div class="actions">
             <label for="editar-btn" id="cancelar-edicao">Cancelar</label>
             <input type="submit" value="Salvar">

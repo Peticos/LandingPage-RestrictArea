@@ -17,6 +17,13 @@ public class DicaDoDia {
         this.data = data;
     }
 
+    public DicaDoDia(String titulo, String texto, String link, Date data) {
+        this.titulo = titulo;
+        this.texto = texto;
+        this.link = link;
+        this.data = data;
+    }
+
     public int getId() {
         return id;
     }

@@ -1,7 +1,7 @@
-package com.peticos.Controller.Local;
+package com.peticos.Controller.Raca;
 
-import com.peticos.DAO.LocalDAO;
-import com.peticos.Model.Local;
+import com.peticos.DAO.RacaDAO;
+import com.peticos.Model.Raca;
 import jakarta.servlet.ServletException;
 import jakarta.servlet.annotation.WebServlet;
 import jakarta.servlet.http.HttpServlet;
@@ -14,27 +14,22 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
-
-@WebServlet(name = "CarregarLocal", value = "/areaRestrita/local")
-public class CarregarLocal extends HttpServlet {
+@WebServlet(name = "CarregarRaca", value = "/areaRestrita/raca")
+public class CarregarRaca extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        LocalDAO dao = new LocalDAO();
+        RacaDAO dao = new RacaDAO();
 
-        List<Local> locais = new ArrayList<>();
+        List<Raca> racas = new ArrayList<>(); // Tabela de raças
 
         try{
-            ResultSet rs = dao.getTodosLocais();
+            ResultSet rs = dao.getTodasRacas(); // Faz a consulta no banco
             while(rs.next()){
-                int idLocal = rs.getInt("id_local");
-                int idTipoLocal = rs.getInt("id_tipo_local");
-                String nomeLocal= rs.getString("nome_local");
-                String descricao = rs.getString("descricao");
-                String linkSaberMais = rs.getString("link_saber_mais");
-                String imagemLocal = rs.getString("imagem_local");
+                int idRaca = rs.getInt("id_raca");
+                String raca = rs.getString("raca");
 
-                locais.add(new Local(idLocal, idTipoLocal, nomeLocal, descricao, linkSaberMais, imagemLocal));
-            }
+                racas.add(new Raca(idRaca, raca));
+            } // Adiciona as informações do banco na lista da raça
         } catch (SQLException e) {
             throw new ServletException("Erro ao carregar os locais", e);
         }
@@ -49,7 +44,8 @@ public class CarregarLocal extends HttpServlet {
         // Passar a mensagem para o JSP
         request.setAttribute("message", message);
 
-        request.setAttribute("locais", locais);
-        request.getRequestDispatcher("/areaRestrita/local/locais.jsp").forward(request, response);
+        request.setAttribute("racas", racas);
+        request.getRequestDispatcher("/areaRestrita/raca/raca.jsp").forward(request, response);
     }
+
 }
