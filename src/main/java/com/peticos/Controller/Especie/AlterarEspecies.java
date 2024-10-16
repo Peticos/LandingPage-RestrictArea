@@ -9,7 +9,7 @@ import jakarta.servlet.http.HttpServletResponse;
 
 import java.io.IOException;
 
-@WebServlet(name="alterarnomecategoria", value = "/areaRestrita/categoriaPostagens/alterar-categoria")
+@WebServlet(name="alterarEspecies", value = "/areaRestrita/especie/editar")
 public class AlterarEspecies extends HttpServlet {
 
     @Override
@@ -20,7 +20,7 @@ public class AlterarEspecies extends HttpServlet {
         EspecieDAO dao = new EspecieDAO();
         int sucesso = dao.alterarEspecie(id,nome);
 
-        Mensagem mensagem = new Mensagem("especie", "especie", request, response);
+        Mensagem mensagem = new Mensagem("espécie", "especie", request, response);
         mensagem.retornarMensagem(sucesso, 2, 'F');
     }
 }

@@ -77,7 +77,7 @@ public class EspecieDAO {
         Conexao conexao = new Conexao();
         conexao.conectar();
         try {
-            conexao.pstmt = conexao.conn.prepareStatement("ALTER TABLE especie SET nome = ? WHERE id_categoria = ?");
+            conexao.pstmt = conexao.conn.prepareStatement("UPDATE especie SET especie = ? WHERE id_especie = ?");
             conexao.pstmt.setString(1,nome);
             conexao.pstmt.setInt(2,id);
 

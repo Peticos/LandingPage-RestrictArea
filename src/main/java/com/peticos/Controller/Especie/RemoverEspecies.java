@@ -19,7 +19,7 @@ public class RemoverEspecies extends HttpServlet {
         EspecieDAO dao = new EspecieDAO();
         int removerEspecie = dao.removerEspecie(id);
 
-        Mensagem mensagem = new Mensagem("especie", "especie", request, response);
+        Mensagem mensagem = new Mensagem("espécie", "especie", request, response);
         mensagem.retornarMensagem(removerEspecie, 3, 'F');
     }
 }

@@ -21,7 +21,7 @@ public class AdicionarEspecie extends HttpServlet {
         EspecieDAO dao = new EspecieDAO();
         int sucesso = dao.inserirEspecie(nomeEspecie);
 
-        Mensagem mensagem = new Mensagem("especie", "especie", request, response);
+        Mensagem mensagem = new Mensagem("espécie", "especie", request, response);
         mensagem.retornarMensagem(sucesso, 1, 'F');
     }
 }
