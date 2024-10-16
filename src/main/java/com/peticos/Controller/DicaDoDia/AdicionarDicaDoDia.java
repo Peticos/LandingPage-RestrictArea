@@ -2,6 +2,7 @@ package com.peticos.Controller.DicaDoDia;
 
 import com.peticos.Controller.Mensagem;
 import com.peticos.DAO.DicaDoDiaDAO;
+import com.peticos.Model.DicaDoDia;
 import jakarta.servlet.ServletException;
 import jakarta.servlet.annotation.WebServlet;
 import jakarta.servlet.http.HttpServlet;
@@ -33,7 +34,8 @@ public class AdicionarDicaDoDia extends HttpServlet {
 
         // Chamando o DAO para inserir no banco
         DicaDoDiaDAO dao = new DicaDoDiaDAO();
-        int sucesso = dao.inserirDicaDoDia(titulo, texto, link, data);
+        DicaDoDia dica = new DicaDoDia(titulo, texto, link, data);
+        int sucesso = dao.inserirDicaDoDia(dica);
 
         // Retornando a mensagem com base no retorno do método
         mensagem.retornarMensagem(sucesso, 1, 'F');
