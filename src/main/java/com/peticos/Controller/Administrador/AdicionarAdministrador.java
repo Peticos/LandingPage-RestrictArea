@@ -15,28 +15,26 @@ import java.io.IOException;
 public class AdicionarAdministrador extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+        // Pegando os parâmetros enviados para o Servlet
         String nome = request.getParameter("nome-administrador");
         String email  = request.getParameter("e-mail-administrador");
         String senha = request.getParameter("senha-administrador");
 
+        // Validando se o e-mail segue o padrão nome.sobrenome@dominio.com.br
         boolean emailValido = email.matches("^[a-zA-Z0-9]+\\.?[a-zA-Z0-9]+@[a-zA-Z0-9]+\\.(com|org)(\\.br)?$");
 
         // A senha deve ter no mínimo uma minúscula, uma maiúscula, um número e um caractere especial
-        boolean temMinuscula = senha.matches(".*[a-z].*");
-        boolean temMaiuscula = senha.matches(".*[A-Z].*");
-        boolean temNumero = senha.matches(".*[0-9].*");
-        boolean temCaractereEspecial = senha.matches(".*[!@#$%&_\\-*].*");
-        boolean temOitoCaracteres = senha.matches(".{8,}");
+        boolean senhaValida = senha.matches("^(?=.*[a-z])(?=.*[A-Z])(?=.*\\d)(?=.*[!@#$%&_\\-*]).{8,}$");
 
         Mensagem mensagem = new Mensagem("administrador", "administradores", request, response);
 
-        if (!temMinuscula || !temMaiuscula || !temNumero || !temOitoCaracteres || !temCaractereEspecial) {
+        if (!senhaValida) {
             mensagem.retornarMensagem("Senha não atende aos requisitos mínimos! (8 caracteres, 1+ minúscula/maiúscula/número/caractere especial)");
             return;
         }
 
         if (!emailValido){
-            mensagem.retornarMensagem("E-mail inválido! Digite no formato nome@dominio.com");
+            mensagem.retornarMensagem("E-mail inválido! Digite no formato nome.sobrenome@dominio.com.br");
             return;
         }
 
