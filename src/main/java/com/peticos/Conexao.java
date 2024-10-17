@@ -1,4 +1,4 @@
-package com.peticos.Model;
+package com.peticos;
 
 import java.sql.*;
 
