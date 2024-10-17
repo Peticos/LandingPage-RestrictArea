@@ -21,9 +21,18 @@ public class CarregarAdministradores extends HttpServlet {
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         AdministradorDAO dao = new AdministradorDAO();
 
+        // Definindo a lista de administradores que será retornada
         List<Administrador> administradores = new ArrayList<>();
 
+        // Recuperar a mensagem da sessão, se existir
+        HttpSession session = request.getSession(false);
+        String message = (String) session.getAttribute("message");
+
+        // Remover a mensagem da sessão para que ela não fique persistente
+        session.removeAttribute("message");
+
         try{
+            // Pegando o resultado do select e adicionando a lista cada admin
             ResultSet rs = dao.getTodosAdmins();
             while(rs.next()){
                 int id = rs.getInt("id");
@@ -33,15 +42,8 @@ public class CarregarAdministradores extends HttpServlet {
                 administradores.add(new Administrador(id, nome, email));
             }
         } catch (SQLException e) {
-            throw new ServletException("Erro ao carregar os administradores", e);
+            message = "Não foi possível carregar os administradores. Recarregue a página e tente novamente!";
         }
-
-        // Recuperar a mensagem da sessão, se existir
-        HttpSession session = request.getSession(false);
-        String message = (String) session.getAttribute("message");
-
-        // Remover a mensagem da sessão para que ela não fique persistente
-        session.removeAttribute("message");
 
         // Passar a mensagem para o JSP
         request.setAttribute("message", message);
