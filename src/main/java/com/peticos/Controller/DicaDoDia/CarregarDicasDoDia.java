@@ -22,7 +22,15 @@ public class CarregarDicasDoDia extends HttpServlet {
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         DicaDoDiaDAO dao = new DicaDoDiaDAO();
 
+        // Definindo a lista que será enviada com as dicas do dia
         List<DicaDoDia> dicas = new ArrayList<>();
+
+        // Recuperar a mensagem da sessão, se existir
+        HttpSession session = request.getSession(false);
+        String message = (String) session.getAttribute("message");
+
+        // Remover a mensagem da sessão para que ela não fique persistente
+        session.removeAttribute("message");
 
         try{
             ResultSet rs = dao.getTodasDicasDoDia();
@@ -36,21 +44,14 @@ public class CarregarDicasDoDia extends HttpServlet {
                 dicas.add(new DicaDoDia(id, titulo, texto, link, data));
             }
         } catch (SQLException e) {
-            throw new ServletException("Erro ao carregar as dicas do dia", e);
+            message = "Não foi possível carregar os administradores. Recarregue a página e tente novamente!";
         }
-
-        // Recuperar a mensagem da sessão, se existir
-        HttpSession session = request.getSession(false);
-        String message = (String) session.getAttribute("message");
-
-        // Remover a mensagem da sessão para que ela não fique persistente
-        session.removeAttribute("message");
-
-        // Passar a mensagem para o JSP
-        request.setAttribute("message", message);
 
         // Passar as dicas para o JSP
         request.setAttribute("dicas", dicas);
+
+        // Passar a mensagem para o JSP
+        request.setAttribute("message", message);
 
         // Voltando para o JSP
         request.getRequestDispatcher("/areaRestrita/dicasDoDia/dicas.jsp").forward(request, response);
