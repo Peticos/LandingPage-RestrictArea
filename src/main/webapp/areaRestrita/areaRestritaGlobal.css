@@ -446,3 +446,9 @@ table .id-categoria {
     font-size: 30px;
     color: var(--asereje-yellow);
 }
+
+.indisponivel{
+    margin: 20px 0;
+    color: var(--asereje-yellow);
+    font-weight: normal;
+}
