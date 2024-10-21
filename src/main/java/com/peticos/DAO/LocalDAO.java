@@ -1,6 +1,6 @@
 package com.peticos.DAO;
 
-import com.peticos.Model.Conexao;
+import com.peticos.Conexao;
 import com.peticos.Model.Local;
 
 import java.sql.ResultSet;

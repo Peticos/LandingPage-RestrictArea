@@ -151,37 +151,39 @@
         <%
             if (!admins.isEmpty()){
         %>
-        <table cellspacing="0">
-            <tr class="header-tabela">
-                <th class="id-administrador">ID</th>
-                <th class="nome-administrador">Nome</th>
-                <th class="e-mail-administrador">E-mail</th>
-                <th class="acao">Ações</th>
-            </tr>
-            <%
-                for (int i = 0; i < admins.size(); i++) {
-            %>
-            <tr>
-                <td class="id-administrador"><%=admins.get(i).getId()%></td>
-                <td class="nome-administrador"><%=admins.get(i).getNome()%></td>
-                <td class="e-mail-administrador"><%=admins.get(i).getEmail()%></td>
-                <td class="acao">
-                    <label for="editar-btn" class="edit">
-                        <img src="../../assets/images/edit.svg" alt="">
-                    </label>
-                    <button class="remove">
-                        <img src="../../assets/images/remove.svg" alt="">
-                    </button>
-                </td>
-            </tr>
-            <%
-                }
-            %>
-        </table>
+        <div class="table-container">
+            <table cellspacing="0">
+                <tr class="header-tabela">
+                    <th class="id-administrador">ID</th>
+                    <th class="nome-administrador">Nome</th>
+                    <th class="e-mail-administrador">E-mail</th>
+                    <th class="acao">Ações</th>
+                </tr>
+                <%
+                    for (int i = 0; i < admins.size(); i++) {
+                %>
+                <tr>
+                    <td class="id-administrador"><%=admins.get(i).getId()%></td>
+                    <td class="nome-administrador"><%=admins.get(i).getNome()%></td>
+                    <td class="e-mail-administrador"><%=admins.get(i).getEmail()%></td>
+                    <td class="acao">
+                        <label for="editar-btn" class="edit">
+                            <img src="../../assets/images/edit.svg" alt="">
+                        </label>
+                        <button class="remove">
+                            <img src="../../assets/images/remove.svg" alt="">
+                        </button>
+                    </td>
+                </tr>
+                <%
+                    }
+                %>
+            </table>
+        </div>
         <%
         } else{
         %>
-        <h2>Sem administradores disponíveis...</h2>
+        <h2 class="indisponivel">Sem administradores disponíveis...</h2>
         <%
             }
         %>

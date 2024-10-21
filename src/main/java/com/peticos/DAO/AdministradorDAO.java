@@ -1,6 +1,6 @@
 package com.peticos.DAO;
 
-import com.peticos.Model.Conexao;
+import com.peticos.Conexao;
 import com.peticos.Model.Administrador;
 
 import java.sql.ResultSet;
@@ -85,7 +85,7 @@ public class AdministradorDAO {
             conexao.desconectar();
         }
     }
-    public ResultSet getTodosAdmins(){
+    public ResultSet getTodosAdmins() throws SQLException {
         Conexao conexao = new Conexao();
         conexao.conectar();
         try{
@@ -93,7 +93,7 @@ public class AdministradorDAO {
             return conexao.pstmt.executeQuery();
         } catch (SQLException e) {
             e.printStackTrace();
-            return null;
+            throw new SQLException();
         } finally {
             conexao.desconectar();
         }

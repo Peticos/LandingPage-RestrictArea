@@ -17,16 +17,18 @@ import java.sql.Date;
 public class AlterarAdministrador extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+        // Definindo os parâmetros recebidos
         int idAdmin = Integer.parseInt(request.getParameter("id-administrador"));
         String nome = request.getParameter("nome-administrador");
         String email  = request.getParameter("e-mail-administrador");
 
+        // Validando se o e-mail segue o padrão nome.sobrenome@dominio.com.br
         boolean emailValido = email.matches("^[a-zA-Z0-9]+\\.?[a-zA-Z0-9]+@[a-zA-Z0-9]+\\.(com|org)(\\.br)?$");
 
         Mensagem mensagem = new Mensagem("administrador", "administradores", request, response);
 
         if (!emailValido){
-            mensagem.retornarMensagem("E-mail inválido! Digite no formato nome@dominio.com");
+            mensagem.retornarMensagem("E-mail inválido! Digite no formato nome.sobrenome@dominio.com.br");
             return;
         }
 

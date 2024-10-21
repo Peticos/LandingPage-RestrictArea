@@ -2,7 +2,7 @@ package com.peticos.DAO;
 
 import java.sql.ResultSet;
 import java.sql.SQLException;
-import com.peticos.Model.Conexao;
+import com.peticos.Conexao;
 import com.peticos.Model.Raca;
 
 

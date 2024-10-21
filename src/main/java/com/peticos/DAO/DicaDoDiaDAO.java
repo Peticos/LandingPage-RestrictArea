@@ -1,6 +1,6 @@
 package com.peticos.DAO;
 
-import com.peticos.Model.Conexao;
+import com.peticos.Conexao;
 import com.peticos.Model.DicaDoDia;
 
 import java.sql.Date;
@@ -95,7 +95,7 @@ public class DicaDoDiaDAO {
             conexao.desconectar();
         }
     }
-    public ResultSet getTodasDicasDoDia() {
+    public ResultSet getTodasDicasDoDia() throws SQLException {
         Conexao conexao = new Conexao();
         conexao.conectar();
         try {
@@ -104,7 +104,7 @@ public class DicaDoDiaDAO {
             return conexao.pstmt.executeQuery();
         } catch (SQLException e) {
             e.printStackTrace();
-            return null;
+            throw new SQLException();
         } finally {
             conexao.desconectar();
         }

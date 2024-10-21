@@ -1,5 +1,5 @@
 package com.peticos.DAO;
-import com.peticos.Model.Conexao;
+import com.peticos.Conexao;
 import com.peticos.Model.Especie;
 
 import java.sql.ResultSet;
