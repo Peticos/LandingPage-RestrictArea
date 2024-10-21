@@ -8,6 +8,11 @@
         <location>/errorPage/404/404.jsp</location>
     </error-page>
 
+    <error-page>
+        <error-code>500</error-code>
+        <location>/errorPage/500/500.jsp</location>
+    </error-page>
+
     <filter>
         <filter-name>AdminFilter</filter-name>
         <filter-class>com.peticos.Filtro.AdminFilter</filter-class>
