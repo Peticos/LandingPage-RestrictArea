@@ -8,7 +8,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <link rel="stylesheet" href="500.css">
+    <link rel="stylesheet" href="/errorPage/500/500.css">
     <title>Erro Inesperado - Peticos</title>
 </head>
 <body>
@@ -34,6 +34,10 @@
         <div id="error-cima">
             <h1>500</h1>
             <h2>Ops! Algo inesperado aconteceu...</h2>
+            <details>
+                <summary>Mais</summary>
+                <p><%=exception%></p>
+            </details>
         </div>
         <img id="cabeca-modolinho" src="../../assets/images/cabeca_modolinho_triste_interrogacao.svg" alt="">
         <a id="voltar-pagina-principal" href="../../index.jsp">Página Principal</a>
