@@ -255,6 +255,9 @@ table {
     .container{
         max-width: 87vw;
     }
+    .header-tabela th{
+        font-size: 25px;
+    }
 }
 @media (max-width: 750px){
     .filtro-info h2{
@@ -265,6 +268,16 @@ table {
     }
     .acoes-filtro{
         margin-left: 20px;
+    }
+    .filtro .id input{
+        margin-left: 20px;
+        width: 100px;
+    }
+    .filtro .id h3{
+        margin-left: 20px;
+    }
+    .header-tabela th{
+        font-size: 20px;
     }
 
 }
@@ -277,5 +290,8 @@ table {
     }
     .perfil .foto{
         margin-right: 20px;
+    }
+    .header-tabela th{
+        font-size: 20px;
     }
 }

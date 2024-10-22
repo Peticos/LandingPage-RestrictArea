@@ -129,7 +129,18 @@
                 </div>
             </div>
             <div class="filtro">
-                <!-- Escolher filtros (fazer igual o do figma Ruan) -->
+                <div class="form-input">
+                    <input type="number" id="filter-id" placeholder="ID do local">
+                </div>
+                <div class="form-input">
+                    <select id="filter-tipo">
+                        <option value="">Todos</option>
+                        <option value="1">Veterinária</option>
+                        <option value="2">Petshop</option>
+                        <option value="3">Lazer</option>
+                        <option value="4">ONG</option>
+                    </select>
+                </div>
             </div>
         </div>
         <% String message = (String) request.getAttribute("message"); %>
