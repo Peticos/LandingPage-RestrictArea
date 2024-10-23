@@ -43,14 +43,4 @@ public class Administrador {
     public String getSenha() {
         return senha;
     }
-
-    @Override
-    public String toString() {
-        return "Administrador{" +
-                "id=" + id +
-                ", nome='" + nome + '\'' +
-                ", email='" + email + '\'' +
-                ", senha='" + senha + '\'' +
-                '}';
-    }
 }

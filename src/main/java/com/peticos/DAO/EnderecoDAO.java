@@ -1,23 +1,25 @@
 package com.peticos.DAO;
 
 import com.peticos.Conexao;
-import com.peticos.Model.Categoria;
+import com.peticos.Model.Endereco;
 
 import java.sql.ResultSet;
 import java.sql.SQLException;
 
-public class CategoriaDAO {
+public class EnderecoDAO {
     private Conexao conexao;
 
-    public CategoriaDAO () {
+    public EnderecoDAO () {
         this.conexao = new Conexao();
     }
 
-    public int inserirCategoria(String nome) {
+    public int inserirEndereco(String estado, String cidade, String bairro) {
         conexao.conectar();
         try {
-            conexao.pstmt = conexao.conn.prepareStatement("INSERT INTO categoria(nome) VALUES (?)");
-            conexao.pstmt.setString(1,nome);
+            conexao.pstmt = conexao.conn.prepareStatement("INSERT INTO endereco(estado,cidade,bairro) VALUES (?,?,?)");
+            conexao.pstmt.setString(1,estado);
+            conexao.pstmt.setString(2,cidade);
+            conexao.pstmt.setString(3,bairro);
 
             return conexao.pstmt.executeUpdate();
         }catch(SQLException e ) {
@@ -28,10 +30,10 @@ public class CategoriaDAO {
         }
     }
 
-    public int removerCategoria(int id) {
+    public int removerEndereco(int id) {
         conexao.conectar();
         try {
-            conexao.pstmt = conexao.conn.prepareStatement("DELETE FROM categoria WHERE id_categoria = ?");
+            conexao.pstmt = conexao.conn.prepareStatement("DELETE FROM endereco WHERE id_endereco = ?");
             conexao.pstmt.setInt(1,id);
 
             return conexao.pstmt.executeUpdate();
@@ -42,13 +44,14 @@ public class CategoriaDAO {
             conexao.desconectar();
         }
     }
-
-    public int alterarCategoria(int id, String nome) {
+    public int alterarEndereco(int id, String estado, String cidade, String bairro) {
         conexao.conectar();
         try {
-            conexao.pstmt = conexao.conn.prepareStatement("UPDATE categoria SET nome = ? WHERE id_categoria = ?");
-            conexao.pstmt.setString(1,nome);
-            conexao.pstmt.setInt(2,id);
+            conexao.pstmt = conexao.conn.prepareStatement("UPDATE endereco SET estado = ?, cidade = ?, bairro = ? WHERE id_endereco = ?");
+            conexao.pstmt.setString(1,estado);
+            conexao.pstmt.setString(2,cidade);
+            conexao.pstmt.setString(3,bairro);
+            conexao.pstmt.setInt(4,id);
 
             return conexao.pstmt.executeUpdate();
         }catch (SQLException e) {
@@ -59,17 +62,19 @@ public class CategoriaDAO {
         }
     }
 
-    public Categoria getCategoria(int id) {
+    public Endereco getEndereco(int id) {
         conexao.conectar();
         try {
-            conexao.pstmt = conexao.conn.prepareStatement("SELECT * FROM categoria WHERE id_categoria = ? ");
+            conexao.pstmt = conexao.conn.prepareStatement("SELECT * FROM endereco WHERE id_endereco = ? ");
             conexao.pstmt.setInt(1,id);
 
             conexao.rs = conexao.pstmt.executeQuery();
             if(conexao.rs.next()) {
-                String id_categoria = conexao.rs.getString("id_categoria");
-                String nome = conexao.rs.getString("nome");
-                return new Categoria(Integer.parseInt(id_categoria),nome);
+                String id_endereco = conexao.rs.getString("id_endereco");
+                String estado = conexao.rs.getString("estado");
+                String cidade = conexao.rs.getString("cidade");
+                String bairro = conexao.rs.getString("bairro");
+                return new Endereco(Integer.parseInt(id_endereco),estado, cidade, bairro);
             }else {
                 return null;
             }
@@ -81,10 +86,10 @@ public class CategoriaDAO {
         }
     }
 
-    public ResultSet getTodasAsCategorias() {
+    public ResultSet getTodosEnderecos() {
         conexao.conectar();
         try {
-            conexao.pstmt = conexao.conn.prepareStatement("SELECT * FROM categoria");
+            conexao.pstmt = conexao.conn.prepareStatement("SELECT * FROM endereco");
             conexao.rs = conexao.pstmt.executeQuery();
             return conexao.rs;
         }catch (SQLException e) {

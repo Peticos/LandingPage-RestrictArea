@@ -155,6 +155,9 @@ body:has(#open-btn:checked) table{
     bottom: 0;
     transition: bottom .5s, box-shadow .5s;
 }
+.filtro .data{
+    margin-left: 20px;
+}
 .filtro input{
     height: 40px;
     width: min(200px, 10vw);
@@ -178,9 +181,6 @@ body:has(#open-btn:checked) table{
     box-sizing: border-box;
     padding-left: 20px;
     top: -20px;
-}
-.id {
-    margin-left: 20px;
 }
 .data input::-webkit-calendar-picker-indicator{
     padding-right: 20px;
@@ -206,6 +206,9 @@ body:has(#open-btn:checked) table{
     box-shadow: 2px 2px 4px 0 rgba(0, 0, 0, 0.25);
     font-size: 20px;
 }
+#dica-hoje{
+    padding: 0 20px;
+}
 .acoes-filtro #adicionar{
     width: 40px;
     display: flex;
@@ -222,10 +225,81 @@ body:has(#open-btn:checked) table{
     font-size: 20px;
 }
 
-/* Tabela de Categorias */
+/* Tabela de Dicas */
 table tr{
-    grid-template-columns: 0.2fr 2fr 0.5fr;
+    grid-template-columns: 0.2fr 0.7fr 1fr 1fr 0.3fr 0.3fr;
 }
-.id-categoria{
+.id-dica{
     text-align: center;
+}
+
+/* Form da textarea para dar mais espaço para visualizar o campo*/
+.form-input:nth-child(3){
+    height: 200px;
+}
+
+
+/* Responsividade */
+/* CSS */
+.table-container {
+    width: 90%;
+    overflow-x: auto; /* Habilita a rolagem horizontal */
+    border-radius: 20px;
+
+    margin-top: 30px;
+    margin-bottom: 30px;
+}
+
+table {
+    margin-top: 0;
+    margin-bottom: 0;
+    width: 100%;
+    min-width: 1100px; /* Largura mínima da tabela */
+    border-collapse: collapse;
+}
+@media (max-width: 1200px){
+    #form-adicionar, #form-editar, .confirm-box{
+        width: 80vw;
+    }
+    .container{
+        max-width: 87vw;
+    }
+}
+@media (max-width: 750px){
+    .filtro-info h2{
+        display: none;
+    }
+    .header-filtro .filtro-info{
+        justify-content: center;
+    }
+    .acoes-filtro{
+        margin-left: 20px;
+    }
+    .filtro .data{
+        display: none;
+    }
+    .filtro .id input{
+        margin-left: 20px;
+        width: 100px;
+    }
+    .filtro .id h3{
+        margin-left: 20px;
+    }
+    #dica-hoje{
+        font-size: 15px;
+        margin-right: 20px;
+        min-height: 40px;
+        height: fit-content;
+    }
+}
+@media (max-width: 540px){
+    .acoes-filtro .pesquisar, .perfil .info{
+        display: none;
+    }
+    header .perfil{
+        justify-content: flex-end;
+    }
+    .perfil .foto{
+        margin-right: 20px;
+    }
 }
