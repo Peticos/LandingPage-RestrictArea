@@ -44,7 +44,8 @@ public class CarregarDicasDoDia extends HttpServlet {
                 dicas.add(new DicaDoDia(id, titulo, texto, link, data));
             }
         } catch (SQLException e) {
-            message = "Não foi possível carregar os administradores. Recarregue a página e tente novamente!";
+            e.printStackTrace();
+            message = "Não foi possível carregar as dicas. Recarregue a página e tente novamente!";
         }
 
         // Passar as dicas para o JSP

@@ -42,6 +42,7 @@ public class CarregarAdministradores extends HttpServlet {
                 administradores.add(new Administrador(id, nome, email));
             }
         } catch (SQLException e) {
+            e.printStackTrace();
             message = "Não foi possível carregar os administradores. Recarregue a página e tente novamente!";
         }
 
