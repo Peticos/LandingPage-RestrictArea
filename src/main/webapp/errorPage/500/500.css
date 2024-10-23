@@ -94,7 +94,12 @@ h2{
     text-align: center;
 }
 
-
+details{
+    margin-left: 20px;
+    font-size: 18px;
+    color: var(--wood-brown);
+    max-width: 500px;
+}
 
 /* Footer */
 /* Seção de contato */
