@@ -359,9 +359,11 @@ div{
 }
 #indicador-pessoa{
     height: 100px;
+    width: 70%;
+    max-width: 450px;
 
     display: flex;
-    justify-content: center;
+    justify-content: space-evenly;
     align-items: center;
 }
 .ball svg{
@@ -370,6 +372,7 @@ div{
     filter: drop-shadow(0px 0px 2px rgb(0 0 0 / 0.1));}
 .ball-pessoa svg{
     height: 20px;
+    width: 20px;
     fill: var(--off-white);
     filter: drop-shadow(0px 0px 2px rgb(0 0 0 / 0.1));
 }
@@ -671,6 +674,25 @@ footer>p{
     }
     footer ul{
         grid-area: contato;
+    }
+
+    /* Responsividade de baixar */
+    .baixe-playstore{
+        flex-flow: column nowrap;
+        gap: 10px;
+        padding: 10px 0;
+    }
+    .baixe-playstore p{
+        width: 90%;
+    }
+    .baixe-playstore a{
+        width: 70%;
+    }
+
+    /* Responsividade de nossa equipe */
+    .ball-pessoa svg {
+        height: 17px;
+        width: 17px;
     }
 }
 
