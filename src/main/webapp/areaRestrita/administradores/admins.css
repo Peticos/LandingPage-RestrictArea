@@ -226,9 +226,6 @@ body:has(#open-btn:checked) table{
 }
 
 /* Tabela de Administradores */
-table tr{
-    grid-template-columns: .3fr 1fr 1fr .3fr;
-}
 .id-administrador{
     text-align: center;
 }

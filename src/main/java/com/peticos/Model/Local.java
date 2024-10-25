@@ -3,41 +3,60 @@ package com.peticos.Model;
 public class Local {
     private int idLocal;
     private int idTipoLocal;
+    private int idEndereco;
     private String nomeLocal;
     private String descricao;
     private String linkSaberMais;
     private String imagemLocal;
+    private String rua;
+    private int numero;
 
-    public Local(int idLocal, int idTipoLocal, String nomeLocal, String descricao, String linkSaberMais, String imagemLocal) {
+    public Local(int idLocal, int idTipoLocal, int idEndereco, String nomeLocal, String descricao, String linkSaberMais, String imagemLocal, String rua, int numero) {
         this.idLocal = idLocal;
         this.idTipoLocal = idTipoLocal;
+        this.idEndereco = idEndereco;
         this.nomeLocal = nomeLocal;
         this.descricao = descricao;
         this.linkSaberMais = linkSaberMais;
         this.imagemLocal = imagemLocal;
+        this.rua = rua;
+        this.numero = numero;
     }
 
     public int getIdLocal() {
-        return idLocal;
+        return this.idLocal;
     }
 
     public int getIdTipoLocal() {
-        return idTipoLocal;
+        return this.idTipoLocal;
     }
 
     public String getNomeLocal() {
-        return nomeLocal;
+        return this.nomeLocal;
     }
 
     public String getDescricao() {
-        return descricao;
+        return this.descricao;
     }
 
     public String getLinkSaberMais() {
-        return linkSaberMais;
+        return this.linkSaberMais;
     }
 
     public String getImagemLocal() {
-        return imagemLocal;
+        return this.imagemLocal;
     }
+
+    public int getIdEndereco() {
+        return this.idEndereco;
+    }
+
+    public String getRua() {
+        return this.rua;
+    }
+
+    public int getNumero() {
+        return this.numero;
+    }
+
 }

@@ -22,3 +22,33 @@ function filterTable() {
 }
 
 document.querySelector(".pesquisar input").addEventListener("keyup", filterTable);
+
+
+// Filtrar pelo id
+$(".id")[0].querySelector("input").addEventListener("keyup", function (){
+
+    console.log(this.value)
+    for (let i = 1; i < rows.length; i++) {
+        if (rows[i].getElementsByTagName("td")[0].innerText!==this.value){
+            rows[i].style.display = "none";
+            console.log()
+        } else{
+            rows[i].style.display = "grid";
+        }
+    }
+});
+
+function limparID(){
+    $(".id")[0].querySelector("input").value = "";
+}
+
+// Parar os filtros
+document.getElementById("parar-filtro").addEventListener("click", function (){
+    if ($('#open-btn').is(":checked")){
+        limparID();
+
+        for (let i = 1; i < rows.length; i++) {
+            rows[i].style.display = "grid";
+        }
+    }
+})

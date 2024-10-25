@@ -129,17 +129,9 @@
                 </div>
             </div>
             <div class="filtro">
-                <div class="form-input">
-                    <input type="number" id="filter-id" placeholder="ID do local">
-                </div>
-                <div class="form-input">
-                    <select id="filter-tipo">
-                        <option value="">Todos</option>
-                        <option value="1">Veterinária</option>
-                        <option value="2">Petshop</option>
-                        <option value="3">Lazer</option>
-                        <option value="4">ONG</option>
-                    </select>
+                <div class="id">
+                    <h3>ID</h3>
+                    <input type="number" placeholder="12345">
                 </div>
             </div>
         </div>
@@ -168,10 +160,13 @@
                 <tr class="header-tabela">
                     <th class="id-local">ID</th>
                     <th class="id-tipo-local">ID Tipo Local</th>
+                    <th class="id-endereco">ID Endereço</th>
                     <th class="nome-local">Nome do Local</th>
                     <th class="descricao">Descrição</th>
                     <th class="link-saber-mais">Link saber mais</th>
                     <th class="imagem-local">Imagem do Local</th>
+                    <th class="rua-local">Rua</th>
+                    <th class="numero-local">Número</th>
                     <th class="acao">Ações</th>
                 </tr>
                 <%
@@ -180,10 +175,13 @@
                 <tr>
                     <td class="id-local"><%=locais.get(i).getIdLocal()%></td>
                     <td class="id-tipo-local"><%=locais.get(i).getIdTipoLocal()%></td>
+                    <td class="id-endereco"><%=locais.get(i).getIdEndereco()%></td>
                     <td class="nome-local"><%=locais.get(i).getNomeLocal()%></td>
                     <td class="descricao"><%=locais.get(i).getDescricao()%></td>
                     <td class="link-saber-mais"><%=locais.get(i).getLinkSaberMais()%></td>
                     <td class="imagem-local"><%=locais.get(i).getImagemLocal()%></td>
+                    <td class="rua-local"><%=locais.get(i).getRua()%></td>
+                    <td class="numero-local"><%=locais.get(i).getNumero()%></td>
                     <td class="acao">
                         <label for="editar-btn" class="edit">
                             <img src="../../assets/images/edit.svg" alt="">
@@ -208,7 +206,7 @@
     </div>
 </div>
 <div class="form-container">
-    <form action="local/adicionar" method="post" id="form-adicionar">
+    <form action="/areaRestrita/local/adicionar" method="post" id="form-adicionar">
         <h1>Adicionar Local</h1>
         <div class="form-input">
             <label for="id-tipo-local">ID Tipo Local</label>
@@ -218,6 +216,10 @@
                 <option value="3">3 - Lazer</option>
                 <option value="4">4 - ONG</option>
             </select>
+        </div>
+        <div class="form-input">
+            <label for="id-endereco">ID Endereço</label>
+            <input type="text" name="id-endereco" id="id-endereco" placeholder="123456" required>
         </div>
         <div class="form-input">
             <label for="nome-local">Nome do Local</label>
@@ -235,6 +237,14 @@
             <label for="imagem-local">Imagem do Local</label>
             <input type="text" name="imagem-local" id="imagem-local" placeholder="https://imagem.jpeg">
         </div>
+        <div class="form-input">
+            <label for="imagem-local">Rua</label>
+            <input type="text" name="rua-local" id="rua-local" placeholder="Rua xxxx">
+        </div>
+        <div class="form-input">
+            <label for="numero-local">Número</label>
+            <input type="text" name="numero-local" id="numero-local" placeholder="123456">
+        </div>
         <div class="actions">
             <label for="adicionar-btn" id="cancelar">Cancelar</label>
             <input type="submit" value="Adicionar">
@@ -242,11 +252,11 @@
     </form>
 </div>
 <div class="edit-container">
-    <form action="local/editar" method="post" id="form-editar">
-        <h1>Editar Dica Do Dia</h1>
+    <form action="/areaRestrita/local/editar" method="post" id="form-editar">
+        <h1>Editar Local</h1>
         <div class="form-input">
             <label for="id-tipo-local-e">ID Tipo Local</label>
-            <select name="id-tipo-local" id="id-tipo-local-e" required>
+            <select name="id-tipo-local-e" id="id-tipo-local-e" required>
                 <option value="1">1 - Veterinária</option>
                 <option value="2">2 - Petshop</option>
                 <option value="3">3 - Lazer</option>
@@ -254,22 +264,34 @@
             </select>
         </div>
         <div class="form-input">
+            <label for="id-endereco-e">ID Endereço</label>
+            <input type="text" name="id-endereco-e" id="id-endereco-e" placeholder="123456" required>
+        </div>
+        <div class="form-input">
             <label for="nome-local-e">Nome do Local</label>
-            <input type="text" name="nome-local" id="nome-local-e" placeholder="Clínica Cães e Gatos..." required>
+            <input type="text" name="nome-local-e" id="nome-local-e" placeholder="Clínica Cães e Gatos..." required>
         </div>
         <div class="form-input">
             <label for="descricao-e">Descrição</label>
-            <input type="text" name="descricao" id="descricao-e" placeholder="Clínica especializada em..." required>
+            <input type="text" name="descricao-e" id="descricao-e" placeholder="Clínica especializada em..." required>
         </div>
         <div class="form-input">
             <label for="link-saber-mais-e">Link Saber Mais</label>
-            <input type="text" name="link-saber-mais" id="link-saber-mais-e" placeholder="https://clinica.com.br/caes">
+            <input type="text" name="link-saber-mais-e" id="link-saber-mais-e" placeholder="https://clinica.com.br/caes">
         </div>
         <div class="form-input">
             <label for="imagem-local-e">Imagem do Local</label>
-            <input type="text" name="imagem-local" id="imagem-local-e">
+            <input type="text" name="imagem-local-e" id="imagem-local-e">
         </div>
-        <input type="number" name="id-local" id="id-local-e" hidden="hidden" readonly>
+        <div class="form-input">
+            <label for="rua-local-e">Rua</label>
+            <input type="text" name="rua-local-e" id="rua-local-e" placeholder="Rua xxxx">
+        </div>
+        <div class="form-input">
+            <label for="numero-local-e">Número</label>
+            <input type="text" name="numero-local-e" id="numero-local-e" placeholder="123456">
+        </div>
+        <input type="number" name="id-local-e" id="id-local-e" hidden="hidden" readonly>
         <div class="actions">
             <label for="editar-btn" id="cancelar-edicao">Cancelar</label>
             <input type="submit" value="Salvar">

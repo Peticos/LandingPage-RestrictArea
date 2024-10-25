@@ -158,6 +158,9 @@ body:has(#open-btn:checked) table{
 .filtro .data{
     margin-left: 20px;
 }
+.id{
+    padding-left: 20px;
+}
 .filtro input{
     height: 40px;
     width: min(200px, 10vw);
@@ -223,10 +226,7 @@ body:has(#open-btn:checked) table{
 }
 
 /* Tabela de Locais */
-table tr{
-    grid-template-columns: 1fr 4fr 6fr 8fr 6fr 6fr 3fr;
-}
-.id-local, .id-tipo-local{
+.id-local, .id-tipo-local, .id-endereco{
     text-align: center;
 }
 
