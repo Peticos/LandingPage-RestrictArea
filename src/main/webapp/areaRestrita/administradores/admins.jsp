@@ -104,7 +104,6 @@
     <div class="spacing"></div>
     <div class="container">
         <div class="filtro-container">
-            <input type="checkbox" id="open-btn" name="open-btn">
             <div class="header-filtro">
                 <h1>Administradores</h1>
                 <hr>
@@ -113,12 +112,6 @@
                     <div class="acoes-filtro">
                         <label for="adicionar-btn" id="adicionar">
                             <img src="../../assets/images/add.svg" alt="">
-                        </label>
-                        <label for="open-btn" id="filtrar">
-                            <img src="../../assets/images/filter.svg" alt="">
-                        </label>
-                        <label for="open-btn" id="parar-filtro">
-                            <img src="../../assets/images/filter-off.svg" alt="">
                         </label>
                         <div class="pesquisar">
                             <input type="text" placeholder="Procure aqui..">
