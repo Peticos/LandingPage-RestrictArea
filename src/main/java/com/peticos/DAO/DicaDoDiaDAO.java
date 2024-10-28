@@ -23,7 +23,7 @@ public class DicaDoDiaDAO {
             return conexao.pstmt.executeUpdate();
         } catch (SQLException e) {
             e.printStackTrace();
-            if (e.getMessage().contains("data_repetida")){
+            if (e.getMessage().contains("dica_do_dia_data_key")){
                 return -2;
             }
             return -1;
@@ -62,35 +62,10 @@ public class DicaDoDiaDAO {
             return conexao.pstmt.executeUpdate();
         } catch (SQLException e) {
             e.printStackTrace();
-            if (e.getMessage().contains("data_repetida")){
+            if (e.getMessage().contains("dica_do_dia_data_key")){
                 return -2;
             }
             return -1;
-        } finally {
-            conexao.desconectar();
-        }
-    }
-    public DicaDoDia getDicaDoDia(int id) {
-        Conexao conexao = new Conexao();
-        conexao.conectar();
-        try{
-            conexao.pstmt = conexao.conn.prepareStatement("SELECT * FROM dica_do_dia WHERE id = ?");
-
-            conexao.pstmt.setInt(1, id);
-
-            conexao.rs = conexao.pstmt.executeQuery();
-            if (conexao.rs.next()) {
-                String titulo = conexao.rs.getString("titulo");
-                String texto = conexao.rs.getString("texto");
-                String link = conexao.rs.getString("link");
-                Date data = conexao.rs.getDate("data");
-                return new DicaDoDia(id, titulo, texto, link, data);
-            } else {
-                return null;
-            }
-        } catch (SQLException e) {
-            e.printStackTrace();
-            return null;
         } finally {
             conexao.desconectar();
         }
