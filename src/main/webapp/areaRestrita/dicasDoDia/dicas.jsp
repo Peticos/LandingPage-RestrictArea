@@ -157,7 +157,7 @@
                 </div>
                 <div class="id">
                     <h3>ID</h3>
-                    <input type="number" placeholder="12345">
+                    <input type="number" placeholder="12345" id="filtrar-id">
                 </div>
                 <button id="dica-hoje">
                     Dica de Hoje

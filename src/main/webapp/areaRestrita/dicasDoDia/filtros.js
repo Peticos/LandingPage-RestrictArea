@@ -62,7 +62,6 @@ function filtrarPorData() {
 function filtrarPorId() {
     limparDatas();
 
-    console.log(this.value)
     for (let i = 1; i < rows.length; i++) {
         if (rows[i].getElementsByTagName("td")[0].innerText!==this.value){
             rows[i].style.display = "none";
@@ -109,5 +108,5 @@ document.getElementById("data-inicio").addEventListener("change", filtrarPorData
 document.getElementById("data-fim").addEventListener("change", filtrarPorData);
 document.querySelector(".pesquisar input").addEventListener("keyup", filtrarPorTexto);
 document.getElementById("dica-hoje").addEventListener("click", mostrarDicaDeHoje);
-document.getElementsByClassName(".id")[0].querySelector("input").addEventListener("keyup", filtrarPorId);
+document.getElementById("filtrar-id").addEventListener("keyup", filtrarPorId);
 document.getElementById("parar-filtro").addEventListener("click", pararFiltros);
