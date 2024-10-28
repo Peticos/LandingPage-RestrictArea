@@ -156,7 +156,7 @@
     <div class="table-container">
       <table cellspacing="0">
         <tr class="header-tabela">
-          <th class="id-dica">ID</th>
+          <th class="id-endereco">ID</th>
           <th class="estado">Estado</th>
           <th class="cidade">Cidade</th>
           <th class="bairro">Bairro</th>

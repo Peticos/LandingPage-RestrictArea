@@ -206,9 +206,6 @@ body:has(#open-btn:checked) table{
     box-shadow: 2px 2px 4px 0 rgba(0, 0, 0, 0.25);
     font-size: 20px;
 }
-#dica-hoje{
-    padding: 0 20px;
-}
 .acoes-filtro #adicionar{
     width: 40px;
     display: flex;
@@ -225,11 +222,8 @@ body:has(#open-btn:checked) table{
     font-size: 20px;
 }
 
-/* Tabela de Dicas */
-table tr{
-    grid-template-columns: 0.2fr 0.7fr 1fr 1fr 0.3fr 0.3fr;
-}
-.id-dica{
+/* Tabela de Endereços */
+.id-endereco{
     text-align: center;
 }
 
@@ -284,12 +278,6 @@ table {
     }
     .filtro .id h3{
         margin-left: 20px;
-    }
-    #dica-hoje{
-        font-size: 15px;
-        margin-right: 20px;
-        min-height: 40px;
-        height: fit-content;
     }
 }
 @media (max-width: 540px){
