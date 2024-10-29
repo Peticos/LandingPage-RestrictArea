@@ -53,12 +53,6 @@
   <img src="../../assets/images/logo_app_branco.png" alt="">
   <ul>
     <li>
-      <a href="../../areaRestrita/dashboard">
-        <img src="../../assets/images/dashboard_icon.svg" alt="">
-        <p>Dashboard</p>
-      </a>
-    </li>
-    <li>
       <a href="../../areaRestrita/administradores">
         <img src="../../assets/images/admin_icon.svg" alt="">
         <p>Administradores</p>
