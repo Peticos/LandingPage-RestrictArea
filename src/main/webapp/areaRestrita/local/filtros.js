@@ -13,7 +13,7 @@ function filterTable() {
         if (td) {
             let txtValue = td.textContent || td.innerText;
             if (txtValue.toUpperCase().indexOf(filter) > -1) {
-                tr[i].style.display = "grid";
+                tr[i].style.display = "table-row";
             } else {
                 tr[i].style.display = "none";
             }
@@ -32,8 +32,9 @@ $(".id")[0].querySelector("input").addEventListener("keyup", function (){
         if (rows[i].getElementsByTagName("td")[0].innerText!==this.value){
             rows[i].style.display = "none";
             console.log()
-        } else{
-            rows[i].style.display = "grid";
+        }
+        else{
+            rows[i].style.display = "table-row";
         }
     }
 });
@@ -48,7 +49,7 @@ document.getElementById("parar-filtro").addEventListener("click", function (){
         limparID();
 
         for (let i = 1; i < rows.length; i++) {
-            rows[i].style.display = "grid";
+            rows[i].style.display = "table-row";
         }
     }
 })

@@ -28,7 +28,7 @@ function filtrarPorTexto() {
         if (td) {
             let txtValue = td.textContent || td.innerText;
             if (txtValue.toUpperCase().indexOf(filter) > -1) {
-                tr[i].style.display = "grid";
+                tr[i].style.display = "table-row";
             } else {
                 tr[i].style.display = "none";
             }
@@ -53,7 +53,7 @@ function filtrarPorData() {
         const rowDate = new Date(dataFormatada);
 
         if (rowDate >= startDate && rowDate <= endDate) {
-            rows[i].style.display = "grid";
+            rows[i].style.display = "table-row";
         } else {
             rows[i].style.display = "none";
         }
@@ -67,7 +67,7 @@ function filtrarPorId() {
             rows[i].style.display = "none";
             console.log()
         } else{
-            rows[i].style.display = "grid";
+            rows[i].style.display = "table-row";
         }
     }
 }
@@ -88,7 +88,7 @@ function mostrarDicaDeHoje() {
         if (dataFormatada !== hoje){
             rows[i].style.display = "none";
         } else {
-            rows[i].style.display = "grid";
+            rows[i].style.display = "table-row";
         }
     }
 }
@@ -97,7 +97,7 @@ function pararFiltros() {
         limparFiltros();
 
         for (let i = 1; i < rows.length; i++) {
-            rows[i].style.display = "grid";
+            rows[i].style.display = "table-row";
         }
     }
 }
