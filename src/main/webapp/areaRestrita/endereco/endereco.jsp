@@ -95,6 +95,12 @@
       </a>
     </li>
     <li>
+      <a href="../../areaRestrita/relatorio">
+        <img src="../../assets/images/relatorio_icon.svg" alt="">
+        <p>Relatório</p>
+      </a>
+    </li>
+    <li>
       <a href="/logout"> <!-- Servlet de logout -->
         <img src="../../assets/images/logout.svg" alt="">
         <p>Sair</p>

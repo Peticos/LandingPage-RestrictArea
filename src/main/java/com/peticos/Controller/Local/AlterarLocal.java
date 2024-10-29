@@ -28,11 +28,11 @@ public class AlterarLocal extends HttpServlet {
         Mensagem mensagem = new Mensagem("local", "local", request, response);
 
 
-        if(!link.matches("^http(s)?://.*\\.(com|org)(.br)?(/.*)?") && !img.matches("(^http(s)?://.*\\.(com|org)(.br)?(/.*))?")){
+        if(!link.matches("^http(s)?://.*\\.(com|org|gov)(.br)?(/.*)?") && !img.matches("(^http(s)?://.*\\.(com|org)(.br)?(/.*))?")){
             mensagem.retornarMensagem("Link saber mais e link da imagem digitados com erro!");
             return;
         }
-        else if(!link.matches("^http(s)?://.*\\.(com|org)(.br)?(/.*)?")){
+        else if(!link.matches("^http(s)?://.*\\.(com|org|gov)(.br)?(/.*)?")){
             mensagem.retornarMensagem("Link saber mais digitado com erro!");
             return;
         }

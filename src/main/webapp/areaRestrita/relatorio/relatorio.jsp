@@ -1,10 +1,10 @@
-<%@ page import="com.peticos.Model.Raca" %>
 <%@ page import="java.util.List" %>
 <%@ page import="com.peticos.DAO.AdministradorDAO" %>
 <%@ page import="com.peticos.Model.Administrador" %>
+<%@ page import="com.peticos.Model.Relatorio" %>
 <%@ page contentType="text/html;charset=UTF-8" %>
 <%
-    List<Raca> racas = (List<Raca>) request.getAttribute("racas");
+    List<Relatorio> relatorios = (List<Relatorio>) request.getAttribute("relatorios");
 %>
 <!DOCTYPE html>
 <html lang="pt-br">
@@ -13,17 +13,15 @@
     <link rel="icon" href="../../assets/images/logo_app_branco.png">
 
     <!-- CSS -->
-    <link rel="stylesheet" href="/areaRestrita/raca/raca.css">
+    <link rel="stylesheet" href="/areaRestrita/relatorio/relatorio.css">
 
     <!-- Scripts (JS) -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
-    <script src="raca/remover.js" defer></script>
-    <script src="raca/filtros.js" defer></script>
-    <script src="raca/editar.js" defer></script>
+    <script src="relatorio/filtros.js" defer></script>
 
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Raça - Área Restrita - Peticos</title>
+    <title>Relatório - Área Restrita - Peticos</title>
 </head>
 <body>
 <input type="checkbox" id="adicionar-btn" name="adicionar-btn">
@@ -70,12 +68,12 @@
             </a>
         </li>
         <li>
-            <a href="../../areaRestrita/categoriaPostagens">
+            <a href="../../areaRestrita/endereco">
                 <img src="../../assets/images/category_icon.svg" alt="">
-                <p>Categoria Postagens</p>
+                <p>Endereços</p>
             </a>
         </li>
-        <li class="selecionado">
+        <li>
             <a href="../../areaRestrita/raca">
                 <img src="../../assets/images/paw.svg" alt="">
                 <p>Raça</p>
@@ -93,7 +91,7 @@
                 <p>Local</p>
             </a>
         </li>
-        <li>
+        <li class="selecionado">
             <a href="../../areaRestrita/relatorio">
                 <img src="../../assets/images/relatorio_icon.svg" alt="">
                 <p>Relatório</p>
@@ -113,14 +111,11 @@
         <div class="filtro-container">
             <input type="checkbox" id="open-btn" name="open-btn">
             <div class="header-filtro">
-                <h1>Raça</h1>
+                <h1>Relatórios</h1>
                 <hr>
                 <div class="filtro-info">
-                    <h2>Total: <%=racas.size()%></h2>
+                    <h2>Total: <%=relatorios.size()%></h2>
                     <div class="acoes-filtro">
-                        <label for="adicionar-btn" id="adicionar">
-                            <img src="../../assets/images/add.svg" alt="">
-                        </label>
                         <label for="open-btn" id="filtrar">
                             <img src="../../assets/images/filter.svg" alt="">
                         </label>
@@ -135,9 +130,13 @@
                 </div>
             </div>
             <div class="filtro">
-                <div class="id">
-                    <h3>ID</h3>
-                    <input type="number" placeholder="12345">
+                <div class="operacao">
+                    <h3>Operação</h3>
+                    <select id="operationSelect">
+                        <option value="UPDATE">UPDATE</option>
+                        <option value="INSERT">INSERT</option>
+                        <option value="DELETE">DELETE</option>
+                    </select>
                 </div>
             </div>
         </div>
@@ -159,77 +158,38 @@
         <% } %>
 
         <%
-            if (!racas.isEmpty()) {
+            if (!relatorios.isEmpty()) {
         %>
         <div class="table-container">
             <table cellspacing="0">
                 <tr class="header-tabela">
-                    <th class="id-raca">ID</th>
-                    <th class="raca">Raça</th>
-                    <th class="acao">Ações</th>
+                    <th class="nome-tabela">Nome da tabela</th>
+                    <th class="operacao">Operacao</th>
+                    <th class="usuario">Usuário</th>
+                    <th class="data-alteracao">Data da alteração</th>
                 </tr>
-                <%
-                    for (int i = 0; i < racas.size(); i++) {
-                %>
+            <%
+                for (int i = 0; i < relatorios.size(); i++) {
+            %>
                 <tr>
-                    <td class="id-raca"><%=racas.get(i).getId_raca()%></td>
-                    <td class="raca"><%=racas.get(i).getRaca()%></td>
-                    <td class="acao">
-                        <label for="editar-btn" class="edit">
-                            <img src="../../assets/images/edit.svg" alt="">
-                        </label>
-                        <button class="remove">
-                            <img src="../../assets/images/remove.svg" alt="">
-                        </button>
-                    </td>
+                    <td class="nome-tabela"><%=relatorios.get(i).getNomeTabela()%></td>
+                    <td class="operacao"><%=relatorios.get(i).getOperacao()%></td>
+                    <td class="usuario"><%=relatorios.get(i).getUsuario()%></td>
+                    <td class="data-alteracao"><%=relatorios.get(i).getDataAlteracao()%></td>
                 </tr>
-                <%
-                    }
-                %>
+            <%
+                }
+            %>
             </table>
         </div>
         <%
-        } else {
+            } else {
         %>
-        <h2>Sem raças disponíveis...</h2>
+        <h2>Sem relatórios hoje...</h2>
         <%
             }
         %>
     </div>
 </div>
-<div class="form-container">
-    <form action="raca/adicionar" method="post" id="form-adicionar">
-        <h1>Adicionar Raça</h1>
-        <div class="form-input">
-            <label for="nome-raca">Nome da Raça</label>
-            <input type="text" name="nome-raca" id="nome-raca" placeholder="Golden, Husky, Yorkshire..." required>
-            <h5>Não pode conter números</h5>
-        </div>
-        <div class="actions">
-            <label for="adicionar-btn" id="cancelar">Cancelar</label>
-            <input type="submit" value="Adicionar">
-        </div>
-    </form>
-</div>
-<div class="edit-container">
-    <form action="raca/editar" method="post" id="form-editar">
-        <h1>Editar Raça</h1>
-        <div class="form-input">
-            <label for="nome-raca-e">Nome da Raça</label>
-            <input type="text" name="nome-raca" id="nome-raca-e" placeholder="Golden, Husky, Yorkshire..." required>
-            <h5>Não pode conter números</h5>
-        </div>
-        <input type="number" name="id-raca" id="id-raca-e" hidden="hidden" readonly>
-        <div class="actions">
-            <label for="editar-btn" id="cancelar-edicao">Cancelar</label>
-            <input type="submit" value="Salvar">
-        </div>
-    </form>
-</div>
-<script>
-    $('form').submit(function(){
-        $('input[type=submit]', this).attr('disabled', 'disabled');
-    });
-</script>
 </body>
 </html>

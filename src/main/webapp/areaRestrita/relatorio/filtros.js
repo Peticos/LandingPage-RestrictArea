@@ -1,12 +1,8 @@
 const table = document.querySelector("table tbody");
 const rows = table.getElementsByTagName("tr");
 
-function limparID(){
-    $(".id")[0].querySelector("input").value = "";
-}
 
 function filterTable() {
-    limparID();
 
     let input = document.querySelector(".pesquisar input"); // Input de pesquisa
     let filter = input.value.toUpperCase();
@@ -14,7 +10,7 @@ function filterTable() {
     let tr = table.getElementsByTagName("tr");
 
     for (let i = 1; i < tr.length; i++) {
-        let td = tr[i].getElementsByTagName("td")[1]; // Coluna de Título
+        let td = tr[i].getElementsByTagName("td")[0]; // Coluna de Título
         if (td) {
             let txtValue = td.textContent || td.innerText;
             if (txtValue.toUpperCase().indexOf(filter) > -1) {
@@ -29,28 +25,31 @@ function filterTable() {
 document.querySelector(".pesquisar input").addEventListener("keyup", filterTable);
 
 
-// Filtrar pelo id
-$(".id")[0].querySelector("input").addEventListener("keyup", function (){
+// Filtrar por operação
+document.getElementById("operationSelect").addEventListener("change", function () {
+    const filterValue = this.value;
+    const rows = document.querySelectorAll("tbody tr:not(.header-tabela)");
 
-    console.log(this.value)
-    for (let i = 1; i < rows.length; i++) {
-        if (rows[i].getElementsByTagName("td")[0].innerText!==this.value){
-            rows[i].style.display = "none";
-            console.log()
-        } else{
-            rows[i].style.display = "table-row";
+    rows.forEach(row => {
+        if (row.querySelector(".operacao").textContent !== filterValue) {
+            row.style.display = "none";
+        } else {
+            row.style.display = "table-row";
         }
-    }
+    });
 });
 
 // Parar os filtros
 document.getElementById("parar-filtro").addEventListener("click", function (){
     if ($('#open-btn').is(":checked")){
-        limparID();
+        document.getElementById("operationSelect").selectedIndex = 0;
+        const rows = document.querySelectorAll("tbody tr:not(.header-tabela)");
 
-        for (let i = 1; i < rows.length; i++) {
-            rows[i].style.display = "table-row";
-        }
+        rows.forEach(row => {
+            row.style.display = "table-row";
+        });
     }
 })
+
+
 
