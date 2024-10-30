@@ -27,7 +27,8 @@ public class AdicionarLocal extends HttpServlet {
 
 
 
-        if(!link.matches("^http(s)?://.*\\.(com|org|gov)(.br)?(/.*)?") && !img.matches("(^http(s)?://.*\\.(com|org)(.br)?(/.*))?")){
+        //Links apenas com dominios: .com, .org, .gov e opicionalmente o .br
+        if(!link.matches("^http(s)?://.*\\.(com|org|gov)(.br)?(/.*)?") && !img.matches("(^http(s)?://.*\\.(com|org|gov)(.br)?(/.*))?")){
             mensagem.retornarMensagem("Link saber mais e link da imagem digitados com erro!");
             return;
         }
@@ -36,7 +37,7 @@ public class AdicionarLocal extends HttpServlet {
             return;
         }
         // Regex para validar se o link da imagem é válido
-        else if(!img.matches("^http(s)?://.*\\.(com|org)(\\.br)?(/.*)?")){
+        else if(!img.matches("^http(s)?://.*\\.(com|org|gov)(.br)?(/.*)?")){
             mensagem.retornarMensagem("Link da imagem digitado com erro!");
             return;
         }

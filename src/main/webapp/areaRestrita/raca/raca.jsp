@@ -197,7 +197,7 @@
         <div class="form-input">
             <label for="nome-raca">Nome da Raça</label>
             <input type="text" name="nome-raca" id="nome-raca" placeholder="Golden, Husky, Yorkshire..." required>
-            <h5>Não pode conter números</h5>
+            <h4>Não pode conter números</h4>
         </div>
         <div class="actions">
             <label for="adicionar-btn" id="cancelar">Cancelar</label>
@@ -211,7 +211,7 @@
         <div class="form-input">
             <label for="nome-raca-e">Nome da Raça</label>
             <input type="text" name="nome-raca" id="nome-raca-e" placeholder="Golden, Husky, Yorkshire..." required>
-            <h5>Não pode conter números</h5>
+            <h4>Não pode conter números</h4>
         </div>
         <input type="number" name="id-raca" id="id-raca-e" hidden="hidden" readonly>
         <div class="actions">
