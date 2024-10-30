@@ -155,12 +155,12 @@ body:has(#open-btn:checked) table{
     bottom: 0;
     transition: bottom .5s, box-shadow .5s;
 }
-.filtro .id{
+.filtro .operacao{
     margin-left: 20px;
 }
-.filtro input{
+.filtro select{
     height: 40px;
-    width: min(200px, 10vw);
+    width: min(250px, 10vw);
     background-color: var(--off-white);
     border: 1px solid rgba(25, 25, 25, 0.3);
     border-radius: 10px;
@@ -173,37 +173,23 @@ body:has(#open-btn:checked) table{
 .filtro div{
     position: relative;
 }
-.id h3{
+.operacao h3{
     position: absolute;
     font-family: var(--lilita-one), serif;
     font-weight: normal;
     color: var(--asereje-yellow);
     box-sizing: border-box;
     padding-left: 20px;
-    top: -20px;
+    top: -25px;
 }
-.id {
+
+.operacao {
     margin-left: 20px;
 }
-.id input{
-    width: min(100px, 10vw);
+.operacao select{
+    width: min(150px, 12vw);
 }
 .filtro button{
-    cursor: pointer;
-    height: 40px;
-    border: none;
-    border-radius: 10px;
-    background-color: var(--asereje-yellow);
-    color: var(--off-white);
-    box-shadow: 2px 2px 4px 0 rgba(0, 0, 0, 0.25);
-    font-size: 20px;
-}
-.acoes-filtro #adicionar{
-    width: 40px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-
     cursor: pointer;
     height: 40px;
     border: none;
@@ -217,9 +203,6 @@ body:has(#open-btn:checked) table{
 /* Tabela de Raça */
 table tr{
     grid-template-columns: 0.2fr 2fr 0.5fr;
-}
-.id-raca{
-    text-align: center;
 }
 
 /* Form da textarea para dar mais espaço para visualizar o campo*/
@@ -244,18 +227,7 @@ table {
     min-width: 1100px;
     border-collapse: collapse;
 }
-
-h4 { /*Mensagem do regex para adicionar e editar*/
-    color: var(--is-it-green);
-    font-family: var(--varela-round);
-    margin-top: 10px;
-    margin-left: 20px;
-}
-
 @media (max-width: 1200px){
-    #form-adicionar, #form-editar{
-        width: 80vw;
-    }
     .container{
         max-width: 87vw;
     }

@@ -64,9 +64,9 @@
             </a>
         </li>
         <li>
-            <a href="../../areaRestrita/endereco">
+            <a href="../../areaRestrita/categoriaPostagens">
                 <img src="../../assets/images/category_icon.svg" alt="">
-                <p>Endereços</p>
+                <p>Categoria Postagens</p>
             </a>
         </li>
         <li class="selecionado">
@@ -85,6 +85,12 @@
             <a href="../../areaRestrita/local">
                 <img src="../../assets/images/local_icon.svg" alt="">
                 <p>Local</p>
+            </a>
+        </li>
+        <li>
+            <a href="../../areaRestrita/relatorio">
+                <img src="../../assets/images/relatorio_icon.svg" alt="">
+                <p>Relatório</p>
             </a>
         </li>
         <li>
@@ -149,15 +155,16 @@
         <%
             if (!racas.isEmpty()) {
         %>
+        <div class="table-container">
             <table cellspacing="0">
                 <tr class="header-tabela">
                     <th class="id-raca">ID</th>
                     <th class="raca">Raça</th>
                     <th class="acao">Ações</th>
                 </tr>
-            <%
-                for (int i = 0; i < racas.size(); i++) {
-            %>
+                <%
+                    for (int i = 0; i < racas.size(); i++) {
+                %>
                 <tr>
                     <td class="id-raca"><%=racas.get(i).getId_raca()%></td>
                     <td class="raca"><%=racas.get(i).getRaca()%></td>
@@ -170,12 +177,13 @@
                         </button>
                     </td>
                 </tr>
-            <%
-                }
-            %>
+                <%
+                    }
+                %>
             </table>
+        </div>
         <%
-            } else {
+        } else {
         %>
         <h2>Sem raças disponíveis...</h2>
         <%
@@ -189,6 +197,7 @@
         <div class="form-input">
             <label for="nome-raca">Nome da Raça</label>
             <input type="text" name="nome-raca" id="nome-raca" placeholder="Golden, Husky, Yorkshire..." required>
+            <h4>Não pode conter números</h4>
         </div>
         <div class="actions">
             <label for="adicionar-btn" id="cancelar">Cancelar</label>
@@ -202,8 +211,9 @@
         <div class="form-input">
             <label for="nome-raca-e">Nome da Raça</label>
             <input type="text" name="nome-raca" id="nome-raca-e" placeholder="Golden, Husky, Yorkshire..." required>
+            <h4>Não pode conter números</h4>
         </div>
-        <input type="number" name="id-categoria" id="id-categoria-e" hidden="hidden" readonly>
+        <input type="number" name="id-raca" id="id-raca-e" hidden="hidden" readonly>
         <div class="actions">
             <label for="editar-btn" id="cancelar-edicao">Cancelar</label>
             <input type="submit" value="Salvar">

@@ -248,6 +248,14 @@ table {
     min-width: 1100px;
     border-collapse: collapse;
 }
+
+h4 { /*Mensagem do regex para adicionar e editar*/
+    color: var(--is-it-green);
+    font-family: var(--varela-round);
+    margin-top: 10px;
+    margin-left: 20px;
+}
+
 @media (max-width: 1200px){
     #form-adicionar, #form-editar{
         width: 80vw;

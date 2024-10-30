@@ -19,6 +19,12 @@ public class RemoverRaca extends HttpServlet {
         int removerRaca = dao.excluirRaca(id);
 
         Mensagem mensagem = new Mensagem("raça", "raca", request, response);
-        mensagem.retornarMensagem(removerRaca, 3, 'M');
+
+
+        if (removerRaca == -2){
+            mensagem.retornarMensagem("Erro de foreing key na tabela 'pet'"); // Mensagem de erro caso alguma raça esteja na tabela pet--
+            return;
+        }
+        mensagem.retornarMensagem(removerRaca, 3, 'F');
     }
 }
