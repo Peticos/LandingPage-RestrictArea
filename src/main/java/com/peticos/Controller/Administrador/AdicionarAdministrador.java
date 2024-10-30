@@ -26,22 +26,31 @@ public class AdicionarAdministrador extends HttpServlet {
         // A senha deve ter no mínimo uma minúscula, uma maiúscula, um número e um caractere especial
         boolean senhaValida = senha.matches("^(?=.*[a-z])(?=.*[A-Z])(?=.*\\d)(?=.*[!@#$%&_\\-*]).{8,}$");
 
+        // Instanciando uma mensagem para ser enviada de retorno
         Mensagem mensagem = new Mensagem("administrador", "administradores", request, response);
 
+        // Validando a regex da senha
         if (!senhaValida) {
             mensagem.retornarMensagem("Senha não atende aos requisitos mínimos! (8 caracteres, 1+ minúscula/maiúscula/número/caractere especial)");
             return;
         }
 
+        // Validando a regex do e-mail
         if (!emailValido){
             mensagem.retornarMensagem("E-mail inválido! Digite no formato nome.sobrenome@dominio.com.br");
             return;
         }
 
+        // Instanciando um DAO de Administrador para chamar o método de adicionar admin
         AdministradorDAO dao = new AdministradorDAO();
+
+        // Instanciando o adm que será adicionado
         Administrador administrador = new Administrador(nome, email, senha);
+
+        // Pega o retorno do método
         int sucesso = dao.inserirAdministrador(administrador);
 
+        // Retorna a mensagem para a página, de acordo com o retorno do método
         mensagem.retornarMensagem(sucesso, 1, 'M');
     }
 }

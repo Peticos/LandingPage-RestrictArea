@@ -16,23 +16,34 @@ import java.sql.Date;
 public class AlterarDicaDoDia extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        int id = Integer.parseInt(request.getParameter("id"));
-        String titulo = request.getParameter("titulo");
-        String texto  = request.getParameter("texto");
-        String link = request.getParameter("link");
-        Date data = Date.valueOf(request.getParameter("data"));
-
+        // Instanciando a mensagem que será utilizada para retorno
         Mensagem mensagem = new Mensagem("dica", "dicasDoDia", request, response);
 
-        boolean linkValido = link.matches("^https?://.+$");
-        if (!linkValido){
-            mensagem.retornarMensagem("Link inválido!");
-            return;
+        try{
+            // Pegando os parâmetros enviados pelo forms
+            int id = Integer.parseInt(request.getParameter("id"));
+            String titulo = request.getParameter("titulo");
+            String texto  = request.getParameter("texto");
+            String link = request.getParameter("link");
+            Date data = Date.valueOf(request.getParameter("data"));
+
+            // Validando o link pela regex
+            boolean linkValido = link.matches("^https?://.+$");
+            if (!linkValido){
+                mensagem.retornarMensagem("Link inválido!");
+                return;
+            }
+
+            // Instanciado o DAO para alterar a dica
+            DicaDoDiaDAO dao = new DicaDoDiaDAO();
+            int sucesso = dao.alterarDicaDoDia(new DicaDoDia(id, titulo, texto, link, data));
+
+            // Retornando a mensagem com base no sucesso
+            mensagem.retornarMensagem(sucesso, 2, 'F');
+        } catch (Exception e){
+            // Caso algum erro ocorra, retorna uma mensagem de erro
+            e.printStackTrace();
+            mensagem.retornarMensagem("Informações de parâmetros inválidas! Tente novamente.");
         }
-
-        DicaDoDiaDAO dao = new DicaDoDiaDAO();
-        int sucesso = dao.alterarDicaDoDia(new DicaDoDia(id, titulo, texto, link, data));
-
-        mensagem.retornarMensagem(sucesso, 2, 'F');
     }
 }

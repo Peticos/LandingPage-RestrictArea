@@ -2,7 +2,6 @@ package com.peticos.Controller;
 
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
-import kotlin.text.UStringsKt;
 
 import java.io.IOException;
 
@@ -13,6 +12,11 @@ public class Mensagem {
     private final HttpServletResponse response;
 
     public Mensagem(String campo, String caminho, HttpServletRequest request, HttpServletResponse response) {
+        // O campo é o nome que aparecerá na mensagem, como: O campo foi adicionado
+        // O caminho é o diretório de origem para ser enviado a mensagem
+
+        // O request e response servem para enviar a mensagem de volta
+
         this.campo = campo;
         this.caminho = caminho;
         this.request = request;
@@ -20,6 +24,20 @@ public class Mensagem {
     }
 
     public void retornarMensagem(int sucesso, int tipo, char genero) throws IOException {
+        // int sucesso:
+        // sucesso > 0 -> Executou corretamente
+        // sucesso = 0 -> Não existe mais
+        // sucesso < 0 -> Algum erro aconteceu
+
+        // int tipo
+        // tipo = 1 -> Adicionar
+        // tipo = 2 -> Alterar
+        // tipo = 3 -> Remover
+
+        // char genero
+        // genero = 'M' -> Masculino
+        // genero = 'F' -> Feminino
+
         String message;
         String campoCapilized = campo.substring(0, 1).toUpperCase() + campo.substring(1); // por exemplo: dica -> Dica
         char fim;

@@ -19,6 +19,7 @@ import java.util.List;
 public class CarregarAdministradores extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+        // Instanciando o DAO para acessar o BD
         AdministradorDAO dao = new AdministradorDAO();
 
         // Definindo a lista de administradores que será retornada
@@ -42,6 +43,7 @@ public class CarregarAdministradores extends HttpServlet {
                 administradores.add(new Administrador(id, nome, email));
             }
         } catch (SQLException e) {
+            // Se algum erro ocorrer, devolve para a página uma mensagem avisando que não foi possível carregar as informações
             e.printStackTrace();
             message = "Não foi possível carregar os administradores. Recarregue a página e tente novamente!";
         }
@@ -49,7 +51,10 @@ public class CarregarAdministradores extends HttpServlet {
         // Passar a mensagem para o JSP
         request.setAttribute("message", message);
 
+        // Define os administradores
         request.setAttribute("administradores", administradores);
+
+        // Manda para a página de volta com os admins e a mensagem
         request.getRequestDispatcher("/areaRestrita/administradores/admins.jsp").forward(request, response);
     }
 }
