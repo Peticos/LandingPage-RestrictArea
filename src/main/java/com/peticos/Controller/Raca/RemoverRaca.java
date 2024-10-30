@@ -25,6 +25,6 @@ public class RemoverRaca extends HttpServlet {
             mensagem.retornarMensagem("Erro de foreing key na tabela 'pet'"); // Mensagem de erro caso alguma raça esteja na tabela pet--
             return;
         }
-        mensagem.retornarMensagem(removerRaca, 3, 'M');
+        mensagem.retornarMensagem(removerRaca, 3, 'F');
     }
 }

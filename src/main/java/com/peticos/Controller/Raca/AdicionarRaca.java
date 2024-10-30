@@ -28,6 +28,6 @@ public class AdicionarRaca extends HttpServlet {
         RacaDAO dao = new RacaDAO();
         int sucesso = dao.inserirRaca(nomeRaca);
 
-        mensagem.retornarMensagem(sucesso, 1, 'M');
+        mensagem.retornarMensagem(sucesso, 1, 'F');
     }
 }
