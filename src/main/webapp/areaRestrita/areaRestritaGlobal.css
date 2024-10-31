@@ -457,3 +457,7 @@ table .id-categoria {
 .container{
     overflow: hidden;
 }
+
+.invisivel{
+    display: none;
+}

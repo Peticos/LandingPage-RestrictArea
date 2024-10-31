@@ -9,7 +9,7 @@ function filterTable() {
     let tr = table.getElementsByTagName("tr");
 
     for (let i = 1; i < tr.length; i++) {
-        let td = tr[i].getElementsByTagName("td")[3 ]; // Coluna de Título
+        let td = tr[i].getElementsByTagName("td")[4]; // Coluna de Nome
         if (td) {
             let txtValue = td.textContent || td.innerText;
             if (txtValue.toUpperCase().indexOf(filter) > -1) {

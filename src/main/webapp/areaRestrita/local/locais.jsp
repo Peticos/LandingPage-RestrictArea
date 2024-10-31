@@ -158,13 +158,13 @@
         <div class="table-container">
             <table cellspacing="0">
                 <tr class="header-tabela">
-                    <th class="id-local">ID</th>
+                    <th class="id-local invisivel">ID</th>
                     <th class="id-tipo-local">Tipo Local</th>
                     <th class="id-endereco">ID Endereço</th>
                     <th class="nome-local">Nome do Local</th>
                     <th class="descricao">Descrição</th>
-                    <th class="link-saber-mais">Link saber mais</th>
-                    <th class="imagem-local">Imagem do Local</th>
+                    <th class="link-saber-mais invisivel">Link saber mais</th>
+                    <th class="imagem-local invisivel">Imagem do Local</th>
                     <th class="rua-local">Rua</th>
                     <th class="numero-local">Número</th>
                     <th class="acao">Ações</th>
@@ -173,13 +173,13 @@
                     for (int i = 0; i < locais.size(); i++) {
                 %>
                 <tr>
-                    <td class="id-local"><%=locais.get(i).getIdLocal()%></td>
+                    <td class="id-local invisivel"><%=locais.get(i).getIdLocal()%></td>
                     <td class="id-tipo-local"><%=locais.get(i).getTipoLocal()%></td>
                     <td class="id-endereco"><%=locais.get(i).getIdEndereco()%></td>
                     <td class="nome-local"><%=locais.get(i).getNomeLocal()%></td>
                     <td class="descricao"><%=locais.get(i).getDescricao()%></td>
-                    <td class="link-saber-mais"><%=locais.get(i).getLinkSaberMais()%></td>
-                    <td class="imagem-local"><%=locais.get(i).getImagemLocal()%></td>
+                    <td class="link-saber-mais invisivel"><%=locais.get(i).getLinkSaberMais()%></td>
+                    <td class="imagem-local invisivel"><%=locais.get(i).getImagemLocal()%></td>
                     <td class="rua-local"><%=locais.get(i).getRua()%></td>
                     <td class="numero-local"><%=locais.get(i).getNumero()%></td>
                     <td class="acao">
