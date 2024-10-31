@@ -232,10 +232,12 @@
         <div class="form-input">
             <label for="link-saber-mais">Link Saber Mais</label>
             <input type="text" name="link-saber-mais" id="link-saber-mais" placeholder="https://clinica.com.br/caes">
+            <h4>Deve começar com "https://" e a extensão de domínio ".com", ".org" ou ".gov"</h4>
         </div>
         <div class="form-input">
             <label for="imagem-local">Imagem do Local</label>
             <input type="text" name="imagem-local" id="imagem-local" placeholder="https://imagem.jpeg">
+            <h4>Deve começar com "https://" e a extensão de domínio ".com", ".org" ou ".gov"</h4>
         </div>
         <div class="form-input">
             <label for="imagem-local">Rua</label>
@@ -278,10 +280,12 @@
         <div class="form-input">
             <label for="link-saber-mais-e">Link Saber Mais</label>
             <input type="text" name="link-saber-mais-e" id="link-saber-mais-e" placeholder="https://clinica.com.br/caes">
+            <h4>Deve começar com "https://" e a extensão de domínio ".com", ".org" ou ".gov"</h4>
         </div>
         <div class="form-input">
             <label for="imagem-local-e">Imagem do Local</label>
             <input type="text" name="imagem-local-e" id="imagem-local-e">
+            <h4>Deve começar com "https://" e a extensão de domínio ".com", ".org" ou ".gov"</h4>
         </div>
         <div class="form-input">
             <label for="rua-local-e">Rua</label>

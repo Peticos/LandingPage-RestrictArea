@@ -192,10 +192,12 @@
         <div class="form-input">
             <label for="e-mail-administrador">E-mail</label>
             <input type="email" name="e-mail-administrador" id="e-mail-administrador" placeholder="joaodasilva@email.com">
+            <h4>Deve conter "nome", "@domínio", ".com" ou ".org" e pode conter ".br"</h4>
         </div>
         <div class="form-input">
             <label for="senha-administrador">Senha</label>
             <input type="password" name="senha-administrador" id="senha-administrador" placeholder="Digite a senha">
+            <h4>Deve ter 8 dígitos ou mais, uma letra minúscula, uma maiúscula, um número e um dígito especial</h4>
         </div>
 
         <div class="actions">
@@ -214,6 +216,7 @@
         <div class="form-input">
             <label for="e-mail-administrador-e">E-mail</label>
             <input type="email" name="e-mail-administrador" id="e-mail-administrador-e" placeholder="joaodasilva@email.com">
+            <h4>Deve conter "nome@domínio.com" ou ".org" e pode conter ".br"</h4>
         </div>
         <input type="number" name="id-administrador" id="id-administrador-e" hidden="hidden" readonly>
         <div class="actions">

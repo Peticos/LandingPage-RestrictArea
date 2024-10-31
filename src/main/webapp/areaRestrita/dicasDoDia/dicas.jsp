@@ -241,6 +241,7 @@
         <div class="form-input">
             <label for="link">Link</label>
             <input type="text" name="link" id="link" placeholder="https://peticos.com.br/caes" maxlength="255" required>
+            <h4>Deve começar com "https://"</h4>
         </div>
         <div class="form-input">
             <label for="data">Data</label>
@@ -266,6 +267,7 @@
         <div class="form-input">
             <label for="link-e">Link</label>
             <input type="text" name="link" id="link-e" placeholder="https://peticos.com.br/caes" required>
+            <h4>Deve começar com "https://"</h4>
         </div>
         <div class="form-input">
             <label for="data-e">Data</label>
