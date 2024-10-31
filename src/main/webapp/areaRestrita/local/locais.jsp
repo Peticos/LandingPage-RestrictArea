@@ -159,7 +159,7 @@
             <table cellspacing="0">
                 <tr class="header-tabela">
                     <th class="id-local">ID</th>
-                    <th class="id-tipo-local">ID Tipo Local</th>
+                    <th class="id-tipo-local">Tipo Local</th>
                     <th class="id-endereco">ID Endereço</th>
                     <th class="nome-local">Nome do Local</th>
                     <th class="descricao">Descrição</th>
@@ -174,7 +174,7 @@
                 %>
                 <tr>
                     <td class="id-local"><%=locais.get(i).getIdLocal()%></td>
-                    <td class="id-tipo-local"><%=locais.get(i).getIdTipoLocal()%></td>
+                    <td class="id-tipo-local"><%=locais.get(i).getTipoLocal()%></td>
                     <td class="id-endereco"><%=locais.get(i).getIdEndereco()%></td>
                     <td class="nome-local"><%=locais.get(i).getNomeLocal()%></td>
                     <td class="descricao"><%=locais.get(i).getDescricao()%></td>

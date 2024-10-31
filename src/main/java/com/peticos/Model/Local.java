@@ -10,6 +10,7 @@ public class Local {
     private String imagemLocal;
     private String rua;
     private int numero;
+    private String tipoLocal;
 
     public Local(int idLocal, int idTipoLocal, int idEndereco, String nomeLocal, String descricao, String linkSaberMais, String imagemLocal, String rua, int numero) {
         this.idLocal = idLocal;
@@ -21,6 +22,19 @@ public class Local {
         this.imagemLocal = imagemLocal;
         this.rua = rua;
         this.numero = numero;
+    }
+
+    public Local(int idLocal, int idTipoLocal, int idEndereco, String nomeLocal, String descricao, String linkSaberMais, String imagemLocal, String rua, int numero, String tipoLocal) {
+        this.idLocal = idLocal;
+        this.idTipoLocal = idTipoLocal;
+        this.idEndereco = idEndereco;
+        this.nomeLocal = nomeLocal;
+        this.descricao = descricao;
+        this.linkSaberMais = linkSaberMais;
+        this.imagemLocal = imagemLocal;
+        this.rua = rua;
+        this.numero = numero;
+        this.tipoLocal = tipoLocal;
     }
 
     public int getIdLocal() {
@@ -58,5 +72,7 @@ public class Local {
     public int getNumero() {
         return this.numero;
     }
+
+    public String getTipoLocal(){return this.tipoLocal;}
 
 }

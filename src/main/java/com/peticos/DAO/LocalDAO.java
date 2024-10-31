@@ -121,7 +121,7 @@ public class LocalDAO {
         Conexao conexao = new Conexao();
         conexao.conectar();
         try {
-            conexao.pstmt = conexao.conn.prepareStatement("SELECT * FROM local");
+            conexao.pstmt = conexao.conn.prepareStatement("SELECT local.*, tipo_local.tipo FROM local join tipo_local on tipo_local.id_tipo_local = local.id_tipo_local");
 
             return conexao.pstmt.executeQuery();
         } catch (SQLException e) {

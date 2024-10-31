@@ -34,7 +34,7 @@ public class AlterarDicaDoDia extends HttpServlet {
                 return;
             }
 
-            // Instanciado o DAO para alterar a dica
+            // Instanciado git DAO para alterar a dica
             DicaDoDiaDAO dao = new DicaDoDiaDAO();
             int sucesso = dao.alterarDicaDoDia(new DicaDoDia(id, titulo, texto, link, data));
 
