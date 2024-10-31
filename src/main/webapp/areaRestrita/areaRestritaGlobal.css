@@ -1,7 +1,6 @@
 @import url('../assets/global.css');
 
-
-/* CONFIGURAÇÕES GERAIS (HEADER, SIDEBAR) */
+/*#region CONFIGURAÇÕES GERAIS (HEADER, SIDEBAR) */
 *{
     margin: 0;
     padding: 0;
@@ -55,7 +54,7 @@ header .abas a{
     text-decoration: none;
     position: relative;
     color: var(--off-white);
-    font-size: 25px;
+    font-size: min(25px, 6vw);
     font-family: var(--lilita-one), serif;
 }
 header .abas a::after{
@@ -118,7 +117,6 @@ header .perfil .info h5{
     width: 120px;
 }
 
-
 nav{
     overflow: hidden;
     position: fixed;
@@ -176,7 +174,6 @@ nav ul li a p{
 
     transition: width .5s, margin-left .5s;
 }
-
 /* Configurando o botão de sair */
 nav ul li:last-of-type{
     margin-top: auto;
@@ -187,7 +184,6 @@ nav ul li:last-of-type a{
     border-radius: 10px;
     padding: 0 10px;
 }
-
 /* Adicionando o hover */
 nav:hover{
     left: 0;
@@ -208,6 +204,143 @@ nav:hover>img:last-of-type{
     display: none;
 }
 
+/* Container da página */
+.page-container{
+    display: flex;
+}
+.container{
+    margin-top: 80px;
+    width: 100%;
+    height: fit-content;
+
+    display: flex;
+    flex-flow: column nowrap;
+    justify-content: flex-start;
+    align-items: center;
+}
+.spacing{
+    min-width: 80px;
+}
+
+/* Caixa de filtros */
+.filtro-container *{
+    user-select: none;
+}
+.filtro-container{
+    position: relative;
+    margin: 50px 0;
+    width: 90%;
+    min-height: 180px;
+}
+.header-filtro{
+    position: absolute;
+    top: 0;
+    width: 100%;
+    min-height: 180px;
+    z-index: 1;
+
+    display: flex;
+    flex-flow: column nowrap;
+    align-items: center;
+    justify-content: flex-start;
+
+    background-color: var(--beige);
+    box-shadow: 0 4px 4px 0 rgba(0, 0, 0, 0.25);
+    border-radius: 20px;
+}
+.header-filtro h1{
+    width: 98%;
+    font-family: var(--lilita-one), serif;
+    color: var(--asereje-yellow);
+    font-weight: normal;
+    font-size: 30px;
+    margin: 30px 0 5px 0;
+}
+.header-filtro hr{
+    display: block;
+    border: 1px solid var(--asereje-yellow);
+    width: 98%;
+}
+.header-filtro .filtro-info{
+    width: 100%;
+    min-height: 100px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.header-filtro .filtro-info h2{
+    font-family: var(--lilita-one), serif;
+    color: var(--off-white);
+    background-color: var(--asereje-yellow);
+    padding: 10px 20px;
+    border-radius: 10px;
+    font-weight: normal;
+    margin-left: 20px;
+}
+.acoes-filtro{
+    margin-right: 20px;
+    height: 100%;
+    width: fit-content;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    gap: 20px;
+}
+.acoes-filtro label{
+    cursor: pointer;
+    min-height: 45px;
+    min-width: 45px;
+    border: none;
+    border-radius: 10px;
+    background-color: var(--wood-brown);
+    box-shadow: 0 4px 4px 0 rgba(0, 0, 0, 0.25);
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.acoes-filtro .pesquisar{
+    position: relative;
+    width: 70%;
+    display: flex;
+    align-items: center;
+}
+.acoes-filtro .pesquisar input{
+    width: 100%;
+    height: 45px;
+    background-color: var(--beige);
+    border: 1px solid var(--wood-brown);
+    box-shadow: 0 4px 4px 0 rgba(0, 0, 0, 0.25);
+    border-radius: 10px;
+    font-size: 15px;
+    box-sizing: border-box;
+    padding-left: 20px;
+    outline: none;
+    color: var(--black);
+}
+.pesquisar input::placeholder{
+    color: var(--wood-brown);
+}
+.pesquisar img{
+    position: absolute;
+    right: 20px;
+}
+
+/* Abrir/Fechar filtros */
+#open-btn{
+    display: none;
+}
+#open-btn:checked ~ .header-filtro #filtrar, #open-btn:not(:checked) ~ .header-filtro #parar-filtro{
+    pointer-events: none;
+}
+#open-btn:checked ~ .filtro{
+    box-shadow: 0 4px 4px 0 rgba(0, 0, 0, 0.25);
+    bottom: -120px;
+}
+body:has(#open-btn:checked) table{
+    margin-top: 150px;
+}
+
 /* Selecionando o item */
 .selecionado a, nav ul a:hover{
     background-color: var(--is-it-green-light);
@@ -215,10 +348,9 @@ nav:hover>img:last-of-type{
     padding: 0 10px;
 }
 
+/*#endregion FIM DAS CONFIGURAÇÕES GERAIS */
 
-/* FIM DAS CONFIGURAÇÕES GERAIS */
-
-/* CONFIGURAÇÕES DAS TABELAS DE CRUD */
+/*#region CONFIGURAÇÕES DAS TABELAS DE CRUD */
 table{
     transition: margin-top .5s;
     margin-top: 30px;
@@ -262,10 +394,6 @@ table td.acao{
     overflow: visible;
 }
 
-table .id-categoria {
-    text-align: center;
-}
-
 .acao{
     display: flex;
     justify-content: center;
@@ -293,9 +421,81 @@ table .id-categoria {
     width: 24px;
     height: 24px;
 }
-/* FIM DAS CONFIGURAÇÕES DAS TABELA DES CRUD*/
+/*#endregion FIM DAS CONFIGURAÇÕES DAS TABELA DES CRUD*/
 
-/* CONFIGURAÇÕES DOS FORMS DE EDITAR/ADICIONAR */
+/*#region FILTROS*/
+.filtro{
+    background-color: var(--beige);
+    padding-top: 50px;
+    border-radius: 20px;
+
+    width: 100%;
+    height: 120px;
+
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    gap: 20px;
+
+    position: absolute;
+    bottom: 0;
+    transition: bottom .5s, box-shadow .5s;
+}
+.filtro input{
+    height: 40px;
+    width: min(200px, 10vw);
+    background-color: var(--off-white);
+    border: 1px solid rgba(25, 25, 25, 0.3);
+    border-radius: 10px;
+    font-size: 15px;
+    box-sizing: border-box;
+    padding-left: 20px;
+    outline: none;
+    box-shadow: 2px 2px 4px 0 rgba(0, 0, 0, 0.25);
+}
+.acoes-filtro #adicionar{
+    width: 40px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    cursor: pointer;
+    height: 40px;
+    border: none;
+    border-radius: 10px;
+    background-color: var(--asereje-yellow);
+    color: var(--off-white);
+    box-shadow: 2px 2px 4px 0 rgba(0, 0, 0, 0.25);
+    font-size: 20px;
+}
+.filtro div{
+    position: relative;
+}
+.data h3, .id h3{
+    position: absolute;
+    font-family: var(--lilita-one), serif;
+    font-weight: normal;
+    color: var(--asereje-yellow);
+    box-sizing: border-box;
+    padding-left: 20px;
+    top: -20px;
+}
+.id input{
+    width: min(100px, 10vw);
+}
+.filtro button{
+    cursor: pointer;
+    height: 40px;
+    border: none;
+    border-radius: 10px;
+    background-color: var(--asereje-yellow);
+    color: var(--off-white);
+    box-shadow: 2px 2px 4px 0 rgba(0, 0, 0, 0.25);
+    font-size: 20px;
+}
+/*#endregion*/
+
+/*#region CONFIGURAÇÕES DOS FORMS DE EDITAR/ADICIONAR */
 .form-container, .edit-container{
     position: fixed;
     z-index: 3;
@@ -427,14 +627,14 @@ table .id-categoria {
     justify-content: center;
     align-items: center;
 }
-
 #cancelar-edicao{
     background-color: #CACACA;
     color: #6A6A6A;
 }
 
+/*#endregion*/
 
-/* Message Box (mensagens de retorno do servlet) */
+/*#region Message Box (mensagens de retorno do servlet) */
 #message-box{
     margin-top: 30px;
     height: 50px;
@@ -447,7 +647,9 @@ table .id-categoria {
     font-size: 30px;
     color: var(--asereje-yellow);
 }
+/*#endregion*/
 
+/*#region Classes*/
 .indisponivel{
     margin: 20px 0;
     color: var(--asereje-yellow);
@@ -461,3 +663,109 @@ table .id-categoria {
 .invisivel{
     display: none;
 }
+/*#endregion*/
+
+/*#region Responsividade */
+/* CSS */
+.table-container {
+    width: 90%;
+    overflow-x: auto; /* Habilita a rolagem horizontal */
+    border-radius: 20px;
+
+    margin-bottom: 30px;
+}
+table {
+    margin-top: 0;
+    margin-bottom: 0;
+    width: 100%;
+    min-width: 1100px; /* Largura mínima da tabela */
+    border-collapse: collapse;
+}
+h4 { /*Mensagem do regex para adicionar e editar*/
+    color: var(--is-it-green);
+    font-family: var(--varela-round), serif;
+    margin-top: 10px;
+    margin-left: 20px;
+}
+@media (max-width: 1200px){
+    #form-adicionar, #form-editar, .confirm-box{
+        width: 80vw;
+    }
+    .container{
+        max-width: 87vw;
+    }
+}
+@media (max-width: 750px){
+    .filtro-info h2{
+        display: none;
+    }
+
+    header .abas{
+        margin-left: 50px;
+        padding-right: 20px;
+    }
+    .header-filtro .filtro-info{
+        justify-content: center;
+    }
+    .header-filtro h1{
+        margin-left: 20px !important;
+    }
+    .acoes-filtro{
+        margin-left: 20px;
+    }
+    .filtro .data{
+        display: none;
+    }
+    .filtro .id input{
+        margin-left: 20px;
+        width: 100px;
+    }
+    .filtro .id h3{
+        margin-left: 20px;
+    }
+    #dica-hoje{
+        font-size: 15px;
+        margin-right: 20px;
+        min-height: 40px;
+        height: fit-content;
+    }
+}
+@media (max-width: 540px){
+    .acoes-filtro, #dica-hoje, .perfil .info{
+        display: none;
+    }
+    header .perfil{
+        justify-content: flex-end;
+    }
+    .perfil .foto{
+        margin-right: 20px;
+    }
+
+    .header-filtro .acoes-filtro #adicionar{
+        width: auto;
+        grid-area: add;
+    }
+    .header-filtro .acoes-filtro #filtrar{
+        width: auto;
+        grid-area: fil;
+    }
+    .header-filtro .acoes-filtro #parar-filtro{
+        width: auto;
+        grid-area: pFil;
+    }
+    .header-filtro .acoes-filtro .pesquisar{
+        grid-area: src;
+        width: 100%;
+    }
+
+    .filtro-info .acoes-filtro {
+        margin: 0 !important;
+        padding: 20px 0;
+        width: 90%;
+        display: grid;
+        gap: 10px;
+        grid-template-areas: "add  fil pFil"
+                             "src src src";
+    }
+}
+/*#endregion*/

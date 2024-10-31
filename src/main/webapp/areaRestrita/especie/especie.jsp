@@ -152,31 +152,33 @@
         <%
             if (!especies.isEmpty()){
         %>
-        <table cellspacing="0">
-            <tr class="header-tabela">
-                <th class="id-especie">ID</th>
-                <th class="especie">Espécie</th>
-                <th class="acao">Ações</th>
-            </tr>
-            <%
-                for (int i = 0; i < especies.size(); i++) {
-            %>
-            <tr>
-                <td class="id-especie"><%=especies.get(i).getId()%></td>
-                <td class="especie"><%=especies.get(i).getNome()%></td>
-                <td class="acao">
-                    <label for="editar-btn" class="edit">
-                        <img src="../../assets/images/edit.svg" alt="">
-                    </label>
-                    <button class="remove">
-                        <img src="../../assets/images/remove.svg" alt="">
-                    </button>
-                </td>
-            </tr>
-            <%
-                }
-            %>
-        </table>
+        <div class="table-container">
+            <table cellspacing="0">
+                <tr class="header-tabela">
+                    <th class="id-especie">ID</th>
+                    <th class="especie">Espécie</th>
+                    <th class="acao">Ações</th>
+                </tr>
+                <%
+                    for (int i = 0; i < especies.size(); i++) {
+                %>
+                <tr>
+                    <td class="id-especie"><%=especies.get(i).getId()%></td>
+                    <td class="especie"><%=especies.get(i).getNome()%></td>
+                    <td class="acao">
+                        <label for="editar-btn" class="edit">
+                            <img src="../../assets/images/edit.svg" alt="">
+                        </label>
+                        <button class="remove">
+                            <img src="../../assets/images/remove.svg" alt="">
+                        </button>
+                    </td>
+                </tr>
+                <%
+                    }
+                %>
+            </table>
+        </div>
         <%
         } else{
         %>
