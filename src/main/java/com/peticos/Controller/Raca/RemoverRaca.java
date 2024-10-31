@@ -13,18 +13,27 @@ import java.io.IOException;
 public class RemoverRaca extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws IOException {
-        int id = Integer.parseInt(request.getParameter("id-raca"));
-
-        RacaDAO dao = new RacaDAO();
-        int removerRaca = dao.excluirRaca(id);
-
+        // Instanciando uma mensagem para enviar o retorno
         Mensagem mensagem = new Mensagem("raça", "raca", request, response);
 
+        try {
+            // Pegando o parâmetro de Id
+            int id = Integer.parseInt(request.getParameter("id-raca"));
 
-        if (removerRaca == -2){
-            mensagem.retornarMensagem("Erro de foreing key na tabela 'pet'"); // Mensagem de erro caso alguma raça esteja na tabela pet--
-            return;
+            // Instanciado o DAO e chamando o método para remover a raça
+            RacaDAO dao = new RacaDAO();
+            int removerRaca = dao.excluirRaca(id);
+
+
+            if (removerRaca == -2) {
+                mensagem.retornarMensagem("Erro de foreing key na tabela 'pet'"); // Mensagem de erro caso alguma raça esteja na tabela pet
+                return;
+            }
+            mensagem.retornarMensagem(removerRaca, 3, 'F');
+        } catch (NumberFormatException e) {
+            // Se o ID não for um número, retorna uma mensagem de erro
+            e.printStackTrace();
+            mensagem.retornarMensagem("Id de raça inválido! Tente novamente.");
         }
-        mensagem.retornarMensagem(removerRaca, 3, 'F');
     }
 }

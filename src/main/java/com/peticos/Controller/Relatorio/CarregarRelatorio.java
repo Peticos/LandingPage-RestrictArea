@@ -20,8 +20,10 @@ public class CarregarRelatorio extends HttpServlet {
 
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+        // Instanciando o DAO
         RelatorioDAO dao = new RelatorioDAO();
 
+        // Definindo a lista que será enviada com os relatorios
         List<Relatorio> relatorios = new ArrayList<>(); // Tabela de relatorios
 
         try{
@@ -37,6 +39,7 @@ public class CarregarRelatorio extends HttpServlet {
                 relatorios.add(new Relatorio(nomeTabela, operacao, usuario, dataAlteracao));
             } // Adiciona as informações do banco na lista relatorios
         } catch (SQLException e) {
+            // Caso algum erro ocorra no carregamento, envia uma mensagem avisando
             throw new ServletException("Erro ao carregar os relatorios", e);
         }
 

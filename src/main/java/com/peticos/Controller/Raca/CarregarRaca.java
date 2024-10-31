@@ -18,8 +18,10 @@ import java.util.List;
 public class CarregarRaca extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+        // Instanciando o DAO
         RacaDAO dao = new RacaDAO();
 
+        // Definindo a lista que será enviada com as raças
         List<Raca> racas = new ArrayList<>(); // Tabela de raças
 
         try{
@@ -31,6 +33,7 @@ public class CarregarRaca extends HttpServlet {
                 racas.add(new Raca(idRaca, raca));
             } // Adiciona as informações do banco na lista da raça
         } catch (SQLException e) {
+            // Caso algum erro ocorra no carregamento, envia uma mensagem avisando
             throw new ServletException("Erro ao carregar os locais", e);
         }
 
