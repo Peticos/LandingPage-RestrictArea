@@ -17,7 +17,7 @@ import java.sql.Date;
 public class AlterarAdministrador extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        // Definindo os parâmetros recebidos
+        // Pegando os parâmetros recebidos
         int idAdmin = Integer.parseInt(request.getParameter("id-administrador"));
         String nome = request.getParameter("nome-administrador");
         String email  = request.getParameter("e-mail-administrador");
@@ -25,16 +25,22 @@ public class AlterarAdministrador extends HttpServlet {
         // Validando se o e-mail segue o padrão nome.sobrenome@dominio.com.br
         boolean emailValido = email.matches("^[a-zA-Z0-9]+\\.?[a-zA-Z0-9]+@[a-zA-Z0-9]+\\.(com|org)(\\.br)?$");
 
+        // Instanciando uma mensagem para ser enviada de retorno
         Mensagem mensagem = new Mensagem("administrador", "administradores", request, response);
 
+        // Validando a regex de e-mail
         if (!emailValido){
             mensagem.retornarMensagem("E-mail inválido! Digite no formato nome.sobrenome@dominio.com.br");
             return;
         }
 
+        // Instanciando um DAO para executar o método de acesso ao BD
         AdministradorDAO dao = new AdministradorDAO();
+
+        // Pegando o retorno do método
         int sucesso = dao.alterarAdministrador(idAdmin, nome,email);
 
+        // Retornando a mensagem conforme o retorno
         mensagem.retornarMensagem(sucesso, 2, 'M');
     }
 }

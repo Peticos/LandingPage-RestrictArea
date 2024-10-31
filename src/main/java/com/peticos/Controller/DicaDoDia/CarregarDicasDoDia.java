@@ -20,6 +20,7 @@ import java.util.List;
 public class CarregarDicasDoDia extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+        // Instanciando o DAO
         DicaDoDiaDAO dao = new DicaDoDiaDAO();
 
         // Definindo a lista que será enviada com as dicas do dia
@@ -44,6 +45,7 @@ public class CarregarDicasDoDia extends HttpServlet {
                 dicas.add(new DicaDoDia(id, titulo, texto, link, data));
             }
         } catch (SQLException e) {
+            // Caso algum erro ocorra no carregamento, envia uma mensagem avisando
             e.printStackTrace();
             message = "Não foi possível carregar as dicas. Recarregue a página e tente novamente!";
         }
