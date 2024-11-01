@@ -17,6 +17,7 @@ public class AlterarLocal extends HttpServlet {
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         Mensagem mensagem = new Mensagem("local", "local", request, response);
 
+        //Pegando parametros
         try {
             int idTipoLocal = Integer.parseInt(request.getParameter("id-tipo-local-e"));
             int idLocal = Integer.parseInt(request.getParameter("id-local-e"));
@@ -30,6 +31,7 @@ public class AlterarLocal extends HttpServlet {
             int numero = Integer.parseInt(request.getParameter("numero-local-e"));
 
 
+            //Regex para links
             if (!link.matches("^http(s)?://.*\\.(com|org|gov)(.br)?(/.*)?") && !img.matches("(^http(s)?://.*\\.(com|org)(.br)?(/.*))?")) {
                 mensagem.retornarMensagem("Link saber mais e link da imagem digitados com erro!");
                 return;
@@ -43,6 +45,7 @@ public class AlterarLocal extends HttpServlet {
                 return;
             }
 
+            //Regex para telefone
             int lenTelefone = telefone.replaceAll("[^0-9]*", "").length();
             boolean telefoneValido = lenTelefone == 11 || lenTelefone == 10;
             if (!telefoneValido) {
@@ -50,6 +53,7 @@ public class AlterarLocal extends HttpServlet {
                 return;
             }
 
+            //Instanciando DAO e chamando metodo alterar
             LocalDAO dao = new LocalDAO();
             Local local = new Local(idLocal, idTipoLocal, idEndereco, nomeLocal, descricao, link, img, rua, numero);
             int sucesso = dao.alterarLocal(local);

@@ -42,6 +42,7 @@ public class Local {
         this.telefone = telefone;
     }
 
+    //Construtor sem ID LOCAL para inserir no banco
     public Local(int idTipoLocal, int idEndereco, java.lang.String nomeLocal, java.lang.String descricao, java.lang.String linkSaberMais, java.lang.String imagemLocal, java.lang.String rua, int numero, java.lang.String telefone) {
         this.idTipoLocal = idTipoLocal;
         this.idEndereco = idEndereco;

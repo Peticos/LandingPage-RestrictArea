@@ -17,6 +17,7 @@ public class LocalDAO {
         try {
             PreparedStatement preparedStatement = conexao.pstmt = conexao.conn.prepareStatement("INSERT INTO LOCAL (id_tipo_local, id_endereco ,nome_local, descricao, link_saber_mais, imagem_local, rua, numero) VALUES (?,?,?,?,?,?,?,?)", Statement.RETURN_GENERATED_KEYS);
 
+            //Passando os valores para o comando SQL
             conexao.pstmt.setInt(1,local.getIdLocal());
             conexao.pstmt.setInt(2,local.getIdEndereco());
             conexao.pstmt.setString(3, local.getNomeLocal());
@@ -28,6 +29,7 @@ public class LocalDAO {
 
             conexao.pstmt.executeUpdate();
 
+            //Fazemos isso para adicionar o telefone do local, na tabela de telefone_local
             ResultSet generatedKeys = preparedStatement.getGeneratedKeys();
             if (generatedKeys.next()) {
                 int idLocal = generatedKeys.getInt(1); // Pega o ID gerado automaticamente
@@ -87,6 +89,7 @@ public class LocalDAO {
             conexao.pstmt.setInt(1, idLocal);
 
             conexao.rs = conexao.pstmt.executeQuery();
+            //Pegando os valores das colunas
             if (conexao.rs.next()) {
                 int idTipoLocal = conexao.rs.getInt("id_tipo_local");
                 int idEndereco = conexao.rs.getInt("id_endereco");
@@ -96,7 +99,7 @@ public class LocalDAO {
                 String imagemLocal = conexao.rs.getString("imagem_local");
                 String rua = conexao.rs.getString("rua");
                 int numero = conexao.rs.getInt("numero");
-
+            // Retornando objeto de local
                 return new Local(idLocal, idTipoLocal, idEndereco, nomeLocal, descricao, linkSaberMais, imagemLocal, rua, numero);
             } else {
                 return null;
@@ -140,6 +143,7 @@ public class LocalDAO {
         }
     }
 
+    //Pegando todos os locais
     public ResultSet getTodosLocais() {
         Conexao conexao = new Conexao();
         conexao.conectar();
@@ -150,7 +154,7 @@ public class LocalDAO {
                                                                    , telefone_local.telefone_local
                                                                 FROM local 
                                                                      INNER JOIN tipo_local     ON tipo_local.id_tipo_local = local.id_tipo_local
-                                                                     INNER JOIN telefone_local ON telefone_local.id_local = local.id_local 
+                                                                     INNER JOIN telefone_local ON telefone_local.id_local  = local.id_local 
                                                               """
                                                          );
 
