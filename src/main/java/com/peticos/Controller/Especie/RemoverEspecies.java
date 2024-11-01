@@ -14,7 +14,7 @@ import java.io.IOException;
 public class RemoverEspecies extends HttpServlet {
     @Override
     public void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        int id = Integer.parseInt(request.getParameter("id-especie"));
+        int id = Integer.parseInt(request.getParameter("id"));
 
         EspecieDAO dao = new EspecieDAO();
         int removerEspecie = dao.removerEspecie(id);

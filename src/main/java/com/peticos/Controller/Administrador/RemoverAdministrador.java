@@ -20,7 +20,7 @@ public class RemoverAdministrador extends HttpServlet {
 
         try{
             // Pegando o ID do admin pelo parâmetro e tentando o converter para int
-            int idAdmin = Integer.parseInt(request.getParameter("id-administrador"));
+            int idAdmin = Integer.parseInt(request.getParameter("id"));
 
             // Instanciando o DAO para acessar o BD
             AdministradorDAO dao = new AdministradorDAO();

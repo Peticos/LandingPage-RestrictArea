@@ -33,11 +33,9 @@
     <link rel="stylesheet" href="/areaRestrita/dicasDoDia/dicas.css">
 
     <!-- Scripts (JS) -->
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
-    <script src="dicasDoDia/remover.js" defer></script>
+    <script src="global.js" defer></script>
     <script src="dicasDoDia/filtros.js" defer></script>
-    <script src="dicasDoDia/editar.js" defer></script>
-    <script src="dicasDoDia/adicionar.js" defer></script>
+    <script src="dicasDoDia/acoes.js" defer></script>
 
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -280,5 +278,15 @@
         </div>
     </form>
 </div>
+<script>
+    document.querySelectorAll('form').forEach(form => {
+        form.addEventListener('submit', function() {
+            const submitButton = this.querySelector('input[type=submit]');
+            if (submitButton) {
+                submitButton.setAttribute('disabled', 'disabled');
+            }
+        });
+    });
+</script>
 </body>
 </html>
