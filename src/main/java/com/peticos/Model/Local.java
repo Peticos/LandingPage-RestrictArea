@@ -1,6 +1,7 @@
 package com.peticos.Model;
 
 public class Local {
+    //Criando os atributos do Model de Local
     private int idLocal;
     private int idTipoLocal;
     private int idEndereco;
@@ -12,6 +13,7 @@ public class Local {
     private int numero;
     private String tipoLocal;
 
+    //Construtor sem tipo local, não é da tabela local e sim vem de um join com a tabela tipo_local.
     public Local(int idLocal, int idTipoLocal, int idEndereco, String nomeLocal, String descricao, String linkSaberMais, String imagemLocal, String rua, int numero) {
         this.idLocal = idLocal;
         this.idTipoLocal = idTipoLocal;
@@ -24,6 +26,7 @@ public class Local {
         this.numero = numero;
     }
 
+    //Construtor com tipoLocal, decorrente da junção das tabelas: local e tipo_local.
     public Local(int idLocal, int idTipoLocal, int idEndereco, String nomeLocal, String descricao, String linkSaberMais, String imagemLocal, String rua, int numero, String tipoLocal) {
         this.idLocal = idLocal;
         this.idTipoLocal = idTipoLocal;
@@ -37,6 +40,7 @@ public class Local {
         this.tipoLocal = tipoLocal;
     }
 
+    //Getters e Setters
     public int getIdLocal() {
         return this.idLocal;
     }

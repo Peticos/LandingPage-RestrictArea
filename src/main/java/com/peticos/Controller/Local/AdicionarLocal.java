@@ -12,6 +12,7 @@ import java.io.IOException;
 
 @WebServlet(name = "AdicionarLocal", value = "/areaRestrita/local/adicionar")
 public class AdicionarLocal extends HttpServlet {
+    //Metodo doPost pegando os parametros passados pelo jsp, para adicionar um local à tabela.
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         int idTipoLocal = Integer.parseInt(request.getParameter("id-tipo-local"));
@@ -32,6 +33,7 @@ public class AdicionarLocal extends HttpServlet {
             mensagem.retornarMensagem("Link saber mais e link da imagem digitados com erro!");
             return;
         }
+        // Regex para validar se o link saber mais é válido
         else if(!link.matches("^http(s)?://.*\\.(com|org|gov)(.br)?(/.*)?")){
             mensagem.retornarMensagem("Link saber mais digitado com erro!");
             return;
@@ -42,9 +44,11 @@ public class AdicionarLocal extends HttpServlet {
             return;
         }
 
+        //Instancia objeto dao e chama o método de inserir
         LocalDAO dao = new LocalDAO();
         int sucesso = dao.inserirLocal(idTipoLocal, idEndereco ,nomeLocal, descricao, link, img, rua, numero);
 
+        //Retorna uma mensagem de adicionado com sucesso
         mensagem.retornarMensagem(sucesso, 1, 'M');
     }
 }
