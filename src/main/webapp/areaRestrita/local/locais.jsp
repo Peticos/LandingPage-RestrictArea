@@ -237,21 +237,21 @@
         </div>
         <div class="form-input">
             <label for="link-saber-mais">Link Saber Mais</label>
-            <input type="text" name="link-saber-mais" id="link-saber-mais" placeholder="https://clinica.com.br/caes">
+            <input type="text" name="link-saber-mais" id="link-saber-mais" placeholder="https://clinica.com.br/caes" required>
             <h4>Deve começar com "https://" e a extensão de domínio ".com", ".org" ou ".gov"</h4>
         </div>
         <div class="form-input">
             <label for="imagem-local">Imagem do Local</label>
-            <input type="text" name="imagem-local" id="imagem-local" placeholder="https://imagem.jpeg">
+            <input type="text" name="imagem-local" id="imagem-local" placeholder="https://imagem.jpeg" required>
             <h4>Deve começar com "https://" e a extensão de domínio ".com", ".org" ou ".gov"</h4>
         </div>
         <div class="form-input">
             <label for="imagem-local">Rua</label>
-            <input type="text" name="rua-local" id="rua-local" placeholder="Rua xxxx">
+            <input type="text" name="rua-local" id="rua-local" placeholder="Rua xxxx" required>
         </div>
         <div class="form-input">
             <label for="numero-local">Número</label>
-            <input type="text" name="numero-local" id="numero-local" placeholder="123456">
+            <input type="text" name="numero-local" id="numero-local" placeholder="123456" required>
         </div>
         <div class="actions">
             <label for="adicionar-btn" id="cancelar">Cancelar</label>

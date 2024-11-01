@@ -33,7 +33,7 @@ public class AdicionarLocal extends HttpServlet {
         int lenTelefone = telefone.replaceAll("[^0-9]*", "").length();
         boolean telefoneValido = lenTelefone == 11 || lenTelefone == 10;
         if (!telefoneValido) {
-            mensagem.retornarMensagem("Telefone inválido! Faça no formato (11) 91234-1234");
+            mensagem.retornarMensagem("Telefone inválido! Faça no formato (xx) xxxxx-xxxx");
             return;
         }
 
