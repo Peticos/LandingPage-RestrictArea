@@ -13,7 +13,7 @@ body{
 html {
     scroll-behavior: smooth; /* Habilita a rolagem suave */
 }
-input, textarea, button, select, a, label {
+input, textarea, button, select, a, label, select {
     -webkit-tap-highlight-color: transparent;
 }
 
@@ -480,6 +480,10 @@ table td.acao{
     padding-left: 20px;
     top: -20px;
 }
+.filtro .id input{
+    margin-left: 20px;
+    width: 100px;
+}
 .id input{
     width: min(100px, 10vw);
 }
@@ -716,10 +720,6 @@ h4 { /*Mensagem do regex para adicionar e editar*/
     .filtro .data{
         display: none;
     }
-    .filtro .id input{
-        margin-left: 20px;
-        width: 100px;
-    }
     .filtro .id h3{
         margin-left: 20px;
     }
@@ -739,6 +739,10 @@ h4 { /*Mensagem do regex para adicionar e editar*/
     }
     .perfil .foto{
         margin-right: 20px;
+    }
+
+    .filtro div {
+        top: 20px;
     }
 
     .header-filtro .acoes-filtro #adicionar{
