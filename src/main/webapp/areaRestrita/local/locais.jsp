@@ -230,6 +230,10 @@
             <input type="text" name="descricao" id="descricao" placeholder="Clínica especializada em..." required>
         </div>
         <div class="form-input">
+            <label for="telefone-local">Telefone</label>
+            <input type="tel" name="telefone-local" id="telefone-local" placeholder="(xx) xxxxx-xxxx" required>
+        </div>
+        <div class="form-input">
             <label for="link-saber-mais">Link Saber Mais</label>
             <input type="text" name="link-saber-mais" id="link-saber-mais" placeholder="https://clinica.com.br/caes">
             <h4>Deve começar com "https://" e a extensão de domínio ".com", ".org" ou ".gov"</h4>
@@ -276,6 +280,10 @@
         <div class="form-input">
             <label for="descricao-e">Descrição</label>
             <input type="text" name="descricao-e" id="descricao-e" placeholder="Clínica especializada em..." required>
+        </div>
+        <div class="form-input">
+            <label for="telefone-local-e">Telefone</label>
+            <input type="tel" name="telefone-local-e" id="telefone-local-e" placeholder="(xx) xxxxx-xxxx" required>
         </div>
         <div class="form-input">
             <label for="link-saber-mais-e">Link Saber Mais</label>
