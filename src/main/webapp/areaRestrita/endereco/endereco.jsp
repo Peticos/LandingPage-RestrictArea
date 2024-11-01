@@ -130,7 +130,10 @@
         </div>
       </div>
       <div class="filtro">
-
+        <div class="id">
+          <h3>ID</h3>
+              <input type="text" placeholder="1234" id="filtrar-id">
+        </div>
       </div>
     </div>
     <% String message = (String) request.getAttribute("message"); %>

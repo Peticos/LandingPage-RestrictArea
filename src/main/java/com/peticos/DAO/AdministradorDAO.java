@@ -12,7 +12,7 @@ public class AdministradorDAO {
         Conexao conexao = new Conexao();
         conexao.conectar();
         try{
-            conexao.pstmt = conexao.conn.prepareStatement("INSERT INTO admin.administradores (NOME, EMAIL, SENHA) VALUES (?,?,?)");
+            conexao.pstmt = conexao.conn.prepareStatement("INSERT INTO administradores (NOME, EMAIL, SENHA) VALUES (?,?,?)");
 
             conexao.pstmt.setString(1, administrador.getNome());
             conexao.pstmt.setString(2, administrador.getEmail());
@@ -30,7 +30,7 @@ public class AdministradorDAO {
         Conexao conexao = new Conexao();
         conexao.conectar();
         try{
-            conexao.pstmt = conexao.conn.prepareStatement("DELETE FROM admin.administradores WHERE ID = ?");
+            conexao.pstmt = conexao.conn.prepareStatement("DELETE FROM administradores WHERE ID = ?");
 
             conexao.pstmt.setInt(1, id);
 
@@ -46,7 +46,7 @@ public class AdministradorDAO {
         Conexao conexao = new Conexao();
         conexao.conectar();
         try{
-            conexao.pstmt = conexao.conn.prepareStatement("UPDATE admin.administradores SET nome = ?, email = ? WHERE id = ?");
+            conexao.pstmt = conexao.conn.prepareStatement("UPDATE administradores SET nome = ?, email = ? WHERE id = ?");
 
             conexao.pstmt.setString(1, nome);
             conexao.pstmt.setString(2, email);
@@ -64,7 +64,7 @@ public class AdministradorDAO {
         Conexao conexao = new Conexao();
         conexao.conectar();
         try{
-            conexao.pstmt = conexao.conn.prepareStatement("SELECT id, nome, senha FROM admin.administradores WHERE email = ?");
+            conexao.pstmt = conexao.conn.prepareStatement("SELECT id, nome, senha FROM administradores WHERE email = ?");
 
             conexao.pstmt.setString(1, email);
 
@@ -89,7 +89,7 @@ public class AdministradorDAO {
         Conexao conexao = new Conexao();
         conexao.conectar();
         try{
-            conexao.pstmt = conexao.conn.prepareStatement("SELECT * FROM ADMIN.ADMINISTRADORES");
+            conexao.pstmt = conexao.conn.prepareStatement("SELECT * FROM administradores");
             return conexao.pstmt.executeQuery();
         } catch (SQLException e) {
             e.printStackTrace();
