@@ -18,7 +18,7 @@ public class RemoverDicaDoDia extends HttpServlet {
 
         try{
             // Pegando o parâmetro de Id
-            int id = Integer.parseInt(request.getParameter("id-dica"));
+            int id = Integer.parseInt(request.getParameter("id"));
 
             // Instanciado o DAO e chamando o método para remover a dica
             DicaDoDiaDAO dao = new DicaDoDiaDAO();

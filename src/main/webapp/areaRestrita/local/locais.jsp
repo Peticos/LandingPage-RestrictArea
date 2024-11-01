@@ -16,10 +16,9 @@
     <link rel="stylesheet" href="/areaRestrita/local/locais.css">
 
     <!-- Scripts (JS) -->
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
-    <script src="local/remover.js" defer></script>
+    <script src="local/acoes.js" defer></script>
     <script src="local/filtros.js" defer></script>
-    <script src="local/editar.js" defer></script>
+    <script src="global.js" defer></script>
 
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -237,21 +236,21 @@
         </div>
         <div class="form-input">
             <label for="link-saber-mais">Link Saber Mais</label>
-            <input type="text" name="link-saber-mais" id="link-saber-mais" placeholder="https://clinica.com.br/caes">
+            <input type="text" name="link-saber-mais" id="link-saber-mais" placeholder="https://clinica.com.br/caes" required>
             <h4>Deve começar com "https://" e a extensão de domínio ".com", ".org" ou ".gov"</h4>
         </div>
         <div class="form-input">
             <label for="imagem-local">Imagem do Local</label>
-            <input type="text" name="imagem-local" id="imagem-local" placeholder="https://imagem.jpeg">
+            <input type="text" name="imagem-local" id="imagem-local" placeholder="https://imagem.jpeg" required>
             <h4>Deve começar com "https://" e a extensão de domínio ".com", ".org" ou ".gov"</h4>
         </div>
         <div class="form-input">
             <label for="imagem-local">Rua</label>
-            <input type="text" name="rua-local" id="rua-local" placeholder="Rua xxxx">
+            <input type="text" name="rua-local" id="rua-local" placeholder="Rua xxxx" required>
         </div>
         <div class="form-input">
             <label for="numero-local">Número</label>
-            <input type="text" name="numero-local" id="numero-local" placeholder="123456">
+            <input type="text" name="numero-local" id="numero-local" placeholder="123456" required>
         </div>
         <div class="actions">
             <label for="adicionar-btn" id="cancelar">Cancelar</label>
@@ -313,9 +312,15 @@
     </form>
 </div>
 <script>
-    $('form').submit(function(){
-        $('input[type=submit]', this).attr('disabled', 'disabled');
+    document.querySelectorAll('form').forEach(form => {
+        form.addEventListener('submit', function() {
+            const submitButton = this.querySelector('input[type=submit]');
+            if (submitButton) {
+                submitButton.setAttribute('disabled', 'disabled');
+            }
+        });
     });
+
 </script>
 </body>
 </html>

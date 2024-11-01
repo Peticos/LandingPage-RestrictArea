@@ -2,14 +2,14 @@ const table = document.querySelector("table tbody");
 const rows = table.getElementsByTagName("tr");
 
 // Funções genéricas
-function limparDatas(){
-    $("#data-inicio").val("")
-    $("#data-fim").val("")
+function limparDatas() {
+    document.getElementById("data-inicio").value = "";
+    document.getElementById("data-fim").value = "";
 }
-function limparID(){
-    $(".id")[0].querySelector("input").value = "";
+function limparID() {
+    document.querySelector(".id input").value = "";
 }
-function limparFiltros(){
+function limparFiltros() {
     limparDatas();
     limparID();
 }
@@ -20,7 +20,6 @@ function filtrarPorTexto() {
 
     let input = document.querySelector(".pesquisar input"); // Input de pesquisa
     let filter = input.value.toUpperCase();
-    let table = document.querySelector("table tbody");
     let tr = table.getElementsByTagName("tr");
 
     for (let i = 1; i < tr.length; i++) {
@@ -63,10 +62,9 @@ function filtrarPorId() {
     limparDatas();
 
     for (let i = 1; i < rows.length; i++) {
-        if (rows[i].getElementsByTagName("td")[0].innerText!==this.value){
+        if (rows[i].getElementsByTagName("td")[0].innerText !== this.value) {
             rows[i].style.display = "none";
-            console.log()
-        } else{
+        } else {
             rows[i].style.display = "table-row";
         }
     }
@@ -75,7 +73,7 @@ function mostrarDicaDeHoje() {
     limparFiltros();
 
     let hoje = new Date();
-    hoje = String(hoje.toISOString().split('T')[0])
+    hoje = String(hoje.toISOString().split('T')[0]);
 
     for (let i = 1; i < rows.length; i++) {
         const dateCell = rows[i].getElementsByTagName("td")[4];
@@ -85,7 +83,7 @@ function mostrarDicaDeHoje() {
         const ano = dataTexto.substring(6);
         const dataFormatada = String(ano + "-" + mes + "-" + dia);
 
-        if (dataFormatada !== hoje){
+        if (dataFormatada !== String(hoje)) {
             rows[i].style.display = "none";
         } else {
             rows[i].style.display = "table-row";
@@ -93,7 +91,7 @@ function mostrarDicaDeHoje() {
     }
 }
 function pararFiltros() {
-    if ($('#open-btn').is(":checked")){
+    if (document.getElementById('open-btn').checked) {
         limparFiltros();
 
         for (let i = 1; i < rows.length; i++) {
@@ -101,7 +99,6 @@ function pararFiltros() {
         }
     }
 }
-
 
 // Event listeners
 document.getElementById("data-inicio").addEventListener("change", filtrarPorData);

@@ -16,10 +16,9 @@
     <link rel="stylesheet" href="/areaRestrita/especie/especies.css">
 
     <!-- Scripts (JS) -->
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
-    <script src="especie/remover.js" defer></script>
+    <script src="especie/acoes.js" defer></script>
     <script src="especie/filtros.js" defer></script>
-    <script src="especie/editar.js" defer></script>
+    <script src="global.js" defer></script>
 
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -216,9 +215,15 @@
     </form>
 </div>
 <script>
-    $('form').submit(function(){
-        $('input[type=submit]', this).attr('disabled', 'disabled');
+    document.querySelectorAll('form').forEach(form => {
+        form.addEventListener('submit', function() {
+            const submitButton = this.querySelector('input[type=submit]');
+            if (submitButton) {
+                submitButton.setAttribute('disabled', 'disabled');
+            }
+        });
     });
+
 </script>
 </body>
 </html>
