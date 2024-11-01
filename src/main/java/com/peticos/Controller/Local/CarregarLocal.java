@@ -15,6 +15,7 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 
+//A criação da classe Carregar foi destinada à mostrar as informações do banco ao entrar na página.
 @WebServlet(name = "CarregarLocal", value = "/areaRestrita/local")
 public class CarregarLocal extends HttpServlet {
     @Override
@@ -23,6 +24,7 @@ public class CarregarLocal extends HttpServlet {
 
         List<Local> locais = new ArrayList<>();
 
+        //Instanciando DAO e pegando todas as informações da tabela local
         try{
             ResultSet rs = dao.getTodosLocais();
             while(rs.next()){
@@ -33,11 +35,9 @@ public class CarregarLocal extends HttpServlet {
                 String descricao = rs.getString("descricao");
                 String linkSaberMais = rs.getString("link_saber_mais");
                 String imagemLocal = rs.getString("imagem_local");
-
                 String rua = rs.getString("rua");
                 int numero = Integer.parseInt(rs.getString("numero"));
                 String tipoLocal = rs.getString("tipo");
-
                 String telefone = rs.getString("telefone_local");
 
                 locais.add(new Local(idLocal, idTipoLocal, idEndereco, nomeLocal, descricao, linkSaberMais, imagemLocal, rua, numero, tipoLocal, telefone));

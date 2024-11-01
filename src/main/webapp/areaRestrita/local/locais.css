@@ -4,3 +4,7 @@
 .id-local, .id-tipo-local, .id-endereco{
     text-align: center;
 }
+
+.id {
+    padding-left: 20px;
+}

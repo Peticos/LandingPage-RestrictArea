@@ -15,7 +15,7 @@ public class Local {
     private String telefone;
 
     //Construtor sem tipo local, não é da tabela local e sim vem de um join com a tabela tipo_local.
-    public Local(int idLocal, int idTipoLocal, int idEndereco, String nomeLocal, String descricao, String linkSaberMais, String imagemLocal, String rua, int numero) {
+    public Local(int idLocal, int idTipoLocal, int idEndereco, String nomeLocal, String descricao, String linkSaberMais, String imagemLocal, String rua, int numero, String telefone) {
         this.idLocal = idLocal;
         this.idTipoLocal = idTipoLocal;
         this.idEndereco = idEndereco;
@@ -25,6 +25,7 @@ public class Local {
         this.imagemLocal = imagemLocal;
         this.rua = rua;
         this.numero = numero;
+        this.telefone = telefone;
     }
 
     //Construtor com tipoLocal, decorrente da junção das tabelas: local e tipo_local.
@@ -42,6 +43,7 @@ public class Local {
         this.telefone = telefone;
     }
 
+    //Construtor sem ID LOCAL para inserir no banco
     public Local(int idTipoLocal, int idEndereco, java.lang.String nomeLocal, java.lang.String descricao, java.lang.String linkSaberMais, java.lang.String imagemLocal, java.lang.String rua, int numero, java.lang.String telefone) {
         this.idTipoLocal = idTipoLocal;
         this.idEndereco = idEndereco;
