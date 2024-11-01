@@ -8,3 +8,18 @@ table tr{
 .form-input:nth-child(3){
     height: 200px;
 }
+
+#operationSelect {
+    margin-left: 20px;
+    width: min(150px, 15vw);
+}
+
+#operationSelect h3 {
+    position: absolute;
+    font-family: var(--lilita-one), serif;
+    font-weight: normal;
+    color: var(--asereje-yellow);
+    box-sizing: border-box;
+    padding-left: 20px;
+    top: -20px;
+}
