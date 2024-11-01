@@ -1,5 +1,3 @@
-console.log("Oi")
-
 const table = document.querySelector("table tbody");
 const rows = table.getElementsByTagName("tr");
 
