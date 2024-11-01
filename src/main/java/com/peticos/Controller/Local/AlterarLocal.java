@@ -21,6 +21,7 @@ public class AlterarLocal extends HttpServlet {
             int idTipoLocal = Integer.parseInt(request.getParameter("id-tipo-local-e"));
             int idLocal = Integer.parseInt(request.getParameter("id-local-e"));
             int idEndereco = Integer.parseInt(request.getParameter("id-endereco-e"));
+            String telefone = request.getParameter("telefone-local-e");
             String nomeLocal = request.getParameter("nome-local-e");
             String descricao = request.getParameter("descricao-e");
             String link = request.getParameter("link-saber-mais-e");
@@ -42,9 +43,15 @@ public class AlterarLocal extends HttpServlet {
                 return;
             }
 
+            boolean telefoneValido = telefone.replaceAll("[^0-9]*", "").length() == 11;
+            if (!telefoneValido) {
+                mensagem.retornarMensagem("Telefone inválido! Faça no formato (11) 91234-1234");
+                return;
+            }
 
             LocalDAO dao = new LocalDAO();
-            int sucesso = dao.alterarLocal(new Local(idLocal, idTipoLocal, idEndereco, nomeLocal, descricao, link, img, rua, numero));
+            Local local = new Local(idLocal, idTipoLocal, idEndereco, nomeLocal, descricao, link, img, rua, numero);
+            int sucesso = dao.alterarLocal(local);
 
             mensagem.retornarMensagem(sucesso, 2, 'M');
         } catch (Exception e){

@@ -3,28 +3,44 @@ package com.peticos.DAO;
 import com.peticos.Conexao;
 import com.peticos.Model.Local;
 
+import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.sql.Statement;
 
 public class LocalDAO {
 
 
-    public int inserirLocal(int idTipoLocal, int idEndereco ,String nomeLocal, String descricao, String linkSaberMais, String imagemLocal, String rua, int numero) {
+    public int inserirLocal(Local local) {
         Conexao conexao = new Conexao();
         conexao.conectar();
         try {
-            conexao.pstmt = conexao.conn.prepareStatement("INSERT INTO LOCAL (id_tipo_local, id_endereco ,nome_local, descricao, link_saber_mais, imagem_local, rua, numero) VALUES (?,?,?,?,?,?,?,?)");
+            PreparedStatement preparedStatement = conexao.pstmt = conexao.conn.prepareStatement("INSERT INTO LOCAL (id_tipo_local, id_endereco ,nome_local, descricao, link_saber_mais, imagem_local, rua, numero) VALUES (?,?,?,?,?,?,?,?)", Statement.RETURN_GENERATED_KEYS);
 
-            conexao.pstmt.setInt(1,idTipoLocal);
-            conexao.pstmt.setInt(2,idEndereco);
-            conexao.pstmt.setString(3, nomeLocal);
-            conexao.pstmt.setString(4, descricao);
-            conexao.pstmt.setString(5, linkSaberMais);
-            conexao.pstmt.setString(6, imagemLocal);
-            conexao.pstmt.setString(7, rua);
-            conexao.pstmt.setInt(8, numero);
+            conexao.pstmt.setInt(1,local.getIdLocal());
+            conexao.pstmt.setInt(2,local.getIdEndereco());
+            conexao.pstmt.setString(3, local.getNomeLocal());
+            conexao.pstmt.setString(4, local.getDescricao());
+            conexao.pstmt.setString(5, local.getLinkSaberMais());
+            conexao.pstmt.setString(6, local.getImagemLocal());
+            conexao.pstmt.setString(7, local.getRua());
+            conexao.pstmt.setInt(8, local.getNumero());
 
-            return conexao.pstmt.executeUpdate();
+            conexao.pstmt.executeUpdate();
+
+            ResultSet generatedKeys = preparedStatement.getGeneratedKeys();
+            if (generatedKeys.next()) {
+                int idLocal = generatedKeys.getInt(1); // Pega o ID gerado automaticamente
+
+                // Adicionado o telefone
+                conexao.pstmt = conexao.conn.prepareStatement("INSERT INTO telefone_local(telefone_local, id_local) VALUES (?,?)");
+                conexao.pstmt.setString(1, local.getTelefone());
+                conexao.pstmt.setInt(2, idLocal);
+
+                return conexao.pstmt.executeUpdate();
+            } else {
+                return -1;
+            }
         } catch (Exception e) {
             e.printStackTrace();
             return -1;
@@ -108,6 +124,13 @@ public class LocalDAO {
             conexao.pstmt.setString(7, local.getRua());
             conexao.pstmt.setInt(8, local.getNumero());
             conexao.pstmt.setInt(9, local.getIdLocal());
+
+            conexao.pstmt.executeUpdate();
+
+            // Alterando o telefone
+            conexao.pstmt = conexao.conn.prepareStatement("UPDATE telefone_local SET telefone_local = ? WHERE id_local = ?");
+            conexao.pstmt.setString(1, local.getTelefone());
+            conexao.pstmt.setInt(2, local.getIdLocal());
 
             return conexao.pstmt.executeUpdate();
         } catch (SQLException e) {
