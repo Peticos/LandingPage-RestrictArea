@@ -33,11 +33,14 @@ public class CarregarLocal extends HttpServlet {
                 String descricao = rs.getString("descricao");
                 String linkSaberMais = rs.getString("link_saber_mais");
                 String imagemLocal = rs.getString("imagem_local");
+
                 String rua = rs.getString("rua");
                 int numero = Integer.parseInt(rs.getString("numero"));
                 String tipoLocal = rs.getString("tipo");
 
-                locais.add(new Local(idLocal, idTipoLocal, idEndereco, nomeLocal, descricao, linkSaberMais, imagemLocal, rua, numero, tipoLocal));
+                String telefone = rs.getString("telefone_local");
+
+                locais.add(new Local(idLocal, idTipoLocal, idEndereco, nomeLocal, descricao, linkSaberMais, imagemLocal, rua, numero, tipoLocal, telefone));
             }
         } catch (SQLException e) {
             throw new ServletException("Erro ao carregar os locais", e);

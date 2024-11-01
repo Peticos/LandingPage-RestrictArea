@@ -19,6 +19,8 @@ $(".edit").click(function (){
 
     editDiv.children[0].querySelector("#numero-local-e").value = this.parentElement.parentElement.children[8].innerText;
 
+    editDiv.children[0].querySelector("#telefone-local-e").value = this.parentElement.parentElement.children[9].innerText;
+
     editDiv.children[0].querySelector("#id-local-e").value = id;
 
 })

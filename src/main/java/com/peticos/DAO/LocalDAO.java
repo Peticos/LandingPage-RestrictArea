@@ -144,7 +144,15 @@ public class LocalDAO {
         Conexao conexao = new Conexao();
         conexao.conectar();
         try {
-            conexao.pstmt = conexao.conn.prepareStatement("SELECT local.*, tipo_local.tipo FROM local join tipo_local on tipo_local.id_tipo_local = local.id_tipo_local");
+            conexao.pstmt = conexao.conn.prepareStatement("""
+                                                              SELECT local.*
+                                                                   , tipo_local.tipo
+                                                                   , telefone_local.telefone_local
+                                                                FROM local 
+                                                                     INNER JOIN tipo_local     ON tipo_local.id_tipo_local = local.id_tipo_local
+                                                                     INNER JOIN telefone_local ON telefone_local.id_local = local.id_local 
+                                                              """
+                                                         );
 
             return conexao.pstmt.executeQuery();
         } catch (SQLException e) {
