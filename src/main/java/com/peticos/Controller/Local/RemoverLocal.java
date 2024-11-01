@@ -14,6 +14,7 @@ import java.io.IOException;
 public class RemoverLocal extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws IOException {
+        //Pega parâmetro ID e passa para o metodo remover
         int id = Integer.parseInt(request.getParameter("id-local"));
 
         LocalDAO dao = new LocalDAO();

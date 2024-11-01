@@ -42,15 +42,15 @@ public class AdministradorDAO {
             conexao.desconectar();
         }
     }
-    public int alterarAdministrador(int idAdmin, String nome, String email) {
+    public int alterarAdministrador(Administrador adm) {
         Conexao conexao = new Conexao();
         conexao.conectar();
         try{
             conexao.pstmt = conexao.conn.prepareStatement("UPDATE administradores SET nome = ?, email = ? WHERE id = ?");
 
-            conexao.pstmt.setString(1, nome);
-            conexao.pstmt.setString(2, email);
-            conexao.pstmt.setInt(3, idAdmin);
+            conexao.pstmt.setString(1, adm.getNome());
+            conexao.pstmt.setString(2, adm.getEmail());
+            conexao.pstmt.setInt(3, adm.getId());
 
             return conexao.pstmt.executeUpdate();
         } catch (SQLException e) {

@@ -8,12 +8,12 @@ import com.peticos.Model.Raca;
 
 public class RacaDAO {
 
-    public int inserirRaca(String raca) {
+    public int inserirRaca(Raca raca) {
         Conexao conexao = new Conexao();
         try {
             conexao.conectar();
             conexao.pstmt = conexao.conn.prepareStatement("INSERT INTO raca (RACA) VALUES (?)"); // Prepara a query que vai ser executada
-            conexao.pstmt.setString(1, raca);
+            conexao.pstmt.setString(1, raca.getRaca());
             return conexao.pstmt.executeUpdate(); // Executa a query e retorna a quantidade de raças inseridas
         } catch (SQLException e) {
             e.printStackTrace();

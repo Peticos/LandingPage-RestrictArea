@@ -3,6 +3,7 @@ package com.peticos.Controller.Administrador;
 import com.peticos.Controller.Mensagem;
 import com.peticos.DAO.AdministradorDAO;
 import com.peticos.DAO.DicaDoDiaDAO;
+import com.peticos.Model.Administrador;
 import com.peticos.Model.DicaDoDia;
 import jakarta.servlet.ServletException;
 import jakarta.servlet.annotation.WebServlet;
@@ -38,7 +39,8 @@ public class AlterarAdministrador extends HttpServlet {
         AdministradorDAO dao = new AdministradorDAO();
 
         // Pegando o retorno do método
-        int sucesso = dao.alterarAdministrador(idAdmin, nome,email);
+        Administrador adm = new Administrador(idAdmin, nome, email);
+        int sucesso = dao.alterarAdministrador(adm);
 
         // Retornando a mensagem conforme o retorno
         mensagem.retornarMensagem(sucesso, 2, 'M');

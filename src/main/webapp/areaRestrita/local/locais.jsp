@@ -167,6 +167,7 @@
                     <th class="imagem-local invisivel">Imagem do Local</th>
                     <th class="rua-local">Rua</th>
                     <th class="numero-local">Número</th>
+                    <th class="telefone-local invisivel">Telefone</th>
                     <th class="acao">Ações</th>
                 </tr>
                 <%
@@ -182,6 +183,7 @@
                     <td class="imagem-local invisivel"><%=locais.get(i).getImagemLocal()%></td>
                     <td class="rua-local"><%=locais.get(i).getRua()%></td>
                     <td class="numero-local"><%=locais.get(i).getNumero()%></td>
+                    <td class="telefone-local invisivel"><%=locais.get(i).getTelefoneFormatado()%></td>
                     <td class="acao">
                         <label for="editar-btn" class="edit">
                             <img src="../../assets/images/edit.svg" alt="">
