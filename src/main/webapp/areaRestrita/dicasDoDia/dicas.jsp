@@ -49,7 +49,7 @@
 <header>
     <div class="abas">
         <a href="">CRUD</a>
-        <a href="">Dashboard</a>
+        <a href="../../areaRestrita/dashboard/dashboard.jsp">Dashboard</a>
     </div>
     <div class="perfil">
         <%
