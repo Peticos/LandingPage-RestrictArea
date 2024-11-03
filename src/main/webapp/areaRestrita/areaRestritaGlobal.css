@@ -640,7 +640,7 @@ table td.acao{
 
 /*#region Message Box (mensagens de retorno do servlet) */
 #message-box{
-    margin-top: 30px;
+    margin-bottom: 30px;
     height: 50px;
     display: flex;
     justify-content: center;

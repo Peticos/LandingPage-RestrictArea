@@ -20,7 +20,7 @@ public class AlterarLocal extends HttpServlet {
         //Pegando parametros
         try {
             int idTipoLocal = Integer.parseInt(request.getParameter("id-tipo-local-e"));
-            int idLocal = Integer.parseInt(request.getParameter("id-local-e"));
+            int idLocal = Integer.parseInt(request.getParameter("id"));
             int idEndereco = Integer.parseInt(request.getParameter("id-endereco-e"));
             String telefone = request.getParameter("telefone-local-e");
             String nomeLocal = request.getParameter("nome-local-e");

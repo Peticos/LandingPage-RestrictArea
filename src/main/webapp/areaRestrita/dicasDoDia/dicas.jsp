@@ -185,7 +185,7 @@
         <div class="table-container">
             <table cellspacing="0">
                 <tr class="header-tabela">
-                    <th class="id-dica invisivel">ID</th>
+                    <th class="id invisivel">ID</th>
                     <th class="titulo">Título</th>
                     <th class="texto">Texto</th>
                     <th class="link invisivel">Link</th>
@@ -196,7 +196,7 @@
                 for (int i = 0; i < dicas.size(); i++) {
                 %>
                 <tr>
-                    <td class="id-dica invisivel"><%=dicas.get(i).getId()%></td>
+                    <td class="id invisivel"><%=dicas.get(i).getId()%></td>
                     <td class="titulo"><%=dicas.get(i).getTitulo()%></td>
                     <td class="texto"><%=dicas.get(i).getTexto()%></td>
                     <td class="link invisivel"><%=dicas.get(i).getLink()%></td>

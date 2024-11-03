@@ -216,7 +216,7 @@
             <input type="email" name="e-mail-administrador" id="e-mail-administrador-e" placeholder="joaodasilva@email.com">
             <h4>Deve conter "nome@domínio.com" ou ".org" e pode conter ".br"</h4>
         </div>
-        <input type="number" name="id-administrador" id="id-administrador-e" hidden="hidden" readonly>
+        <input type="number" name="id" id="id-e" hidden="hidden" readonly>
         <div class="actions">
             <label for="editar-btn" id="cancelar-edicao">Cancelar</label>
             <input type="submit" value="Salvar">

@@ -212,7 +212,7 @@
             <input type="text" name="nome-raca" id="nome-raca-e" placeholder="Golden, Husky, Yorkshire..." required>
             <h4>Não pode conter números</h4>
         </div>
-        <input type="number" name="id-raca" id="id-raca-e" hidden="hidden" readonly>
+        <input type="number" name="id" id="id-e" hidden="hidden" readonly>
         <div class="actions">
             <label for="editar-btn" id="cancelar-edicao">Cancelar</label>
             <input type="submit" value="Salvar">
