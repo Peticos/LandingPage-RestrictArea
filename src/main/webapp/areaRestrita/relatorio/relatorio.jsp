@@ -124,7 +124,7 @@
                 </div>
             </div>
             <div class="filtro">
-                <div class="operacao">
+                <div class="id">
                     <h3>Operação</h3>
                     <select id="operationSelect">
                         <option value="UPDATE">UPDATE</option>
