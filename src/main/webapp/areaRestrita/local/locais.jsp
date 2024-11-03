@@ -304,7 +304,7 @@
             <label for="numero-local-e">Número</label>
             <input type="text" name="numero-local-e" id="numero-local-e" placeholder="123456">
         </div>
-        <input type="number" name="id-local-e" id="id-local-e" hidden="hidden" readonly>
+        <input type="number" name="id" id="id-e" hidden="hidden" readonly>
         <div class="actions">
             <label for="editar-btn" id="cancelar-edicao">Cancelar</label>
             <input type="submit" value="Salvar">

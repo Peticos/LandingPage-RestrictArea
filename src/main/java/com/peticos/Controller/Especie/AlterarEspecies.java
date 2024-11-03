@@ -15,7 +15,7 @@ public class AlterarEspecies extends HttpServlet {
     @Override
     public void doPost(HttpServletRequest request, HttpServletResponse response) throws IOException {
         String nome = request.getParameter("especie");
-        int id = Integer.parseInt(request.getParameter("id-especie"));
+        int id = Integer.parseInt(request.getParameter("id"));
 
         EspecieDAO dao = new EspecieDAO();
         int sucesso = dao.alterarEspecie(id,nome);

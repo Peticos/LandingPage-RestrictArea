@@ -7,7 +7,7 @@ document.querySelectorAll(".edit").forEach(button => {
 
         editDiv.children[0].querySelector("#nome-administrador-e").value = this.parentElement.parentElement.children[1].innerText;
         editDiv.children[0].querySelector("#e-mail-administrador-e").value = this.parentElement.parentElement.children[2].innerText;
-        editDiv.children[0].querySelector("#id-administrador-e").value = id;
+        editDiv.children[0].querySelector("#id-e").value = id;
     });
 });
 

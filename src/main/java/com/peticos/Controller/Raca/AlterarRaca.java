@@ -19,7 +19,7 @@ public class AlterarRaca extends HttpServlet {
         Mensagem mensagem = new Mensagem("raça", "raca", request, response);
         try {
             // Pegando os parâmetros enviados pelo forms
-            int idRaca = Integer.parseInt(request.getParameter("id-raca"));
+            int idRaca = Integer.parseInt(request.getParameter("id"));
             String nomeRaca = request.getParameter("nome-raca");
 
             // Validando o raça pela regex (não pode conter números)

@@ -19,7 +19,7 @@ public class AlterarAdministrador extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         // Pegando os parâmetros recebidos
-        int idAdmin = Integer.parseInt(request.getParameter("id-administrador"));
+        int idAdmin = Integer.parseInt(request.getParameter("id"));
         String nome = request.getParameter("nome-administrador");
         String email  = request.getParameter("e-mail-administrador");
 

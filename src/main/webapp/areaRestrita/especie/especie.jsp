@@ -207,7 +207,7 @@
             <label for="especie-e">Nome da espécie</label>
             <input type="text" name="especie" id="especie-e" placeholder="Cachorro.." required>
         </div>
-        <input type="number" name="id-especie" id="id-especie-e" hidden="hidden" readonly>
+        <input type="number" name="id" id="id-e" hidden="hidden" readonly>
         <div class="actions">
             <label for="editar-btn" id="cancelar-edicao">Cancelar</label>
             <input type="submit" value="Salvar">
