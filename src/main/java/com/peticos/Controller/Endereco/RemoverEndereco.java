@@ -14,7 +14,7 @@ import java.io.IOException;
 public class RemoverEndereco extends HttpServlet {
     @Override
     public void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        int id = Integer.parseInt(request.getParameter("id-endereco"));
+        int id = Integer.parseInt(request.getParameter("id"));
 
         EnderecoDAO dao = new EnderecoDAO();
         int sucesso = dao.removerEndereco(id);

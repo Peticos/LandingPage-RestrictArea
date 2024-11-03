@@ -46,17 +46,18 @@ public class AlterarLocal extends HttpServlet {
             }
 
             //Regex para telefone
-            int lenTelefone = telefone.replaceAll("[^0-9]*", "").length();
+            String telFormatado = telefone.replaceAll("[^0-9]*", "");
+            int lenTelefone = telFormatado.length();
             boolean telefoneValido = lenTelefone == 11 || lenTelefone == 10;
             if (!telefoneValido) {
-                mensagem.retornarMensagem("Telefone inválido! Faça no formato (11) 91234-1234");
+                mensagem.retornarMensagem("Telefone inválido! Faça no formato (xx) xxxxx-xxxx");
                 return;
             }
 
             //Instanciando DAO e chamando metodo alterar
             LocalDAO dao = new LocalDAO();
-            Local local = new Local(idLocal, idTipoLocal, idEndereco, nomeLocal, descricao, link, img, rua, numero);
-            int sucesso = dao.alterarLocal(local);
+            Local localInserir = new Local(idLocal, idTipoLocal, idEndereco, nomeLocal, descricao, link, img, rua, numero, telFormatado);
+            int sucesso = dao.alterarLocal(localInserir);
 
             mensagem.retornarMensagem(sucesso, 2, 'M');
         } catch (Exception e){

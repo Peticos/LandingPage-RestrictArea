@@ -16,11 +16,9 @@
   <link rel="stylesheet" href="/areaRestrita/endereco/enderecos.css">
 
   <!-- Scripts (JS) -->
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
-  <script src="endereco/remover.js" defer></script>
+  <script src="endereco/acoes.js" defer></script>
   <script src="endereco/filtros.js" defer></script>
-  <script src="endereco/editar.js" defer></script>
-  <script src="/areaRestrita/endereco/adicionar.js" defer></script>
+  <script src="global.js" defer></script>
 
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -240,5 +238,16 @@
     </div>
   </form>
 </div>
+<script>
+  document.querySelectorAll('form').forEach(form => {
+    form.addEventListener('submit', function() {
+      const submitButton = this.querySelector('input[type=submit]');
+      if (submitButton) {
+        submitButton.setAttribute('disabled', 'disabled');
+      }
+    });
+  });
+
+</script>
 </body>
 </html>
