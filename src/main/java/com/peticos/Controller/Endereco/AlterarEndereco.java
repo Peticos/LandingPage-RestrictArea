@@ -13,7 +13,7 @@ import java.io.IOException;
 public class AlterarEndereco extends HttpServlet {
     @Override
     public void doPost(HttpServletRequest request, HttpServletResponse response) throws IOException {
-        int idEndereco = Integer.parseInt(request.getParameter("id-endereco"));
+        int idEndereco = Integer.parseInt(request.getParameter("id"));
         String estado = request.getParameter("estado");
         String cidade = request.getParameter("cidade");
         String bairro = request.getParameter("bairro");

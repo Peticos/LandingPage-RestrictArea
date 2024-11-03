@@ -205,7 +205,7 @@
     </div>
     <div class="form-input">
       <label for="texto">Cidade</label>
-      <textarea name="cidade" id="texto" cols="30" rows="10" placeholder="Diadema" maxlength="255" required></textarea>
+      <input type="text" name="cidade" id="texto" placeholder="Osasco" required>
 
     </div>
     <div class="form-input">
@@ -223,15 +223,15 @@
     <h1>Editar Endereço</h1>
     <div class="form-input">
       <label for="estado-e">Estado</label>
-      <input type="text" name="titulo" id="estado-e" placeholder="São Paulo..." required>
+      <input type="text" name="estado" id="estado-e" placeholder="São Paulo..." required>
     </div>
     <div class="form-input">
       <label for="cidade-e">Cidade</label>
-      <textarea name="texto" id="cidade-e" cols="30" rows="10" placeholder="Osasco" required></textarea>
+      <input type="text" name="cidade" id="cidade-e" placeholder="Osasco" required>
     </div>
     <div class="form-input">
       <label for="bairro-e">Bairro</label>
-      <input type="text" name="link" id="bairro-e" placeholder="São Francisco..." required>
+      <input type="text" name="bairro" id="bairro-e" placeholder="São Francisco..." required>
     </div>
     <input type="number" name="id" id="id-e" hidden="hidden" readonly required>
     <div class="actions">
