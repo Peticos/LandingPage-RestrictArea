@@ -16,4 +16,4 @@ COPY --from=build /app/target/Peticos-1.0-SNAPSHOT.war /usr/local/tomcat/webapps
 
 EXPOSE 8080
 
-ENTRYPOINT ["JAVA","-war","ROOT.war"]
+CMD ["catalina.sh","run"]
