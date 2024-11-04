@@ -7,6 +7,7 @@ document.querySelectorAll(".edit").forEach(button => {
         editDiv.children[0].querySelector("#estado-e").value = this.parentElement.parentElement.children[1].innerText;
         editDiv.children[0].querySelector("#cidade-e").value = this.parentElement.parentElement.children[2].innerText;
         editDiv.children[0].querySelector("#bairro-e").value = this.parentElement.parentElement.children[3].innerText;
+        editDiv.children[0].querySelector("#id-e").value = id;
     });
 });
 

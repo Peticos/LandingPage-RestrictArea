@@ -4,8 +4,4 @@
 .id-endereco{
     text-align: center;
 }
-/* Form da textarea para dar mais espaço para visualizar o campo*/
-.form-input:nth-child(3){
-    height: 200px;
-}
 

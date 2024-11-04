@@ -128,7 +128,10 @@
                 </div>
             </div>
             <div class="filtro">
-                <!-- Fazer filtros figma Gustavo -->
+                <div class="id">
+                    <h3>ID</h3>
+                    <input type="text" placeholder="1234" id="filtrar-id">
+                </div>
             </div>
         </div>
         <% String message = (String) request.getAttribute("message"); %>
