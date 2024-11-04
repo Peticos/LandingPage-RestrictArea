@@ -34,7 +34,15 @@
   </div>
   <div class="perfil">
     <%
+      HttpSession sessao = request.getSession(false);
+
       AdministradorDAO dao = new AdministradorDAO();
+      if (sessao == null || sessao.getAttribute("admin") == null) {
+        // Usuário não é administrador, redirecionar para página de login
+        request.getSession().setAttribute("erro", "Você precisa ser um administrador para acessar essa página!");
+        response.sendRedirect("/login/login.jsp");
+        return;
+      }
       Administrador admin = dao.getAdmin((String) request.getSession(false).getAttribute("admin"));
     %>
     <div class="foto">
