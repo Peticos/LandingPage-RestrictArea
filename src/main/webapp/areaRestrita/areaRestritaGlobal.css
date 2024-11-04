@@ -441,7 +441,7 @@ table td.acao{
     bottom: 0;
     transition: bottom .5s, box-shadow .5s;
 }
-.filtro input, select{
+.filtro input{
     height: 40px;
     width: min(200px, 10vw);
     background-color: var(--off-white);
@@ -478,13 +478,13 @@ table td.acao{
     color: var(--asereje-yellow);
     box-sizing: border-box;
     padding-left: 20px;
-    top: -25px;
+    top: -20px;
 }
-.filtro .id input, select{
+.filtro .id input{
     margin-left: 20px;
     width: 100px;
 }
-.id input, select{
+.id input{
     width: min(100px, 10vw);
 }
 .filtro button{
@@ -526,7 +526,7 @@ table td.acao{
     justify-content: flex-start;
     gap: 20px;
 
-    overflow-y: scroll;
+    overflow-y: auto;
     overflow-x: clip;
     padding-bottom: 20px;
 }
