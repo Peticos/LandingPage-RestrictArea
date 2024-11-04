@@ -15,3 +15,5 @@ FROM tomcat:10.1.28-jdk17
 COPY --from=build /app/target/Peticos-1.0-SNAPSHOT.war /usr/local/tomcat/webapps/ROOT.war
 
 EXPOSE 8080
+
+ENTRYPOINT ["JAVA","-war","ROOT.war"]
