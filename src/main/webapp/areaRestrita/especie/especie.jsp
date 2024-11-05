@@ -204,6 +204,7 @@
         <div class="form-input">
             <label for="especie">Nome da espécie</label>
             <input type="text" name="especie" id="especie" placeholder="Cachorro..">
+            <h4>Não pode conter números</h4>
         </div>
         <div class="actions">
             <label for="adicionar-btn" id="cancelar">Cancelar</label>
@@ -217,6 +218,7 @@
         <div class="form-input">
             <label for="especie-e">Nome da espécie</label>
             <input type="text" name="especie" id="especie-e" placeholder="Cachorro.." required>
+            <h4>Não pode conter números</h4>
         </div>
         <input type="number" name="id" id="id-e" hidden="hidden" readonly>
         <div class="actions">

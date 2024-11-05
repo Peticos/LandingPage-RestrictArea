@@ -8,6 +8,9 @@ public class Especie {
         this.id = id;
         this.especie = especie;
     }
+    public Especie(String especie) {
+        this.especie = especie;
+    }
     public int getId() {
         return id;
     }

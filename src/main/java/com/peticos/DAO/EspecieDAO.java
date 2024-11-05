@@ -9,12 +9,12 @@ public class EspecieDAO {
 
 
 //    MÉTODOS
-    public int inserirEspecie(String especie) {
+    public int inserirEspecie(Especie especie) {
         Conexao conexao = new Conexao();
         conexao.conectar();
         try {
             conexao.pstmt = conexao.conn.prepareStatement("INSERT INTO ESPECIE (especie) VALUES (?)");
-            conexao.pstmt.setString(1, especie);
+            conexao.pstmt.setString(1, especie.getNome());
             return conexao.pstmt.executeUpdate();
         } catch (Exception e) {
             e.printStackTrace();
@@ -39,26 +39,6 @@ public class EspecieDAO {
         }
     }
 
-    public Especie getEspecie(int idEspecie) {
-        Conexao conexao = new Conexao();
-        conexao.conectar();
-        try {
-            conexao.pstmt = conexao.conn.prepareStatement("SELECT especie FROM especie WHERE id_especie = ?");
-            conexao.pstmt.setInt(1, idEspecie);
-            conexao.rs = conexao.pstmt.executeQuery();
-            if (conexao.rs.next()) {
-                return new Especie(idEspecie, conexao.rs.getString("especie"));
-            } else {
-                return null;
-            }
-        } catch (SQLException e) {
-            e.printStackTrace();
-            return null;
-        } finally {
-            conexao.desconectar();
-        }
-    }
-
     public ResultSet getTodasEspecies() {
         Conexao conexao = new Conexao();
         conexao.conectar();
@@ -73,13 +53,13 @@ public class EspecieDAO {
             conexao.desconectar();
         }
     }
-    public int alterarEspecie(int id, String nome) {
+    public int alterarEspecie(Especie especie) {
         Conexao conexao = new Conexao();
         conexao.conectar();
         try {
             conexao.pstmt = conexao.conn.prepareStatement("UPDATE especie SET especie = ? WHERE id_especie = ?");
-            conexao.pstmt.setString(1,nome);
-            conexao.pstmt.setInt(2,id);
+            conexao.pstmt.setString(1, especie.getNome());
+            conexao.pstmt.setInt(2,especie.getId());
 
             return conexao.pstmt.executeUpdate();
         }catch (SQLException e) {
