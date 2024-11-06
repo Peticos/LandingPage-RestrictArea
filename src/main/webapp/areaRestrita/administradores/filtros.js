@@ -1,6 +1,8 @@
+const table = document.querySelector("table tbody");
+const rows = table.getElementsByTagName("tr");
+
 // Funções de filtro
 function filtrarPorTexto() {
-    limparFiltros();
 
     let input = document.querySelector(".pesquisar input"); // Input de pesquisa
     let filter = input.value.toUpperCase();
