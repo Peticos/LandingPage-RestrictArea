@@ -382,10 +382,10 @@ table tr td, table tr th{
 
     text-wrap: nowrap;
 }
-table .header-tabela th:first-of-type{
+table .header-tabela .primeiro{
     border-radius: 20px 0 0 0;
 }
-table .header-tabela th:last-of-type{
+table .header-tabela .ultimo{
     border-radius: 0 20px 0 0;
     text-align: center;
 }

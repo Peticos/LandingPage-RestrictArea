@@ -194,11 +194,11 @@
             <table>
                 <tr class="header-tabela">
                     <th class="id invisivel">ID</th>
-                    <th class="titulo">Título</th>
+                    <th class="titulo primeiro">Título</th>
                     <th class="texto">Texto</th>
                     <th class="link invisivel">Link</th>
                     <th class="data-tabela">Data</th>
-                    <th class="acao">Ações</th>
+                    <th class="acao ultimo">Ações</th>
                 </tr>
                 <%
                 for (int i = 0; i < dicas.size(); i++) {

@@ -165,11 +165,11 @@
     <div class="table-container">
       <table>
         <tr class="header-tabela">
-          <th class="id-endereco">ID</th>
+          <th class="id-endereco primeiro">ID</th>
           <th class="estado">Estado</th>
           <th class="cidade">Cidade</th>
           <th class="bairro">Bairro</th>
-          <th class="acao">Ação</th>
+          <th class="acao ultimo">Ação</th>
         </tr>
         <%
           for (int i = 0; i < enderecos.size(); i++) {

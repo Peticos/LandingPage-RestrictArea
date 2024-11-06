@@ -154,10 +154,10 @@
         <div class="table-container">
             <table>
                 <tr class="header-tabela">
-                    <th class="id-administrador">ID</th>
+                    <th class="id-administrador primeiro">ID</th>
                     <th class="nome-administrador">Nome</th>
                     <th class="e-mail-administrador">E-mail</th>
-                    <th class="acao">Ações</th>
+                    <th class="acao ultimo">Ações</th>
                 </tr>
                 <%
                     for (int i = 0; i < admins.size(); i++) {

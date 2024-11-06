@@ -177,7 +177,7 @@
             <table>
                 <tr class="header-tabela">
                     <th class="id-local invisivel">ID</th>
-                    <th class="id-tipo-local">Tipo Local</th>
+                    <th class="id-tipo-local primeiro">Tipo Local</th>
                     <th class="id-endereco">ID Endereço</th>
                     <th class="nome-local">Nome do Local</th>
                     <th class="descricao">Descrição</th>
@@ -186,7 +186,7 @@
                     <th class="rua-local">Rua</th>
                     <th class="numero-local">Número</th>
                     <th class="telefone-local invisivel">Telefone</th>
-                    <th class="acao">Ações</th>
+                    <th class="acao ultimo">Ações</th>
                 </tr>
                 <%
                     for (int i = 0; i < locais.size(); i++) {

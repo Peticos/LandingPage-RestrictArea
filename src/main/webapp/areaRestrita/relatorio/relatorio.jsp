@@ -163,10 +163,10 @@
         <div class="table-container">
             <table>
                 <tr class="header-tabela">
-                    <th class="nome-tabela">Nome da tabela</th>
+                    <th class="nome-tabela primeiro">Nome da tabela</th>
                     <th class="operacao">Operacao</th>
                     <th class="usuario">Usuário</th>
-                    <th class="data-alteracao">Data da alteração</th>
+                    <th class="data-alteracao ultimo">Data da alteração</th>
                 </tr>
             <%
                 for (int i = 0; i < relatorios.size(); i++) {

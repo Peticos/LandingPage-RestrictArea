@@ -165,9 +165,9 @@
         <div class="table-container">
             <table>
                 <tr class="header-tabela">
-                    <th class="id-especie">ID</th>
+                    <th class="id-especie primeiro">ID</th>
                     <th class="especie">Espécie</th>
-                    <th class="acao">Ações</th>
+                    <th class="acao ultimo">Ações</th>
                 </tr>
                 <%
                     for (int i = 0; i < especies.size(); i++) {
