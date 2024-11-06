@@ -92,7 +92,7 @@
             </a>
         </li>
         <li>
-            <a href="login/login.jsp"> <!--Deve levar para a área restrita-->
+            <a href="${pageContext.request.contextPath}/login/login.jsp"> <!--Deve levar para a área restrita-->
                 <img src="../assets/images/restrictArea.svg" alt="">
             </a>
         </li>

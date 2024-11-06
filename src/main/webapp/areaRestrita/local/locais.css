@@ -8,3 +8,28 @@
 .id {
     padding-left: 20px;
 }
+
+#localSelect {
+    margin-left: 20px;
+    width: min(150px, 15vw);
+
+    height: 40px;
+    background-color: var(--off-white);
+    border: 1px solid rgba(25, 25, 25, 0.3);
+    border-radius: 10px;
+    font-size: 15px;
+    box-sizing: border-box;
+    padding-left: 20px;
+    outline: none;
+    box-shadow: 2px 2px 4px 0 rgba(0, 0, 0, 0.25);
+}
+
+#localSelect h3 {
+    position: absolute;
+    font-family: var(--lilita-one), serif;
+    font-weight: normal;
+    color: var(--asereje-yellow);
+    box-sizing: border-box;
+    padding-left: 20px;
+    top: -20px;
+}

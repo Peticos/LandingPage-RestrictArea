@@ -13,7 +13,7 @@ function filterTable() {
     let tr = table.getElementsByTagName("tr");
 
     for (let i = 1; i < tr.length; i++) {
-        let td = tr[i].getElementsByTagName("td")[1]; // Coluna de Título
+        let td = tr[i].getElementsByTagName("td")[1]; // Coluna de raça
         if (td) {
             let txtValue = td.textContent || td.innerText;
             tr[i].style.display = txtValue.toUpperCase().indexOf(filter) > -1 ? "table-row" : "none";
