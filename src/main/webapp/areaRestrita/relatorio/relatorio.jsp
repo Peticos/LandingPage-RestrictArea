@@ -24,8 +24,6 @@
     <title>Relatório - Área Restrita - Peticos</title>
 </head>
 <body>
-<input type="checkbox" id="adicionar-btn" name="adicionar-btn">
-<input type="checkbox" id="editar-btn" name="editar-btn">
 <header>
     <div class="abas">
         <a href="/areaRestrita/administradores">CRUD</a>

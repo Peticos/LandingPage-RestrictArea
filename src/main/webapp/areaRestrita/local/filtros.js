@@ -1,6 +1,11 @@
 const table = document.querySelector("table tbody");
 const rows = table.getElementsByTagName("tr");
 
+function limparID() {
+    document.querySelector(".id input").value = "";
+    document.querySelector(".id-tipo-local-filtro select").selectedIndex = 0;
+}
+
 function filterTable() {
     let input = document.querySelector(".pesquisar input"); // Input de pesquisa
     let filter = input.value.toUpperCase();
@@ -23,12 +28,20 @@ document.getElementById("localSelect").addEventListener("change", function () {
     const rows = document.querySelectorAll("tbody tr:not(.header-tabela)");
 
     rows.forEach(row => {
-        if (row.querySelector(".operacao").textContent !== filterValue) { // Não sei se é .operacao
+        if (row.querySelector(".id-tipo-local").textContent !== filterValue){
             row.style.display = "none";
         } else {
             row.style.display = "table-row";
         }
     });
+});
+
+
+// Filtrar pelo ID
+document.querySelector(".id input").addEventListener("keyup", function () {
+    for (let i = 1; i < rows.length; i++) {
+        rows[i].style.display = rows[i].getElementsByTagName("td")[0].innerText !== this.value ? "none" : "table-row";
+    }
 });
 
 // Parar os filtros
