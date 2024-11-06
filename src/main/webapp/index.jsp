@@ -131,7 +131,7 @@
                     <p>
                         Os planos Premium oferecem benefícios adicionais, como postagens ilimitadas e visualizações potencializadas. Eles são ideais para prestadores de serviço que desejam aumentar significativamente sua presença no mercado e alcançar um público mais amplo de maneira eficiente.
                     </p>
-                    <h3>R$ 10,99/mês ou R$ 199,90/ano</h3>
+                    <h3>R$ 35,90/mês ou R$ 399,90/ano</h3>
                 </div>
                 <div class="plano">
                     <h1>Plano Premium Tutor</h1>
@@ -145,7 +145,7 @@
                     <p>
                         O Plano MEI Básico oferece um pacote com a flexibilidade de gerenciar o número de postagens, dividindo 1000 visualizações mensais para promover seu produto ou serviço.
                     </p>
-                    <h3>R$ 10,99/mês ou R$ 119,90/ano</h3>
+                    <h3>R$ 25,90/mês ou R$ 279,90/ano</h3>
                 </div>
             </div>
             <button class="carousel-button" id="go-foward-ne">
