@@ -211,7 +211,7 @@ nav:hover>img:last-of-type{
 .container{
     margin-top: 80px;
     width: 100%;
-    height: fit-content;
+    min-height: 100vh;
 
     display: flex;
     flex-flow: column nowrap;
