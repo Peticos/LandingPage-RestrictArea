@@ -373,7 +373,6 @@ table tr:first-of-type.header-tabela{
 }
 table tr{
     height: 50px;
-    padding: 0 15px;
 }
 
 table tr td, table tr th{
@@ -382,6 +381,12 @@ table tr td, table tr th{
     font-size: 20px;
 
     text-wrap: nowrap;
+}
+table .header-tabela th:first-of-type{
+    border-radius: 20px 0 0 0;
+}
+table .header-tabela th:last-of-type{
+    border-radius: 0 20px 0 0;
 }
 table tr:nth-child(even){
     background-color: #EFDEDA;
@@ -685,7 +690,6 @@ table td.acao{
 .table-container {
     width: 90%;
     overflow-x: auto; /* Habilita a rolagem horizontal */
-    border-radius: 20px;
 
     margin-bottom: 30px;
 }
