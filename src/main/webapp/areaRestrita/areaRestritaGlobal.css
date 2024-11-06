@@ -134,10 +134,10 @@ nav{
 
     transition: left .5s;
 }
-nav>img:first-of-type{
+nav>a>img:first-of-type{
     display: none;
 }
-nav>img:last-of-type{
+nav>a>img:last-of-type{
     margin: 10px 5px 0 auto;
     width: 70px;
 }
@@ -196,11 +196,11 @@ nav:hover ul li a p{
     width: 200px;
     margin-left: 20px;
 }
-nav:hover>img:first-of-type{
+nav:hover>a>img:first-of-type{
     display: block;
     margin: 20px auto 0 20px;
 }
-nav:hover>img:last-of-type{
+nav:hover>a>img:last-of-type{
     display: none;
 }
 

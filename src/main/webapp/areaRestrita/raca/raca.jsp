@@ -29,8 +29,8 @@
 <input type="checkbox" id="editar-btn" name="editar-btn">
 <header>
     <div class="abas">
-        <a href="">CRUD</a>
-        <a href="">Dashboard</a>
+        <a href="/areaRestrita/administradores">CRUD</a>
+        <a href="https://area-restrita-dados-4.onrender.com/previsao-user">Dados do App</a>
     </div>
     <div class="perfil">
         <%

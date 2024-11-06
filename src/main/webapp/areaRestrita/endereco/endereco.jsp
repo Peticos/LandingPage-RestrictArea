@@ -29,8 +29,8 @@
 <input type="checkbox" id="editar-btn" name="editar-btn">
 <header>
   <div class="abas">
-    <a href="">CRUD</a>
-    <a href="">Dashboard</a>
+    <a href="/areaRestrita/administradores">CRUD</a>
+    <a href="https://area-restrita-dados-4.onrender.com/previsao-user">Dados do App</a>
   </div>
   <div class="perfil">
     <%
@@ -206,17 +206,17 @@
   <form action="endereco/adicionar" method="post" id="form-adicionar">
     <h1>Adicionar Endereço</h1>
     <div class="form-input">
-      <label for="titulo">Estado</label>
-      <input type="text" name="estado" id="titulo" placeholder="São Paulo" maxlength="255" required>
+      <label for="estado">Estado</label>
+      <input type="text" name="estado" id="estado" placeholder="São Paulo" maxlength="255" required>
     </div>
     <div class="form-input">
-      <label for="texto">Cidade</label>
-      <input type="text" name="cidade" id="texto" placeholder="Osasco" required>
+      <label for="cidade">Cidade</label>
+      <input type="text" name="cidade" id="cidade" placeholder="Osasco" required>
 
     </div>
     <div class="form-input">
-      <label for="link">Bairro</label>
-      <input type="text" name="bairro" id="link" placeholder="Caiema" maxlength="255" required>
+      <label for="bairro">Bairro</label>
+      <input type="text" name="bairro" id="bairro" placeholder="Caiema" maxlength="255" required>
     </div>
     <div class="actions">
       <label for="adicionar-btn" id="cancelar">Cancelar</label>

@@ -17,7 +17,7 @@ public class AdicionarAdministrador extends HttpServlet {
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         // Pegando os parâmetros enviados para o Servlet
         String nome = request.getParameter("nome-administrador");
-        String email  = request.getParameter("e-mail-administrador");
+        String email = request.getParameter("e-mail-administrador");
         String senha = request.getParameter("senha-administrador");
 
         // Validando se o e-mail segue o padrão nome.sobrenome@dominio.com.br
