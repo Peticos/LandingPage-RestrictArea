@@ -645,6 +645,9 @@ table td.acao{
     display: flex;
     justify-content: center;
     align-items: center;
+
+    width: 90%;
+    text-align: center;
 }
 #message-box p{
     font-family: var(--lilita-one), serif;
@@ -666,6 +669,14 @@ table td.acao{
 
 .invisivel{
     display: none;
+}
+.container>h2{
+    color: var(--asereje-yellow);
+    font-family: var(--lilita-one), serif;
+    font-weight: normal;
+    text-align: center;
+    width: 90%;
+    font-size: 30px;
 }
 /*#endregion*/
 
