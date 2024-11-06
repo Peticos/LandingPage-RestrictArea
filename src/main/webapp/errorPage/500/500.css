@@ -95,10 +95,14 @@ h2{
 }
 
 details{
+    cursor: pointer;
     margin-left: 20px;
     font-size: 18px;
     color: var(--wood-brown);
     max-width: 500px;
+}
+details>p{
+    cursor: default;
 }
 
 /* Footer */
