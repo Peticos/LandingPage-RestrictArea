@@ -17,16 +17,19 @@ function filterTable() {
 
 document.querySelector(".pesquisar input").addEventListener("keyup", filterTable);
 
-// Filtrar pelo ID
-document.querySelector(".id input").addEventListener("keyup", function () {
-    for (let i = 1; i < rows.length; i++) {
-        rows[i].style.display = rows[i].getElementsByTagName("td")[0].innerText !== this.value ? "none" : "table-row";
-    }
-});
+// Filtrar pelo Tipo Local
+document.getElementById("localSelect").addEventListener("change", function () {
+    const filterValue = this.value;
+    const rows = document.querySelectorAll("tbody tr:not(.header-tabela)");
 
-function limparID() {
-    document.querySelector(".id input").value = "";
-}
+    rows.forEach(row => {
+        if (row.querySelector(".operacao").textContent !== filterValue) { // Não sei se é .operacao
+            row.style.display = "none";
+        } else {
+            row.style.display = "table-row";
+        }
+    });
+});
 
 // Parar os filtros
 document.getElementById("parar-filtro").addEventListener("click", function () {

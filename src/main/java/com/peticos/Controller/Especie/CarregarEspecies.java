@@ -22,19 +22,21 @@ public class CarregarEspecies extends HttpServlet {
 
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-
+        // Instanciando o DAO
         EspecieDAO dao = new EspecieDAO();
 
+        // Definindo a lista que será enviada com as espécies
         List<Especie> especies = new ArrayList<>();
 
         try{
-            ResultSet rs = dao.getTodasEspecies();
+            ResultSet rs = dao.getTodasEspecies(); // Faz a consulta no banco
             while(rs.next()){
                 int id = rs.getInt("id_especie");
                 String especie = rs.getString("especie");
                 especies.add(new Especie(id, especie));
-            }
+            } // Adiciona as informações do banco na lista de espécie
         } catch (SQLException e) {
+            // Caso algum erro ocorra no carregamento, envia uma mensagem avisando
             throw new ServletException("Erro ao carregar as espécies", e);
         }
 

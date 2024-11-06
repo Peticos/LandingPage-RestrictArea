@@ -135,11 +135,14 @@
                     </div>
                 </div>
             </div>
-            <div class="filtro">
-                <div class="id">
-                    <h3>ID</h3>
-                    <input type="number" placeholder="12345">
-                </div>
+            <div class="id">
+                <h3>Tipo Local</h3>
+                <select id="localSelect">
+                    <option value="ONG">ONG</option>
+                    <option value="Lazer">Lazer</option>
+                    <option value="Pet shop">Pet shop</option>
+                    <option value="Veterinário">Veterinário</option>
+                </select>
             </div>
         </div>
         <% String message = (String) request.getAttribute("message"); %>
