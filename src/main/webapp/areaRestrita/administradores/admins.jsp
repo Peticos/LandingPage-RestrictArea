@@ -16,6 +16,7 @@
 
     <!-- Scripts (JS) -->
     <script src="administradores/acoes.js" defer></script>
+    <script src="administradores/filtros.js" defer></script>
     <script src="global.js" defer></script>
 
     <meta charset="UTF-8">
