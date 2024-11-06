@@ -1,3 +1,6 @@
+# Acesse o site por:
+  * https://peticos.onrender.com
+
 # Como configurar o tomcat para rodar o projeto:
   * Adicione o tomcat ao projeto (Tomcat Local)
   * Nas configurações do Tomcat, deixe a URL em: 'http://localhost:8080/'
