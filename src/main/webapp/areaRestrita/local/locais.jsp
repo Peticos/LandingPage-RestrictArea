@@ -174,7 +174,7 @@
             if (!locais.isEmpty()){
         %>
         <div class="table-container">
-            <table cellspacing="0">
+            <table>
                 <tr class="header-tabela">
                     <th class="id-local invisivel">ID</th>
                     <th class="id-tipo-local">Tipo Local</th>

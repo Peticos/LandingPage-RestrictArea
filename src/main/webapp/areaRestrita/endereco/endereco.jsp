@@ -163,7 +163,7 @@
       if (!enderecos.isEmpty()){
     %>
     <div class="table-container">
-      <table cellspacing="0">
+      <table>
         <tr class="header-tabela">
           <th class="id-endereco">ID</th>
           <th class="estado">Estado</th>

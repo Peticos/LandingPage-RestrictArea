@@ -161,7 +161,7 @@
             if (!relatorios.isEmpty()) {
         %>
         <div class="table-container">
-            <table cellspacing="0">
+            <table>
                 <tr class="header-tabela">
                     <th class="nome-tabela">Nome da tabela</th>
                     <th class="operacao">Operacao</th>

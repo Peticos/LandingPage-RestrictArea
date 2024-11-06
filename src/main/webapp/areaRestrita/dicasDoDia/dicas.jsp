@@ -191,7 +191,7 @@
         if (!dicas.isEmpty()){
         %>
         <div class="table-container">
-            <table cellspacing="0">
+            <table>
                 <tr class="header-tabela">
                     <th class="id invisivel">ID</th>
                     <th class="titulo">Título</th>

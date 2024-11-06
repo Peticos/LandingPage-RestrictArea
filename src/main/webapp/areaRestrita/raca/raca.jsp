@@ -163,7 +163,7 @@
             if (!racas.isEmpty()) {
         %>
         <div class="table-container">
-            <table cellspacing="0">
+            <table>
                 <tr class="header-tabela">
                     <th class="id-raca">ID</th>
                     <th class="raca">Raça</th>
