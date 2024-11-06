@@ -694,7 +694,6 @@ table {
     margin-bottom: 0;
     width: 100%;
     min-width: 1100px; /* Largura mínima da tabela */
-    border-collapse: collapse;
 }
 h4 { /*Mensagem do regex para adicionar e editar*/
     color: var(--is-it-green);
