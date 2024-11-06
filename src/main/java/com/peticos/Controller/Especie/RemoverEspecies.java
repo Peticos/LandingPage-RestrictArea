@@ -19,7 +19,6 @@ public class RemoverEspecies extends HttpServlet {
         // Instanciando uma mensagem para enviar o retorno
         Mensagem mensagem = new Mensagem("espécie", "especie", request, response);
 
-
         try {
             // Pegando o parâmetro de Id
             int id = Integer.parseInt(request.getParameter("id"));
