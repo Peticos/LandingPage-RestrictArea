@@ -145,8 +145,8 @@
                     <h3>Tipo Local</h3>
                     <select id="localSelect">
                         <option value="ONG">ONG</option>
-                        <option value="Lazer">Lazer</option>
-                        <option value="Pet shop">Pet shop</option>
+                        <option value="Parque">Parque</option>
+                        <option value="PetShop">PetShop</option>
                         <option value="Veterinário">Veterinário</option>
                     </select>
                 </div>
@@ -233,7 +233,7 @@
             <select name="id-tipo-local" id="id-tipo-local" required>
                 <option value="2">1 - Veterinária</option>
                 <option value="3">2 - Petshop</option>
-                <option value="1">3 - Lazer</option>
+                <option value="1">3 - Parque</option>
                 <option value="4">4 - ONG</option>
             </select>
         </div>
@@ -285,7 +285,7 @@
             <select name="id-tipo-local-e" id="id-tipo-local-e" required>
                 <option value="2">1 - Veterinária</option>
                 <option value="3">2 - Petshop</option>
-                <option value="1">3 - Lazer</option>
+                <option value="1">3 - Parque</option>
                 <option value="4">4 - ONG</option>
             </select>
         </div>
