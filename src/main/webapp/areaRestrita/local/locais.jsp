@@ -135,15 +135,23 @@
                     </div>
                 </div>
             </div>
-            <div class="id">
-                <h3>Tipo Local</h3>
-                <select id="localSelect">
-                    <option value="ONG">ONG</option>
-                    <option value="Lazer">Lazer</option>
-                    <option value="Pet shop">Pet shop</option>
-                    <option value="Veterinário">Veterinário</option>
-                </select>
+            <div class="filtro">
+                <div class="id">
+                    <h3>ID</h3>
+                    <input type="number" placeholder="12345">
+                </div>
+
+                <div class="id id-tipo-local-filtro">
+                    <h3>Tipo Local</h3>
+                    <select id="localSelect">
+                        <option value="ONG">ONG</option>
+                        <option value="Lazer">Lazer</option>
+                        <option value="Pet shop">Pet shop</option>
+                        <option value="Veterinário">Veterinário</option>
+                    </select>
+                </div>
             </div>
+
         </div>
         <% String message = (String) request.getAttribute("message"); %>
         <% if (message != null) { %>
@@ -223,9 +231,9 @@
         <div class="form-input">
             <label for="id-tipo-local">ID Tipo Local</label>
             <select name="id-tipo-local" id="id-tipo-local" required>
-                <option value="1">1 - Veterinária</option>
-                <option value="2">2 - Petshop</option>
-                <option value="3">3 - Lazer</option>
+                <option value="2">1 - Veterinária</option>
+                <option value="3">2 - Petshop</option>
+                <option value="1">3 - Lazer</option>
                 <option value="4">4 - ONG</option>
             </select>
         </div>
@@ -275,9 +283,9 @@
         <div class="form-input">
             <label for="id-tipo-local-e">ID Tipo Local</label>
             <select name="id-tipo-local-e" id="id-tipo-local-e" required>
-                <option value="1">1 - Veterinária</option>
-                <option value="2">2 - Petshop</option>
-                <option value="3">3 - Lazer</option>
+                <option value="2">1 - Veterinária</option>
+                <option value="3">2 - Petshop</option>
+                <option value="1">3 - Lazer</option>
                 <option value="4">4 - ONG</option>
             </select>
         </div>
