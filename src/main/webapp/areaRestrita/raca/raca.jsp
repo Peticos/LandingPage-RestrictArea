@@ -71,9 +71,9 @@
             </a>
         </li>
         <li>
-            <a href="../../areaRestrita/categoriaPostagens">
+            <a href="../../areaRestrita/endereco">
                 <img src="../../assets/images/category_icon.svg" alt="">
-                <p>Categoria Postagens</p>
+                <p>Endereços</p>
             </a>
         </li>
         <li class="selecionado">
