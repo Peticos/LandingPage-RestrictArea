@@ -185,7 +185,7 @@
                     <th class="imagem-local invisivel">Imagem do Local</th>
                     <th class="rua-local">Rua</th>
                     <th class="numero-local">Número</th>
-                    <th class="telefone-local">Telefone</th>
+                    <th class="telefone-local invisivel">Telefone</th>
                     <th class="acao ultimo">Ações</th>
                 </tr>
                 <%
@@ -197,7 +197,7 @@
                     <td class="id-endereco"><%=locais.get(i).getIdEndereco()%></td>
                     <td class="nome-local"><%=locais.get(i).getNomeLocal()%></td>
                     <td class="descricao"><%=locais.get(i).getDescricao()%></td>
-                    <td class="link-saber-mais"><%=locais.get(i).getLinkSaberMais()%></td>
+                    <td class="link-saber-mais invisivel"><%=locais.get(i).getLinkSaberMais()%></td>
                     <td class="imagem-local invisivel"><%=locais.get(i).getImagemLocal()%></td>
                     <td class="rua-local"><%=locais.get(i).getRua()%></td>
                     <td class="numero-local"><%=locais.get(i).getNumero()%></td>
