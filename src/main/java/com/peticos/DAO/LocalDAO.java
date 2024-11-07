@@ -127,6 +127,7 @@ public class LocalDAO {
                                                                    , tipo_local.tipo
                                                                 FROM local 
                                                                      INNER JOIN tipo_local ON tipo_local.id_tipo_local = local.id_tipo_local
+                                                               ORDER BY local.id_local
                                                               """
                                                          );
 
